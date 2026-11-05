@@ -2,7 +2,7 @@
   "name": "Painel de Estudos GCM Guarulhos 2026",
   "short_name": "GCM 2026",
   "description": "Painel de Estudos Intensivo para o Concurso da Guarda Civil Municipal de Guarulhos 2026: Checklist, Calendário e Flashcards.",
-  "start_url": "./painel-estudos-gcm-guarulhos.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
