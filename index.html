@@ -1,0 +1,4378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GCM 2026">
+  <title>Painel de Estudos GCM Guarulhos 2026 | Checklist, Calendário & Flashcards</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #26354d;
+      --bg-surface: #0b1120;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --accent: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --border: #334155;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* TOP HEADER & COUNTDOWN */
+    header.top-bar {
+      background: linear-gradient(135deg, #0b1528 0%, #1e3a5f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .badge-gcm {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+    }
+
+    .brand-title h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: #fff;
+    }
+
+    .brand-title p {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .countdown-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 8px 16px;
+      border-radius: 10px;
+    }
+
+    .countdown-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #38bdf8;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .time-unit {
+      text-align: center;
+      min-width: 46px;
+      background: #1e293b;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+    }
+
+    .time-unit .num {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f8fafc;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .time-unit .lbl {
+      font-size: 9px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1320px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    /* KPI CARDS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .kpi-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .kpi-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 8px;
+      background: #0f172a;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* NAVIGATION TABS */
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* TOOLBAR & FILTERS */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      background: var(--bg-card);
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-pill {
+      background: #0f172a;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 6px 13px;
+      border-radius: 99px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .search-input {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      min-width: 240px;
+    }
+
+    /* CHECKLIST SECTIONS */
+    .block-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .block-header {
+      background: rgba(15, 23, 42, 0.65);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .block-header h2 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 0.3px;
+    }
+
+    .block-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: #1e3a5f;
+      color: #bae6fd;
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+
+    .topic-row {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      transition: background 0.15s;
+    }
+
+    .topic-row:last-child {
+      border-bottom: none;
+    }
+
+    .topic-row:hover {
+      background: rgba(38, 53, 77, 0.5);
+    }
+
+    .topic-row.completed-row {
+      background: rgba(16, 185, 129, 0.07);
+    }
+
+    .topic-info h3 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .topic-info p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .pdf-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .btn-pdf:hover {
+      background: var(--accent);
+      color: #06281e;
+    }
+
+    .tag-weight {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .tag-high {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .tag-med {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .checks-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .check-label:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    .check-label input {
+      accent-color: var(--accent);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .check-label.checked {
+      background: rgba(16, 185, 129, 0.16);
+      border-color: var(--accent);
+      color: #6ee7b7;
+    }
+
+    /* CALENDAR GRID */
+    .calendar-header-info {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .streak-banner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(234, 88, 12, 0.18));
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+
+    .streak-flame {
+      font-size: 24px;
+      filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.7));
+      animation: flamePulse 1.6s infinite alternate ease-in-out;
+    }
+
+    @keyframes flamePulse {
+      from { transform: scale(1) rotate(-3deg); }
+      to { transform: scale(1.14) rotate(3deg); }
+    }
+
+    .btn-sync-now {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      border: 1px solid #38bdf8;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+    }
+
+    .btn-sync-now:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.4);
+    }
+
+    .legend-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12.5px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-bottom: 8px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+    }
+
+    .calendar-weeks-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cal-week-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .cal-week-row.golden-week {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.14) 0%, rgba(217, 119, 6, 0.18) 100%);
+      border: 2px solid #fbbf24;
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.28);
+    }
+
+    .golden-week-banner {
+      grid-column: 1 / -1;
+      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+      color: #0f172a;
+      font-size: 11.5px;
+      font-weight: 900;
+      text-align: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    @media (max-width: 980px) {
+      .calendar-weekdays { display: none; }
+      .cal-week-row { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+      .topic-row { grid-template-columns: 1fr; }
+    }
+
+    .cal-day {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px;
+      min-height: 136px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.15s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .cal-day.empty-slot {
+      background: rgba(15, 23, 42, 0.35);
+      border: 1px dashed rgba(51, 65, 85, 0.5);
+      min-height: 136px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .cal-day:hover:not(.empty-slot) {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .cal-day.today {
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 18px rgba(14, 165, 233, 0.32);
+    }
+
+    .cal-day.exam-day {
+      background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%);
+      border: 2px solid #f87171;
+    }
+
+    .cal-day.done-day {
+      background: linear-gradient(145deg, rgba(6, 78, 59, 0.65) 0%, rgba(16, 185, 129, 0.22) 100%);
+      border: 2px solid #10b981;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    }
+
+    .cal-week-row.golden-week .cal-day.done-day {
+      border-color: #fbbf24;
+      background: linear-gradient(145deg, rgba(120, 53, 15, 0.55) 0%, rgba(245, 158, 11, 0.22) 100%);
+    }
+
+    .cal-day-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .day-num {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .day-flame-icon {
+      font-size: 15px;
+      filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.85));
+      display: inline-block;
+    }
+
+    .day-badge {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .cal-input-title {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(71, 85, 105, 0.7);
+      color: #f8fafc;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .cal-input-title::placeholder {
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .cal-input-title:focus {
+      border-color: #38bdf8;
+      background: #0f172a;
+    }
+
+    .cal-day.done-day .cal-input-title {
+      border-color: rgba(16, 185, 129, 0.6);
+      background: rgba(6, 40, 30, 0.65);
+      color: #ecfdf5;
+    }
+
+    .cal-checks-wrap {
+      display: flex;
+      gap: 6px;
+      justify-content: space-between;
+    }
+
+    .cal-mini-check {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(71, 85, 105, 0.6);
+      padding: 5px 4px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #94a3b8;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .cal-mini-check:hover {
+      border-color: #38bdf8;
+      color: #f8fafc;
+    }
+
+    .cal-mini-check input {
+      accent-color: #10b981;
+      width: 13px;
+      height: 13px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .cal-mini-check.checked {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: #10b981;
+      color: #6ee7b7;
+    }
+
+    /* FLASHCARDS */
+    .flashcard-workspace {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .flashcard-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .fc-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .fc-sidebar h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #38bdf8;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .deck-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .deck-check-item {
+      background: #0f172a;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .deck-check-item:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    .deck-check-item.selected {
+      background: rgba(14, 165, 233, 0.16);
+      color: #f8fafc;
+      border-color: #0ea5e9;
+    }
+
+    .deck-check-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.25;
+    }
+
+    .deck-check-left input {
+      accent-color: #0ea5e9;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .deck-btn {
+      background: #0f172a;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.15s;
+    }
+
+    .deck-btn:hover, .deck-btn.active {
+      background: var(--primary-dark);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .notif-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ef4444;
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 99px;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+      animation: notifPulse 1.5s infinite;
+    }
+
+    @keyframes notifPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ANALYTICS & HISTORY DASHBOARD */
+    .fc-analytics-panel {
+      width: 100%;
+      max-width: 720px;
+      margin-top: 24px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .fc-analytics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+      padding-bottom: 10px;
+    }
+
+    .overall-accuracy-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .topic-accuracy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .topic-acc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .fc-stage {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fc-status-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card-3d-wrapper {
+      width: 100%;
+      max-width: 720px;
+      height: 340px;
+      perspective: 1200px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .card-3d {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .card-3d.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 14px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-front {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      border: 2px solid #38bdf8;
+    }
+
+    .card-back {
+      background: linear-gradient(145deg, #06281e 0%, #0f2922 100%);
+      border: 2px solid #10b981;
+      transform: rotateY(180deg);
+    }
+
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-front .card-meta-top { color: #38bdf8; }
+    .card-back .card-meta-top { color: #34d399; }
+
+    .card-body-text {
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      line-height: 1.45;
+      overflow-y: auto;
+      max-height: 210px;
+      padding: 6px;
+    }
+
+    .card-back .card-body-text {
+      font-size: 15.5px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .card-hint-bottom {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .fc-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .btn-rate {
+      flex: 1;
+      min-width: 135px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.12s, opacity 0.15s;
+      color: #fff;
+    }
+
+    .btn-rate:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-again { background: #dc2626; }
+    .btn-hard { background: #d97706; }
+    .btn-easy { background: #059669; }
+    .btn-nav {
+      background: #0f172a;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ADD FLASHCARD FORM */
+    .add-fc-box {
+      width: 100%;
+      max-width: 720px;
+      margin-top: 24px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .add-fc-box h4 {
+      font-size: 14px;
+      color: #38bdf8;
+      margin-bottom: 12px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .form-row select, .form-row textarea, .form-row input {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+  
+    /* ESTILOS DE LIMPEZA E MENOR POLUIÇÃO VISUAL */
+    .block-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .block-header {
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.85), rgba(30, 58, 95, 0.5));
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .block-header h2 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 0.3px;
+    }
+
+    .topic-row {
+      padding: 14px 18px;
+      margin: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(51, 65, 85, 0.7);
+      background: rgba(15, 23, 42, 0.45);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .topic-row:hover {
+      background: rgba(38, 53, 77, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .topic-row.perf-green {
+      border: 2px solid #10b981;
+      background: linear-gradient(145deg, rgba(6, 78, 59, 0.35) 0%, rgba(16, 185, 129, 0.1) 100%);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.16);
+    }
+
+    .topic-row.perf-yellow {
+      border: 2px solid #f59e0b;
+      background: linear-gradient(145deg, rgba(120, 53, 15, 0.35) 0%, rgba(245, 158, 11, 0.1) 100%);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.16);
+    }
+
+    .topic-row.perf-red {
+      border: 2px solid #ef4444;
+      background: linear-gradient(145deg, rgba(127, 29, 29, 0.35) 0%, rgba(239, 68, 68, 0.1) 100%);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.16);
+    }
+
+    .topic-row.completed-row:not(.perf-green):not(.perf-yellow):not(.perf-red) {
+      border: 1.5px solid rgba(56, 189, 248, 0.55);
+      background: rgba(14, 165, 233, 0.07);
+    }
+
+    .topic-perf-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 11px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .topic-perf-pill.pill-green {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10b981;
+      color: #34d399;
+    }
+
+    .topic-perf-pill.pill-yellow {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #f59e0b;
+      color: #fbbf24;
+    }
+
+    .topic-perf-pill.pill-red {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    .topic-perf-pill.pill-neutral {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid #334155;
+      color: #64748b;
+    }
+
+    .topic-info h3 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .topic-info p {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .pdf-badge-ok {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .pdf-badge-waiting {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(148, 163, 184, 0.1);
+      color: #94a3b8;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    .checks-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .check-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #0b1324;
+      border: 1px solid var(--border);
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #94a3b8;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+
+    .check-label:hover {
+      border-color: var(--primary);
+      color: #f8fafc;
+    }
+
+    .check-label.checked {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.6);
+      color: #6ee7b7;
+    }
+
+    .sr-box-hint {
+      background: rgba(30, 58, 95, 0.35);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: #bae6fd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-meta-level {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+
+    /* CLOUD SYNC PILL & PWA BUTTONS */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cloud-sync-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .cloud-sync-pill:hover {
+      border-color: #38bdf8;
+      background: rgba(30, 41, 59, 0.95);
+      transform: translateY(-1px);
+    }
+    .cloud-sync-pill .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .cloud-sync-pill.synced .dot {
+      background: #10b981;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    }
+    .cloud-sync-pill.syncing .dot {
+      background: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+      animation: pulse-sync 0.8s infinite alternate;
+    }
+    @keyframes pulse-sync {
+      from { transform: scale(0.85); opacity: 0.6; }
+      to { transform: scale(1.25); opacity: 1; }
+    }
+    .cloud-sync-pill .txt {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      text-align: left;
+    }
+    .cloud-sync-pill .txt small {
+      font-size: 9px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .btn-pwa-install {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      border: none;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-pwa-install:hover {
+      transform: scale(1.03);
+    }
+
+    /* MODAL CLOUD & APP */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.82);
+      backdrop-filter: blur(5px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: #111a2e;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      max-width: 620px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+      color: #f8fafc;
+      padding: 24px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+    }
+    .modal-header h3 {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+    }
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .modal-close-btn:hover {
+      color: #fff;
+      background: #1e293b;
+    }
+    .modal-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .modal-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #94a3b8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .modal-tab-btn.active {
+      background: #1e293b;
+      color: #38bdf8;
+      border-color: #38bdf8;
+    }
+    .modal-tab-content {
+      display: none;
+    }
+    .modal-tab-content.active {
+      display: block;
+    }
+    .field-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .modal-input {
+      width: 100%;
+      background: #0b1120;
+      border: 1px solid #334155;
+      color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .modal-input:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.25);
+    }
+    .modal-btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .modal-btn {
+      background: #0ea5e9;
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .modal-btn:hover { background: #0284c7; }
+    .modal-btn.secondary { background: #334155; color: #f8fafc; }
+    .modal-btn.secondary:hover { background: #475569; }
+    .modal-btn.danger { background: #ef4444; }
+    .modal-btn.danger:hover { background: #dc2626; }
+    .step-box {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+    .step-box strong { color: #38bdf8; }
+    .step-box ol { margin-left: 20px; margin-top: 6px; }
+    .step-box li { margin-bottom: 4px; }
+
+    /* MOBILE RESPONSIVE POLISH */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 90px;
+      }
+      header.top-bar {
+        padding: 14px 16px;
+      }
+      .header-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .brand-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .brand-title h1 {
+        font-size: 17px;
+      }
+      .header-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .countdown-box {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .time-unit {
+        min-width: 38px;
+        padding: 3px 6px;
+      }
+      .time-unit .num {
+        font-size: 15px;
+      }
+      .container {
+        padding: 0 12px;
+        margin: 14px auto;
+      }
+      .nav-tabs {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tab-btn {
+        flex: 0 0 auto;
+        font-size: 13px;
+        padding: 10px 14px;
+      }
+      .rating-buttons {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      .btn-rating {
+        min-height: 52px !important;
+        font-size: 13px !important;
+        padding: 8px 4px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER & COUNTDOWN -->
+  <header class="top-bar">
+    <div class="header-container">
+      <div class="brand-title">
+        <div class="badge-gcm">GCM GUARULHOS 2026</div>
+        <div>
+          <h1>Painel Estrategista de Reta Final — Banca IBAM</h1>
+          <p>Edital nº 09/2026-SGE01 | Prova Objetiva: <strong>29/11/2026</strong> | Guia de Legislação Oficial (Conhecimentos Específicos — Peso 3 = 60 pts)</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="pwa-install-btn" class="btn-pwa-install" onclick="installPWA()">📲 Instalar App</button>
+        <div class="cloud-sync-pill" id="cloud-sync-pill" onclick="openCloudModal()" title="Clique para gerenciar a Sincronização em Nuvem e App Mobile">
+          <div class="dot" id="cloud-dot"></div>
+          <div class="txt">
+            <span id="cloud-txt-status">Modo Local (Offline)</span>
+            <small id="cloud-txt-sub">Toque p/ conectar nuvem</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="countdown-box">
+        <span class="countdown-label">⏳ Tempo até<br>a Prova:</span>
+        <div class="time-unit"><span class="num" id="cd-days">26</span><span class="lbl">Dias</span></div>
+        <div class="time-unit"><span class="num" id="cd-hours">00</span><span class="lbl">Horas</span></div>
+        <div class="time-unit"><span class="num" id="cd-mins">00</span><span class="lbl">Min</span></div>
+        <div class="time-unit"><span class="num" id="cd-secs">00</span><span class="lbl">Seg</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- KPI DASHBOARD -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-top">
+            <span class="kpi-title">Progresso do Guia de Legislação</span>
+            <span style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">35%</span>
+          </div>
+          <div class="kpi-value" id="kpi-checks-count">6 / 17 arquivos</div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="kpi-progress-bar"></div>
+          </div>
+        </div>
+        <div class="kpi-sub">Porcentagem de avanço no total de arquivos decupados para cobrir 100% do edital.</div>
+      </div>
+
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-top">
+            <span class="kpi-title">PDFs Decupados na Pasta</span>
+            <span style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
+          </div>
+          <div class="kpi-value">6 Tópicos</div>
+        </div>
+        <div class="kpi-sub">6 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150 e 155-159).</div>
+      </div>
+
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-top">
+            <span class="kpi-title">Calendário de Novembro</span>
+            <span style="color:#f59e0b;font-weight:800;" id="kpi-cal-pct">0%</span>
+          </div>
+          <div class="kpi-value" id="kpi-cal-days">0 / 26 dias</div>
+        </div>
+        <div class="kpi-sub">Metas diárias de 03/11 até a véspera da prova (28/11/2026).</div>
+      </div>
+
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-top">
+            <span class="kpi-title">Flashcards Dominados</span>
+            <span style="color:#a78bfa;font-weight:800;" id="kpi-fc-review">0 p/ rever</span>
+          </div>
+          <div class="kpi-value" id="kpi-fc-mastered">0 / 35 cartões</div>
+        </div>
+        <div class="kpi-sub">Repetição espaçada ativa focada nas pegadinhas da banca IBAM.</div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('checklist', this)">✅ Checklist do Edital &amp; PDFs Decupados</button>
+      <button class="tab-btn" onclick="switchTab('calendar', this)">📅 Calendário de Reta Final (Novembro/2026)</button>
+      <button class="tab-btn" onclick="switchTab('flashcards', this)">🧠 Flashcards de Revisão (Estilo Anki)</button>
+    </nav>
+
+    <!-- TAB 1: CHECKLIST DO EDITAL -->
+    <section id="tab-checklist" class="tab-panel active">
+      <div class="toolbar">
+        <div class="filter-group">
+          <button class="filter-pill active" onclick="filterChecklist('all', this)">Todos os Tópicos do Guia (17)</button>
+          <button class="filter-pill" onclick="filterChecklist('pdf', this)">📄 Com PDF Decupado</button>
+          <button class="filter-pill" onclick="filterChecklist('pending', this)">⏳ Pendentes</button>
+          <button class="filter-pill" onclick="filterChecklist('done', this)">✅ 100% Concluídos</button>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <a href="./Edital GCM.pdf" target="_blank" class="btn-pdf">📘 Abrir Edital Oficial</a>
+          <a href="./guia-legislacao-gcm-guarulhos.pdf" target="_blank" class="btn-pdf">🧭 Abrir Guia de Legislação</a>
+          <input type="text" id="search-topic" class="search-input" placeholder="🔍 Buscar lei, artigo ou tema..." oninput="renderChecklist()">
+        </div>
+      </div>
+
+      <div id="checklist-container"></div>
+    </section>
+
+    <!-- TAB 2: CALENDÁRIO DE RETA FINAL -->
+    <section id="tab-calendar" class="tab-panel">
+      <div class="calendar-header-info">
+        <div>
+          <h2 style="font-size:17px;color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span>📅 Calendário de Ofensiva — Novembro/2026</span>
+            <span id="cal-current-day-pill" style="background:#0ea5e9;color:#fff;font-size:11.5px;padding:3px 10px;border-radius:99px;font-weight:800;">Hoje: 05/11 (Quinta)</span>
+          </h2>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:3px;">
+            Preencha o <strong>Tema Estudado</strong> + marque <strong>Resumo</strong> e <strong>Questões</strong> para concluir o dia (fica 🟢 Verde + 🔥 Foguinho). Complete de Segunda a Domingo para conquistar a <strong>✨ Semana Dourada</strong>!
+          </p>
+          <div id="sync-status-txt" style="font-size:11px;color:#38bdf8;margin-top:5px;font-weight:600;">
+            ⏱️ Sincronizado com relógio local (ciclos automáticos de 24h até 29/11/2026).
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+          <div class="streak-banner">
+            <span class="streak-flame">🔥</span>
+            <div>
+              <div style="font-size:16px;font-weight:900;color:#fbbf24;line-height:1.1;" id="streak-count-txt">0 Dias de Ofensiva</div>
+              <div style="font-size:10.5px;color:#fde68a;" id="golden-weeks-txt">0 Semanas Douradas ✨</div>
+            </div>
+          </div>
+
+          <button class="btn-sync-now" onclick="syncCalendarClock(true)">
+            🔄 Sincronizar Agora
+          </button>
+        </div>
+      </div>
+
+      <div class="calendar-weekdays">
+        <div>Segunda</div>
+        <div>Terça</div>
+        <div>Quarta</div>
+        <div>Quinta</div>
+        <div>Sexta</div>
+        <div>Sábado</div>
+        <div>Domingo</div>
+      </div>
+
+      <div class="calendar-weeks-wrapper" id="calendar-grid"></div>
+    </section>
+
+    <!-- TAB 3: SISTEMA DE FLASHCARDS -->
+    <section id="tab-flashcards" class="tab-panel">
+      <div class="sr-box-hint">
+        <span style="font-size:20px;">🧠</span>
+        <div>
+          <strong>Revisão Ativa por Arquivo Decupado:</strong> Marque na barra lateral um ou mais <strong>PDFs Decupados</strong> para carregar seus cartões. Use os filtros abaixo para focar em <strong>Novos</strong> (ainda não respondidos), <strong>Mais Errados</strong> ou <strong>Dominados</strong>. Ao terminar (ou a qualquer momento), clique em <strong>"✅ Terminar Agora &amp; Computar"</strong> para registrar no seu Histórico e Painel de Taxa de Acerto!
+        </div>
+      </div>
+
+      <div class="flashcard-workspace">
+        <aside class="fc-sidebar">
+          <h3>
+            <span>📂 Arquivos Decupados (Guia)</span>
+            <button onclick="selectAllDecupados()" style="background:none;border:none;color:#38bdf8;font-size:11px;font-weight:700;cursor:pointer;text-decoration:underline;">Marcar Todos</button>
+          </h3>
+          <div class="deck-list" id="deck-list"></div>
+
+          <h3>🎯 Funil de Revisão (Filtros)</h3>
+          <div class="deck-list">
+            <button class="deck-btn" id="status-filter-new" onclick="setFcStatusFilter('new')">
+              <span>🆕 Flashcards Novos</span>
+              <span id="badge-count-new" class="notif-dot" style="display:none;">0</span>
+            </button>
+            <button class="deck-btn" id="status-filter-wrong" onclick="setFcStatusFilter('wrong')">
+              <span>🔴 Para Revisar (Errei)</span>
+              <span id="badge-count-wrong" style="background:#1e293b;padding:2px 7px;border-radius:99px;font-size:11px;">0</span>
+            </button>
+            <button class="deck-btn" id="status-filter-mastered" onclick="setFcStatusFilter('mastered')">
+              <span>🟢 Dominados</span>
+              <span id="badge-count-mastered" style="background:#1e293b;padding:2px 7px;border-radius:99px;font-size:11px;">0</span>
+            </button>
+            <button class="deck-btn active" id="status-filter-all" onclick="setFcStatusFilter('all')">
+              <span>📚 Todos os Selecionados</span>
+              <span id="badge-count-all" style="background:#1e293b;padding:2px 7px;border-radius:99px;font-size:11px;">0</span>
+            </button>
+          </div>
+
+          <button class="btn-primary" style="width:100%;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:6px;" onclick="shuffleFlashcards()">
+            🔀 Embaralhar Ordem Atual
+          </button>
+        </aside>
+
+        <div class="fc-stage">
+          <div class="fc-status-bar" style="flex-wrap:wrap;gap:8px;">
+            <div>
+              <strong id="fc-counter-txt" style="color:#fff;">Cartão 1 de 35</strong>
+              <span id="fc-session-progress" style="margin-left:10px;font-size:12px;color:#38bdf8;font-weight:700;">Sessão: 0 respondidos (0✅ / 0❌)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span id="fc-badge-status" style="background:#1e293b;padding:3px 9px;border-radius:6px;font-size:11.5px;font-weight:700;">Novo</span>
+              <button onclick="finishFlashcardSession()" style="background:linear-gradient(135deg,#10b981,#059669);color:#052e16;border:none;padding:6px 12px;border-radius:7px;font-size:11.5px;font-weight:900;cursor:pointer;box-shadow:0 3px 10px rgba(16,185,129,0.3);">
+                ✅ Terminar Agora &amp; Computar
+              </button>
+            </div>
+          </div>
+
+          <div class="card-3d-wrapper" onclick="flipCard()">
+            <div class="card-3d" id="fc-card-3d">
+              <div class="card-face card-front">
+                <div class="card-meta-top">
+                  <span id="fc-front-deck">ARQUIVO DECUPADO</span>
+                  <span>FRENTE (PERGUNTA)</span>
+                </div>
+                <div class="card-body-text" id="fc-front-text"></div>
+                <div class="card-hint-bottom">👆 Clique no cartão (ou aperte <strong>Espaço</strong>) para revelar a resposta da Lei Seca</div>
+              </div>
+
+              <div class="card-face card-back">
+                <div class="card-meta-top">
+                  <span id="fc-back-deck">RESPOSTA OFICIAL — LEI SECA</span>
+                  <span>VERSO (GABARITO IBAM)</span>
+                </div>
+                <div class="card-body-text" id="fc-back-text"></div>
+                <div class="card-hint-bottom">Avalie sua resposta abaixo para computar na estatística:</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fc-controls">
+            <button class="btn-nav" onclick="prevCard()">⬅️ Anterior</button>
+            <button class="btn-rate btn-again" onclick="rateCard('again')">🔴 Errei / Rever (1)</button>
+            <button class="btn-rate btn-hard" onclick="rateCard('hard')">🟡 Difícil / Rever (2)</button>
+            <button class="btn-rate btn-easy" onclick="rateCard('mastered')">🟢 Acertei / Dominado! (3)</button>
+            <button class="btn-nav" onclick="nextCard()">Próximo ➡️</button>
+          </div>
+
+          <!-- PAINEL DE TAXA DE ACERTO E HISTÓRICO DE SESSÕES -->
+          <div class="fc-analytics-panel">
+            <div class="fc-analytics-header">
+              <h4 style="font-size:14.5px;color:#38bdf8;font-weight:800;">📊 Painel de Desempenho &amp; Taxa de Acerto por Arquivo Decupado</h4>
+              <span id="fc-total-sessions-badge" style="font-size:11.5px;color:var(--text-muted);font-weight:700;">0 sessões registradas</span>
+            </div>
+
+            <!-- TAXA DE ACERTO GERAL -->
+            <div class="overall-accuracy-box">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span style="font-size:12.5px;font-weight:800;color:#e2e8f0;text-transform:uppercase;">🎯 Taxa de Acerto Geral Acumulada</span>
+                <span id="fc-overall-acc-txt" style="font-size:18px;font-weight:900;color:#10b981;">0% (0✅ / 0❌)</span>
+              </div>
+              <div style="width:100%;height:12px;background:#0f172a;border-radius:99px;overflow:hidden;display:flex;border:1px solid #334155;">
+                <div id="fc-overall-bar-hit" style="height:100%;width:0%;background:linear-gradient(90deg,#10b981,#34d399);transition:width 0.4s;"></div>
+                <div id="fc-overall-bar-miss" style="height:100%;width:0%;background:linear-gradient(90deg,#ef4444,#f87171);transition:width 0.4s;"></div>
+              </div>
+            </div>
+
+            <!-- TAXA DE ACERTO POR ARQUIVO DECUPADO (LADO A LADO) -->
+            <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:8px;text-transform:uppercase;">Desempenho por Tópico (Arquivo Decupado):</div>
+            <div class="topic-accuracy-grid" id="topic-accuracy-grid"></div>
+
+            <!-- HISTÓRICO DE BATERIAS FINALIZADAS -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;margin-top:6px;">
+              <span style="font-size:12px;font-weight:700;color:#94a3b8;text-transform:uppercase;">📜 Histórico de Sessões de Revisão:</span>
+              <button onclick="clearSessionHistory()" style="background:none;border:none;color:#64748b;font-size:11px;cursor:pointer;">Limpar histórico</button>
+            </div>
+            <div class="history-list" id="fc-history-list"></div>
+          </div>
+
+          <!-- CRIAR NOVO FLASHCARD -->
+          <div class="add-fc-box">
+            <h4>➕ Criar Novo Flashcard Personalizado</h4>
+            <div class="form-row">
+              <select id="new-fc-deck">
+                <option value="01. CF/88 — Artigo 5º">01. CF/88 — Artigo 5º (Direitos e Garantias)</option>
+                <option value="02. CF/88 — Artigo 6º">02. CF/88 — Artigo 6º (Direitos Sociais)</option>
+                <option value="03. CF/88 — Artigo 144">03. CF/88 — Artigo 144 (Segurança Pública)</option>
+                <option value="04. CP — Arts. 121 a 129">04. CP — Arts. 121 a 129 (Crimes contra a Pessoa)</option>
+                <option value="05. CP — Arts. 146 a 150">05. CP — Arts. 146 a 150 (Liberdade e Domicílio)</option>
+                <option value="06. CP — Arts. 155 a 159">06. CP — Arts. 155 a 159 (Crimes contra o Patrimônio)</option>
+                <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
+              </select>
+              <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
+              <textarea id="new-fc-a" rows="3" placeholder="Resposta do Verso (ex: Detenção, de 6 meses a 2 anos, além da pena correspondente à violência...)"></textarea>
+            </div>
+            <button class="btn-primary" onclick="addCustomFlashcard()">Salvar Flashcard no Tópico</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MODAL DE CONFIGURAÇÃO DE NUVEM & APP MOBILE -->
+    <div id="cloud-modal" class="modal-overlay" onclick="closeCloudModal(event)">
+      <div class="modal-card" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <h3>☁️ Nuvem &amp; Aplicativo Mobile (PWA)</h3>
+          <button class="modal-close-btn" onclick="closeCloudModal()">&times;</button>
+        </div>
+
+        <div class="modal-tabs">
+          <button class="modal-tab-btn active" onclick="switchModalTab('firebase', this)">⚡ Sincronização Firebase</button>
+          <button class="modal-tab-btn" onclick="switchModalTab('app', this)">📱 Usar no Celular</button>
+          <button class="modal-tab-btn" onclick="switchModalTab('backup', this)">💾 Backup Manual</button>
+        </div>
+
+        <!-- ABA 1: FIREBASE REALTIME -->
+        <div id="modaltab-firebase" class="modal-tab-content active">
+          <div class="step-box">
+            <strong>🚀 Sincronização em Tempo Real (PC &harr; Celular)</strong><br>
+            Com o Firebase Realtime Database gratuito do Google, qualquer flashcard ou dia marcado no celular aparece instantaneamente no PC (e vice-versa), sem o PC precisar estar ligado!
+            <ol>
+              <li>Acesse <a href="https://console.firebase.google.com" target="_blank" style="color:#38bdf8;font-weight:bold;">console.firebase.google.com</a> com sua conta Google.</li>
+              <li>Crie um projeto grátis (ex: <code>gcm-guarulhos-estudos</code>).</li>
+              <li>Vá em <strong>Criação &rarr; Realtime Database &rarr; Criar Banco de Dados</strong>.</li>
+              <li>Na aba <strong>Regras</strong>, defina <code>".read": true</code> e <code>".write": true</code>.</li>
+              <li>Copie a URL gerada (ex: <code>https://gcm-estudos-default-rtdb.firebaseio.com/</code>) e cole abaixo:</li>
+            </ol>
+          </div>
+
+          <label class="field-label" for="cfg-firebase-url">URL do Banco Firebase Realtime Database:</label>
+          <input type="text" id="cfg-firebase-url" class="modal-input" placeholder="https://seu-projeto-default-rtdb.firebaseio.com/">
+
+          <label class="field-label" for="cfg-firebase-auth">Segredo/Token de Autenticação (Opcional se regras forem abertas):</label>
+          <input type="password" id="cfg-firebase-auth" class="modal-input" placeholder="Deixe em branco se as regras permitirem read/write">
+
+          <div id="cloud-test-status" style="margin-bottom:12px;font-size:12.5px;"></div>
+
+          <div class="modal-btn-row">
+            <button class="modal-btn" onclick="saveAndTestCloudConfig()">💾 Salvar &amp; Testar Conexão</button>
+            <button class="modal-btn secondary" onclick="forcePushToCloud()">📤 Enviar Estado Atual p/ Nuvem</button>
+            <button class="modal-btn secondary" onclick="forcePullFromCloud()">📥 Puxar da Nuvem p/ este Aparelho</button>
+          </div>
+        </div>
+
+        <!-- ABA 2: INSTALAR APP NO CELULAR -->
+        <div id="modaltab-app" class="modal-tab-content">
+          <div class="step-box">
+            <strong>📲 Como usar como Aplicativo Nativo no Celular (PWA)</strong>
+            <ol>
+              <li>Hospede a pasta ou acesse o link do GitHub Pages no navegador do celular (Chrome ou Safari).</li>
+              <li><strong>No Android (Chrome):</strong> Toque nos 3 pontinhos do canto superior &rarr; <strong>"Instalar aplicativo"</strong> ou <strong>"Adicionar à tela inicial"</strong>.</li>
+              <li><strong>No iPhone (Safari):</strong> Toque no botão de <strong>Compartilhar</strong> (quadradinho com seta) &rarr; <strong>"Adicionar à Tela de Início"</strong>.</li>
+              <li>O ícone oficial da <strong>GCM Guarulhos 2026</strong> será instalado na tela do celular e abrirá em tela cheia!</li>
+            </ol>
+          </div>
+
+          <div style="text-align:center;padding:16px;background:#0b1120;border-radius:12px;border:1px solid #1e293b;">
+            <p style="font-size:12.5px;color:#94a3b8;margin-bottom:10px;">Escaneie com a câmera do celular para abrir o painel:</p>
+            <div id="qrcode-container" style="display:inline-block;padding:8px;background:#fff;border-radius:10px;">
+              <img id="qr-img" src="" alt="QR Code" style="width:180px;height:180px;display:block;">
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;">
+              <input type="text" id="cur-url-input" class="modal-input" readonly style="max-width:320px;text-align:center;font-size:12px;margin-bottom:0;">
+              <button class="modal-btn secondary" onclick="copyCurrentUrl()">📋 Copiar Link</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABA 3: BACKUP MANUAL -->
+        <div id="modaltab-backup" class="modal-tab-content">
+          <div class="step-box">
+            <strong>🛡️ Segurança Total: Baixe um Backup do seu Progresso</strong><br>
+            Você pode exportar um arquivo <code>.json</code> contendo todo o seu histórico de flashcards, acertos/erros e calendário a qualquer momento.
+          </div>
+
+          <div class="modal-btn-row">
+            <button class="modal-btn" onclick="exportBackupJson()">📥 Baixar Arquivo de Backup (.json)</button>
+            <label class="modal-btn secondary" style="cursor:pointer;">
+              📂 Restaurar Backup (.json)
+              <input type="file" id="backup-file-input" accept=".json" style="display:none;" onchange="importBackupJson(event)">
+            </label>
+          </div>
+          <div id="backup-msg" style="margin-top:12px;font-size:12.5px;color:#10b981;"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // =========================================================================
+    // 1. DADOS DO CHECKLIST DO EDITAL (19 TÓPICOS COMPLETOS)
+    // =========================================================================
+    
+    // =========================================================================
+    // 1. DADOS DO GUIA OFICIAL DE LEGISLAÇÃO (17 TÓPICOS ESPECÍFICOS - PESO 3)
+    // =========================================================================
+    const TOPICS_DATA = [
+      // BLOCO 1: DIREITO CONSTITUCIONAL (CF/1988)
+      {
+        id: "cf-art5",
+        block: "1. Direito Constitucional (CF/1988) — Peso 3",
+        title: "Artigo 5º da CF/88 — Direitos e Deveres Individuais e Coletivos",
+        desc: "Todos os 79 incisos e §§ 1º ao 4º. Foco IBAM: inviolabilidade de domicílio (XI), flagrante delito (LXI), garantias do preso (LXII-LXV), penas vedadas (XLVII) e remédios constitucionais.",
+        priority: "Altíssima Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-5-cf88-decupado.pdf" },
+          { label: "🎧 Áudio Art. 5º (MP3)", url: "./Limites_do_poder_policial_na_Constituicao.mp3" }
+        ]
+      },
+      {
+        id: "cf-art6",
+        block: "1. Direito Constitucional (CF/1988) — Peso 3",
+        title: "Artigo 6º da CF/88 — Direitos Sociais e Renda Básica",
+        desc: "Rol taxativo dos 11 direitos sociais no caput (incluindo Moradia, Alimentação e Transporte) e Parágrafo único (EC 114/2021 — renda básica familiar).",
+        priority: "Alta Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-6-cf88-decupado.pdf" }
+        ]
+      },
+      {
+        id: "cf-art144",
+        block: "1. Direito Constitucional (CF/1988) — Peso 3",
+        title: "Artigo 144 da CF/88 — Da Segurança Pública & Guardas Municipais",
+        desc: "Caput (incisos I a VI — inclui Polícia Penal), §§ 1º ao 7º (órgãos policiais e subordinação) e § 8º (Guardas Municipais: bens, serviços e instalações) e § 10 (Segurança Viária).",
+        priority: "Altíssima Incidência (Obrigatório)",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-144-cf88-decupado.pdf" }
+        ]
+      },
+
+      // BLOCO 2: DIREITO PENAL & PROCESSUAL PENAL
+      {
+        id: "cp-121-129",
+        block: "2. Direito Penal & Processo Penal — Peso 3",
+        title: "Código Penal: Arts. 121 a 129 — Crimes contra a Pessoa (Vida e Lesões)",
+        desc: "Homicídio (121), Feminicídio autônomo (121-A — Lei 14.994/24), Vicaricídio (121-B), Suicídio/Automutilação (122), Infanticídio (123), Aborto (124-128) e Lesão Corporal (129, §§ 1º a 13).",
+        priority: "Altíssima Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-121-a-129-decupado.pdf" }
+        ]
+      },
+      {
+        id: "cp-146-150",
+        block: "2. Direito Penal & Processo Penal — Peso 3",
+        title: "Código Penal: Arts. 146 a 150 — Crimes contra a Liberdade Pessoal e Domicílio",
+        desc: "Constrangimento ilegal (146), Bullying e Cyberbullying (146-A), Ameaça (147), Stalking (147-A), Violência psicológica (147-B), Sequestro/Cárcere (148) e Violação de Domicílio (150).",
+        priority: "Altíssima Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-146-a-150-decupado.pdf" }
+        ]
+      },
+      {
+        id: "cp-155-159",
+        block: "2. Direito Penal & Processo Penal — Peso 3",
+        title: "Código Penal: Arts. 155 a 159 — Crimes contra o Patrimônio",
+        desc: "Furto simples, noturno e qualificado (155), Furto de coisa comum (156), Roubo próprio, impróprio e majorado (157), Extorsão (158) e Extorsão mediante sequestro (159).",
+        priority: "Altíssima Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-155-a-159-decupado.pdf" }
+        ]
+      },
+      {
+        id: "cp-312-327",
+        block: "2. Direito Penal & Processo Penal — Peso 3",
+        title: "Código Penal: Arts. 312 a 327 — Crimes contra a Administração Pública",
+        desc: "Peculato (312), Concussão (316), Corrupção passiva (317), Prevaricação (319), Condescendência criminosa (320) e Conceito de Funcionário Público (Art. 327).",
+        priority: "Altíssima Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "cpp-301-310",
+        block: "2. Direito Penal & Processo Penal — Peso 3",
+        title: "Código de Processo Penal: Arts. 301 a 310 — Da Prisão em Flagrante",
+        desc: "Espécies de flagrante (próprio, impróprio e presumido — art. 302), quem pode e quem deve prender (301), Nota de culpa em 24h e Audiência de Custódia (310).",
+        priority: "Altíssima Incidência (Obrigatório)",
+        hasPdf: false,
+        pdfs: []
+      },
+
+      // BLOCO 3: LEGISLAÇÃO EXTRAVAGANTE FEDERAL & USO DA FORÇA
+      {
+        id: "lei-13022",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei Federal nº 13.022/2014 — Estatuto Geral das Guardas Municipais (Integral)",
+        desc: "Princípios mínimos de atuação (Art. 3º), Competências gerais e específicas (Arts. 4º e 5º), Limites de efetivo (Art. 7º), Corregedoria, Ouvidoria e Prerrogativas.",
+        priority: "Altíssima Incidência (Obrigatório GCM)",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-uso-forca",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 13.060/2014 & Decreto nº 12.341/2024 — Uso da Força e IMPO",
+        desc: "Princípios da legalidade, necessidade, proporcionalidade, moderação e conveniência. Emprego prioritário de instrumentos de menor potencial ofensivo.",
+        priority: "Alta Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-eca",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 8.069/1990 (ECA) — Disposições Gerais, Ato Infracional e Crimes",
+        desc: "Arts. 1º ao 6º (Proteção integral), Arts. 103 ao 109 (Ato Infracional e Apreensão em flagrante), Arts. 131 ao 137 (Conselho Tutelar) e Arts. 225 ao 244-B (Crimes).",
+        priority: "Alta Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-idoso",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 10.741/2003 (Estatuto da Pessoa Idosa) — Direitos e Crimes",
+        desc: "Arts. 1º ao 7º (Conceito de pessoa idosa e prioridade especial 80+) e Arts. 95 ao 108 (Crimes: abandono, apropriação de benefício e retenção de cartão).",
+        priority: "Média/Alta Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-desarmamento",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 10.826/2003 (Estatuto do Desarmamento) — Porte GCM e Crimes",
+        desc: "Arts. 6º ao 11 (Porte de arma de fogo institucional e pessoal para Guardas Municipais) e Arts. 12 ao 21 (Posse, Porte Ilegal, Disparo e Omissão de Cautela).",
+        priority: "Altíssima Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-maria-penha",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 11.340/2006 (Lei Maria da Penha) — Arts. 1º ao 7º",
+        desc: "Âmbito de aplicação (unidade doméstica, família ou relação íntima de afeto) e as 5 formas de violência: física, psicológica, sexual, patrimonial e moral.",
+        priority: "Alta Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "lei-abuso",
+        block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
+        title: "Lei nº 13.869/2019 — Lei de Abuso de Autoridade (Conteúdo Integral)",
+        desc: "Dolo específico obrigatório (finalidade de prejudicar outrem ou beneficiar a si/terceiro ou mero capricho — Art. 1º, § 1º), efeitos da condenação e crimes em espécie.",
+        priority: "Alta Incidência",
+        hasPdf: false,
+        pdfs: []
+      },
+
+      // BLOCO 4: LEGISLAÇÃO MUNICIPAL DE GUARULHOS
+      {
+        id: "mun-7792",
+        block: "4. Legislação Municipal de Guarulhos — Peso 3",
+        title: "Lei Municipal nº 7.792/2019 — Estatuto da GCM de Guarulhos & Anexo II",
+        desc: "Organização e funcionamento da GCM Guarulhos, carreira, ingresso, atribuições de GCM 3ª Classe, deveres funcionais, proibições e regime disciplinar.",
+        priority: "Altíssima Incidência (Foco Máximo IBAM)",
+        hasPdf: false,
+        pdfs: []
+      },
+      {
+        id: "mun-8361-dec44264",
+        block: "4. Legislação Municipal de Guarulhos — Peso 3",
+        title: "Lei Municipal nº 8.361/2025 (Arts. 166 a 170) & Decreto nº 44.264/2026",
+        desc: "Estrutura organizacional da Secretaria para Assuntos de Segurança Pública (SASP) de Guarulhos e regulamentação específica da atuação da Guarda Civil.",
+        priority: "Altíssima Incidência (Foco Máximo IBAM)",
+        hasPdf: false,
+        pdfs: []
+      }
+    ];
+
+    // =========================================================================
+    // 2. CRONOGRAMA DE NOVEMBRO/2026 COM REPETIÇÃO ESPAÇADA SISTEMÁTICA
+    // =========================================================================
+    const CALENDAR_DAYS = [
+      {
+            "day": 1,
+            "wday": "Dom",
+            "type": "done",
+            "title": "CF/88: Arts. 5º e 6º",
+            "desc": "Leitura dos PDFs decupados de Direitos Fundamentais e Sociais."
+      },
+      {
+            "day": 2,
+            "wday": "Seg",
+            "type": "done",
+            "title": "CF Art. 144 + CP Arts. 121-129",
+            "desc": "Estudo da Segurança Pública e Crimes contra a Pessoa."
+      },
+      {
+            "day": 3,
+            "wday": "Ter",
+            "type": "today",
+            "title": "CP Arts. 146-150 + Flashcards",
+            "desc": "Liberdade e Domicílio. Início do treino intensivo de memorização com 46 flashcards."
+      },
+      {
+            "day": 4,
+            "wday": "Qua",
+            "type": "study",
+            "title": "CP Arts. 155 a 159 (Patrimônio)",
+            "desc": "Furto, Roubo e Extorsões (Lei Seca + Questões IBAM)."
+      },
+      {
+            "day": 5,
+            "wday": "Qui",
+            "type": "study",
+            "title": "CP Arts. 312 a 327 (Crimes Funcionais)",
+            "desc": "Peculato, Concussão, Corrupção Passiva, Prevaricação e Art. 327."
+      },
+      {
+            "day": 6,
+            "wday": "Sex",
+            "type": "study",
+            "title": "CPP Arts. 301 a 310 (Prisão em Flagrante)",
+            "desc": "Espécies de flagrante delito, nota de culpa em 24h e custódia."
+      },
+      {
+            "day": 7,
+            "wday": "Sáb",
+            "type": "study",
+            "title": "Lei 13.022/2014 — Estatuto Geral GCM (Parte 1)",
+            "desc": "Princípios mínimos (art. 3º), competências gerais e específicas (arts. 4º e 5º)."
+      },
+      {
+            "day": 8,
+            "wday": "Dom",
+            "type": "study",
+            "title": "Lei 13.022/2014 — Estatuto Geral GCM (Parte 2)",
+            "desc": "Efetivo máximo (art. 7º), controle interno/externo e prerrogativas."
+      },
+      {
+            "day": 9,
+            "wday": "Seg",
+            "type": "study",
+            "title": "Uso da Força: Lei 13.060/14 e Dec. 12.341/24",
+            "desc": "Princípios do uso moderado e instrumentos de menor potencial ofensivo."
+      },
+      {
+            "day": 10,
+            "wday": "Ter",
+            "type": "study",
+            "title": "Lei Municipal 7.792/2019 — GCM Guarulhos (Parte 1)",
+            "desc": "Organização, carreira, atribuições do cargo de GCM 3ª Classe."
+      },
+      {
+            "day": 11,
+            "wday": "Qua",
+            "type": "study",
+            "title": "Lei Municipal 7.792/2019 — GCM Guarulhos (Parte 2)",
+            "desc": "Deveres funcionais, proibições e regime disciplinar."
+      },
+      {
+            "day": 12,
+            "wday": "Qui",
+            "type": "study",
+            "title": "Lei Mun. 8.361/25 (166-170) & Dec. 44.264/26",
+            "desc": "Estrutura organizacional da Segurança Pública em Guarulhos."
+      },
+      {
+            "day": 13,
+            "wday": "Sex",
+            "type": "study",
+            "title": "ECA (Lei 8.069/90) — Arts. 1-6, 103-109, 131-137",
+            "desc": "Ato infracional, garantias na apreensão e Conselho Tutelar."
+      },
+      {
+            "day": 14,
+            "wday": "Sáb",
+            "type": "study",
+            "title": "ECA (Crimes) & Estatuto da Pessoa Idosa",
+            "desc": "ECA (arts. 225-244-B) e Lei 10.741/03 (direitos fundamentais e crimes)."
+      },
+      {
+            "day": 15,
+            "wday": "Dom",
+            "type": "study",
+            "title": "Estatuto do Desarmamento (Lei 10.826/03)",
+            "desc": "Porte de arma de fogo para GCMs e crimes em espécie (arts. 12-21)."
+      },
+      {
+            "day": 16,
+            "wday": "Seg",
+            "type": "study",
+            "title": "Maria da Penha (11.340/06) & Abuso (13.869/19)",
+            "desc": "Formas de violência doméstica e dolo específico no abuso de autoridade."
+      },
+      {
+            "day": 17,
+            "wday": "Ter",
+            "type": "rev",
+            "title": "🔄 Revisão Espaçada 1 (D+1): Tópicos Concluídos",
+            "desc": "Filtrar no painel os Flashcards classificados como 'Errei' e 'Difíceis' de Constitucional e Penal."
+      },
+      {
+            "day": 18,
+            "wday": "Qua",
+            "type": "rev",
+            "title": "🔄 Revisão Espaçada 2 (D+3): Estatuto GCM & Leis Guarulhos",
+            "desc": "Repassar todos os conceitos, números e prazos das Leis 13.022/14 e 7.792/19."
+      },
+      {
+            "day": 19,
+            "wday": "Qui",
+            "type": "rev",
+            "title": "🔄 Revisão Espaçada 3 (D+7): Leis Extravagantes",
+            "desc": "Revisão focada em ECA, Idoso, Armas, Maria da Penha e Abuso de Autoridade."
+      },
+      {
+            "day": 20,
+            "wday": "Sex",
+            "type": "sim",
+            "title": "🎯 1º Simulado Completo de Legislação IBAM",
+            "desc": "Bateria de 40 questões estilo IBAM focadas em literalidade de lei seca."
+      },
+      {
+            "day": 21,
+            "wday": "Sáb",
+            "type": "rev",
+            "title": "🔄 Diagnóstico do Simulado & Varredura de Erros",
+            "desc": "Cadastrar novos flashcards para cada questão errada no simulado."
+      },
+      {
+            "day": 22,
+            "wday": "Dom",
+            "type": "sim",
+            "title": "🎯 2º Simulado Tático Geral IBAM (Peso 3)",
+            "desc": "Simulado cronometrado com resolução em ritmo de prova (máx 3 minutos por questão)."
+      },
+      {
+            "day": 23,
+            "wday": "Seg",
+            "type": "rev",
+            "title": "🔄 Ciclo Final Reta 1: CF/88 (Arts. 5º, 6º e 144)",
+            "desc": "Releitura rápida dos Quadros Sinópticos dos PDFs decupados + Flashcards de Constitucional."
+      },
+      {
+            "day": 24,
+            "wday": "Ter",
+            "type": "rev",
+            "title": "🔄 Ciclo Final Reta 2: Código Penal (Arts. 121 a 150)",
+            "desc": "Pena do feminicídio (20-40a), mnemônicos PIDA e PEIDA e qualificadoras da invasão de domicílio."
+      },
+      {
+            "day": 25,
+            "wday": "Qua",
+            "type": "rev",
+            "title": "🔄 Ciclo Final Reta 3: Estatuto Geral GCM & Guarulhos",
+            "desc": "Fixação definitiva dos 5 princípios mínimos e regras de carreira municipal."
+      },
+      {
+            "day": 26,
+            "wday": "Qui",
+            "type": "rev",
+            "title": "🔄 Ciclo Final Reta 4: Flagrante CPP e Extravagantes",
+            "desc": "Prazos de 24h (nota de culpa e custódia) e formas de violência da Maria da Penha."
+      },
+      {
+            "day": 27,
+            "wday": "Sex",
+            "type": "rev",
+            "title": "🌟 Super Revisão de Flashcards Dominados",
+            "desc": "Varredura geral de 100% dos flashcards do sistema para blindar a memória de curto prazo."
+      },
+      {
+            "day": 28,
+            "wday": "Sáb",
+            "type": "rev",
+            "title": "🧘 Véspera da Prova: Descanso e Checagem de Materiais",
+            "desc": "Passar apenas pelos cartões amarelos/vermelhos, separar caneta preta transparente e dormir cedo."
+      },
+      {
+            "day": 29,
+            "wday": "Dom",
+            "type": "exam",
+            "title": "🏆 DIA DA PROVA GCM GUARULHOS (29/11/2026)",
+            "desc": "Garantir os 60 pontos em Conhecimentos Específicos com calma e foco na literalidade!"
+      },
+      {
+            "day": 30,
+            "wday": "Seg",
+            "type": "study",
+            "title": "🏃 Conferência de Gabarito & Preparação para o TAF",
+            "desc": "Conferência oficial do gabarito IBAM e início dos treinos específicos para o TAF."
+      }
+];
+
+    // =========================================================================
+    // 3. BANCO ESPECIALIZADO DE FLASHCARDS IBAM (46 CARTÕES DE LEI SECA)
+    // =========================================================================
+    const DEFAULT_FLASHCARDS = [
+  {
+    "id": "fc-gcm-gua-01",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Estrutura & Carreira GCM",
+    "q": "Lei Municipal nº 7.792/2019, Art. 4º e 5º: Qual é a natureza jurídica e a subordinação hierárquica direta da Guarda Civil Municipal de Guarulhos?",
+    "a": "A GCM Guarulhos é uma instituição de caráter <strong>civil, uniformizada e armada</strong>, com estrutura hierarquizada e disciplina própria, subordinada diretamente ao <strong>Secretário Municipal para Assuntos de Segurança Pública</strong> e, em grau máximo, ao <strong>Prefeito Municipal</strong>."
+  },
+  {
+    "id": "fc-gcm-gua-02",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Hierarquia & Classes IBAM",
+    "q": "Lei Municipal nº 7.792/2019: Qual é a escala hierárquica das classes que compõem a carreira da GCM Guarulhos, do ingresso ao topo da classe de execução?",
+    "a": "Escala hierárquica da carreira:<br>1) <strong>GCM 3ª Classe</strong> (cargo de ingresso após aprovação no Estágio Probatório/Curso de Formação);<br>2) <strong>GCM 2ª Classe</strong>;<br>3) <strong>GCM 1ª Classe</strong>;<br>4) <strong>GCM Classe Distinta</strong>;<br>5) <strong>GCM Inspetor</strong>;<br>6) <strong>GCM Inspetor Regional</strong> e <strong>Inspetor Chefe</strong>."
+  },
+  {
+    "id": "fc-gcm-gua-03",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Estágio Probatório & Avaliação",
+    "q": "Lei Municipal nº 7.792/2019: Qual é o período do Estágio Probatório do GCM de Guarulhos e quais são os fatores de avaliação obrigatórios?",
+    "a": "O período é de <strong>3 (três) anos</strong> de efetivo exercício.<br><strong>Fatores avaliados:</strong><br>I - Disciplina e conduta moral;<br>II - Aptidão física e psicológica permanente;<br>III - Assiduidade e pontualidade;<br>IV - Eficiência, dedicação e zelo funcional;<br>V - Aproveitamento com nota mínima exigida no <strong>Curso de Formação Profissional</strong>."
+  },
+  {
+    "id": "fc-gcm-gua-04",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Penalidades Disciplinares IBAM",
+    "q": "Lei Municipal nº 7.792/2019, Regime Disciplinar: Quais são as penalidades disciplinares aplicáveis aos servidores da GCM Guarulhos?",
+    "a": "As penalidades disciplinares são taxativas:<br>1) <strong>Advertência</strong> (verbal ou escrita para faltas leves);<br>2) <strong>Repreensão</strong> (sempre por escrito no prontuário);<br>3) <strong>Suspensão</strong> (de até 90 dias, com perda de vencimentos);<br>4) <strong>Demissão</strong>;<br>5) <strong>Demissão a bem do serviço público</strong>;<br>6) <strong>Cassação de aposentadoria ou disponibilidade</strong>."
+  },
+  {
+    "id": "fc-gcm-gua-05",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Competência Disciplinar IBAM",
+    "q": "Lei Municipal nº 7.792/2019: De quem é a competência EXCLUSIVA para aplicar as penalidades de DEMISSÃO e CASSAÇÃO DE APOSENTADORIA?",
+    "a": "A competência é <strong>EXCLUSIVA DO PREFEITO MUNICIPAL DE GUARULHOS</strong>.<br><em>Atenção IBAM:</em> O Secretário de Segurança Pública pode aplicar suspensão até certo limite de dias, mas a demissão jamais pode ser delegada fora da chefia do Executivo!"
+  },
+  {
+    "id": "fc-gcm-gua-06",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Prazos Prescricionais IBAM",
+    "q": "Lei Municipal nº 7.792/2019: Quais são os prazos de PRESCRIÇÃO da ação disciplinar para faltas puníveis com repreensão, suspensão e demissão?",
+    "a": "• Falta punível com <strong>Repreensão/Advertência:</strong> prescreve em <strong>1 (um) ano</strong>;<br>• Falta punível com <strong>Suspensão:</strong> prescreve em <strong>2 (dois) anos</strong>;<br>• Falta punível com <strong>Demissão / Cassação:</strong> prescreve em <strong>5 (cinco) anos</strong>.<br><em>Regra de Ouro:</em> Se a falta também constituir crime, a prescrição disciplinar segue o prazo da lei penal!"
+  },
+  {
+    "id": "fc-gcm-gua-07",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Porte de Arma & Suspensão",
+    "q": "Lei Municipal nº 7.792/2019: Em quais situações o porte de arma de fogo do GCM de Guarulhos deve ser compulsoriamente suspenso ou revogado pela chefia?",
+    "a": "O porte é suspenso imediatamente em caso de:<br>1) <strong>Atestado ou laudo de inaptidão psicológica ou psiquiátrica</strong>;<br>2) Prática de <strong>infração disciplinar grave com uso da arma</strong>;<br>3) <strong>Medida protetiva de urgência</strong> deferida contra o GCM (Lei Maria da Penha);<br>4) Decisão cautelar ou sentença judicial restritiva."
+  },
+  {
+    "id": "fc-gcm-gua-08",
+    "deck": "Lei Municipal nº 7.792/2019 (GCM Guarulhos)",
+    "level": "Deveres Funcionais Específicos",
+    "q": "Lei Municipal nº 7.792/2019: Quais são os 3 deveres fundamentais do GCM durante a atuação em patrulhamento de rua?",
+    "a": "I - Cumprir e fazer cumprir as leis e ordens superiores legais;<br>II - <strong>Prestar socorro e proteção imediata</strong> ao cidadão em situação de perigo ou vulnerabilidade;<br>III - <strong>Portar identificação funcional oficial, armamento e equipamento regulamentar</strong> em perfeito estado de asseio e conservação."
+  },
+  {
+    "id": "fc-lei13022-01",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Princípios Mínimos (Art. 3º - Clássico IBAM)",
+    "q": "Lei nº 13.022/2014, Art. 3º: Quais são os 5 PRINCÍPIOS MÍNIMOS de atuação das Guardas Municipais em todo o Brasil?",
+    "a": "<strong>I -</strong> Proteção dos direitos humanos fundamentais, do exercício da cidadania e das liberdades públicas;<br><strong>II -</strong> Preservação da vida, redução do sofrimento e diminuição das perdas;<br><strong>III -</strong> <strong>Patrulhamento preventivo</strong>;<br><strong>IV -</strong> Compromisso com a evolução social da comunidade; e<br><strong>V -</strong> <strong>Uso progressivo da força</strong>."
+  },
+  {
+    "id": "fc-lei13022-02",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Competência Geral (Art. 4º)",
+    "q": "Lei nº 13.022/2014, Art. 4º: Qual é a competência GERAL taxativa das Guardas Municipais estabelecida pela lei federal?",
+    "a": "É competência geral das guardas municipais a <strong>proteção de bens, serviços, logradouros públicos municipais e instalações do Município</strong>.<br><em>Parágrafo único:</em> Os bens incluem os de <strong>uso comum, de uso especial e os dominicais</strong>."
+  },
+  {
+    "id": "fc-lei13022-03",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Requisitos de Investidura (Art. 10)",
+    "q": "Lei nº 13.022/2014, Art. 10: Quais são os 7 requisitos básicos cumulativos para investidura em cargo de Guarda Municipal?",
+    "a": "1) Nacionalidade brasileira;<br>2) Gozo dos direitos políticos;<br>3) Quitação com obrigações militares e eleitorais;<br>4) <strong>Nível médio completo de escolaridade</strong>;<br>5) Idade mínima de <strong>18 (dezoito) anos</strong>;<br>6) Aptidão física, mental e psicológica;<br>7) Idoneidade moral comprovada por investigação social."
+  },
+  {
+    "id": "fc-lei13022-04",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Vedações Expressas (Art. 14)",
+    "q": "Lei nº 13.022/2014, Art. 14: É permitido à Guarda Municipal utilizar denominação, estrutura ou regulamento idêntico às Forças Militares?",
+    "a": "<strong>NÃO! É terminantemente VEDADA</strong> a utilização de denominação idêntica à das forças militares, quanto aos postos e graduações, títulos, uniformes, distintivos e condecorações.<br><em>Atenção IBAM:</em> As Guardas são instituições civis e <strong>não podem</strong> ter subordinação a comandos militares estaduais ou federais!"
+  },
+  {
+    "id": "fc-lei13022-05",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Controle Interno & Externo (Art. 13)",
+    "q": "Lei nº 13.022/2014, Art. 13: Quais são os órgãos obrigatórios de controle interno e externo das Guardas Municipais e quando são exigidos?",
+    "a": "• <strong>Corregedoria (Controle Interno):</strong> Obrigatória em municípios com mais de 50.000 habitantes ou naqueles que utilizem arma de fogo (Guarulhos possui obrigatoriamente!);<br>• <strong>Ouvidoria (Controle Externo):</strong> Órgão autônomo e independente para receber elogios, denúncias e reclamações da população."
+  },
+  {
+    "id": "fc-lei13022-06",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Atuação no Trânsito (Art. 5º, VI)",
+    "q": "Lei nº 13.022/2014 e STF (Tema 656): A Guarda Municipal pode exercer fiscalização de trânsito e lavrar auto de infração (multa)?",
+    "a": "<strong>SIM!</strong> O STF fixou tese vinculante (Tema 656 / RE 846.854) confirmando que o poder de polícia de trânsito <strong>pode ser exercido legitimamente pela Guarda Municipal</strong>, inclusive aplicando multas e medidas administrativas, mediante convênio ou previsão legal municipal."
+  },
+  {
+    "id": "fc-lei13869-01",
+    "deck": "Lei Federal nº 13.869/2019 (Abuso de Autoridade)",
+    "level": "Elemento Subjetivo do Dolo (Art. 1º, § 1º)",
+    "q": "Lei nº 13.869/2019, Art. 1º, § 1º: Qual é o DOLO ESPECÍFICO obrigatório para que qualquer conduta configure crime de abuso de autoridade?",
+    "a": "A conduta deve ser praticada pelo agente com a finalidade específica de:<br>1) <strong>Prejudicar outrem</strong>; ou<br>2) <strong>Beneficiar a si mesmo ou a terceiro</strong>; ou<br>3) Por <strong>mero capricho ou satisfação pessoal</strong>.<br><em>Regra de ouro:</em> Sem esse dolo específico (ex: mera imperícia ou estrito cumprimento da lei), a conduta é ATÍPICA!"
+  },
+  {
+    "id": "fc-lei13869-02",
+    "deck": "Lei Federal nº 13.869/2019 (Abuso de Autoridade)",
+    "level": "Crime de Hermenêutica (Art. 1º, § 2º)",
+    "q": "Lei nº 13.869/2019, Art. 1º, § 2º: A divergência na interpretação de lei ou na avaliação de fatos e provas pode configurar crime de abuso de autoridade?",
+    "a": "<strong>NÃO!</strong> O art. 1º, § 2º veda expressamente o chamado 'crime de hermenêutica'. A divergência razoável na interpretação da lei ou avaliação de provas <strong>jamais</strong> configura abuso de autoridade."
+  },
+  {
+    "id": "fc-lei13869-03",
+    "deck": "Lei Federal nº 13.869/2019 (Abuso de Autoridade)",
+    "level": "Mandado de Busca Noturna (Art. 22)",
+    "q": "Lei nº 13.869/2019, Art. 22, III: Qual é o HORÁRIO NOTURNO expressamente proibido para cumprimento de mandado de busca e apreensão domiciliar?",
+    "a": "É crime cumprir mandado de busca e apreensão domiciliar após as <strong>21h (vinte e uma horas) e antes das 5h (cinco horas)</strong>.<br><em>Pena:</em> Detenção, de 1 a 4 anos, e multa.<br><em>Atenção:</em> Mesmo portando mandado judicial, o agente não pode adentrar nesse intervalo horário (salvo flagrante ou socorro)!"
+  },
+  {
+    "id": "fc-lei13869-04",
+    "deck": "Lei Federal nº 13.869/2019 (Abuso de Autoridade)",
+    "level": "Efeitos da Condenação (Art. 4º)",
+    "q": "Lei nº 13.869/2019, Art. 4º: A perda do cargo público e a inabilitação (1 a 5 anos) são efeitos automáticos da condenação por abuso de autoridade?",
+    "a": "<strong>NÃO SÃO AUTOMÁTICOS!</strong><br>1) Devem ser declarados motivadamente na sentença;<br>2) Estão expressamente <strong>condicionados à ocorrência de REINCIDÊNCIA em crime de abuso de autoridade</strong> (o réu primário não pode sofrer a perda do cargo por esta lei!)."
+  },
+  {
+    "id": "fc-lei13869-05",
+    "deck": "Lei Federal nº 13.869/2019 (Abuso de Autoridade)",
+    "level": "Uso de Algemas (Súmula Vinculante 11 / Art. 13)",
+    "q": "Súmula Vinculante 11 e Lei 13.869/2019: Em quais 3 situações excepcionais é lícito o uso de algemas em preso?",
+    "a": "O uso de algemas é excepcional e só é lícito em caso de:<br><strong>P</strong> - Perigo à integridade física própria ou alheia;<br><strong>R</strong> - Resistência à prisão;<br><strong>F</strong> - Fundado receio de fuga.<br><em>Exigência inegociável:</em> Deve ser justificado por escrito pela autoridade sob pena de responsabilidade disciplinar, civil e penal!"
+  },
+  {
+    "id": "fc-art144-stf-01",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Julgamento Histórico STF (ADPF 995)",
+    "q": "STF, ADPF 995 (2023): Qual foi a decisão do Plenário do STF sobre a natureza das Guardas Municipais como órgãos de Segurança Pública?",
+    "a": "O STF fixou que <strong>as Guardas Municipais INTEGRAM o Sistema Único de Segurança Pública (SUSP) e são ÓRGÃOS DE SEGURANÇA PÚBLICA</strong>, com competência para patrulhamento ostensivo comunitário e repressão imediata de crimes em flagrante delito!"
+  },
+  {
+    "id": "fc-art144-stf-02",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Prisão em Flagrante (Art. 301 CPP)",
+    "q": "CPP, Art. 301 x GCM: Qual a diferença entre o flagrante facultativo e o flagrante obrigatório na atuação do Guarda Municipal?",
+    "a": "• <strong>Qualquer do povo PODERÁ (facultativo):</strong> prender quem quer que seja encontrado em flagrante delito.<br>• <strong>Autoridades policiais e seus agentes DEVERÃO (obrigatório):</strong> prender e apreender os infratores.<br><em>STF/STJ:</em> O Guarda Municipal em serviço tem o <strong>dever funcional</strong> de agir diante de crimes em flagrante!"
+  },
+  {
+    "id": "fc-art144-stf-03",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Polícia Penal (EC nº 104/2019)",
+    "q": "CF/88, Art. 144, inc. VI e § 5º-A: Qual foi a nova polícia incluída no rol dos órgãos de segurança pública pela Emenda Constitucional nº 104/2019?",
+    "a": "A <strong>POLÍCIA PENAL</strong> (federal, estadual e distrital), vinculada ao órgão administrador do sistema penal da unidade federativa, responsável pela segurança dos estabelecimentos penais."
+  },
+  {
+    "id": "fc-cp121-nov-01",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Super Novidade 2024 (Lei 14.994/2024)",
+    "q": "CP, Art. 121-A (Lei 14.994/2024): Como o Feminicídio é tratado no Código Penal após a reforma de outubro de 2024?",
+    "a": "O Feminicídio <strong>DEIXOU DE SER MERA QUALIFICADORA</strong> do homicídio e passou a ser um <strong>TIPO PENAL AUTÔNOMO (Art. 121-A do CP)</strong>, com a pena mais severa do Código Penal: <strong>RECLUSÃO DE 20 A 40 ANOS</strong>!"
+  },
+  {
+    "id": "fc-cp121-nov-02",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Homicídio Privilegiado (Art. 121, § 1º)",
+    "q": "CP, Art. 121, § 1º: Quais são os 3 motivos que caracterizam o Homicídio Privilegiado (diminuição de pena de 1/6 a 1/3)?",
+    "a": "1) Impelido por motivo de <strong>relevante valor social</strong> (interesse coletivo);<br>2) Impelido por motivo de <strong>relevante valor moral</strong> (interesse individual nobre/piedade);<br>3) Sob o domínio de <strong>violenta emoção, logo em seguida a injusta provocação</strong> da vítima."
+  },
+  {
+    "id": "fc-cp121-nov-03",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Lesão Corporal Gravíssima (Art. 129, § 2º)",
+    "q": "CP, Art. 129, § 2º: Quais são os 5 resultados que qualificam a Lesão Corporal como GRAVÍSSIMA (Reclusão de 2 a 8 anos)?",
+    "a": "<strong>Resultados da Lesão Gravíssima:</strong><br>I - <strong>Incapacidade permanente</strong> para o trabalho;<br>II - <strong>Enfermidade incurável</strong>;<br>III - <strong>Perda ou inutilização</strong> de membro, sentido ou função;<br>IV - <strong>Deformidade permanente</strong>;<br>V - <strong>Aborto</strong>."
+  },
+  {
+    "id": "fc-cp155-01",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 155, caput e § 1º (Furto Noturno): Qual é a causa de aumento de pena do furto praticado durante o repouso noturno?",
+    "a": "A pena aumenta-se de <strong>METADE (+1/2)</strong>.<br><em>Atenção IBAM:</em> O repouso noturno é critério sociológico (horário de recolhimento dos moradores na localidade). A majorante incide quer o furto ocorra em residência habitada ou desabitada, ou em estabelecimento comercial fechado!"
+  },
+  {
+    "id": "fc-cp155-02",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM (Requisitos)",
+    "q": "CP, Art. 155, § 2º (Furto Privilegiado): Quais são os 2 requisitos legais cumulativos para a concessão do privilégio e quais benefícios o juiz pode aplicar?",
+    "a": "<strong>Requisitos cumulativos:</strong><br>1) Criminoso <strong>primário</strong>;<br>2) Coisa furtada de <strong>pequeno valor</strong> (jurisprudência: até 1 salário mínimo à época do fato).<br><br><strong>Benefícios aplicáveis pelo juiz (direito subjetivo do réu):</strong><br>• Substituir reclusão por detenção;<br>• Diminuir a pena de <strong>1/3 a 2/3</strong>; ou<br>• Aplicar <strong>somente a pena de multa</strong>.<br><em>Súmula 511 STJ:</em> É compatível com furto qualificado desde que a qualificadora seja de ordem OBJETIVA!"
+  },
+  {
+    "id": "fc-cp155-03",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Pegadinha de Prova IBAM",
+    "q": "CP, Art. 155, § 3º: Qual a distinção penal entre a ligação clandestina de energia ('gato direto') e a adulteração do relógio medidor?",
+    "a": "• <strong>Desvio direto antes do medidor ('gato direto'):</strong> Configura <strong>FURTO MEDIANTE ENERGIA ELÉTRICA (Art. 155, § 3º)</strong>.<br>• <strong>Adulteração do relógio medidor para registrar a menor:</strong> Configura <strong>ESTELIONATO (Art. 171)</strong>, pois a vítima (concessionária) é induzida a erro mediante fraude!"
+  },
+  {
+    "id": "fc-cp155-04",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 155, § 4º (Furto Qualificado): Quais são as 5 hipóteses clássicas de qualificadoras do § 4º (Pena: reclusão, 2 a 8 anos)?",
+    "a": "<strong>I -</strong> Destruição ou rompimento de obstáculo à subtração da coisa;<br><strong>II -</strong> Abuso de confiança, fraude, escalada ou destreza;<br><strong>III -</strong> Emprego de chave falsa (abrange gazuas, arames e cópias não autorizadas);<br><strong>IV -</strong> Concurso de <strong>duas ou mais pessoas</strong>;<br><strong>V -</strong> Contra bens que comprometam funcionamento de órgãos públicos ou serviços essenciais."
+  },
+  {
+    "id": "fc-cp155-05",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Foco Guardas Municipais",
+    "q": "CP, Art. 155, § 8º: Como é punida a subtração de fios, cabos de transmissão de energia elétrica, telefonia ou dados, e equipamentos ferroviários/metroviários?",
+    "a": "Pena de <strong>RECLUSÃO, de 2 a 8 anos, e multa</strong>.<br>Aplica-se em qualquer caso o privilégio do § 2º (se primário e pequeno valor).<br><em>Importância:</em> Trata-se de conduta combatida prioritariamente pelas Guardas Civis Municipais no patrimônio urbano."
+  },
+  {
+    "id": "fc-cp155-06",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 156 (Furto de Coisa Comum): Quem é o sujeito ativo, qual a condição de procedibilidade da ação penal e quando NÃO é punível (§ 2º)?",
+    "a": "• <strong>Sujeito ativo:</strong> O condômino, co-herdeiro ou sócio.<br>• <strong>Ação penal (§ 1º):</strong> Somente se procede <strong>MEDIANTE REPRESENTAÇÃO</strong>!<br>• <strong>Escusa absolutória (§ 2º):</strong> <strong>NÃO É PUNÍVEL</strong> a subtração de coisa comum <strong>FUNGÍVEL</strong> cujo valor não excede a quota a que tem direito o agente."
+  },
+  {
+    "id": "fc-cp155-07",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 157, caput vs § 1º: Qual a diferença fundamental entre o ROUBO PRÓPRIO (caput) e o ROUBO IMPRÓPRIO (§ 1º)? Cabe tentativa no roubo impróprio?",
+    "a": "• <strong>Roubo Próprio (caput):</strong> A violência ou grave ameaça é empregada <strong>ANTES ou DURANTE</strong> a subtração para conseguir retirar o bem da vítima.<br>• <strong>Roubo Impróprio (§ 1º):</strong> A violência ou grave ameaça é empregada <strong>LOGO DEPOIS</strong> de subtraída a coisa, para assegurar a impunidade do crime ou a detenção do bem.<br>• <strong>Tentativa:</strong> <strong>NÃO CABE TENTATIVA no roubo impróprio!</strong> Se empregou a violência após a posse, o roubo consumou; se não conseguiu subtrair, responde por furto tentado em concurso com lesão/ameaça."
+  },
+  {
+    "id": "fc-cp155-08",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Pegadinha Clássica IBAM (Armas no Roubo)",
+    "q": "CP, Art. 157: Qual a diferença de aumento de pena no Roubo praticado com: (a) Arma Branca; (b) Arma de Fogo Comum; e (c) Arma de Fogo de Uso Restrito ou Proibido?",
+    "a": "• <strong>a) Arma Branca (§ 2º, VII):</strong> Aumento de <strong>1/3 até metade (+1/3 a 1/2)</strong>.<br>• <strong>b) Arma de Fogo Comum (§ 2º-A, I):</strong> Aumento de <strong>dois terços (+2/3)</strong>.<br>• <strong>c) Arma de Fogo de Uso Restrito ou Proibido (§ 2º-B):</strong> Aplica-se a <strong>PENA EM DOBRO</strong> do caput (Lei 13.964/2019)!"
+  },
+  {
+    "id": "fc-cp155-09",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM (Latrocínio)",
+    "q": "CP, Art. 157, § 3º, II (Latrocínio): O Latrocínio vai a julgamento pelo Tribunal do Júri? E quando se considera consumado segundo a Súmula 610 do STF?",
+    "a": "<strong>NÃO VAI A JÚRI!</strong> É crime contra o patrimônio, de competência do <strong>Juiz Singular da Vara Criminal</strong> (Súmula 603 do STF).<br>• <strong>Pena:</strong> Reclusão, de <strong>24 a 30 anos</strong>, e multa.<br>• <strong>Súmula 610 do STF:</strong> <em>'Há crime de latrocínio, quando o homicídio se consuma, ainda que não realize o agente a subtração de bens da vítima.'</em>"
+  },
+  {
+    "id": "fc-cp155-10",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Diferença Conceitual IBAM",
+    "q": "CP, Art. 158, § 3º vs Art. 157, § 2º, V: Como diferenciar a Extorsão com restrição da liberdade ('sequestro relâmpago') do Roubo com restrição da liberdade?",
+    "a": "• <strong>Extorsão com restrição de liberdade (Art. 158, § 3º):</strong> A conduta da própria vítima é <strong>indispensável</strong> para a obtenção do proveito (ex: a vítima é obrigada a digitar senhas, fazer PIX ou transferências bancárias).<br>• <strong>Roubo com restrição de liberdade (Art. 157, § 2º, V):</strong> O agente <strong>subtrai diretamente</strong> o bem que já está acessível (ex: leva o carro com a vítima amarrada dentro)."
+  },
+  {
+    "id": "fc-cp155-11",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 159, caput e §§ 1º e 4º (Extorsão mediante Sequestro): Quais as qualificadoras do § 1º (pena 12 a 20 anos) e como funciona a Delação Premiada do § 4º?",
+    "a": "<strong>Qualificadoras do § 1º (Pena: reclusão, 12 a 20 anos):</strong><br>1) Se o sequestro dura <strong>mais de 24 (vinte e quatro) horas</strong>;<br>2) Se o sequestrado é <strong>menor de 18 ou maior de 60 anos</strong>;<br>3) Se cometido por bando ou quadrilha.<br><br><strong>Delação Premiada (§ 4º):</strong> Se o crime é cometido em concurso, o concorrente que o denunciar à autoridade, facilitando a libertação do sequestrado, terá a pena <strong>REDUZIDA DE 1/3 A 2/3</strong>."
+  },
+  {
+    "id": "fc-cf5-01",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 5º, XI (Inviolabilidade do Domicílio): A casa é asilo inviolável. Quais são as 4 ÚNICAS hipóteses em que se pode entrar sem o consentimento do morador, e qual delas exige expressamente o período DIURNO?",
+    "a": "<strong>A qualquer hora (dia ou noite):</strong><br>1) Flagrante delito;<br>2) Desastre;<br>3) Para prestar socorro.<br><br><strong>SOMENTE DURANTE O DIA:</strong><br>4) Por determinação judicial (mandado do juiz).<br><br><em>Pegadinha clássica IBAM:</em> Ordem de delegado, de secretário de segurança ou de fiscal NÃO autoriza entrada sem mandado judicial!"
+  },
+  {
+    "id": "fc-cf5-02",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 5º, XLII, XLIII e XLIV: Quais crimes são INAFIANÇÁVEIS, quais são IMPRESCRITÍVEIS e quais são INSUSCETÍVEIS DE GRAÇA OU ANISTIA?",
+    "a": "<strong>Todos os 5 são INAFIANÇÁVEIS (Regra do R-A-T-T-H):</strong><br>• Racismo<br>• Ação de grupos armados (civis/militares contra ordem constitucional)<br>• Tortura<br>• Tráfico ilícito de entorpecentes<br>• Terrorismo e Crimes Hediondos<br><br><strong>IMPRESCRITÍVEIS (apenas 2 - RA):</strong> Racismo e Ação de grupos armados.<br><strong>INSUSCETÍVEIS DE GRAÇA OU ANISTIA (3T + H):</strong> Tortura, Tráfico, Terrorismo e Hediondos."
+  },
+  {
+    "id": "fc-cf5-03",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 5º, XVI (Direito de Reunião): Todos podem reunir-se pacificamente, sem armas, em locais abertos ao público. É necessária AUTORIZAÇÃO da autoridade?",
+    "a": "<strong>NÃO É NECESSÁRIA AUTORIZAÇÃO!</strong><br>A Constituição diz que o direito de reunião <strong>independe de autorização</strong>.<br><br><strong>Requisitos constitucionais:</strong><br>1) Fins pacíficos e sem armas;<br>2) Em locais abertos ao público;<br>3) Não frustrar outra reunião anteriormente convocada para o mesmo local;<br>4) Exige apenas <strong>prévio aviso</strong> à autoridade competente (não é pedido de autorização!)."
+  },
+  {
+    "id": "fc-cf5-04",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 5º, LXI (Legalidade da Prisão): Em quais hipóteses uma pessoa pode ser presa no Brasil, ressalvadas as transgressões e crimes propriamente militares?",
+    "a": "Ninguém será preso senão em:<br>1) <strong>Flagrante delito</strong>; ou<br>2) Por <strong>ordem escrita e fundamentada de autoridade judiciária competente</strong> (mandado judicial).<br><br><em>Pegadinha IBAM:</em> A ordem do juiz não pode ser verbal; deve ser escrita e fundamentada."
+  },
+  {
+    "id": "fc-cf5-05",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Conceito Chave IBAM",
+    "q": "CF/88, Art. 5º, LXII a LXVI (Garantias do Preso): Quais são os direitos imediatos comunicados e assegurados ao preso na literalidade do Art. 5º?",
+    "a": "1) <strong>Comunicação imediata (LXII):</strong> ao juiz competente e à família do preso ou à pessoa por ele indicada;<br>2) <strong>Informação de direitos (LXIII):</strong> inclusive o de <strong>permanecer calado</strong>, sendo-lhe assegurada a assistência da família e de advogado;<br>3) <strong>Identificação dos responsáveis (LXIV):</strong> direito à identificação dos responsáveis por sua prisão ou por seu interrogatório policial;<br>4) <strong>Relaxamento imediato (LXV):</strong> a prisão ilegal será imediatamente relaxada pela autoridade judiciária."
+  },
+  {
+    "id": "fc-cf5-06",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 5º, Remédios Constitucionais: Diferencie o objeto e a gratuidade de (a) Habeas Corpus, (b) Habeas Data e (c) Mandado de Segurança.",
+    "a": "• <strong>Habeas Corpus (LXVIII):</strong> Protege a liberdade de locomoção (ir, vir e permanecer). <em>Gratuito!</em><br>• <strong>Habeas Data (LXXII):</strong> Assegura o conhecimento ou retificação de informações pessoais em registros de entidades governamentais/públicas. <em>Gratuito!</em><br>• <strong>Mandado de Segurança (LXIX):</strong> Protege direito líquido e certo não amparado por HC ou HD, contra ato ilegal ou abuso de poder de autoridade pública. <em>Não é gratuito!</em>"
+  },
+  {
+    "id": "fc-cf5-07",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Pegadinha de Texto IBAM",
+    "q": "CF/88, Art. 5º, XLVII (Penas Vedadas): Quais são as 5 espécies de penas terminantemente PROIBIDAS pela Constituição Federal?",
+    "a": "Não haverá penas:<br>a) <strong>De morte</strong> (salvo em caso de guerra declarada, nos termos do art. 84, XIX);<br>b) <strong>De caráter perpétuo</strong>;<br>c) <strong>De trabalhos forçados</strong>;<br>d) <strong>De banimento</strong>;<br>e) <strong>Cruéis</strong>.<br><br><em>Pegadinha IBAM:</em> Dizer que a pena de morte é proibida 'em qualquer hipótese'. Há exceção: guerra declarada!"
+  },
+  {
+    "id": "fc-cf5-08",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 5º, LVII e LVIII (Presunção de Inocência e Identificação Criminal): Qual o marco da presunção de inocência e quando o civilmente identificado é submetido a identificação criminal?",
+    "a": "• <strong>Presunção de Inocência (LVII):</strong> Ninguém será considerado culpado até o <strong>trânsito em julgado de sentença penal condenatória</strong>.<br>• <strong>Identificação Criminal (LVIII):</strong> O civilmente identificado <strong>NÃO será submetido a identificação criminal</strong>, salvo nas hipóteses previstas em lei (ex: documento rasurado, dúvida de identidade)."
+  },
+  {
+    "id": "fc-cf5-09",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Conceito Chave IBAM",
+    "q": "CF/88, Art. 5º, XII (Inviolabilidade das Comunicações): A quebra do sigilo telefônico para fins de investigação criminal pode ser autorizada por Delegado de Polícia?",
+    "a": "<strong>NÃO!</strong> A quebra do sigilo das comunicações telefônicas é de <strong>reserva de jurisdição</strong>: depende de <strong>ordem judicial</strong>, nas hipóteses e na forma que a lei estabelecer para fins de investigação criminal ou instrução processual penal.<br><em>Atenção:</em> O sigilo de correspondência e comunicações telegráficas/dados também é inviolável, salvo exceções legais."
+  },
+  {
+    "id": "fc-cf5-10",
+    "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
+    "level": "Pegadinha de Texto IBAM",
+    "q": "CF/88, Art. 5º, § 1º ao § 3º: Qual é o status dos Tratados Internacionais sobre Direitos Humanos aprovados em cada Casa do Congresso Nacional, em dois turnos, por três quintos dos votos?",
+    "a": "São equivalentes às <strong>EMENDAS CONSTITUCIONAIS</strong> (§ 3º).<br>Além disso, o § 1º prevê que: <em>'As normas definidoras dos direitos e garantias fundamentais têm <strong>aplicação imediata</strong>'</em>."
+  },
+  {
+    "id": "fc-cf6-01",
+    "deck": "CF/88 - Art. 6º (Direitos Sociais)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 6º, caput: Quais são os 11 Direitos Sociais previstos expressamente no rol do caput do Artigo 6º?",
+    "a": "São 11 direitos sociais:<br>1. <strong>Educação</strong><br>2. <strong>Saúde</strong><br>3. <strong>Alimentação</strong> (EC 64/10)<br>4. <strong>Trabalho</strong><br>5. <strong>Moradia</strong> (EC 26/00)<br>6. <strong>Transporte</strong> (EC 90/15)<br>7. <strong>Lazer</strong><br>8. <strong>Segurança</strong><br>9. <strong>Previdência social</strong><br>10. <strong>Proteção à maternidade e à infância</strong><br>11. <strong>Assistência aos desamparados</strong>.<br><br><em>Pegadinha IBAM:</em> A banca costuma incluir 'propriedade' ou 'liberdade' (que são do Art. 5º) para induzir a erro!"
+  },
+  {
+    "id": "fc-cf6-02",
+    "deck": "CF/88 - Art. 6º (Direitos Sociais)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 6º: Quais foram os 3 direitos sociais inseridos no caput por Emendas Constitucionais posteriores a 1988?",
+    "a": "• <strong>Moradia:</strong> inserida pela <strong>EC nº 26/2000</strong>;<br>• <strong>Alimentação:</strong> inserida pela <strong>EC nº 64/2010</strong>;<br>• <strong>Transporte:</strong> inserido pela <strong>EC nº 90/2015</strong>.<br><br><em>Dica de prova:</em> A Segurança Pública já constava no texto originário de 1988!"
+  },
+  {
+    "id": "fc-cf6-03",
+    "deck": "CF/88 - Art. 6º (Direitos Sociais)",
+    "level": "Novidade Legislativa IBAM",
+    "q": "CF/88, Art. 6º, Parágrafo único (EC 114/2021): O que diz o parágrafo único sobre a Renda Básica Familiar e quem tem prioridade?",
+    "a": "<em>'Todo brasileiro em situação de vulnerabilidade social terá direito a uma <strong>renda básica familiar</strong>, garantida pelo poder público em programa permanente de transferência de renda, cujas normas e requisitos de acesso serão determinados em lei, observada a legislação fiscal e orçamentária.'</em><br><br>Prioridade dada a famílias com crianças e adolescentes!"
+  },
+  {
+    "id": "fc-cf144-01",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 144, caput: De quem é o DEVER, de quem é o DIREITO e de quem é a RESPONSABILIDADE da segurança pública? E quais os fins visados?",
+    "a": "A segurança pública é:<br>• <strong>DEVER do Estado</strong>;<br>• <strong>DIREITO de todos</strong>;<br>• <strong>RESPONSABILIDADE de todos</strong>.<br><br><strong>Fins visados:</strong> Preservação da <strong>ordem pública</strong> e da <strong>incolumidade das pessoas e do patrimônio</strong>."
+  },
+  {
+    "id": "fc-cf144-02",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CF/88, Art. 144, caput (Incisos I a VI): Quais são os 6 órgãos taxativos elencados nos incisos do caput? As Guardas Municipais constam nos incisos do caput?",
+    "a": "<strong>Incisos I a VI do caput:</strong><br>I - Polícia Federal;<br>II - Polícia Rodoviária Federal;<br>III - Polícia Ferroviária Federal;<br>IV - Polícias Civis;<br>V - Polícias Militares e Corpos de Bombeiros Militares;<br>VI - <strong>Polícias Penais</strong> federal, estaduais e distrital (incluída pela EC 104/2019).<br><br><strong>ATENÇÃO MÁXIMA IBAM:</strong> As Guardas Municipais <strong>NÃO constam nos incisos do caput</strong>; estão previstas expressamente no <strong>§ 8º do Art. 144</strong>!"
+  },
+  {
+    "id": "fc-cf144-03",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Altíssima Cobrança IBAM (Obrigatório GCM)",
+    "q": "CF/88, Art. 144, § 8º: Qual é a redação LITERAL e integral do parágrafo 8º sobre a criação e destinação das Guardas Municipais?",
+    "a": "<em>'§ 8º Os Municípios <strong>poderão constituir guardas municipais</strong> destinadas à <strong>proteção de seus bens, serviços e instalações</strong>, conforme dispuser a lei.'</em><br><br><strong>Pegadinhas frequentes IBAM:</strong><br>1) 'Poderão' (faculdade do município, não imposição obrigatória);<br>2) Proteção de 'bens, serviços e instalações' (a banca troca por 'policiamento judiciário' ou omite um dos termos);<br>3) Regulamentada federalmente pela Lei nº 13.022/2014!"
+  },
+  {
+    "id": "fc-cf144-04",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 144, § 1º, IV: Qual órgão exerce, COM EXCLUSIVIDADE, as funções de polícia judiciária da União?",
+    "a": "A <strong>POLÍCIA FEDERAL (PF)</strong>.<br>Texto literal do § 1º, IV: <em>'exercer, <strong>com exclusividade</strong>, as funções de polícia judiciária da União'</em>.<br><br><em>Pegadinha IBAM:</em> As polícias civis exercem função de polícia judiciária estadual (ressalvada a da União), mas a palavra 'com exclusividade' na CF aplica-se à PF!"
+  },
+  {
+    "id": "fc-cf144-05",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Conceito Chave IBAM",
+    "q": "CF/88, Art. 144, §§ 4º e 5º: Diferencie as atribuições constitucionais das Polícias Civis e das Polícias Militares.",
+    "a": "• <strong>Polícias Civis (§ 4º):</strong> Dirigidas por delegados de carreira, incumbem as funções de <strong>polícia judiciária</strong> e a <strong>apuração de infrações penais, exceto as militares</strong> (ressalvada a competência da União).<br>• <strong>Polícias Militares (§ 5º):</strong> Incumbem a <strong>polícia ostensiva</strong> e a <strong>preservação da ordem pública</strong>.<br>• <strong>Bombeiros Militares (§ 5º):</strong> Além das atribuições em lei, a execução de atividades de <strong>defesa civil</strong>."
+  },
+  {
+    "id": "fc-cf144-06",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Novidade Constitucional IBAM",
+    "q": "CF/88, Art. 144, § 5º-A e § 6º (EC 104/2019): Qual a atribuição da Polícia Penal e a quem ela se subordina nos Estados e DF?",
+    "a": "• <strong>Atribuição (§ 5º-A):</strong> Vinculadas ao órgão administrador do sistema penal da unidade federativa, cabe-lhes a <strong>segurança dos estabelecimentos penais</strong>.<br>• <strong>Subordinação (§ 6º):</strong> Juntamente com a PM, CBM e Polícia Civil, as Polícias Penais estaduais e distrital subordinam-se aos <strong>GOVERNADORES dos Estados, do Distrito Federal e dos Territórios</strong>."
+  },
+  {
+    "id": "fc-cf144-07",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 144, § 6º: Quais corporações são consideradas FORÇAS AUXILIARES E RESERVA DO EXÉRCITO?",
+    "a": "As <strong>Polícias Militares</strong> e os <strong>Corpos de Bombeiros Militares</strong>.<br><br><em>Pegadinha IBAM:</em> As Polícias Civis, Guardas Municipais e Polícias Penais <strong>NÃO</strong> são forças auxiliares do Exército na letra da Constituição!"
+  },
+  {
+    "id": "fc-cf144-08",
+    "deck": "CF/88 - Art. 144 (Segurança Pública)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CF/88, Art. 144, § 10 (Segurança Viária — EC 82/2014): O que compreende a segurança viária e a quem ela compete nos Municípios?",
+    "a": "• <strong>Compreende (inciso I):</strong> A <strong>educação, engenharia e fiscalização de trânsito</strong>, além de outras atividades previstas em lei, que assegurem o direito à mobilidade urbana eficiente.<br>• <strong>Competência (inciso II):</strong> Nos Estados, DF e Municípios, compete aos respectivos <strong>órgãos ou entidades executivos e seus agentes de trânsito, estruturados em Carreira</strong>, na forma da lei."
+  },
+  {
+    "id": "fc-cp121-01",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 121, caput, § 1º e § 2º: Quais são as penas do Homicídio Simples e do Homicídio Qualificado? E qual a fração de redução do Homicídio Privilegiado?",
+    "a": "• <strong>Homicídio Simples (caput):</strong> Reclusão, de <strong>6 a 20 anos</strong>.<br>• <strong>Homicídio Qualificado (§ 2º):</strong> Reclusão, de <strong>12 a 30 anos</strong>.<br>• <strong>Homicídio Privilegiado (§ 1º):</strong> O juiz pode reduzir a pena de <strong>1/6 (um sexto) a 1/3 (um terço)</strong> se o agente agiu por motivo de relevante valor social ou moral, ou sob o domínio de violenta emoção logo em seguida a injusta provocação da vítima."
+  },
+  {
+    "id": "fc-cp121-02",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM (Obrigatório GCM)",
+    "q": "CP, Art. 121, § 2º, VII, 'a' (Homicídio Funcional): Em que consiste essa qualificadora e quem são os sujeitos protegidos?",
+    "a": "Consiste em matar autoridade ou agente descrito nos <strong>arts. 142 e 144 da CF/88 (inclui expressamente Guardas Municipais!)</strong>, integrantes do sistema prisional e da Força Nacional de Segurança Pública:<br>1) <strong>No exercício da função</strong> ou <strong>em decorrência dela</strong>;<br>2) Ou contra seu <strong>cônjuge, companheiro ou parente consanguíneo até 3º grau</strong>, em razão dessa condição.<br>Pena: Reclusão, de 12 a 30 anos."
+  },
+  {
+    "id": "fc-cp121-03",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Novidade Legislativa Máxima (Lei 14.994/2024)",
+    "q": "CP, Art. 121-A (Lei 14.994/2024): O FEMINICÍDIO ainda é qualificadora do Art. 121 ou virou crime autônomo? Qual a sua pena e elementares?",
+    "a": "<strong>PASSOU A SER CRIME AUTÔNOMO NO ART. 121-A!</strong> (O inciso VI do § 2º do art. 121 foi revogado).<br>• <strong>Pena:</strong> Reclusão, de <strong>20 a 40 anos</strong>.<br>• <strong>Condição (§ 1º):</strong> Matar mulher por razões da condição do sexo feminino, que envolve:<br>I - Violência doméstica e familiar; ou<br>II - Menosprezo ou discriminação à condição de mulher.<br>• <strong>§ 3º:</strong> As elementares comunicam-se ao coautor ou partícipe!"
+  },
+  {
+    "id": "fc-cp121-04",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Novidade Legislativa Máxima (Lei 14.994/2024)",
+    "q": "CP, Art. 121-A, § 2º: Em quais hipóteses a pena do Feminicídio é aumentada de 1/3 até a metade?",
+    "a": "Aumenta de 1/3 até 1/2 se praticado:<br>I - Durante a gestação ou nos <strong>3 meses posteriores ao parto</strong>, ou se a vítima é mãe/responsável por criança, adolescente ou PcD;<br>II - Contra menor de 14, maior de 60 anos ou pessoa com deficiência/doença degenerativa;<br>III - Na presença <strong>física ou virtual</strong> de descendente ou ascendente da vítima;<br>IV - Em <strong>descumprimento de medidas protetivas de urgência</strong> da Lei Maria da Penha;<br>V - Com veneno, fogo, asfixia, emboscada ou arma de fogo de uso restrito/proibido."
+  },
+  {
+    "id": "fc-cp121-05",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Novidade Legislativa 2026",
+    "q": "CP, Art. 121-B (Vicaricídio — Lei 15.384/2026): O que é o crime de Vicaricídio e qual a sua pena?",
+    "a": "<em>'Matar descendente, ascendente, dependente, enteado ou pessoa sob guarda ou responsabilidade direta da mulher, com o fim específico de causar-lhe sofrimento, punição ou controle, no contexto de violência doméstica e familiar.'</em><br>• <strong>Pena:</strong> Reclusão, de <strong>20 a 40 anos</strong>."
+  },
+  {
+    "id": "fc-cp121-06",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 121, §§ 3º, 4º e 5º: Qual a pena do Homicídio Culposo e quando o juiz pode aplicar o PERDÃO JUDICIAL?",
+    "a": "• <strong>Pena do Homicídio Culposo (§ 3º):</strong> Detenção, de <strong>1 a 3 anos</strong>.<br>• <strong>Perdão Judicial (§ 5º):</strong> O juiz poderá deixar de aplicar a pena se as consequências da infração atingirem o próprio agente de forma tão grave que a sanção penal se torne desnecessária.<br><br><em>Pegadinha IBAM:</em> Perdão judicial aplica-se exclusivamente ao homicídio culposo, jamais ao doloso!"
+  },
+  {
+    "id": "fc-cp121-07",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 122, §§ 6º e 7º (Suicídio e Automutilação): Se o agente induz/instiga/auxilia menor de 14 anos ou quem não tem discernimento, por qual crime ele responde se resultar (a) lesão gravíssima ou (b) morte?",
+    "a": "• <strong>Se resulta Lesão Gravíssima (§ 6º):</strong> Responde pelo crime de <strong>Lesão Corporal Gravíssima (Art. 129, § 2º)</strong>.<br>• <strong>Se resulta Morte (§ 7º):</strong> Responde diretamente pelo crime de <strong>HOMICÍDIO (Art. 121)</strong>!<br><br><em>Fundamento:</em> O menor de 14 anos não tem capacidade jurídica de consentir, equiparando-se o ato a execução de homicídio pelo indutor."
+  },
+  {
+    "id": "fc-cp121-08",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 123 (Infanticídio): Quais são os requisitos específicos que configuram o Infanticídio e qual a sua pena?",
+    "a": "<em>'Matar, <strong>sob a influência do estado puerperal</strong>, o <strong>próprio filho</strong>, <strong>durante o parto ou logo após</strong>.'</em><br>• <strong>Pena:</strong> Detenção, de <strong>2 a 6 anos</strong>.<br><br><em>Pegadinha IBAM:</em> É crime próprio da mãe. Exige a influência do estado puerperal e o aspecto temporal (durante ou logo após o parto)."
+  },
+  {
+    "id": "fc-cp121-09",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CP, Arts. 124, 125 e 126 (Aborto): Diferencie as penas do aborto provocado pela gestante, do provocado por terceiro sem consentimento e com consentimento.",
+    "a": "• <strong>Art. 124 (Pela gestante ou com seu consentimento):</strong> Detenção, de <strong>1 a 3 anos</strong>.<br>• <strong>Art. 125 (Por terceiro SEM consentimento):</strong> Reclusão, de <strong>3 a 10 anos</strong> (o mais grave!).<br>• <strong>Art. 126 (Por terceiro COM consentimento):</strong> Reclusão, de <strong>1 a 4 anos</strong>.<br><br><em>Exceção do Art. 126, parágrafo único:</em> Se a gestante é menor de 14 anos ou incapaz, a pena passa a ser a do Art. 125 (3 a 10 anos)!"
+  },
+  {
+    "id": "fc-cp121-10",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 128: Quais são as 2 hipóteses legais expressas no Código Penal em que NÃO SE PUNE o aborto praticado por médico?",
+    "a": "<strong>I - Aborto Necessário (Terapêutico):</strong> Se não há outro meio de salvar a vida da gestante;<br><strong>II - Aborto no caso de gravidez resultante de estupro (Humanitário/Sentimental):</strong> Se a gravidez resulta de estupro e o aborto é precedido de consentimento da gestante (ou de seu representante legal, se incapaz).<br><br><em>(Nota: O STF na ADPF 54 também autorizou a antecipação terapêutica do parto em feto anencéfalo).</em>"
+  },
+  {
+    "id": "fc-cp121-11",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM (Mnemônico)",
+    "q": "CP, Art. 129, § 1º: Quais são as 4 hipóteses legais que caracterizam a Lesão Corporal GRAVE (Pena: reclusão, 1 a 5 anos)?",
+    "a": "<strong>Mnemônico P - I - D - A:</strong><br>• <strong>P</strong>erigo de vida (inciso II);<br>• <strong>I</strong>ncapacidade para as ocupações habituais por <strong>mais de 30 dias</strong> (inciso I);<br>• <strong>D</strong>ebilidade permanente de membro, sentido ou função (inciso III);<br>• <strong>A</strong>celeração de parto (inciso IV)."
+  },
+  {
+    "id": "fc-cp121-12",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM (Mnemônico)",
+    "q": "CP, Art. 129, § 2º: Quais são as 5 hipóteses legais que caracterizam a Lesão Corporal GRAVÍSSIMA (Pena: reclusão, 2 a 8 anos)?",
+    "a": "<strong>Mnemônico P - E - I - D - A:</strong><br>• <strong>P</strong>erda ou inutilização de membro, sentido ou função (inciso III);<br>• <strong>E</strong>nfermidade incurável (inciso II);<br>• <strong>I</strong>ncapacidade permanente para o trabalho (inciso I);<br>• <strong>D</strong>eformidade permanente (inciso IV);<br>• <strong>A</strong>borto (inciso V).<br><br><em>Pegadinha clássica IBAM:</em> Na grave há 'debilidade' e 'aceleração de parto'; na gravíssima há 'perda/inutilização' e 'aborto'!"
+  },
+  {
+    "id": "fc-cp121-13",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 129, § 3º: O que caracteriza a Lesão Corporal SEGUIDA DE MORTE e qual a sua natureza jurídica?",
+    "a": "Configura-se quando resulta morte e as circunstâncias evidenciam que o agente <strong>NÃO quis o resultado, nem assumiu o risco de produzi-lo</strong>.<br>• <strong>Pena:</strong> Reclusão, de <strong>4 a 12 anos</strong>.<br>• <strong>Natureza:</strong> Crime <strong>preterdoloso</strong> (dolo na lesão corporal inicial + culpa na morte decorrente)."
+  },
+  {
+    "id": "fc-cp121-14",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Novidade Legislativa Máxima (Lei 14.994/2024)",
+    "q": "CP, Art. 129, §§ 9º e 13: Qual é a pena atual da Lesão Corporal em Violência Doméstica (§ 9º) e da Lesão contra a mulher por razões da condição do sexo feminino (§ 13)?",
+    "a": "Em ambas as hipóteses (§ 9º e § 13), a pena foi substancialmente aumentada pela Lei nº 14.994/2024 para:<br><strong>RECLUSÃO, de 2 (dois) a 5 (cinco) anos!</strong><br><br><em>Pegadinha IBAM:</em> Não é mais detenção de 3 meses a 3 anos; agora é pena de RECLUSÃO de 2 a 5 anos!"
+  },
+  {
+    "id": "fc-cp121-15",
+    "deck": "CP - Arts. 121 a 129 (Pessoa)",
+    "level": "Altíssima Cobrança IBAM (Obrigatório GCM)",
+    "q": "CP, Art. 129, § 12, I, 'a': Em quanto aumenta a pena se a lesão dolosa for praticada contra agentes do Art. 144 da CF/88 (como a GCM)?",
+    "a": "Aumenta-se de <strong>1/3 (um terço) a 2/3 (dois terços)</strong> se a lesão dolosa for praticada contra autoridade ou agente dos arts. 142 e 144 da CF/88, sistema prisional ou Força Nacional no exercício da função ou em decorrência dela, ou contra parente até 3º grau nessa condição."
+  },
+  {
+    "id": "fc-cp146-01",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 146, §§ 1º e 3º (Constrangimento Ilegal): Quando a pena é aplicada cumulativamente e em dobro? E quais as 2 hipóteses que NÃO configuram o crime?",
+    "a": "• <strong>Aumento de pena (§ 1º - cumulativa e em dobro):</strong> Se para a execução se reúnem <strong>mais de 3 pessoas</strong> (ou seja, no mínimo 4!), ou se há <strong>emprego de armas</strong>.<br>• <strong>NÃO constitui crime (§ 3º):</strong><br>I - A intervenção médica ou cirúrgica sem consentimento justificada por <strong>iminente perigo de vida</strong>;<br>II - A <strong>coação exercida para impedir suicídio</strong>."
+  },
+  {
+    "id": "fc-cp146-02",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Novidade Legislativa (Lei 14.811/2024)",
+    "q": "CP, Art. 146-A (Bullying e Cyberbullying): Qual a diferença brutal de penas entre a Intimidação Sistemática presencial (caput) e a virtual (parágrafo único)?",
+    "a": "• <strong>Bullying presencial (caput):</strong> Pena apenas de <strong>MULTA</strong> (se o fato não constituir crime mais grave).<br>• <strong>Cyberbullying (parágrafo único - meio digital/redes/jogos/tempo real):</strong> Pena de <strong>RECLUSÃO, de 2 a 4 anos, e MULTA</strong>.<br><br><em>Pegadinha IBAM:</em> Ambos os tipos são expressamente subsidiários!"
+  },
+  {
+    "id": "fc-cp146-03",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Novidade Legislativa Máxima (Lei 14.994/2024)",
+    "q": "CP, Art. 147, §§ 1º e 2º (Ameaça): Qual a regra geral da Ação Penal na Ameaça e o que mudou quando praticada contra a mulher por razões do sexo feminino?",
+    "a": "• <strong>Regra geral (§ 2º):</strong> Ação penal <strong>PÚBLICA CONDICIONADA À REPRESENTAÇÃO</strong>.<br>• <strong>Contra a mulher por razões do sexo feminino (§ 1º e § 2º):</strong><br>1) A pena é aplicada <strong>EM DOBRO</strong> (detenção de 2 meses a 1 ano, ou multa);<br>2) A ação penal passa a ser <strong>PÚBLICA INCONDICIONADA</strong> (dispensa representação!)."
+  },
+  {
+    "id": "fc-cp146-04",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Frequente em Prova IBAM",
+    "q": "CP, Art. 147-A (Perseguição / Stalking): O crime pode se consumar com apenas um único ato isolado de perseguição? E qual a ação penal?",
+    "a": "<strong>NÃO! É crime habitual!</strong> O caput exige: <em>'Perseguir alguém, <strong>reiteradamente</strong> e por qualquer meio...'</em> Um ato isolado não tipifica o art. 147-A.<br>• <strong>Ação penal (§ 3º):</strong> Somente se procede <strong>mediante representação</strong>.<br>• <strong>Majorante (§ 1º):</strong> Aumenta de metade se contra criança, adolescente, idoso, contra mulher ou concurso de 2 ou mais pessoas / emprego de arma."
+  },
+  {
+    "id": "fc-cp146-05",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Novidade Legislativa 2025",
+    "q": "CP, Art. 147-B (Violência Psicológica contra a Mulher): O que diz a majorante do Parágrafo único incluída pela Lei 15.123/2025?",
+    "a": "A pena é <strong>aumentada de metade (+1/2)</strong> se o crime é cometido mediante o uso de <strong>inteligência artificial (IA)</strong> ou de qualquer outro recurso tecnológico que altere imagem ou som da vítima (deepfake)."
+  },
+  {
+    "id": "fc-cp146-06",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 148, § 1º (Seqüestro e Cárcere Privado): Quais são as 5 qualificadoras que elevam a pena de 1-3 anos para RECLUSÃO DE 2 A 5 ANOS?",
+    "a": "A pena é de reclusão de 2 a 5 anos se:<br>I - A vítima é <strong>ascendente, descendente, cônjuge ou companheiro do agente ou maior de 60 anos</strong>;<br>II - Praticado mediante <strong>internação em casa de saúde ou hospital</strong>;<br>III - A privação da liberdade <strong>dura mais de 15 (quinze) dias</strong>;<br>IV - Praticado contra <strong>menor de 18 anos</strong>;<br>V - Praticado com <strong>fins libidinosos</strong>.<br><br><em>Pegadinha IBAM:</em> Trocar 'mais de 15 dias' por 'mais de 30 dias'!"
+  },
+  {
+    "id": "fc-cp146-07",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Conceito Chave em Flagrante",
+    "q": "CP, Art. 148: Qual é a classificação doutrinária do Seqüestro e Cárcere Privado quanto ao momento consumativo e sua repercussão no Flagrante Delito?",
+    "a": "É um <strong>CRIME PERMANENTE</strong>! A consumação se prolonga no tempo enquanto a vítima estiver privada de sua liberdade.<br><strong>Repercussão no Flagrante (Art. 303 do CPP):</strong> Enquanto durar a permanência, o agente está em estado de flagrante delito a qualquer hora do dia ou da noite, permitindo a prisão imediata!"
+  },
+  {
+    "id": "fc-cp146-08",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 150, caput e § 1º (Violação de Domicílio): Quais circunstâncias qualificam a violação de domicílio (Pena: detenção de 6 meses a 2 anos)?",
+    "a": "Se o crime é cometido:<br>1) <strong>Durante a noite</strong>;<br>2) Em <strong>lugar ermo</strong>;<br>3) Com <strong>emprego de violência ou de arma</strong>; ou<br>4) Por <strong>duas ou mais pessoas</strong>.<br><br>Pena: Detenção, de 6 meses a 2 anos, além da pena correspondente à violência."
+  },
+  {
+    "id": "fc-cp146-09",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 150, § 3º: Em quais hipóteses a entrada ou permanência em casa alheia ou suas dependências NÃO CONSTITUI CRIME?",
+    "a": "Não constitui crime a entrada ou permanência:<br><strong>I - Durante o dia:</strong> com observância das formalidades legais, para <strong>efetuar prisão ou outra diligência</strong>;<br><strong>II - A QUALQUER HORA do dia ou da noite:</strong> quando algum <strong>crime está sendo ali praticado ou na iminência de o ser</strong>."
+  },
+  {
+    "id": "fc-cp146-10",
+    "deck": "CP - Arts. 146 a 150 (Liberdade e Domicílio)",
+    "level": "Altíssima Cobrança IBAM (Conceito de Casa)",
+    "q": "CP, Art. 150, §§ 4º e 5º: O que COMPREENDE e o que NÃO COMPREENDE a expressão 'casa' para fins de Violação de Domicílio?",
+    "a": "<strong>COMPREENDE 'casa' (§ 4º):</strong><br>I - Qualquer compartimento habitado;<br>II - <strong>Aposento ocupado de habitação coletiva</strong> (ex: quarto de hotel/pousada ocupado por hóspede);<br>III - Compartimento <strong>não aberto ao público</strong> onde alguém exerce profissão/atividade (ex: escritório, consultório fechado).<br><br><strong>NÃO COMPREENDE 'casa' (§ 5º):</strong><br>I - Hospedaria, estalagem ou habitação coletiva <strong>enquanto aberta</strong> (salvo o quarto ocupado);<br>II - <strong>Taverna, casa de jogo e outras do mesmo gênero</strong>."
+  }
+];
+
+
+    // =========================================================================
+    // 4. ESTADO PERSISTENTE NO LOCALSTORAGE & ESTRUTURA DE ARQUIVOS DECUPADOS
+    // =========================================================================
+    const STORAGE_KEY = "gcm_guarulhos_study_v2";
+
+    // Sequência estrita do Guia de Legislação para os Arquivos Decupados já gerados
+    const DECUPADO_TOPICS_ORDER = [
+      { key: "01. CF/88 — Artigo 5º", short: "Art. 5º CF/88" },
+      { key: "02. CF/88 — Artigo 6º", short: "Art. 6º CF/88" },
+      { key: "03. CF/88 — Artigo 144", short: "Art. 144 CF/88" },
+      { key: "04. CP — Arts. 121 a 129", short: "CP Arts. 121-129" },
+      { key: "05. CP — Arts. 146 a 150", short: "CP Arts. 146-150" },
+      { key: "06. CP — Arts. 155 a 159", short: "CP Arts. 155-159" },
+      { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
+    ];
+
+    function normalizeDeckToDecupado(rawDeck) {
+      if (!rawDeck) return "Conteúdo ainda não estudado";
+      if (rawDeck.includes("Art. 5º") || rawDeck.includes("Artigo 5º")) return "01. CF/88 — Artigo 5º";
+      if (rawDeck.includes("Art. 6º") || rawDeck.includes("Artigo 6º")) return "02. CF/88 — Artigo 6º";
+      if (rawDeck.includes("Art. 144") || rawDeck.includes("Artigo 144")) return "03. CF/88 — Artigo 144";
+      if (rawDeck.includes("121 a 129")) return "04. CP — Arts. 121 a 129";
+      if (rawDeck.includes("146 a 150")) return "05. CP — Arts. 146 a 150";
+      if (rawDeck.includes("155 a 159")) return "06. CP — Arts. 155 a 159";
+      if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
+      return "Conteúdo ainda não estudado";
+    }
+
+    let appState = {
+      checks: {
+        "cf-art5": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cf-art6": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cf-art144": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cp-121-129": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cp-146-150": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false }
+      },
+      // Registro diário com os 3 itens obrigatórios para ficar verde
+      calDaysData: {
+        1: { title: "CF/88: Arts. 5º e 6º", resumo: true, questoes: true },
+        2: { title: "CF Art. 144 + CP Arts. 121-129", resumo: true, questoes: true },
+        3: { title: "CP Arts. 146 a 150", resumo: true, questoes: true },
+        4: { title: "CP Arts. 155 a 159", resumo: true, questoes: true }
+      },
+      selectedDecks: [
+        "01. CF/88 — Artigo 5º",
+        "02. CF/88 — Artigo 6º",
+        "03. CF/88 — Artigo 144",
+        "04. CP — Arts. 121 a 129",
+        "05. CP — Arts. 146 a 150",
+        "06. CP — Arts. 155 a 159",
+        "Conteúdo ainda não estudado"
+      ],
+      fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
+      fcErrorCounts: {},  // id -> número de vezes que errou
+      fcStatsByCard: {},  // id -> { hits: 0, misses: 0 }
+      sessionHistory: [], // [{ date, topics, total, hits, misses, pctHit, pctMiss }]
+      customCards: [],
+      lastSyncTimestamp: "2026-11-05T09:10:00-03:00"
+    };
+
+
+    // =========================================================================
+    // 4.1. MOTOR DE SINCRONIZAÇÃO EM NUVEM (FIREBASE REALTIME DB) & PWA
+    // =========================================================================
+    const CLOUD_CONFIG_KEY = "gcm_cloud_sync_config";
+    let cloudConfig = {
+      firebaseUrl: "",
+      firebaseAuth: "",
+      enabled: false
+    };
+
+    function loadCloudConfig() {
+      try {
+        const raw = localStorage.getItem(CLOUD_CONFIG_KEY);
+        if (raw) {
+          cloudConfig = { ...cloudConfig, ...JSON.parse(raw) };
+          if (cloudConfig.firebaseUrl) {
+            cloudConfig.enabled = true;
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+      updateCloudUI();
+    }
+
+    function saveCloudConfig() {
+      try {
+        localStorage.setItem(CLOUD_CONFIG_KEY, JSON.stringify(cloudConfig));
+      } catch (e) {
+        console.error(e);
+      }
+      updateCloudUI();
+    }
+
+    function updateCloudUI(state, text) {
+      const pill = document.getElementById("cloud-sync-pill");
+      const txtStatus = document.getElementById("cloud-txt-status");
+      const txtSub = document.getElementById("cloud-txt-sub");
+      if (!pill || !txtStatus || !txtSub) return;
+
+      pill.classList.remove("synced", "syncing");
+
+      if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) {
+        txtStatus.textContent = "Modo Local (Offline)";
+        txtSub.textContent = "Toque p/ conectar nuvem";
+        return;
+      }
+
+      if (state === "syncing") {
+        pill.classList.add("syncing");
+        txtStatus.textContent = "Sincronizando...";
+        txtSub.textContent = text || "Gravando na nuvem";
+      } else if (state === "synced") {
+        pill.classList.add("synced");
+        txtStatus.textContent = "Nuvem Conectada";
+        txtSub.textContent = text || "Progresso sincronizado";
+      } else if (state === "error") {
+        txtStatus.textContent = "Erro de Conexão";
+        txtSub.textContent = text || "Modo offline ativo";
+      } else {
+        pill.classList.add("synced");
+        txtStatus.textContent = "Nuvem Conectada";
+        txtSub.textContent = "Pronto p/ sincronizar";
+      }
+    }
+
+    let cloudPushTimer = null;
+    function scheduleCloudPush() {
+      if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
+      updateCloudUI("syncing", "Salvando alterações...");
+      if (cloudPushTimer) clearTimeout(cloudPushTimer);
+      cloudPushTimer = setTimeout(() => {
+        pushStateToCloud();
+      }, 500);
+    }
+
+    async function pushStateToCloud() {
+      if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
+      try {
+        let url = cloudConfig.firebaseUrl.trim();
+        if (url.endsWith("/")) url = url.slice(0, -1);
+        let endpoint = url + "/gcm_study_state.json";
+        if (cloudConfig.firebaseAuth) {
+          endpoint += "?auth=" + encodeURIComponent(cloudConfig.firebaseAuth.trim());
+        }
+
+        const payload = JSON.stringify({
+          ...appState,
+          lastSyncTimestamp: new Date().toISOString()
+        });
+
+        const res = await fetch(endpoint, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: payload
+        });
+
+        if (res.ok) {
+          const time = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+          updateCloudUI("synced", "Sincronizado às " + time);
+        } else {
+          updateCloudUI("error", "HTTP " + res.status);
+        }
+      } catch (err) {
+        console.warn("Falha no push da nuvem (offline):", err);
+        updateCloudUI("error", "Gravado localmente");
+      }
+    }
+
+    async function pullStateFromCloud(silent = false) {
+      if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
+      try {
+        if (!silent) updateCloudUI("syncing", "Puxando progresso...");
+        let url = cloudConfig.firebaseUrl.trim();
+        if (url.endsWith("/")) url = url.slice(0, -1);
+        let endpoint = url + "/gcm_study_state.json";
+        if (cloudConfig.firebaseAuth) {
+          endpoint += "?auth=" + encodeURIComponent(cloudConfig.firebaseAuth.trim());
+        }
+
+        const res = await fetch(endpoint);
+        if (res.ok) {
+          const cloudData = await res.json();
+          if (cloudData && typeof cloudData === "object") {
+            smartMergeCloudState(cloudData);
+            const time = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+            updateCloudUI("synced", "Atualizado às " + time);
+          }
+        }
+      } catch (err) {
+        console.warn("Falha ao puxar da nuvem:", err);
+        if (!silent) updateCloudUI("error", "Não foi possível puxar");
+      }
+    }
+
+    function smartMergeCloudState(cloudData) {
+      if (!cloudData) return;
+      // Mescla inteligente: mantém o maior número de acertos, erros e dias marcados
+      appState.checks = { ...appState.checks, ...(cloudData.checks || {}) };
+      appState.calDaysData = { ...appState.calDaysData, ...(cloudData.calDaysData || {}) };
+      appState.fcRatings = { ...appState.fcRatings, ...(cloudData.fcRatings || {}) };
+      appState.fcErrorCounts = { ...appState.fcErrorCounts, ...(cloudData.fcErrorCounts || {}) };
+      appState.fcStatsByCard = { ...appState.fcStatsByCard, ...(cloudData.fcStatsByCard || {}) };
+      
+      // Histórico de sessões (combina sem duplicar exatamente na mesma data)
+      if (Array.isArray(cloudData.sessionHistory)) {
+        const existingDates = new Set((appState.sessionHistory || []).map(s => s.date));
+        cloudData.sessionHistory.forEach(s => {
+          if (!existingDates.has(s.date)) {
+            appState.sessionHistory.push(s);
+          }
+        });
+      }
+
+      saveState(true); // salva no localStorage sem re-disparar push imediato
+      renderChecklist();
+      renderCalendar();
+      renderDecksSidebar();
+      rebuildFilteredCards();
+      updateKPIs();
+    }
+
+    // MODAL HANDLERS
+    function openCloudModal() {
+      const modal = document.getElementById("cloud-modal");
+      if (!modal) return;
+      document.getElementById("cfg-firebase-url").value = cloudConfig.firebaseUrl || "";
+      document.getElementById("cfg-firebase-auth").value = cloudConfig.firebaseAuth || "";
+      
+      // Atualiza URL e QR code
+      const curUrl = window.location.href;
+      const urlInput = document.getElementById("cur-url-input");
+      if (urlInput) urlInput.value = curUrl;
+      const qrImg = document.getElementById("qr-img");
+      if (qrImg) {
+        qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(curUrl);
+      }
+
+      modal.classList.add("active");
+    }
+
+    function closeCloudModal(e) {
+      const modal = document.getElementById("cloud-modal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchModalTab(tabId, btn) {
+      document.querySelectorAll(".modal-tab-content").forEach(el => el.classList.remove("active"));
+      document.querySelectorAll(".modal-tab-btn").forEach(el => el.classList.remove("active"));
+      const target = document.getElementById("modaltab-" + tabId);
+      if (target) target.classList.add("active");
+      if (btn) btn.classList.add("active");
+    }
+
+    async function saveAndTestCloudConfig() {
+      const urlInput = document.getElementById("cfg-firebase-url").value.trim();
+      const authInput = document.getElementById("cfg-firebase-auth").value.trim();
+      const statusEl = document.getElementById("cloud-test-status");
+
+      if (!urlInput) {
+        cloudConfig.firebaseUrl = "";
+        cloudConfig.firebaseAuth = "";
+        cloudConfig.enabled = false;
+        saveCloudConfig();
+        statusEl.innerHTML = '<span style="color:#f59e0b;">⚙️ Modo nuvem desativado. Usando apenas armazenamento local.</span>';
+        return;
+      }
+
+      statusEl.innerHTML = '<span style="color:#38bdf8;">🔄 Testando conexão com Firebase...</span>';
+
+      try {
+        let url = urlInput.replace(/\/+$/, "");
+        let testEndpoint = url + "/test_ping.json";
+        if (authInput) testEndpoint += "?auth=" + encodeURIComponent(authInput);
+
+        const testRes = await fetch(testEndpoint, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ping: "ok", timestamp: new Date().toISOString() })
+        });
+
+        if (testRes.ok) {
+          cloudConfig.firebaseUrl = url;
+          cloudConfig.firebaseAuth = authInput;
+          cloudConfig.enabled = true;
+          saveCloudConfig();
+          statusEl.innerHTML = '<span style="color:#10b981;font-weight:bold;">✅ Conexão bem-sucedida! Enviando dados atuais...</span>';
+          await pushStateToCloud();
+          setTimeout(() => { closeCloudModal(); }, 1200);
+        } else {
+          statusEl.innerHTML = '<span style="color:#ef4444;font-weight:bold;">❌ Erro ao conectar (HTTP ' + testRes.status + '). Verifique a URL e as Regras do Realtime Database.</span>';
+        }
+      } catch (err) {
+        statusEl.innerHTML = '<span style="color:#ef4444;font-weight:bold;">❌ Falha de rede: ' + err.message + '</span>';
+      }
+    }
+
+    async function forcePushToCloud() {
+      await pushStateToCloud();
+      const statusEl = document.getElementById("cloud-test-status");
+      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;">✅ Estado atual enviado para a nuvem com sucesso!</span>';
+    }
+
+    async function forcePullFromCloud() {
+      await pullStateFromCloud(false);
+      const statusEl = document.getElementById("cloud-test-status");
+      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;">✅ Dados da nuvem carregados com sucesso!</span>';
+    }
+
+    function copyCurrentUrl() {
+      const curUrl = window.location.href;
+      navigator.clipboard.writeText(curUrl).then(() => {
+        alert("Link copiado para a área de transferência: " + curUrl);
+      });
+    }
+
+    function exportBackupJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+      const a = document.createElement("a");
+      const dateStr = new Date().toISOString().slice(0, 10);
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", "backup_gcm_guarulhos_" + dateStr + ".json");
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function importBackupJson(evt) {
+      const file = evt.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && typeof parsed === "object") {
+            smartMergeCloudState(parsed);
+            document.getElementById("backup-msg").textContent = "✅ Backup restaurado com sucesso!";
+            scheduleCloudPush();
+          }
+        } catch (err) {
+          alert("Erro ao ler arquivo de backup: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // PWA INSTALL PROMPT
+    let deferredPrompt = null;
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const btn = document.getElementById("pwa-install-btn");
+      if (btn) btn.style.display = "inline-flex";
+    });
+
+    function installPWA() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choice) => {
+          if (choice.outcome === "accepted") {
+            const btn = document.getElementById("pwa-install-btn");
+            if (btn) btn.style.display = "none";
+          }
+          deferredPrompt = null;
+        });
+      } else {
+        openCloudModal();
+        switchModalTab("app", document.querySelectorAll(".modal-tab-btn")[1]);
+      }
+    }
+
+    // SERVICE WORKER REGISTRATION
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").then((reg) => {
+          console.log("PWA Service Worker ativo:", reg.scope);
+        }).catch((err) => {
+          console.log("Service Worker indisponível (modo local/file):", err);
+        });
+      });
+    }
+
+    function loadState() {
+      try {
+        // Migração suave da v1 caso exista
+        const oldRaw = localStorage.getItem("gcm_guarulhos_study_v1");
+        const raw = localStorage.getItem(STORAGE_KEY) || oldRaw;
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState = {
+            ...appState,
+            ...parsed,
+            checks: { ...appState.checks, ...(parsed.checks || {}) },
+            calDaysData: { ...appState.calDaysData, ...(parsed.calDaysData || {}) },
+            fcRatings: { ...(parsed.fcRatings || {}) },
+            fcErrorCounts: { ...(parsed.fcErrorCounts || {}) },
+            fcStatsByCard: { ...(parsed.fcStatsByCard || {}) },
+            sessionHistory: Array.isArray(parsed.sessionHistory) ? parsed.sessionHistory : [],
+            customCards: Array.isArray(parsed.customCards) ? parsed.customCards : []
+          };
+          if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
+            appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function saveState(skipCloud) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.error(e);
+      }
+      updateKPIs();
+      if (!skipCloud) {
+        scheduleCloudPush();
+      }
+    }
+
+    // =========================================================================
+    // 5. RELÓGIO OFFLINE BASEADO EM CICLOS DE 24H & CONTAGEM REGRESSIVA
+    // =========================================================================
+    let currentDetectedNovDay = 5;
+
+    function getSystemNovDay() {
+      const now = new Date();
+      const examEndOfNov28 = new Date("2026-11-29T00:00:00-03:00").getTime();
+      const diffMs = examEndOfNov28 - now.getTime();
+      // Cada dia = 24 horas exatas (86.400.000 ms). Quando passam 24h, avança automaticamente para o próximo dia!
+      const fullDaysRemainingBefore29 = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      let calcDay = 28 - fullDaysRemainingBefore29;
+
+      if (now.getFullYear() === 2026 && now.getMonth() === 10) {
+        calcDay = now.getDate();
+      }
+      return Math.max(1, Math.min(30, calcDay));
+    }
+
+    function updateCountdown() {
+      const examDate = new Date("2026-11-29T08:00:00-03:00").getTime();
+      const now = new Date().getTime();
+      const diff = Math.max(0, examDate - now);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("cd-days").textContent = String(days).padStart(2, "0");
+      document.getElementById("cd-hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("cd-mins").textContent = String(mins).padStart(2, "0");
+      document.getElementById("cd-secs").textContent = String(secs).padStart(2, "0");
+
+      const detected = getSystemNovDay();
+      if (detected !== currentDetectedNovDay) {
+        currentDetectedNovDay = detected;
+        renderCalendar();
+      }
+    }
+
+    function syncCalendarClock(manualClick) {
+      currentDetectedNovDay = getSystemNovDay();
+      const now = new Date();
+      const wdaysFull = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+      const dateObj = new Date(2026, 10, currentDetectedNovDay);
+      const wdayName = wdaysFull[dateObj.getDay()];
+
+      const pill = document.getElementById("cal-current-day-pill");
+      if (pill) {
+        pill.textContent = `Hoje: ${String(currentDetectedNovDay).padStart(2, "0")}/11 (${wdayName})`;
+      }
+
+      const timeStr = now.toLocaleTimeString("pt-BR");
+      const dateStr = now.toLocaleDateString("pt-BR");
+      appState.lastSyncTimestamp = `${dateStr} às ${timeStr}`;
+      saveState();
+
+      const syncEl = document.getElementById("sync-status-txt");
+      if (syncEl) {
+        syncEl.innerHTML = `✅ <strong>Sincronizado localmente (100% Offline):</strong> Dia ${String(currentDetectedNovDay).padStart(2, "0")}/11/2026 (${wdayName}) — Última leitura do relógio: ${appState.lastSyncTimestamp}`;
+      }
+
+      renderCalendar();
+      if (manualClick) {
+        const btn = document.querySelector(".btn-sync-now");
+        if (btn) {
+          const orig = btn.innerHTML;
+          btn.innerHTML = "✅ Horário e Dia Sincronizados!";
+          setTimeout(() => { btn.innerHTML = orig; }, 1800);
+        }
+      }
+    }
+
+    // =========================================================================
+    // 6. RENDERIZAÇÃO DO CHECKLIST (APENAS SELEÇÃO DE PDF + APROVEITAMENTO E BORDA COLORIDA)
+    // =========================================================================
+    let currentChecklistFilter = "all";
+
+    const TOPIC_ID_TO_DECUPADO_KEY = {
+      "cf-art5": "01. CF/88 — Artigo 5º",
+      "cf-art6": "02. CF/88 — Artigo 6º",
+      "cf-art144": "03. CF/88 — Artigo 144",
+      "cp-121-129": "04. CP — Arts. 121 a 129",
+      "cp-146-150": "05. CP — Arts. 146 a 150",
+      "cp-155-159": "06. CP — Arts. 155 a 159"
+    };
+
+    function getTopicFlashcardPerformance(topicId) {
+      const decKey = TOPIC_ID_TO_DECUPADO_KEY[topicId];
+      const all = getAllFlashcards();
+      let cards = [];
+
+      if (decKey) {
+        cards = all.filter(c => c.decupadoTopic === decKey);
+      } else {
+        // Caso o tópico ainda não tenha PDF decupado próprio, busca correspondência pelo título/lei
+        const keywordMap = {
+          "cp-312-327": "312",
+          "cpp-301-310": "301",
+          "lei-13022": "13.022",
+          "lei-uso-forca": "13.060",
+          "lei-eca": "8.069",
+          "lei-idoso": "10.741",
+          "lei-desarmamento": "10.826",
+          "lei-maria-penha": "11.340",
+          "lei-abuso": "13.869",
+          "mun-7792": "7.792",
+          "mun-8361-dec44264": "8.361"
+        };
+        const kw = keywordMap[topicId];
+        if (kw) {
+          cards = all.filter(c => (c.deck && c.deck.includes(kw)) || (c.q && c.q.includes(kw)));
+        }
+      }
+
+      let hits = 0;
+      let misses = 0;
+      cards.forEach(c => {
+        const st = appState.fcStatsByCard && appState.fcStatsByCard[c.id];
+        if (st) {
+          hits += st.hits || 0;
+          misses += st.misses || 0;
+        } else if (appState.fcRatings && appState.fcRatings[c.id]) {
+          if (appState.fcRatings[c.id] === "mastered") hits++;
+          else misses++;
+        }
+      });
+
+      const totalAttempts = hits + misses;
+      if (totalAttempts === 0) {
+        return { hasData: false, pct: null, hits: 0, misses: 0, colorState: "neutral" };
+      }
+
+      const pct = Math.round((hits / totalAttempts) * 100);
+      // Regra de cores solicitada:
+      // - Menos de 20% -> Vermelho
+      // - Entre 20% e 50% (menos de 60%) -> Amarelo
+      // - Acima de 50% (>= 51%) -> Verde
+      let colorState = "green";
+      if (pct < 20) {
+        colorState = "red";
+      } else if (pct <= 50) {
+        colorState = "yellow";
+      } else {
+        colorState = "green";
+      }
+
+      return { hasData: true, pct, hits, misses, colorState };
+    }
+
+    function filterChecklist(mode, btn) {
+      currentChecklistFilter = mode;
+      document.querySelectorAll(".toolbar .filter-pill").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      renderChecklist();
+    }
+
+    function toggleCheck(topicId, field) {
+      if (!appState.checks[topicId]) {
+        appState.checks[topicId] = { pdf: false };
+      }
+      appState.checks[topicId][field] = !appState.checks[topicId][field];
+      saveState();
+      renderChecklist();
+    }
+
+    function renderChecklist() {
+      const container = document.getElementById("checklist-container");
+      if (!container) return;
+      const query = (document.getElementById("search-topic").value || "").toLowerCase().trim();
+      container.innerHTML = "";
+
+      const blocks = {};
+      TOPICS_DATA.forEach(t => {
+        const c = appState.checks[t.id] || { pdf: Boolean(t.hasPdf) };
+        const isPdfDone = Boolean(c.pdf);
+
+        if (currentChecklistFilter === "pdf" && !t.hasPdf && !isPdfDone) return;
+        if (currentChecklistFilter === "pending" && isPdfDone) return;
+        if (currentChecklistFilter === "done" && !isPdfDone) return;
+
+        if (query && !t.title.toLowerCase().includes(query) && !t.desc.toLowerCase().includes(query) && !t.block.toLowerCase().includes(query)) {
+          return;
+        }
+
+        if (!blocks[t.block]) blocks[t.block] = [];
+        blocks[t.block].push({ ...t, c, isPdfDone });
+      });
+
+      const blockKeys = Object.keys(blocks);
+      if (blockKeys.length === 0) {
+        container.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;background:#1e293b;border-radius:12px;">Nenhum tópico encontrado com este filtro ou busca.</div>';
+        return;
+      }
+
+      blockKeys.forEach(blockName => {
+        const items = blocks[blockName];
+        const sec = document.createElement("div");
+        sec.className = "block-section";
+
+        const totalBlockTopics = items.length;
+        const doneBlockTopics = items.filter(i => i.isPdfDone).length;
+
+        sec.innerHTML = `
+          <div class="block-header">
+            <h2>${blockName}</h2>
+            <span class="block-badge">${doneBlockTopics} / ${totalBlockTopics} arquivos (${Math.round((doneBlockTopics / totalBlockTopics) * 100)}%)</span>
+          </div>
+        `;
+
+        items.forEach(item => {
+          const perf = getTopicFlashcardPerformance(item.id);
+
+          let rowClasses = "topic-row";
+          if (item.isPdfDone) rowClasses += " completed-row";
+          if (perf.hasData) {
+            if (perf.colorState === "green") rowClasses += " perf-green";
+            else if (perf.colorState === "yellow") rowClasses += " perf-yellow";
+            else if (perf.colorState === "red") rowClasses += " perf-red";
+          }
+
+          const row = document.createElement("div");
+          row.className = rowClasses;
+
+          const pdfButtonsHtml = item.pdfs && item.pdfs.length > 0
+            ? item.pdfs.map(p => `<a href="${p.url}" target="_blank" class="btn-pdf">${p.label}</a>`).join("")
+            : `<span class="pdf-badge-waiting">⏳ PDF na fila de decupagem</span>`;
+
+          const tagClass = item.priority.includes("Altíssima") ? "tag-high" : "tag-med";
+
+          let perfBadgeHtml = `<span class="topic-perf-pill pill-neutral" title="Responda aos flashcards deste tópico na aba de Revisão para calcular seu aproveitamento">📊 —%</span>`;
+          if (perf.hasData) {
+            const pillClass = perf.colorState === "green" ? "pill-green" : perf.colorState === "yellow" ? "pill-yellow" : "pill-red";
+            perfBadgeHtml = `<span class="topic-perf-pill ${pillClass}" title="Aproveitamento nos Flashcards deste arquivo: ${perf.hits} acertos / ${perf.misses} erros">📊 ${perf.pct}%</span>`;
+          }
+
+          row.innerHTML = `
+            <div class="topic-info">
+              <h3>
+                <span>${item.title}</span>
+                <span class="tag-weight ${tagClass}">${item.priority}</span>
+              </h3>
+              <p>${item.desc}</p>
+              <div class="pdf-links" style="margin-top:6px;">
+                ${pdfButtonsHtml}
+              </div>
+            </div>
+            <div class="checks-group" style="align-items:center;gap:10px;">
+              <label class="check-label ${item.isPdfDone ? 'checked' : ''}" title="Marcar quando o PDF Decupado deste tema for gerado">
+                <input type="checkbox" ${item.isPdfDone ? 'checked' : ''} onchange="toggleCheck('${item.id}', 'pdf')">
+                📄 PDF
+              </label>
+              ${perfBadgeHtml}
+            </div>
+          `;
+          sec.appendChild(row);
+        });
+
+        container.appendChild(sec);
+      });
+    }
+
+    // =========================================================================
+    // 7. CALENDÁRIO MINIMALISTA COM OFENSIVA (FOGUINHO 🔥) E SEMANA DOURADA ✨
+    //    (Semana começa na SEGUNDA e termina no DOMINGO)
+    // =========================================================================
+    function getDayData(day) {
+      if (!appState.calDaysData) appState.calDaysData = {};
+      if (!appState.calDaysData[day]) {
+        appState.calDaysData[day] = { title: "", resumo: false, questoes: false };
+      }
+      return appState.calDaysData[day];
+    }
+
+    function isDayCompleted(day) {
+      const d = getDayData(day);
+      return Boolean(d.title && d.title.trim().length > 0 && d.resumo && d.questoes);
+    }
+
+    function updateCalDayTitle(day, val) {
+      const d = getDayData(day);
+      const wasDone = isDayCompleted(day);
+      d.title = val;
+      saveState();
+      const nowDone = isDayCompleted(day);
+      if (wasDone !== nowDone) {
+        renderCalendar();
+      }
+    }
+
+    function toggleCalDayCheck(day, field) {
+      const d = getDayData(day);
+      d[field] = !d[field];
+      saveState();
+      renderCalendar();
+    }
+
+    function calculateStreakInfo() {
+      let currentStreak = 0;
+      const streakDays = new Set();
+
+      // Marca foguinho em todo dia concluído e calcula a sequência ativa
+      let running = 0;
+      let maxStreak = 0;
+      for (let day = 1; day <= 30; day++) {
+        if (isDayCompleted(day)) {
+          running++;
+          streakDays.add(day);
+          if (running > maxStreak) maxStreak = running;
+        } else {
+          if (day < currentDetectedNovDay) {
+            running = 0;
+          }
+        }
+      }
+      // Sequência contínua até hoje (ou até ontem se hoje ainda está em andamento)
+      let activeSeq = 0;
+      let checkDay = isDayCompleted(currentDetectedNovDay) ? currentDetectedNovDay : currentDetectedNovDay - 1;
+      while (checkDay >= 1 && isDayCompleted(checkDay)) {
+        activeSeq++;
+        checkDay--;
+      }
+      currentStreak = activeSeq;
+      return { currentStreak, streakDays };
+    }
+
+    function renderCalendar() {
+      const wrapper = document.getElementById("calendar-grid");
+      if (!wrapper) return;
+      wrapper.innerHTML = "";
+
+      currentDetectedNovDay = getSystemNovDay();
+      const { currentStreak, streakDays } = calculateStreakInfo();
+
+      // Semanas começando na SEGUNDA e terminando no DOMINGO:
+      // 01/11/2026 é um Domingo -> fica na 7ª coluna da Semana 1 (6 slots de Outubro antes)
+      const weeks = [
+        [null, null, null, null, null, null, 1],
+        [2, 3, 4, 5, 6, 7, 8],
+        [9, 10, 11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20, 21, 22],
+        [23, 24, 25, 26, 27, 28, 29],
+        [30, null, null, null, null, null, null]
+      ];
+
+      const wdayShort = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+      let goldenWeeksCount = 0;
+
+      weeks.forEach((weekDays, wIdx) => {
+        const validDaysInWeek = weekDays.filter(x => x !== null);
+        // Semana fica DOURADA quando todos os dias válidos daquela semana estão concluídos!
+        const isGoldenWeek = validDaysInWeek.length > 0 && validDaysInWeek.every(d => isDayCompleted(d));
+        if (isGoldenWeek) goldenWeeksCount++;
+
+        const rowEl = document.createElement("div");
+        rowEl.className = "cal-week-row" + (isGoldenWeek ? " golden-week" : "");
+
+        if (isGoldenWeek) {
+          const banner = document.createElement("div");
+          banner.className = "golden-week-banner";
+          banner.innerHTML = `✨🏆 SEMANA ${wIdx + 1} DOURADA — OFENSIVA PERFEITA SEM FALHAS! 🔥✨`;
+          rowEl.appendChild(banner);
+        }
+
+        weekDays.forEach((dayNum, colIdx) => {
+          if (dayNum === null) {
+            const empty = document.createElement("div");
+            empty.className = "cal-day empty-slot";
+            empty.textContent = "—";
+            rowEl.appendChild(empty);
+            return;
+          }
+
+          const dData = getDayData(dayNum);
+          const isDone = isDayCompleted(dayNum);
+          const isToday = dayNum === currentDetectedNovDay;
+          const isExam = dayNum === 29;
+          const wdayLabel = wdayShort[colIdx];
+
+          let classes = "cal-day";
+          if (isToday) classes += " today";
+          if (isExam) classes += " exam-day";
+          if (isDone) classes += " done-day";
+
+          let badgeColor = "#334155";
+          let badgeTxt = wdayLabel;
+          if (isToday) {
+            badgeColor = "#0ea5e9";
+            badgeTxt = "HOJE • " + wdayLabel;
+          } else if (isExam) {
+            badgeColor = "#ef4444";
+            badgeTxt = "PROVA • " + wdayLabel;
+          } else if (isDone) {
+            badgeColor = isGoldenWeek ? "#d97706" : "#059669";
+            badgeTxt = "CONCLUÍDO • " + wdayLabel;
+          }
+
+          const flameHtml = streakDays.has(dayNum)
+            ? `<span class="day-flame-icon" title="Dia na Ofensiva!">🔥</span>`
+            : "";
+
+          const card = document.createElement("div");
+          card.className = classes;
+
+          const safeTitle = (dData.title || "").replace(/"/g, "&quot;");
+
+          card.innerHTML = `
+            <div>
+              <div class="cal-day-top">
+                <span class="day-num">
+                  ${String(dayNum).padStart(2, "0")}/11
+                  ${flameHtml}
+                </span>
+                <span class="day-badge" style="background:${badgeColor};color:#fff;">${badgeTxt}</span>
+              </div>
+              <input
+                type="text"
+                class="cal-input-title"
+                placeholder="${isExam ? '🏆 Dia da Prova GCM!' : '✍️ O que estudei hoje...'}"
+                value="${safeTitle}"
+                oninput="updateCalDayTitle(${dayNum}, this.value)"
+              >
+            </div>
+            <div class="cal-checks-wrap">
+              <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}">
+                <input type="checkbox" ${dData.resumo ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'resumo')">
+                <span>Resumo</span>
+              </label>
+              <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}">
+                <input type="checkbox" ${dData.questoes ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'questoes')">
+                <span>Questões</span>
+              </label>
+            </div>
+          `;
+
+          rowEl.appendChild(card);
+        });
+
+        wrapper.appendChild(rowEl);
+      });
+
+      const streakTxt = document.getElementById("streak-count-txt");
+      if (streakTxt) {
+        streakTxt.textContent = `${currentStreak} ${currentStreak === 1 ? "Dia" : "Dias"} de Ofensiva`;
+      }
+      const goldenTxt = document.getElementById("golden-weeks-txt");
+      if (goldenTxt) {
+        goldenTxt.textContent = `${goldenWeeksCount} ${goldenWeeksCount === 1 ? "Semana Dourada ✨" : "Semanas Douradas ✨"}`;
+      }
+    }
+
+    // =========================================================================
+    // 8. SISTEMA DE FLASHCARDS POR ARQUIVO DECUPADO + FILTROS + ESTATÍSTICAS
+    // =========================================================================
+    let currentStatusFilter = "all"; // 'new' | 'wrong' | 'mastered' | 'all'
+    let filteredCards = [];
+    let currentCardIndex = 0;
+
+    // Sessão ativa de estudo para computar no histórico ao clicar em "Terminar Agora"
+    let activeSession = {
+      answeredMap: {} // cardId -> 'hit' | 'miss'
+    };
+
+    function getAllFlashcards() {
+      const rawAll = [...DEFAULT_FLASHCARDS, ...(appState.customCards || [])];
+      return rawAll.map(c => ({
+        ...c,
+        decupadoTopic: normalizeDeckToDecupado(c.deck)
+      }));
+    }
+
+    function toggleTopicSelection(topicKey) {
+      if (!Array.isArray(appState.selectedDecks)) {
+        appState.selectedDecks = [];
+      }
+      const idx = appState.selectedDecks.indexOf(topicKey);
+      if (idx >= 0) {
+        appState.selectedDecks.splice(idx, 1);
+      } else {
+        appState.selectedDecks.push(topicKey);
+      }
+      currentCardIndex = 0;
+      saveState();
+      renderDecksSidebar();
+      rebuildFilteredCards();
+    }
+
+    function selectAllDecupados() {
+      const all = getAllFlashcards();
+      const visibleTopics = DECUPADO_TOPICS_ORDER.filter(t => {
+        if (!t.conditionalHidden) return true;
+        return all.some(c => c.decupadoTopic === t.key);
+      }).map(t => t.key);
+
+      const allSelected = visibleTopics.every(k => appState.selectedDecks.includes(k));
+      if (allSelected) {
+        // Mantém ao menos o primeiro tópico se desmarcar tudo
+        appState.selectedDecks = [visibleTopics[0]];
+      } else {
+        appState.selectedDecks = [...visibleTopics];
+      }
+      currentCardIndex = 0;
+      saveState();
+      renderDecksSidebar();
+      rebuildFilteredCards();
+    }
+
+    function renderDecksSidebar() {
+      const all = getAllFlashcards();
+      const deckList = document.getElementById("deck-list");
+      if (!deckList) return;
+      deckList.innerHTML = "";
+
+      DECUPADO_TOPICS_ORDER.forEach(t => {
+        const count = all.filter(c => c.decupadoTopic === t.key).length;
+
+        // CONDIÇÃO ESTRITA DO USUÁRIO:
+        // "Conteúdo ainda não estudado" existe no código, mas fica OCULTO caso tenha 0 flashcards!
+        if (t.conditionalHidden && count === 0) {
+          return;
+        }
+
+        const isSelected = appState.selectedDecks.includes(t.key);
+        const labelEl = document.createElement("label");
+        labelEl.className = "deck-check-item" + (isSelected ? " selected" : "");
+        labelEl.innerHTML = `
+          <div class="deck-check-left">
+            <input type="checkbox" ${isSelected ? "checked" : ""} onchange="toggleTopicSelection('${t.key}')">
+            <span>${t.key}</span>
+          </div>
+          <span style="background:#1e293b;padding:2px 7px;border-radius:99px;font-size:11px;color:#cbd5e1;">${count}</span>
+        `;
+        deckList.appendChild(labelEl);
+      });
+
+      updateFilterBadges();
+    }
+
+    function updateFilterBadges() {
+      const all = getAllFlashcards();
+      const inSelectedTopics = all.filter(c => appState.selectedDecks.includes(c.decupadoTopic));
+
+      // 🆕 Novos: todos os cartões que o usuário NUNCA respondeu (dentro dos tópicos selecionados)
+      const newCount = inSelectedTopics.filter(c => !appState.fcRatings[c.id]).length;
+      const wrongCount = inSelectedTopics.filter(c => appState.fcRatings[c.id] === "again" || appState.fcRatings[c.id] === "hard").length;
+      const masteredCount = inSelectedTopics.filter(c => appState.fcRatings[c.id] === "mastered").length;
+      const totalSelectedCount = inSelectedTopics.length;
+
+      const newBadge = document.getElementById("badge-count-new");
+      if (newBadge) {
+        if (newCount > 0) {
+          newBadge.style.display = "inline-flex";
+          newBadge.textContent = newCount + " novo" + (newCount > 1 ? "s" : "");
+        } else {
+          newBadge.style.display = "none";
+        }
+      }
+
+      const wBadge = document.getElementById("badge-count-wrong");
+      if (wBadge) wBadge.textContent = wrongCount;
+      const mBadge = document.getElementById("badge-count-mastered");
+      if (mBadge) mBadge.textContent = masteredCount;
+      const aBadge = document.getElementById("badge-count-all");
+      if (aBadge) aBadge.textContent = totalSelectedCount;
+    }
+
+    function setFcStatusFilter(status) {
+      currentStatusFilter = status;
+      ["new", "wrong", "mastered", "all"].forEach(s => {
+        const el = document.getElementById("status-filter-" + s);
+        if (el) el.classList.toggle("active", s === status);
+      });
+      currentCardIndex = 0;
+      rebuildFilteredCards();
+    }
+
+    function rebuildFilteredCards() {
+      const all = getAllFlashcards();
+
+      // Filtra apenas os cartões pertencentes aos Arquivos Decupados selecionados no checkbox
+      let list = all.filter(c => appState.selectedDecks.includes(c.decupadoTopic));
+
+      // Ordena na sequência do Guia de Legislação por padrão
+      const orderMap = {};
+      DECUPADO_TOPICS_ORDER.forEach((t, idx) => { orderMap[t.key] = idx; });
+      list.sort((a, b) => (orderMap[a.decupadoTopic] ?? 99) - (orderMap[b.decupadoTopic] ?? 99));
+
+      if (currentStatusFilter === "new") {
+        // Filtro Novos: separa apenas os flashcards que NUNCA receberam resposta
+        list = list.filter(c => !appState.fcRatings[c.id]);
+      } else if (currentStatusFilter === "wrong") {
+        // Filtro Para Revisar: separa os errados/difíceis ordenados pelos que mais errou
+        list = list.filter(c => appState.fcRatings[c.id] === "again" || appState.fcRatings[c.id] === "hard");
+        list.sort((a, b) => (appState.fcErrorCounts[b.id] || 0) - (appState.fcErrorCounts[a.id] || 0));
+      } else if (currentStatusFilter === "mastered") {
+        list = list.filter(c => appState.fcRatings[c.id] === "mastered");
+      }
+
+      filteredCards = list;
+      if (currentCardIndex >= filteredCards.length) currentCardIndex = 0;
+      updateFilterBadges();
+      renderCurrentCard();
+      renderAnalyticsAndHistory();
+    }
+
+    function updateSessionProgressUI() {
+      const entries = Object.values(activeSession.answeredMap);
+      const totalAns = entries.length;
+      const hits = entries.filter(v => v === "hit").length;
+      const misses = entries.filter(v => v === "miss").length;
+      const el = document.getElementById("fc-session-progress");
+      if (el) {
+        el.textContent = `Sessão atual: ${totalAns} respondidos (${hits}✅ / ${misses}❌)`;
+      }
+    }
+
+    function renderCurrentCard() {
+      const cardEl = document.getElementById("fc-card-3d");
+      if (cardEl) cardEl.classList.remove("flipped");
+      updateSessionProgressUI();
+
+      if (filteredCards.length === 0) {
+        document.getElementById("fc-counter-txt").textContent = "0 cartões neste filtro";
+        document.getElementById("fc-badge-status").textContent = "Filtro Vazio / Concluído";
+        document.getElementById("fc-front-deck").textContent = "SELEÇÃO DE TÓPICOS";
+        document.getElementById("fc-front-text").innerHTML = "🎉 Nenhum cartão pendente neste filtro para os arquivos decupados marcados! Marque outros tópicos ao lado ou troque o filtro.";
+        document.getElementById("fc-back-text").innerHTML = "Tudo revisado neste filtro!";
+        return;
+      }
+
+      const card = filteredCards[currentCardIndex];
+      const rating = appState.fcRatings[card.id];
+      const errCount = appState.fcErrorCounts[card.id] || 0;
+
+      document.getElementById("fc-counter-txt").textContent = `Cartão ${currentCardIndex + 1} de ${filteredCards.length}`;
+
+      let statusLabel = "🆕 Novo (Nunca Respondido)";
+      if (rating === "again") statusLabel = `🔴 Para Revisar (${errCount}x erro)`;
+      else if (rating === "hard") statusLabel = `🟡 Difícil (${errCount}x erro)`;
+      else if (rating === "mastered") statusLabel = "🟢 Dominado";
+
+      const levelHtml = card.level ? `<span class="card-meta-level">${card.level}</span>` : "";
+
+      document.getElementById("fc-badge-status").textContent = statusLabel;
+      document.getElementById("fc-front-deck").innerHTML = `${card.decupadoTopic} ${levelHtml}`;
+      document.getElementById("fc-back-deck").innerHTML = `${card.decupadoTopic} — <strong>GABARITO LEI SECA</strong>`;
+      document.getElementById("fc-front-text").innerHTML = card.q;
+      document.getElementById("fc-back-text").innerHTML = card.a;
+    }
+
+    function flipCard() {
+      document.getElementById("fc-card-3d").classList.toggle("flipped");
+    }
+
+    function nextCard() {
+      if (filteredCards.length === 0) return;
+      currentCardIndex = (currentCardIndex + 1) % filteredCards.length;
+      renderCurrentCard();
+    }
+
+    function prevCard() {
+      if (filteredCards.length === 0) return;
+      currentCardIndex = (currentCardIndex - 1 + filteredCards.length) % filteredCards.length;
+      renderCurrentCard();
+    }
+
+    function rateCard(rating) {
+      if (filteredCards.length === 0) return;
+      const card = filteredCards[currentCardIndex];
+
+      appState.fcRatings[card.id] = rating;
+      if (!appState.fcStatsByCard[card.id]) {
+        appState.fcStatsByCard[card.id] = { hits: 0, misses: 0 };
+      }
+
+      if (rating === "mastered") {
+        appState.fcStatsByCard[card.id].hits++;
+        activeSession.answeredMap[card.id] = "hit";
+      } else {
+        appState.fcStatsByCard[card.id].misses++;
+        appState.fcErrorCounts[card.id] = (appState.fcErrorCounts[card.id] || 0) + 1;
+        activeSession.answeredMap[card.id] = "miss";
+      }
+
+      saveState();
+      updateFilterBadges();
+      renderAnalyticsAndHistory();
+
+      // Se respondeu o último cartão da fila atual, ou se o cartão saiu do filtro atual
+      const cardStillMatchesFilter =
+        currentStatusFilter === "all" ||
+        (currentStatusFilter === "new" && !appState.fcRatings[card.id]) ||
+        (currentStatusFilter === "wrong" && (rating === "again" || rating === "hard")) ||
+        (currentStatusFilter === "mastered" && rating === "mastered");
+
+      if (!cardStillMatchesFilter) {
+        rebuildFilteredCards();
+      } else {
+        nextCard();
+      }
+    }
+
+    // Embaralha apenas a ORDEM dos cartões que já estão selecionados/filtrados na tela
+    function shuffleFlashcards() {
+      if (filteredCards.length <= 1) return;
+      for (let i = filteredCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+      }
+      currentCardIndex = 0;
+      renderCurrentCard();
+    }
+
+    function finishFlashcardSession() {
+      const answeredIds = Object.keys(activeSession.answeredMap);
+      if (answeredIds.length === 0) {
+        alert("Responda ao menos 1 flashcard (clicando em Errei, Difícil ou Dominado) antes de finalizar e computar a sessão no histórico!");
+        return;
+      }
+
+      const hits = answeredIds.filter(id => activeSession.answeredMap[id] === "hit").length;
+      const misses = answeredIds.filter(id => activeSession.answeredMap[id] === "miss").length;
+      const total = answeredIds.length;
+      const pctHit = Math.round((hits / total) * 100);
+      const pctMiss = 100 - pctHit;
+
+      const all = getAllFlashcards();
+      const topicsUsedSet = new Set();
+      answeredIds.forEach(id => {
+        const found = all.find(c => c.id === id);
+        if (found) topicsUsedSet.add(found.decupadoTopic);
+      });
+
+      const now = new Date();
+      const dateStr = `${now.toLocaleDateString("pt-BR")} às ${now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`;
+
+      const record = {
+        id: "sess-" + Date.now(),
+        date: dateStr,
+        topics: Array.from(topicsUsedSet).join(" + "),
+        total,
+        hits,
+        misses,
+        pctHit,
+        pctMiss
+      };
+
+      appState.sessionHistory = appState.sessionHistory || [];
+      appState.sessionHistory.unshift(record);
+      activeSession.answeredMap = {};
+      saveState();
+      updateSessionProgressUI();
+      renderAnalyticsAndHistory();
+    }
+
+    function clearSessionHistory() {
+      if (!confirm("Deseja limpar a lista de sessões do histórico? (Suas marcações de cartões Dominados/Erros serão mantidas).")) return;
+      appState.sessionHistory = [];
+      saveState();
+      renderAnalyticsAndHistory();
+    }
+
+    function renderAnalyticsAndHistory() {
+      const all = getAllFlashcards();
+      let totalHits = 0;
+      let totalMisses = 0;
+
+      Object.values(appState.fcStatsByCard || {}).forEach(st => {
+        totalHits += st.hits || 0;
+        totalMisses += st.misses || 0;
+      });
+
+      const totalAttempts = totalHits + totalMisses;
+      const overallPct = totalAttempts > 0 ? Math.round((totalHits / totalAttempts) * 100) : 0;
+      const overallMissPct = totalAttempts > 0 ? 100 - overallPct : 0;
+
+      const accTxt = document.getElementById("fc-overall-acc-txt");
+      if (accTxt) {
+        accTxt.textContent = `${overallPct}% Acerto (${totalHits}✅ / ${totalMisses}❌)`;
+        accTxt.style.color = overallPct >= 70 ? "#10b981" : overallPct >= 50 ? "#f59e0b" : "#f87171";
+      }
+      const barHit = document.getElementById("fc-overall-bar-hit");
+      const barMiss = document.getElementById("fc-overall-bar-miss");
+      if (barHit && barMiss) {
+        barHit.style.width = overallPct + "%";
+        barMiss.style.width = overallMissPct + "%";
+      }
+
+      // Taxa de acerto lado a lado por Arquivo Decupado
+      const topicGrid = document.getElementById("topic-accuracy-grid");
+      if (topicGrid) {
+        topicGrid.innerHTML = "";
+        DECUPADO_TOPICS_ORDER.forEach(t => {
+          const cardsInTopic = all.filter(c => c.decupadoTopic === t.key);
+          if (t.conditionalHidden && cardsInTopic.length === 0) return;
+
+          let tHits = 0;
+          let tMisses = 0;
+          cardsInTopic.forEach(c => {
+            const st = appState.fcStatsByCard[c.id];
+            if (st) {
+              tHits += st.hits || 0;
+              tMisses += st.misses || 0;
+            }
+          });
+          const tTotal = tHits + tMisses;
+          const tPct = tTotal > 0 ? Math.round((tHits / tTotal) * 100) : 0;
+
+          const cardDiv = document.createElement("div");
+          cardDiv.className = "topic-acc-card";
+          cardDiv.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;font-weight:800;margin-bottom:4px;">
+              <span style="color:#e2e8f0;">${t.short}</span>
+              <span style="color:${tTotal === 0 ? '#64748b' : tPct >= 70 ? '#34d399' : '#fbbf24'};">${tTotal === 0 ? 'Sem resp.' : tPct + '%'}</span>
+            </div>
+            <div style="width:100%;height:6px;background:#0f172a;border-radius:99px;overflow:hidden;margin-bottom:4px;">
+              <div style="height:100%;width:${tPct}%;background:${tPct >= 70 ? '#10b981' : '#f59e0b'};"></div>
+            </div>
+            <div style="font-size:10.5px;color:#94a3b8;display:flex;justify-content:space-between;">
+              <span>✅ ${tHits} acertos</span>
+              <span>❌ ${tMisses} erros</span>
+            </div>
+          `;
+          topicGrid.appendChild(cardDiv);
+        });
+      }
+
+      // Histórico de sessões
+      const histList = document.getElementById("fc-history-list");
+      const sessBadge = document.getElementById("fc-total-sessions-badge");
+      const history = appState.sessionHistory || [];
+      if (sessBadge) {
+        sessBadge.textContent = `${history.length} ${history.length === 1 ? "sessão registrada" : "sessões registradas"}`;
+      }
+      if (histList) {
+        if (history.length === 0) {
+          histList.innerHTML = `<div style="text-align:center;padding:14px;color:#64748b;font-size:12px;background:#1e293b;border-radius:8px;">Nenhuma bateria finalizada ainda. Responda aos flashcards e clique em <strong>"✅ Terminar Agora & Computar"</strong>!</div>`;
+        } else {
+          histList.innerHTML = history.map(h => `
+            <div class="history-item">
+              <div>
+                <div style="font-weight:800;color:#f8fafc;">📚 ${h.topics}</div>
+                <div style="font-size:11px;color:#94a3b8;">🗓️ ${h.date} • ${h.total} cartões respondidos</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;">
+                <span style="background:rgba(16,185,129,0.18);color:#34d399;border:1px solid rgba(16,185,129,0.4);padding:3px 8px;border-radius:6px;font-weight:800;">
+                  ✅ ${h.pctHit}% (${h.hits})
+                </span>
+                <span style="background:rgba(239,68,68,0.18);color:#f87171;border:1px solid rgba(239,68,68,0.4);padding:3px 8px;border-radius:6px;font-weight:800;">
+                  ❌ ${h.pctMiss}% (${h.misses})
+                </span>
+              </div>
+            </div>
+          `).join("");
+        }
+      }
+    }
+
+    function addCustomFlashcard() {
+      const deck = document.getElementById("new-fc-deck").value;
+      const q = document.getElementById("new-fc-q").value.trim();
+      const a = document.getElementById("new-fc-a").value.trim();
+      if (!q || !a) {
+        alert("Preencha a pergunta (Frente) e a resposta (Verso) para criar o flashcard!");
+        return;
+      }
+      const newCard = {
+        id: "custom-" + Date.now(),
+        deck,
+        q,
+        a: a.replace(/\n/g, "<br>")
+      };
+      appState.customCards = appState.customCards || [];
+      appState.customCards.push(newCard);
+      if (!appState.selectedDecks.includes(deck)) {
+        appState.selectedDecks.push(deck);
+      }
+      document.getElementById("new-fc-q").value = "";
+      document.getElementById("new-fc-a").value = "";
+      saveState();
+      renderDecksSidebar();
+      rebuildFilteredCards();
+    }
+
+    // Atalhos de Teclado para os Flashcards
+    document.addEventListener("keydown", (e) => {
+      const fcTabActive = document.getElementById("tab-flashcards").classList.contains("active");
+      if (!fcTabActive) return;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) return;
+
+      if (e.code === "Space") {
+        e.preventDefault();
+        flipCard();
+      } else if (e.key === "ArrowRight") {
+        nextCard();
+      } else if (e.key === "ArrowLeft") {
+        prevCard();
+      } else if (e.key === "1") {
+        rateCard("again");
+      } else if (e.key === "2") {
+        rateCard("hard");
+      } else if (e.key === "3") {
+        rateCard("mastered");
+      }
+    });
+
+    // =========================================================================
+    // 9. ATUALIZAÇÃO DE KPIS E NAVEGAÇÃO DE ABAS
+    // =========================================================================
+    function updateKPIs() {
+      const totalFiles = TOPICS_DATA.length;
+      let doneFiles = 0;
+      TOPICS_DATA.forEach(t => {
+        const c = appState.checks[t.id] || { pdf: Boolean(t.hasPdf) };
+        if (c.pdf) doneFiles++;
+      });
+      const pct = Math.round((doneFiles / totalFiles) * 100);
+      document.getElementById("kpi-percent-txt").textContent = pct + "%";
+      document.getElementById("kpi-checks-count").textContent = `${doneFiles} / ${totalFiles} arquivos (${pct}%)`;
+      document.getElementById("kpi-progress-bar").style.width = pct + "%";
+
+      // Calendário (01 a 28/11)
+      const calTotal = 28;
+      let calDoneCount = 0;
+      for (let d = 1; d <= 28; d++) {
+        if (isDayCompleted(d)) calDoneCount++;
+      }
+      const calPct = Math.min(100, Math.round((calDoneCount / calTotal) * 100));
+      document.getElementById("kpi-cal-days").textContent = `${calDoneCount} / ${calTotal} dias`;
+      document.getElementById("kpi-cal-pct").textContent = calPct + "%";
+
+      // Flashcards
+      const allFc = getAllFlashcards();
+      const masteredCount = allFc.filter(c => appState.fcRatings[c.id] === "mastered").length;
+      const reviewCount = allFc.length - masteredCount;
+      document.getElementById("kpi-fc-mastered").textContent = `${masteredCount} / ${allFc.length} cartões`;
+      document.getElementById("kpi-fc-review").textContent = `${reviewCount} p/ rever`;
+    }
+
+    function switchTab(tabName, btn) {
+      document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".nav-tabs .tab-btn").forEach(b => b.classList.remove("active"));
+      document.getElementById("tab-" + tabName).classList.add("active");
+      if (btn) btn.classList.add("active");
+      if (tabName === "checklist") renderChecklist();
+    }
+
+    // INICIALIZAÇÃO
+    loadCloudConfig();
+    loadState();
+    pullStateFromCloud(true); // Puxa nuvem em background se configurado
+    syncCalendarClock(false);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    renderChecklist();
+    renderCalendar();
+    renderDecksSidebar();
+    rebuildFilteredCards();
+    updateKPIs();
+  </script>
+</body>
+</html>
