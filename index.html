@@ -551,15 +551,15 @@
     .calendar-weeks-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 6px;
     }
 
     .cal-week-row {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      padding: 8px;
-      border-radius: 14px;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 6px;
+      padding: 4px;
+      border-radius: 10px;
       border: 1px solid transparent;
       transition: all 0.3s ease;
       position: relative;
@@ -586,8 +586,6 @@
     }
 
     @media (max-width: 980px) {
-      .calendar-weekdays { display: none; }
-      .cal-week-row { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
       .topic-row { grid-template-columns: 1fr; }
     }
 
@@ -1861,6 +1859,215 @@
         white-space: nowrap !important;
       }
 
+
+      /* =====================================================================
+         6. ABA DE CALENDÁRIO MENSAL COMPACTO NO CELULAR (SEGUNDA A DOMINGO)
+         ===================================================================== */
+      .calendar-header-info {
+        padding: 10px 12px !important;
+        margin-bottom: 8px !important;
+        border-radius: 10px !important;
+        gap: 8px !important;
+      }
+
+      .calendar-header-info h2 {
+        font-size: 13.5px !important;
+        gap: 6px !important;
+      }
+
+      .calendar-header-info p,
+      #sync-status-txt {
+        display: none !important;
+      }
+
+      .streak-banner {
+        padding: 5px 10px !important;
+        border-radius: 8px !important;
+        gap: 6px !important;
+      }
+
+      .streak-flame {
+        font-size: 18px !important;
+      }
+
+      #streak-count-txt {
+        font-size: 12.5px !important;
+      }
+
+      #golden-weeks-txt {
+        font-size: 9.5px !important;
+      }
+
+      .btn-sync-now {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+        border-radius: 7px !important;
+      }
+
+      /* Painel Rápido do Dia Selecionado no Topo do Calendário Mobile */
+      .mob-cal-active-editor {
+        background: linear-gradient(145deg, #0f172a, #1e293b) !important;
+        border: 1px solid #38bdf8 !important;
+        border-radius: 10px !important;
+        padding: 8px 10px !important;
+        margin-bottom: 8px !important;
+        box-shadow: 0 4px 14px rgba(14, 165, 233, 0.18) !important;
+      }
+
+      .mob-editor-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 6px !important;
+      }
+
+      .mob-editor-day-pill {
+        background: #0ea5e9 !important;
+        color: #fff !important;
+        font-size: 10.5px !important;
+        font-weight: 900 !important;
+        padding: 2px 8px !important;
+        border-radius: 99px !important;
+      }
+
+      .mob-editor-controls {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+      }
+
+      .mob-editor-input {
+        flex: 1 !important;
+        min-width: 0 !important;
+        background: #0b1120 !important;
+        border: 1px solid #475569 !important;
+        color: #fff !important;
+        padding: 6px 9px !important;
+        border-radius: 7px !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        outline: none !important;
+      }
+      .mob-editor-input:focus {
+        border-color: #38bdf8 !important;
+      }
+
+      .mob-editor-checks {
+        display: flex !important;
+        gap: 4px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .mob-editor-checks .cal-mini-check {
+        padding: 5px 7px !important;
+        font-size: 10.5px !important;
+        border-radius: 6px !important;
+        gap: 3px !important;
+      }
+
+      /* Cabeçalho Seg a Dom (7 colunas) */
+      .calendar-weekdays {
+        display: grid !important;
+        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+        gap: 3px !important;
+        margin-bottom: 4px !important;
+        font-size: 10px !important;
+        font-weight: 900 !important;
+        text-align: center !important;
+        color: #38bdf8 !important;
+        padding: 0 2px !important;
+      }
+
+      /* Linhas das Semanas bem juntinhas (Segunda a Domingo em cada linha) */
+      .calendar-weeks-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3px !important;
+        width: 100% !important;
+      }
+
+      .cal-week-row {
+        display: grid !important;
+        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+        gap: 3px !important;
+        padding: 2px !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .cal-day {
+        padding: 3px 2.5px !important;
+        min-height: 68px !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .cal-day.empty-slot {
+        min-height: 68px !important;
+        font-size: 9px !important;
+      }
+
+      .cal-day.mob-selected-day {
+        outline: 2px solid #38bdf8 !important;
+        outline-offset: -1px !important;
+      }
+
+      .cal-day-top {
+        margin-bottom: 2px !important;
+        justify-content: center !important;
+      }
+
+      .day-num {
+        font-size: 10.5px !important;
+        font-weight: 900 !important;
+        gap: 1px !important;
+        line-height: 1 !important;
+      }
+
+      .day-flame-icon {
+        font-size: 9.5px !important;
+      }
+
+      /* Campo de texto direto dentro de cada quadradinho do dia no celular */
+      .cal-day .cal-input-title {
+        padding: 2px 3px !important;
+        font-size: 9px !important;
+        border-radius: 4px !important;
+        margin-bottom: 2px !important;
+        height: 20px !important;
+        text-overflow: ellipsis !important;
+      }
+
+      /* As 2 caixas de seleção (Res / Qst) dentro do quadradinho do dia no celular */
+      .cal-day .cal-checks-wrap {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2px !important;
+        width: 100% !important;
+      }
+
+      .cal-day .cal-mini-check {
+        padding: 2px 1px !important;
+        font-size: 7.5px !important;
+        border-radius: 3px !important;
+        gap: 1.5px !important;
+        justify-content: center !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .cal-day .cal-mini-check input {
+        width: 9.5px !important;
+        height: 9.5px !important;
+        flex-shrink: 0 !important;
+      }
+
       /* 4. FILTROS E BUSCA NO CELULAR */
       .toolbar {
         padding: 10px !important;
@@ -2048,6 +2255,11 @@
       box-shadow: 0 12px 35px rgba(239, 68, 68, 0.38) !important;
       background: linear-gradient(160deg, #7f1d1d 0%, #0f172a 90%) !important;
     }
+    .card-3d-wrapper.swiping-up .card-face {
+      border-color: #f59e0b !important;
+      box-shadow: 0 12px 38px rgba(245, 158, 11, 0.45) !important;
+      background: linear-gradient(160deg, #78350f 0%, #0f172a 90%) !important;
+    }
 
     .fc-swipe-stamp {
       position: absolute;
@@ -2075,6 +2287,14 @@
       color: #fff;
       border: 2px solid #fca5a5;
       transform: rotate(8deg);
+    }
+    .fc-swipe-stamp.stamp-up {
+      left: 50%;
+      top: 16px;
+      background: rgba(245, 158, 11, 0.95);
+      color: #1e293b;
+      border: 2px solid #fde68a;
+      transform: translateX(-50%);
     }
 
     /* OVERLAY VERTICAL QUANDO DESLIZA PARA A ESQUERDA (FUNDO ESMAECIDO + LINHA NO MEIO + MINI-CARD) */
@@ -2710,14 +2930,17 @@
         </div>
       </div>
 
+      <!-- PAINEL DE EDIÇÃO RÁPIDA DO DIA SELECIONADO (EXCLUSIVO CELULAR PARA ESCREVER E MARCAR COM CONFORTO TOTAL) -->
+      <div id="mob-cal-active-editor" class="mob-cal-active-editor mobile-only"></div>
+
       <div class="calendar-weekdays">
-        <div>Segunda</div>
-        <div>Terça</div>
-        <div>Quarta</div>
-        <div>Quinta</div>
-        <div>Sexta</div>
-        <div>Sábado</div>
-        <div>Domingo</div>
+        <div><span class="desktop-only-inline">Segunda</span><span class="mobile-only-inline">Seg</span></div>
+        <div><span class="desktop-only-inline">Terça</span><span class="mobile-only-inline">Ter</span></div>
+        <div><span class="desktop-only-inline">Quarta</span><span class="mobile-only-inline">Qua</span></div>
+        <div><span class="desktop-only-inline">Quinta</span><span class="mobile-only-inline">Qui</span></div>
+        <div><span class="desktop-only-inline">Sexta</span><span class="mobile-only-inline">Sex</span></div>
+        <div><span class="desktop-only-inline">Sábado</span><span class="mobile-only-inline">Sáb</span></div>
+        <div><span class="desktop-only-inline">Domingo</span><span class="mobile-only-inline">Dom</span></div>
       </div>
 
       <div class="calendar-weeks-wrapper" id="calendar-grid"></div>
@@ -2831,7 +3054,7 @@
                 <div class="card-body-text" id="fc-front-text"></div>
                 <div class="card-hint-bottom">
                   <span class="desktop-only-inline">👆 Clique no cartão (ou aperte <strong>Espaço</strong>) para revelar a resposta da Lei Seca</span>
-                  <span class="mobile-only-inline">👆 Toque para virar • ⬅️ Deslize Esq: Errei | Dir: Acertei ➡️</span>
+                  <span class="mobile-only-inline">👆 Toque: Virar • ⬅️ Esq: Errei 🔴 | ⬆️ Cima: Revisar 🟡 | Dir: Acertei 🟢 ➡️</span>
                 </div>
               </div>
 
@@ -2843,7 +3066,7 @@
                 <div class="card-body-text" id="fc-back-text"></div>
                 <div class="card-hint-bottom">
                   <span class="desktop-only-inline">Avalie sua resposta abaixo para computar na estatística:</span>
-                  <span class="mobile-only-inline">⬅️ Deslize p/ Esquerda (Errei/Rever) • Deslize p/ Direita (Acertei 🟢) ➡️</span>
+                  <span class="mobile-only-inline">⬅️ Esq: Errei 🔴 • ⬆️ Cima: Revisar 🟡 • Dir: Acertei 🟢 ➡️</span>
                 </div>
               </div>
             </div>
@@ -2913,39 +3136,7 @@
 
 
 
-    <!-- OVERLAY DE CLASSIFICAÇÃO DE ERRO (ESTILO NOTEBOOKLM + SWIPE VERTICAL CIMA/BAIXO) -->
-    <div id="fc-wrong-split-overlay" class="fc-split-overlay">
-      <!-- ZONA SUPERIOR: ERREI / DIFÍCIL (VERMELHO - ARRASTAR PARA CIMA) -->
-      <div class="fc-split-zone fc-zone-top" id="fc-zone-top" onclick="triggerVerticalChoice('again')">
-        <div class="fc-zone-label-wrap">
-          <span class="fc-zone-arrow">⬆️</span>
-          <span class="fc-zone-title">DIFÍCIL / ERREI</span>
-          <span class="fc-zone-sub">Arraste o cartão para cima (Vermelho)</span>
-        </div>
-      </div>
 
-      <!-- LINHA DIVISÓRIA CENTRAL -->
-      <div class="fc-split-center-line"></div>
-
-      <!-- ZONA INFERIOR: DIFÍCIL / REVER (AMARELO - ARRASTAR PARA BAIXO) -->
-      <div class="fc-split-zone fc-zone-bottom" id="fc-zone-bottom" onclick="triggerVerticalChoice('hard')">
-        <div class="fc-zone-label-wrap">
-          <span class="fc-zone-sub">Arraste o cartão para baixo (Amarelo)</span>
-          <span class="fc-zone-title">DIFÍCIL / REVER</span>
-          <span class="fc-zone-arrow">⬇️</span>
-        </div>
-      </div>
-
-      <!-- MINI-CARD CENTRALIZADO SOBRE A LINHA PARA ARRASTAR PARA CIMA OU PARA BAIXO -->
-      <div id="fc-mini-split-card" class="fc-mini-split-card">
-        <div class="fc-mini-card-tag" id="fc-mini-card-tag">CLASSIFICAR REVISÃO</div>
-        <div class="fc-mini-card-text" id="fc-mini-card-text"></div>
-        <div class="fc-mini-card-hint">⬆️ Arraste p/ Cima (Errei) ou ⬇️ p/ Baixo (Rever)</div>
-      </div>
-
-      <!-- Botão discreto para cancelar caso tenha arrastado para a esquerda sem querer -->
-      <button type="button" class="fc-split-cancel-btn" onclick="closeWrongSplitOverlay()">✕ Voltar ao cartão</button>
-    </div>
 
     <!-- MODAL DE CONFIGURAÇÃO DE NUVEM & APP MOBILE -->
     <div id="cloud-modal" class="modal-overlay" onclick="closeCloudModal(event)">
@@ -4878,9 +5069,26 @@
       const wasDone = isDayCompleted(day);
       d.title = val;
       saveState();
+      // Sincroniza o texto entre o bloco do dia e a barra rápida sem perder o foco de digitação
+      const cellInput = document.querySelector(`input[data-cal-input-day="${day}"]`);
+      if (cellInput && cellInput !== document.activeElement) {
+        cellInput.value = val;
+      }
+      const mobInput = document.querySelector("#mob-cal-active-editor .mob-editor-input");
+      if (mobInput && mobInput !== document.activeElement && selectedMobileCalDay === day) {
+        mobInput.value = val;
+      }
       const nowDone = isDayCompleted(day);
       if (wasDone !== nowDone) {
+        const activeTag = document.activeElement ? document.activeElement.className : "";
         renderCalendar();
+        if (activeTag.includes("mob-editor-input")) {
+          const newMobIn = document.querySelector("#mob-cal-active-editor .mob-editor-input");
+          if (newMobIn) { newMobIn.focus(); newMobIn.setSelectionRange(val.length, val.length); }
+        } else if (activeTag.includes("cal-input-title")) {
+          const newCellIn = document.querySelector(`input[data-cal-input-day="${day}"]`);
+          if (newCellIn) { newCellIn.focus(); newCellIn.setSelectionRange(val.length, val.length); }
+        }
       }
     }
 
@@ -4920,16 +5128,67 @@
       return { currentStreak, streakDays };
     }
 
+    let selectedMobileCalDay = null;
+
+    function selectMobileCalDay(dayNum) {
+      selectedMobileCalDay = dayNum;
+      renderMobileActiveDayEditor();
+      document.querySelectorAll(".cal-day[data-day]").forEach(el => {
+        el.classList.toggle("mob-selected-day", Number(el.getAttribute("data-day")) === dayNum);
+      });
+    }
+
+    function renderMobileActiveDayEditor() {
+      const box = document.getElementById("mob-cal-active-editor");
+      if (!box) return;
+      const dayNum = selectedMobileCalDay || currentDetectedNovDay || 5;
+      const dData = getDayData(dayNum);
+      const isDone = isDayCompleted(dayNum);
+      const isExam = dayNum === 29;
+      const wdaysFull = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+      const wdayName = wdaysFull[new Date(2026, 10, dayNum).getDay()];
+      const safeTitle = (dData.title || "").replace(/"/g, "&quot;");
+
+      box.innerHTML = `
+        <div class="mob-editor-top">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span class="mob-editor-day-pill">${String(dayNum).padStart(2, "0")}/11 • ${wdayName}</span>
+            ${isDone ? '<span style="font-size:11px;color:#34d399;font-weight:800;">🔥 Concluído!</span>' : '<span style="font-size:10.5px;color:#94a3b8;">Toque num dia abaixo ou edite aqui:</span>'}
+          </div>
+        </div>
+        <div class="mob-editor-controls">
+          <input
+            type="text"
+            class="mob-editor-input"
+            placeholder="${isExam ? '🏆 Dia da Prova GCM!' : '✍️ Escreva o conteúdo estudado no dia ' + String(dayNum).padStart(2, '0') + '/11...'}"
+            value="${safeTitle}"
+            oninput="updateCalDayTitle(${dayNum}, this.value)"
+          >
+          <div class="mob-editor-checks">
+            <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}">
+              <input type="checkbox" ${dData.resumo ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'resumo')">
+              <span>Resumo</span>
+            </label>
+            <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}">
+              <input type="checkbox" ${dData.questoes ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'questoes')">
+              <span>Questões</span>
+            </label>
+          </div>
+        </div>
+      `;
+    }
+
     function renderCalendar() {
       const wrapper = document.getElementById("calendar-grid");
       if (!wrapper) return;
       wrapper.innerHTML = "";
 
       currentDetectedNovDay = getSystemNovDay();
+      if (!selectedMobileCalDay) selectedMobileCalDay = currentDetectedNovDay;
       const { currentStreak, streakDays } = calculateStreakInfo();
 
-      // Semanas começando na SEGUNDA e terminando no DOMINGO:
-      // 01/11/2026 é um Domingo -> fica na 7ª coluna da Semana 1 (6 slots de Outubro antes)
+      // Semanas começando rigorosamente na SEGUNDA e terminando no DOMINGO:
+      // 01/11/2026 é Domingo -> fica na 7ª coluna da 1ª linha (6 slots anteriores vazios)
       const weeks = [
         [null, null, null, null, null, null, 1],
         [2, 3, 4, 5, 6, 7, 8],
@@ -4942,21 +5201,14 @@
       const wdayShort = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
       let goldenWeeksCount = 0;
 
-      weeks.forEach((weekDays, wIdx) => {
+      weeks.forEach((weekDays) => {
         const validDaysInWeek = weekDays.filter(x => x !== null);
-        // Semana fica DOURADA quando todos os dias válidos daquela semana estão concluídos!
+        // Linha da semana fica DOURADA quando todos os dias válidos de Segunda a Domingo estão concluídos
         const isGoldenWeek = validDaysInWeek.length > 0 && validDaysInWeek.every(d => isDayCompleted(d));
         if (isGoldenWeek) goldenWeeksCount++;
 
         const rowEl = document.createElement("div");
         rowEl.className = "cal-week-row" + (isGoldenWeek ? " golden-week" : "");
-
-        if (isGoldenWeek) {
-          const banner = document.createElement("div");
-          banner.className = "golden-week-banner";
-          banner.innerHTML = `✨🏆 SEMANA ${wIdx + 1} DOURADA — OFENSIVA PERFEITA SEM FALHAS! 🔥✨`;
-          rowEl.appendChild(banner);
-        }
 
         weekDays.forEach((dayNum, colIdx) => {
           if (dayNum === null) {
@@ -4971,24 +5223,26 @@
           const isDone = isDayCompleted(dayNum);
           const isToday = dayNum === currentDetectedNovDay;
           const isExam = dayNum === 29;
+          const isSelectedMob = dayNum === selectedMobileCalDay;
           const wdayLabel = wdayShort[colIdx];
 
           let classes = "cal-day";
           if (isToday) classes += " today";
           if (isExam) classes += " exam-day";
           if (isDone) classes += " done-day";
+          if (isSelectedMob) classes += " mob-selected-day";
 
           let badgeColor = "#334155";
           let badgeTxt = wdayLabel;
           if (isToday) {
             badgeColor = "#0ea5e9";
-            badgeTxt = "HOJE • " + wdayLabel;
+            badgeTxt = "HOJE";
           } else if (isExam) {
             badgeColor = "#ef4444";
-            badgeTxt = "PROVA • " + wdayLabel;
+            badgeTxt = "PROVA";
           } else if (isDone) {
             badgeColor = isGoldenWeek ? "#d97706" : "#059669";
-            badgeTxt = "CONCLUÍDO • " + wdayLabel;
+            badgeTxt = "OK";
           }
 
           const flameHtml = streakDays.has(dayNum)
@@ -4997,6 +5251,12 @@
 
           const card = document.createElement("div");
           card.className = classes;
+          card.setAttribute("data-day", String(dayNum));
+          card.addEventListener("click", (ev) => {
+            if (window.innerWidth <= 768 && ev.target.tagName !== "INPUT") {
+              selectMobileCalDay(dayNum);
+            }
+          });
 
           const safeTitle = (dData.title || "").replace(/"/g, "&quot;");
 
@@ -5004,27 +5264,32 @@
             <div>
               <div class="cal-day-top">
                 <span class="day-num">
-                  ${String(dayNum).padStart(2, "0")}/11
+                  <span class="desktop-only-inline">${String(dayNum).padStart(2, "0")}/11</span>
+                  <span class="mobile-only-inline">${String(dayNum).padStart(2, "0")}</span>
                   ${flameHtml}
                 </span>
-                <span class="day-badge" style="background:${badgeColor};color:#fff;">${badgeTxt}</span>
+                <span class="day-badge desktop-only-inline" style="background:${badgeColor};color:#fff;">${badgeTxt}</span>
               </div>
               <input
                 type="text"
                 class="cal-input-title"
-                placeholder="${isExam ? '🏆 Dia da Prova GCM!' : '✍️ O que estudei hoje...'}"
+                data-cal-input-day="${dayNum}"
+                placeholder="${isExam ? '🏆 Prova!' : '✍️ Tema...'}"
                 value="${safeTitle}"
+                onfocus="if(window.innerWidth<=768) selectMobileCalDay(${dayNum})"
                 oninput="updateCalDayTitle(${dayNum}, this.value)"
               >
             </div>
             <div class="cal-checks-wrap">
-              <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}">
+              <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}" title="Resumo concluído">
                 <input type="checkbox" ${dData.resumo ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'resumo')">
-                <span>Resumo</span>
+                <span class="desktop-only-inline">Resumo</span>
+                <span class="mobile-only-inline">Res</span>
               </label>
-              <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}">
+              <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}" title="Questões concluídas">
                 <input type="checkbox" ${dData.questoes ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'questoes')">
-                <span>Questões</span>
+                <span class="desktop-only-inline">Questões</span>
+                <span class="mobile-only-inline">Qst</span>
               </label>
             </div>
           `;
@@ -5034,6 +5299,8 @@
 
         wrapper.appendChild(rowEl);
       });
+
+      renderMobileActiveDayEditor();
 
       const streakTxt = document.getElementById("streak-count-txt");
       if (streakTxt) {
@@ -5511,7 +5778,11 @@
       }
     }
 
-    // MOTOR DE GESTOS HORIZONTAIS NO CARTÃO PRINCIPAL (TAP = VIRAR | DIR = VERDE ACERTEI | ESQ = VERMELHO -> SELETOR VERTICAL)
+    // MOTOR DE GESTOS DIRETOS COM ACELERAÇÃO NO CARTÃO (ESTILO NOTEBOOKLM)
+    // - Toque (Tap) = Virar cartão (Frente <-> Verso)
+    // - Arrastar p/ Direita = VERDE (Acertei / Dominado -> 'mastered')
+    // - Arrastar p/ Esquerda = VERMELHO DIRETO (Errei -> 'again', vai para revisão)
+    // - Arrastar p/ Cima = AMARELO DIRETO (Revisar -> 'hard', lembra parcialmente)
     (function initNotebookLmCardGestures() {
       const wrapper = document.getElementById("fc-touch-wrapper");
       const card3d = document.getElementById("fc-card-3d");
@@ -5524,12 +5795,12 @@
       let currentY = 0;
       let startTime = 0;
       let isDragging = false;
-      let isHorizontalSwipe = null;
+      let swipeAxis = null; // 'horizontal' | 'up' | 'scroll-down'
 
       function resetCardVisual(animate = true) {
         wrapper.style.transition = animate ? "transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease" : "none";
         wrapper.style.transform = "translate3d(0px, 0px, 0px) rotate(0deg)";
-        wrapper.classList.remove("swiping-right", "swiping-left");
+        wrapper.classList.remove("swiping-right", "swiping-left", "swiping-up");
         if (stamp) {
           stamp.style.opacity = "0";
           stamp.textContent = "";
@@ -5537,8 +5808,8 @@
         }
       }
 
-      // Click no Desktop (ou Tap simples)
-      wrapper.addEventListener("click", (e) => {
+      // Click ou Tap simples -> Vira o cartão em 3D
+      wrapper.addEventListener("click", () => {
         if (Math.abs(currentX) > 12 || Math.abs(currentY) > 12) return;
         flipCard();
       });
@@ -5553,7 +5824,7 @@
         currentY = 0;
         startTime = Date.now();
         isDragging = true;
-        isHorizontalSwipe = null;
+        swipeAxis = null;
         wrapper.style.transition = "none";
       }, { passive: true });
 
@@ -5563,42 +5834,68 @@
         const dx = touch.clientX - startX;
         const dy = touch.clientY - startY;
 
-        if (isHorizontalSwipe === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
-          // Se o movimento horizontal for maior que o vertical, captura o swipe do card
-          isHorizontalSwipe = Math.abs(dx) > Math.abs(dy) * 0.85;
+        if (swipeAxis === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+          if (Math.abs(dx) >= Math.abs(dy) * 0.85) {
+            swipeAxis = "horizontal";
+          } else if (dy < -8 && Math.abs(dy) > Math.abs(dx)) {
+            swipeAxis = "up"; // Arrastar para CIMA = Revisar (Amarelo)
+          } else {
+            swipeAxis = "scroll-down"; // Arrastar para baixo permite rolar a página normalmente
+          }
         }
 
-        if (!isHorizontalSwipe) return;
+        if (swipeAxis === "scroll-down" || swipeAxis === null) return;
         if (e.cancelable) e.preventDefault();
 
-        currentX = dx;
-        currentY = dy * 0.25;
-        const rotateDeg = Math.max(-18, Math.min(18, dx * 0.075));
-        wrapper.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${rotateDeg}deg)`;
+        if (swipeAxis === "horizontal") {
+          currentX = dx;
+          currentY = dy * 0.22;
+          const rotateDeg = Math.max(-18, Math.min(18, dx * 0.075));
+          wrapper.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${rotateDeg}deg)`;
 
-        const progress = Math.min(1, Math.abs(dx) / 110);
+          const progress = Math.min(1, Math.abs(dx) / 105);
+          if (dx > 14) {
+            // DIREITA -> ACERTEI (VERDE)
+            wrapper.classList.add("swiping-right");
+            wrapper.classList.remove("swiping-left", "swiping-up");
+            if (stamp) {
+              stamp.textContent = "🟢 ACERTEI";
+              stamp.className = "fc-swipe-stamp stamp-right";
+              stamp.style.opacity = String(progress);
+            }
+          } else if (dx < -14) {
+            // ESQUERDA -> ERREI (VERMELHO DIRETO)
+            wrapper.classList.add("swiping-left");
+            wrapper.classList.remove("swiping-right", "swiping-up");
+            if (stamp) {
+              stamp.textContent = "🔴 ERREI";
+              stamp.className = "fc-swipe-stamp stamp-left";
+              stamp.style.opacity = String(progress);
+            }
+          } else {
+            wrapper.classList.remove("swiping-right", "swiping-left", "swiping-up");
+            if (stamp) stamp.style.opacity = "0";
+          }
+        } else if (swipeAxis === "up") {
+          // CIMA -> REVISAR (AMARELO COM ACELERAÇÃO)
+          currentY = Math.min(20, dy); // Foco no movimento para cima
+          currentX = dx * 0.25;
+          const rotateDeg = Math.max(-8, Math.min(8, currentX * 0.05));
+          wrapper.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${rotateDeg}deg)`;
 
-        if (dx > 15) {
-          // DIREITA -> ACERTEI (VERDE)
-          wrapper.classList.add("swiping-right");
-          wrapper.classList.remove("swiping-left");
-          if (stamp) {
-            stamp.textContent = "🟢 ACERTEI";
-            stamp.className = "fc-swipe-stamp stamp-right";
-            stamp.style.opacity = String(progress);
+          const progress = Math.min(1, Math.abs(Math.min(0, dy)) / 95);
+          if (dy < -14) {
+            wrapper.classList.add("swiping-up");
+            wrapper.classList.remove("swiping-right", "swiping-left");
+            if (stamp) {
+              stamp.textContent = "🟡 REVISAR";
+              stamp.className = "fc-swipe-stamp stamp-up";
+              stamp.style.opacity = String(progress);
+            }
+          } else {
+            wrapper.classList.remove("swiping-right", "swiping-left", "swiping-up");
+            if (stamp) stamp.style.opacity = "0";
           }
-        } else if (dx < -15) {
-          // ESQUERDA -> ERREI / REVER (VERMELHO)
-          wrapper.classList.add("swiping-left");
-          wrapper.classList.remove("swiping-right");
-          if (stamp) {
-            stamp.textContent = "🔴 ERREI";
-            stamp.className = "fc-swipe-stamp stamp-left";
-            stamp.style.opacity = String(progress);
-          }
-        } else {
-          wrapper.classList.remove("swiping-right", "swiping-left");
-          if (stamp) stamp.style.opacity = "0";
         }
       }, { passive: false });
 
@@ -5606,170 +5903,62 @@
         if (!isDragging || window.innerWidth > 768) return;
         isDragging = false;
 
-        if (!isHorizontalSwipe) {
+        if (!swipeAxis || swipeAxis === "scroll-down") {
           resetCardVisual(true);
           return;
         }
 
         const dt = Math.max(1, Date.now() - startTime);
-        const velocityX = currentX / dt; // px por ms (código de aceleração!)
+        const velocityX = currentX / dt; // px/ms (aceleração horizontal)
+        const velocityY = currentY / dt; // px/ms (aceleração vertical)
         const screenW = window.innerWidth;
+        const screenH = window.innerHeight;
 
-        // Dispara se arrastou além de 24% da tela OU se fez um flick rápido (aceleração)
-        const triggeredRight = currentX > screenW * 0.24 || (currentX > 35 && velocityX > 0.45);
-        const triggeredLeft = currentX < -screenW * 0.24 || (currentX < -35 && velocityX < -0.45);
+        if (swipeAxis === "horizontal") {
+          const triggeredRight = currentX > screenW * 0.23 || (currentX > 32 && velocityX > 0.42);
+          const triggeredLeft = currentX < -screenW * 0.23 || (currentX < -32 && velocityX < -0.42);
 
-        if (triggeredRight) {
-          // Animação suave voando para a direita com aceleração verde!
-          const flyDuration = Math.max(180, Math.min(320, Math.round(280 / Math.max(1, Math.abs(velocityX)))));
-          wrapper.style.transition = `transform ${flyDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
-          wrapper.style.transform = `translate3d(${screenW + 120}px, ${currentY + 20}px, 0px) rotate(22deg)`;
-          setTimeout(() => {
-            resetCardVisual(false);
-            rateCard("mastered");
-          }, flyDuration - 20);
-        } else if (triggeredLeft) {
-          // Deslizou para a esquerda -> Abre o Seletor Vertical Centralizado (Cima: Errei Vermelho | Baixo: Rever Amarelo)!
-          resetCardVisual(true);
-          openWrongSplitOverlay();
-        } else {
-          resetCardVisual(true);
+          if (triggeredRight) {
+            // Voa para a DIREITA (Verde -> Acertei / Dominado)
+            const flyDuration = Math.max(170, Math.min(310, Math.round(270 / Math.max(0.9, Math.abs(velocityX)))));
+            wrapper.classList.add("swiping-right");
+            wrapper.style.transition = `transform ${flyDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+            wrapper.style.transform = `translate3d(${screenW + 140}px, ${currentY + 15}px, 0px) rotate(22deg)`;
+            setTimeout(() => {
+              resetCardVisual(false);
+              rateCard("mastered");
+            }, flyDuration - 20);
+          } else if (triggeredLeft) {
+            // Voa para a ESQUERDA (Vermelho -> Errei direto p/ baralho de revisão!)
+            const flyDuration = Math.max(170, Math.min(310, Math.round(270 / Math.max(0.9, Math.abs(velocityX)))));
+            wrapper.classList.add("swiping-left");
+            wrapper.style.transition = `transform ${flyDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+            wrapper.style.transform = `translate3d(${-(screenW + 140)}px, ${currentY + 15}px, 0px) rotate(-22deg)`;
+            setTimeout(() => {
+              resetCardVisual(false);
+              rateCard("again");
+            }, flyDuration - 20);
+          } else {
+            resetCardVisual(true);
+          }
+        } else if (swipeAxis === "up") {
+          const triggeredUp = currentY < -(screenH * 0.14) || (currentY < -28 && velocityY < -0.38);
+          if (triggeredUp) {
+            // Voa para CIMA até sair da tela ficando AMARELO (Revisar -> 'hard')
+            const flyDuration = Math.max(180, Math.min(320, Math.round(280 / Math.max(0.9, Math.abs(velocityY)))));
+            wrapper.classList.add("swiping-up");
+            wrapper.style.transition = `transform ${flyDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+            wrapper.style.transform = `translate3d(${currentX * 0.5}px, ${-(screenH + 180)}px, 0px) rotate(0deg)`;
+            setTimeout(() => {
+              resetCardVisual(false);
+              rateCard("hard");
+            }, flyDuration - 20);
+          } else {
+            resetCardVisual(true);
+          }
         }
 
         setTimeout(() => { currentX = 0; currentY = 0; }, 50);
-      });
-    })();
-
-    // SELETOR VERTICAL QUANDO O USUÁRIO DESLIZA PARA A ESQUERDA (MINI-CARD NO CENTRO + FUNDO ESMAECIDO)
-    function openWrongSplitOverlay() {
-      if (filteredCards.length === 0) return;
-      const card = filteredCards[currentCardIndex];
-      const overlay = document.getElementById("fc-wrong-split-overlay");
-      const miniCard = document.getElementById("fc-mini-split-card");
-      const miniText = document.getElementById("fc-mini-card-text");
-      const miniTag = document.getElementById("fc-mini-card-tag");
-      if (!overlay || !miniCard) return;
-
-      if (miniTag) miniTag.textContent = card.decupadoTopic || "REVISÃO";
-      if (miniText) miniText.innerHTML = card.q;
-
-      // Estado inicial da animação: começa maior na esquerda e diminui suavemente para o centro!
-      miniCard.style.transition = "none";
-      miniCard.style.transform = "translate3d(-90px, 0px, 0px) scale(1.18) rotate(-8deg)";
-      miniCard.classList.remove("tint-up-red", "tint-down-yellow");
-      document.getElementById("fc-zone-top").classList.remove("active-zone");
-      document.getElementById("fc-zone-bottom").classList.remove("active-zone");
-
-      overlay.classList.add("active");
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          miniCard.style.transition = "transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s, border-color 0.2s, box-shadow 0.2s";
-          miniCard.style.transform = "translate3d(0px, 0px, 0px) scale(1) rotate(0deg)";
-        });
-      });
-    }
-
-    function closeWrongSplitOverlay() {
-      const overlay = document.getElementById("fc-wrong-split-overlay");
-      if (overlay) overlay.classList.remove("active");
-    }
-
-    function triggerVerticalChoice(rating, velocityY = 1.2) {
-      const miniCard = document.getElementById("fc-mini-split-card");
-      const overlay = document.getElementById("fc-wrong-split-overlay");
-      if (!miniCard || !overlay) return;
-
-      const isUp = rating === "again"; // Cima = Errei (Vermelho) | Baixo = Rever (Amarelo)
-      const targetY = isUp ? -(window.innerHeight + 160) : (window.innerHeight + 160);
-      const duration = Math.max(180, Math.min(340, Math.round(300 / Math.max(0.8, Math.abs(velocityY)))));
-
-      miniCard.classList.toggle("tint-up-red", isUp);
-      miniCard.classList.toggle("tint-down-yellow", !isUp);
-      miniCard.style.transition = `transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), background 0.15s, border-color 0.15s`;
-      miniCard.style.transform = `translate3d(0px, ${targetY}px, 0px) scale(0.85)`;
-
-      setTimeout(() => {
-        overlay.classList.remove("active");
-        rateCard(rating);
-      }, duration - 20);
-    }
-
-    // Física de arraste vertical + código de aceleração no Mini-Card central
-    (function initMiniCardVerticalGestures() {
-      const miniCard = document.getElementById("fc-mini-split-card");
-      const zoneTop = document.getElementById("fc-zone-top");
-      const zoneBottom = document.getElementById("fc-zone-bottom");
-      if (!miniCard) return;
-
-      let startY = 0;
-      let startX = 0;
-      let curY = 0;
-      let curX = 0;
-      let startTime = 0;
-      let dragging = false;
-
-      miniCard.addEventListener("touchstart", (e) => {
-        const t = e.touches[0];
-        startY = t.clientY;
-        startX = t.clientX;
-        curY = 0;
-        curX = 0;
-        startTime = Date.now();
-        dragging = true;
-        miniCard.style.transition = "none";
-      }, { passive: true });
-
-      miniCard.addEventListener("touchmove", (e) => {
-        if (!dragging) return;
-        if (e.cancelable) e.preventDefault();
-        const t = e.touches[0];
-        curY = t.clientY - startY;
-        curX = (t.clientX - startX) * 0.25;
-
-        miniCard.style.transform = `translate3d(${curX}px, ${curY}px, 0px) rotate(${curX * 0.05}deg)`;
-
-        if (curY < -18) {
-          // Arrastando para CIMA -> DIFÍCIL / ERREI (VERMELHO)
-          miniCard.classList.add("tint-up-red");
-          miniCard.classList.remove("tint-down-yellow");
-          if (zoneTop) zoneTop.classList.add("active-zone");
-          if (zoneBottom) zoneBottom.classList.remove("active-zone");
-        } else if (curY > 18) {
-          // Arrastando para BAIXO -> DIFÍCIL / REVER (AMARELO)
-          miniCard.classList.add("tint-down-yellow");
-          miniCard.classList.remove("tint-up-red");
-          if (zoneBottom) zoneBottom.classList.add("active-zone");
-          if (zoneTop) zoneTop.classList.remove("active-zone");
-        } else {
-          miniCard.classList.remove("tint-up-red", "tint-down-yellow");
-          if (zoneTop) zoneTop.classList.remove("active-zone");
-          if (zoneBottom) zoneBottom.classList.remove("active-zone");
-        }
-      }, { passive: false });
-
-      miniCard.addEventListener("touchend", () => {
-        if (!dragging) return;
-        dragging = false;
-
-        const dt = Math.max(1, Date.now() - startTime);
-        const vy = curY / dt; // px/ms (aceleração vertical!)
-        const threshold = window.innerHeight * 0.14;
-
-        if (curY < -threshold || (curY < -25 && vy < -0.4)) {
-          // Jogou ou arrastou para CIMA -> Errei (again)
-          triggerVerticalChoice("again", Math.abs(vy));
-        } else if (curY > threshold || (curY > 25 && vy > 0.4)) {
-          // Jogou ou arrastou para BAIXO -> Rever (hard)
-          triggerVerticalChoice("hard", Math.abs(vy));
-        } else {
-          // Volta suavemente para o centro da linha
-          miniCard.style.transition = "transform 0.28s cubic-bezier(0.22, 1, 0.36, 1)";
-          miniCard.style.transform = "translate3d(0px, 0px, 0px) scale(1)";
-          miniCard.classList.remove("tint-up-red", "tint-down-yellow");
-          if (zoneTop) zoneTop.classList.remove("active-zone");
-          if (zoneBottom) zoneBottom.classList.remove("active-zone");
-        }
       });
     })();
 
