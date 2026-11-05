@@ -1861,7 +1861,7 @@
 
 
       /* =====================================================================
-         6. ABA DE CALENDÁRIO MENSAL COMPACTO NO CELULAR (SEGUNDA A DOMINGO)
+         6. ABA DE CALENDÁRIO MENSAL LISO & MINIMALISTA NO CELULAR + TELA CHEIA
          ===================================================================== */
       .calendar-header-info {
         padding: 10px 12px !important;
@@ -1904,168 +1904,111 @@
         border-radius: 7px !important;
       }
 
-      /* Painel Rápido do Dia Selecionado no Topo do Calendário Mobile */
-      .mob-cal-active-editor {
-        background: linear-gradient(145deg, #0f172a, #1e293b) !important;
-        border: 1px solid #38bdf8 !important;
-        border-radius: 10px !important;
-        padding: 8px 10px !important;
-        margin-bottom: 8px !important;
-        box-shadow: 0 4px 14px rgba(14, 165, 233, 0.18) !important;
-      }
-
-      .mob-editor-top {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        margin-bottom: 6px !important;
-      }
-
-      .mob-editor-day-pill {
-        background: #0ea5e9 !important;
-        color: #fff !important;
-        font-size: 10.5px !important;
-        font-weight: 900 !important;
-        padding: 2px 8px !important;
-        border-radius: 99px !important;
-      }
-
-      .mob-editor-controls {
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-        width: 100% !important;
-      }
-
-      .mob-editor-input {
-        flex: 1 !important;
-        min-width: 0 !important;
-        background: #0b1120 !important;
-        border: 1px solid #475569 !important;
-        color: #fff !important;
-        padding: 6px 9px !important;
-        border-radius: 7px !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        outline: none !important;
-      }
-      .mob-editor-input:focus {
-        border-color: #38bdf8 !important;
-      }
-
-      .mob-editor-checks {
-        display: flex !important;
-        gap: 4px !important;
-        flex-shrink: 0 !important;
-      }
-
-      .mob-editor-checks .cal-mini-check {
-        padding: 5px 7px !important;
-        font-size: 10.5px !important;
-        border-radius: 6px !important;
-        gap: 3px !important;
-      }
-
       /* Cabeçalho Seg a Dom (7 colunas) */
       .calendar-weekdays {
         display: grid !important;
         grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-        gap: 3px !important;
-        margin-bottom: 4px !important;
-        font-size: 10px !important;
+        gap: 4px !important;
+        margin-bottom: 5px !important;
+        font-size: 10.5px !important;
         font-weight: 900 !important;
         text-align: center !important;
         color: #38bdf8 !important;
         padding: 0 2px !important;
       }
 
-      /* Linhas das Semanas bem juntinhas (Segunda a Domingo em cada linha) */
+      /* Grade Mensal Lisa e Minimalista (Segunda a Domingo em cada linha) */
       .calendar-weeks-wrapper {
         display: flex !important;
         flex-direction: column !important;
-        gap: 3px !important;
+        gap: 4px !important;
         width: 100% !important;
       }
 
       .cal-week-row {
         display: grid !important;
         grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
-        gap: 3px !important;
-        padding: 2px !important;
-        border-radius: 8px !important;
+        gap: 4px !important;
+        padding: 3px !important;
+        border-radius: 10px !important;
         width: 100% !important;
         box-sizing: border-box !important;
       }
 
+      /* Na visualização primária do celular, remove caixa de texto e checkboxes de dentro do quadradinho */
+      .cal-day .cal-input-title,
+      .cal-day .cal-checks-wrap,
+      .cal-day .day-badge {
+        display: none !important;
+      }
+
+      /* Quadradinho do dia liso, elegante e minimalista no celular */
       .cal-day {
-        padding: 3px 2.5px !important;
-        min-height: 68px !important;
-        border-radius: 6px !important;
+        padding: 4px 2px !important;
+        min-height: 50px !important;
+        height: 52px !important;
+        border-radius: 9px !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: space-between !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        user-select: none !important;
+        position: relative !important;
         overflow: hidden !important;
         box-sizing: border-box !important;
+      }
+
+      .cal-day:active:not(.empty-slot) {
+        transform: scale(0.94) !important;
       }
 
       .cal-day.empty-slot {
-        min-height: 68px !important;
-        font-size: 9px !important;
+        min-height: 50px !important;
+        height: 52px !important;
+        font-size: 10px !important;
+        opacity: 0.45 !important;
       }
 
-      .cal-day.mob-selected-day {
-        outline: 2px solid #38bdf8 !important;
-        outline-offset: -1px !important;
+      /* Quando o dia tem matéria digitada (>= 1 caractere) mas ainda faltam requisitos */
+      .cal-day.pending-req-day {
+        border: 1.5px dashed #f59e0b !important;
+        background: linear-gradient(145deg, rgba(120, 53, 15, 0.32), rgba(15, 23, 42, 0.9)) !important;
       }
 
       .cal-day-top {
-        margin-bottom: 2px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         justify-content: center !important;
+        gap: 2px !important;
       }
 
       .day-num {
-        font-size: 10.5px !important;
+        font-size: 13px !important;
         font-weight: 900 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
         gap: 1px !important;
-        line-height: 1 !important;
+        line-height: 1.05 !important;
       }
 
       .day-flame-icon {
-        font-size: 9.5px !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
       }
 
-      /* Campo de texto direto dentro de cada quadradinho do dia no celular */
-      .cal-day .cal-input-title {
-        padding: 2px 3px !important;
-        font-size: 9px !important;
-        border-radius: 4px !important;
-        margin-bottom: 2px !important;
-        height: 20px !important;
-        text-overflow: ellipsis !important;
-      }
-
-      /* As 2 caixas de seleção (Res / Qst) dentro do quadradinho do dia no celular */
-      .cal-day .cal-checks-wrap {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 2px !important;
-        width: 100% !important;
-      }
-
-      .cal-day .cal-mini-check {
-        padding: 2px 1px !important;
-        font-size: 7.5px !important;
-        border-radius: 3px !important;
-        gap: 1.5px !important;
-        justify-content: center !important;
-        min-width: 0 !important;
-        overflow: hidden !important;
-      }
-
-      .cal-day .cal-mini-check input {
-        width: 9.5px !important;
-        height: 9.5px !important;
-        flex-shrink: 0 !important;
+      .day-pending-dot {
+        width: 6px !important;
+        height: 6px !important;
+        border-radius: 50% !important;
+        background: #fbbf24 !important;
+        box-shadow: 0 0 6px #f59e0b !important;
+        margin-top: 2px !important;
       }
 
       /* 4. FILTROS E BUSCA NO CELULAR */
@@ -2741,6 +2684,293 @@
       }
     }
 
+
+    /* =====================================================================
+       NOTIFICAÇÃO PERSISTENTE DE REQUISITOS PENDENTES (MARGEM A MARGEM)
+       ===================================================================== */
+    .cal-persistent-pending-banner {
+      width: 100%;
+      box-sizing: border-box;
+      background: linear-gradient(90deg, rgba(120, 53, 15, 0.75) 0%, rgba(30, 41, 59, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.65);
+      border-left: 4px solid #f59e0b;
+      border-radius: 9px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+      transition: transform 0.15s ease, border-color 0.2s ease;
+    }
+    .cal-persistent-pending-banner:hover {
+      border-color: #fbbf24;
+    }
+    .cal-persistent-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+    }
+    .cal-persistent-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fbbf24;
+      box-shadow: 0 0 8px #f59e0b;
+      flex-shrink: 0;
+      animation: notifPulse 1.4s infinite;
+    }
+    .cal-persistent-text {
+      font-size: 11.5px;
+      color: #fde68a;
+      font-weight: 600;
+      line-height: 1.3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cal-persistent-text strong {
+      color: #fff;
+      font-weight: 800;
+    }
+    .cal-persistent-action {
+      background: rgba(245, 158, 11, 0.22);
+      border: 1px solid rgba(251, 191, 36, 0.55);
+      color: #fef3c7;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* =====================================================================
+       VISUALIZAÇÃO SECUNDÁRIA DE TELA CHEIA DO DIA DO CALENDÁRIO
+       ===================================================================== */
+    .cal-day-fs-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(7, 11, 22, 0.96);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .cal-day-fs-overlay.active {
+      display: flex;
+    }
+    .cal-day-fs-card {
+      width: 100%;
+      max-width: 540px;
+      background: linear-gradient(155deg, #0f172a 0%, #1e293b 100%);
+      border: 1.5px solid #334155;
+      border-radius: 16px;
+      padding: 18px 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-sizing: border-box;
+    }
+    .cal-day-fs-card.fs-done {
+      border-color: #10b981;
+      box-shadow: 0 0 35px rgba(16, 185, 129, 0.25);
+    }
+    .cal-day-fs-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(71, 85, 105, 0.5);
+      padding-bottom: 12px;
+    }
+    .cal-day-fs-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cal-fs-day-badge {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 8px;
+      letter-spacing: 0.4px;
+    }
+    .cal-fs-weekday {
+      font-size: 14px;
+      font-weight: 800;
+      color: #f8fafc;
+    }
+    .cal-fs-close-btn {
+      background: #1e293b;
+      border: 1px solid #475569;
+      color: #cbd5e1;
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .cal-fs-inline-warning {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(120, 53, 15, 0.55);
+      border: 1px solid #f59e0b;
+      border-left: 4px solid #fbbf24;
+      color: #fef3c7;
+      padding: 8px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .cal-fs-status-banner {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .cal-fs-status-banner.status-done {
+      background: rgba(6, 78, 59, 0.65);
+      border: 1px solid #10b981;
+      color: #6ee7b7;
+    }
+    .cal-fs-status-banner.status-pending {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid #334155;
+      color: #94a3b8;
+    }
+    .cal-fs-section {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .cal-fs-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .cal-fs-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: #0b1120;
+      border: 1.5px solid #475569;
+      color: #f8fafc;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      resize: none;
+      outline: none;
+      font-family: inherit;
+    }
+    .cal-fs-textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+    .cal-fs-req-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .cal-fs-req-card {
+      background: #0b1120;
+      border: 1.5px solid #334155;
+      border-radius: 11px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.18s ease;
+    }
+    .cal-fs-req-card.checked {
+      background: rgba(6, 78, 59, 0.55);
+      border-color: #10b981;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18);
+    }
+    .cal-fs-req-check-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      border: 2px solid #64748b;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .cal-fs-req-card.checked .cal-fs-req-check-circle {
+      background: #10b981;
+      border-color: #34d399;
+    }
+    .cal-fs-req-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .cal-fs-req-info strong {
+      font-size: 13.5px;
+      color: #f8fafc;
+    }
+    .cal-fs-req-info span {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .cal-fs-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(71, 85, 105, 0.4);
+    }
+    .cal-fs-prevnext-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 9px 11px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .cal-fs-done-btn {
+      flex: 1;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      border: none;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    }
+
   </style>
 </head>
 <body>
@@ -2930,8 +3160,67 @@
         </div>
       </div>
 
-      <!-- PAINEL DE EDIÇÃO RÁPIDA DO DIA SELECIONADO (EXCLUSIVO CELULAR PARA ESCREVER E MARCAR COM CONFORTO TOTAL) -->
-      <div id="mob-cal-active-editor" class="mob-cal-active-editor mobile-only"></div>
+      <!-- NOTIFICAÇÃO PERSISTENTE MINIMALISTA DE MARGEM A MARGEM (SÓ APARECE SE HOUVER >= 1 CARACTERE DIGITADO E REQUISITOS PENDENTES) -->
+      <div id="cal-persistent-pending-banner" class="cal-persistent-pending-banner" style="display:none;"></div>
+
+      <!-- TELA CHEIA SECUNDÁRIA DETALHADA DO DIA SELECIONADO (SEMELHANTE AO MODO TELA CHEIA DOS FLASHCARDS) -->
+      <div id="cal-day-fullscreen-overlay" class="cal-day-fs-overlay">
+        <div class="cal-day-fs-card">
+          <div class="cal-day-fs-topbar">
+            <div class="cal-day-fs-title-group">
+              <span id="cal-fs-day-badge" class="cal-fs-day-badge">DIA 05/11</span>
+              <span id="cal-fs-weekday" class="cal-fs-weekday">Quinta-feira</span>
+            </div>
+            <button type="button" class="cal-fs-close-btn" onclick="closeCalDayFullscreen()">✕ Voltar ao Calendário</button>
+          </div>
+
+          <!-- Notificação persistente também visível dentro da tela cheia enquanto tiver texto >= 1 char e faltar Resumo ou Questões -->
+          <div id="cal-fs-inline-warning" class="cal-fs-inline-warning" style="display:none;"></div>
+
+          <!-- Status visual de conclusão / ofensiva -->
+          <div id="cal-fs-status-banner" class="cal-fs-status-banner"></div>
+
+          <!-- Campo amplo para digitar a matéria estudada -->
+          <div class="cal-fs-section">
+            <label class="cal-fs-label" for="cal-fs-input-title">📚 1. Matéria / Conteúdo Estudado no Dia:</label>
+            <textarea
+              id="cal-fs-input-title"
+              class="cal-fs-textarea"
+              rows="3"
+              placeholder="Digite aqui a lei, artigo ou PDF estudado hoje (ex: Art. 5º CF/88 + Crimes contra o Patrimônio)..."
+              oninput="onFullscreenDayTitleInput(this.value)"
+            ></textarea>
+          </div>
+
+          <!-- Requisitos obrigatórios para conclusão do dia -->
+          <div class="cal-fs-section">
+            <label class="cal-fs-label">✅ 2. Requisitos Obrigatórios para Concluir o Dia (Ofensiva 🔥):</label>
+            <div class="cal-fs-req-grid">
+              <div id="cal-fs-btn-resumo" class="cal-fs-req-card" onclick="toggleFullscreenDayCheck('resumo')">
+                <div class="cal-fs-req-check-circle" id="cal-fs-circle-resumo"></div>
+                <div class="cal-fs-req-info">
+                  <strong>📄 Leitura / Resumo da Lei Seca</strong>
+                  <span>Estudo da teoria ou PDF decupado concluído</span>
+                </div>
+              </div>
+
+              <div id="cal-fs-btn-questoes" class="cal-fs-req-card" onclick="toggleFullscreenDayCheck('questoes')">
+                <div class="cal-fs-req-check-circle" id="cal-fs-circle-questoes"></div>
+                <div class="cal-fs-req-info">
+                  <strong>🎯 Bateria de Questões / Flashcards</strong>
+                  <span>Fixação prática e revisão de pegadinhas IBAM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cal-fs-footer">
+            <button type="button" class="cal-fs-prevnext-btn" onclick="navigateFullscreenDay(-1)">⬅️ Dia Anterior</button>
+            <button type="button" class="cal-fs-done-btn" onclick="closeCalDayFullscreen()">Salvar &amp; Voltar 📅</button>
+            <button type="button" class="cal-fs-prevnext-btn" onclick="navigateFullscreenDay(1)">Próximo Dia ➡️</button>
+          </div>
+        </div>
+      </div>
 
       <div class="calendar-weekdays">
         <div><span class="desktop-only-inline">Segunda</span><span class="mobile-only-inline">Seg</span></div>
@@ -5064,30 +5353,190 @@
       return Boolean(d.title && d.title.trim().length > 0 && d.resumo && d.questoes);
     }
 
+    let activeFullscreenCalDay = null;
+
+    function isDayPendingRequirements(day) {
+      const d = getDayData(day);
+      const hasAtLeastOneChar = Boolean(d.title && d.title.trim().length >= 1);
+      return hasAtLeastOneChar && (!d.resumo || !d.questoes);
+    }
+
+    function getMissingRequirementsText(day) {
+      const d = getDayData(day);
+      const missing = [];
+      if (!d.resumo) missing.push("Resumo");
+      if (!d.questoes) missing.push("Questões");
+      return missing.join(" e ");
+    }
+
+    function updatePersistentPendingNotification() {
+      const banner = document.getElementById("cal-persistent-pending-banner");
+      if (!banner) return;
+
+      // Busca todos os dias que têm >= 1 caractere escrito na matéria estudada, mas ainda não cumpriram Resumo + Questões
+      const pendingDays = [];
+      for (let d = 1; d <= 30; d++) {
+        if (isDayPendingRequirements(d)) {
+          pendingDays.push(d);
+        }
+      }
+
+      if (pendingDays.length === 0) {
+        banner.style.display = "none";
+        banner.innerHTML = "";
+        return;
+      }
+
+      // Prioriza o dia aberto/atual ou o primeiro pendente
+      const targetDay = pendingDays.includes(activeFullscreenCalDay)
+        ? activeFullscreenCalDay
+        : pendingDays.includes(currentDetectedNovDay)
+          ? currentDetectedNovDay
+          : pendingDays[0];
+
+      const dData = getDayData(targetDay);
+      const missingTxt = getMissingRequirementsText(targetDay);
+      const previewTitle = dData.title.trim().slice(0, 32) + (dData.title.trim().length > 32 ? "..." : "");
+      const extraCount = pendingDays.length > 1 ? ` (+${pendingDays.length - 1} dia)` : "";
+
+      banner.style.display = "flex";
+      banner.onclick = () => openCalDayFullscreen(targetDay);
+      banner.innerHTML = `
+        <div class="cal-persistent-left">
+          <span class="cal-persistent-pulse"></span>
+          <div class="cal-persistent-text">
+            <strong>Dia ${String(targetDay).padStart(2, "0")}/11 pendente${extraCount}:</strong> Você anotou <em>"${previewTitle}"</em> — marque <strong>${missingTxt}</strong> para concluir o dia!
+          </div>
+        </div>
+        <span class="cal-persistent-action">Concluir ➔</span>
+      `;
+    }
+
+    function openCalDayFullscreen(dayNum) {
+      activeFullscreenCalDay = dayNum;
+      const overlay = document.getElementById("cal-day-fullscreen-overlay");
+      if (!overlay) return;
+      renderFullscreenDayModal();
+      overlay.classList.add("active");
+    }
+
+    function closeCalDayFullscreen() {
+      const overlay = document.getElementById("cal-day-fullscreen-overlay");
+      if (overlay) overlay.classList.remove("active");
+      renderCalendar();
+    }
+
+    function navigateFullscreenDay(delta) {
+      if (!activeFullscreenCalDay) activeFullscreenCalDay = currentDetectedNovDay || 5;
+      let next = activeFullscreenCalDay + delta;
+      if (next < 1) next = 30;
+      if (next > 30) next = 1;
+      activeFullscreenCalDay = next;
+      renderFullscreenDayModal();
+    }
+
+    function renderFullscreenDayModal() {
+      if (!activeFullscreenCalDay) return;
+      const dayNum = activeFullscreenCalDay;
+      const dData = getDayData(dayNum);
+      const isDone = isDayCompleted(dayNum);
+      const isPending = isDayPendingRequirements(dayNum);
+
+      const wdaysFull = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+      const wdayName = wdaysFull[new Date(2026, 10, dayNum).getDay()];
+
+      const cardEl = document.querySelector("#cal-day-fullscreen-overlay .cal-day-fs-card");
+      if (cardEl) cardEl.classList.toggle("fs-done", isDone);
+
+      const badgeEl = document.getElementById("cal-fs-day-badge");
+      if (badgeEl) badgeEl.textContent = `DIA ${String(dayNum).padStart(2, "0")}/11`;
+
+      const wdayEl = document.getElementById("cal-fs-weekday");
+      if (wdayEl) wdayEl.textContent = wdayName + (dayNum === currentDetectedNovDay ? " (Hoje)" : "");
+
+      const inputEl = document.getElementById("cal-fs-input-title");
+      if (inputEl && document.activeElement !== inputEl) {
+        inputEl.value = dData.title || "";
+      }
+
+      // Aviso persistente interno caso tenha >= 1 caractere e falte marcar Resumo ou Questões
+      const warnEl = document.getElementById("cal-fs-inline-warning");
+      if (warnEl) {
+        if (isPending) {
+          warnEl.style.display = "block";
+          warnEl.innerHTML = `⚠️ <strong>Requisito pendente:</strong> Marque <strong>${getMissingRequirementsText(dayNum)}</strong> abaixo para concluir o dia ${String(dayNum).padStart(2, "0")}/11 e acender o foguinho 🔥!`;
+        } else {
+          warnEl.style.display = "none";
+        }
+      }
+
+      // Status banner
+      const statusEl = document.getElementById("cal-fs-status-banner");
+      if (statusEl) {
+        if (isDone) {
+          statusEl.className = "cal-fs-status-banner status-done";
+          statusEl.innerHTML = `<span>🟢 DIA CONCLUÍDO COM SUCESSO!</span><span>🔥 Ofensiva Ativa</span>`;
+        } else {
+          statusEl.className = "cal-fs-status-banner status-pending";
+          statusEl.innerHTML = `<span>⏳ Preencha a matéria + marque os 2 requisitos</span><span>0/1 dia</span>`;
+        }
+      }
+
+      // Botões de Resumo e Questões
+      const btnRes = document.getElementById("cal-fs-btn-resumo");
+      const cirRes = document.getElementById("cal-fs-circle-resumo");
+      if (btnRes && cirRes) {
+        btnRes.classList.toggle("checked", Boolean(dData.resumo));
+        cirRes.textContent = dData.resumo ? "✓" : "";
+      }
+
+      const btnQst = document.getElementById("cal-fs-btn-questoes");
+      const cirQst = document.getElementById("cal-fs-circle-questoes");
+      if (btnQst && cirQst) {
+        btnQst.classList.toggle("checked", Boolean(dData.questoes));
+        cirQst.textContent = dData.questoes ? "✓" : "";
+      }
+    }
+
+    function onFullscreenDayTitleInput(val) {
+      if (!activeFullscreenCalDay) return;
+      updateCalDayTitle(activeFullscreenCalDay, val);
+      renderFullscreenDayModal();
+    }
+
+    function toggleFullscreenDayCheck(field) {
+      if (!activeFullscreenCalDay) return;
+      toggleCalDayCheck(activeFullscreenCalDay, field);
+      renderFullscreenDayModal();
+    }
+
     function updateCalDayTitle(day, val) {
       const d = getDayData(day);
       const wasDone = isDayCompleted(day);
+      const wasPending = isDayPendingRequirements(day);
       d.title = val;
       saveState();
-      // Sincroniza o texto entre o bloco do dia e a barra rápida sem perder o foco de digitação
+
+      // Sincroniza o input do Desktop se não for o elemento ativo
       const cellInput = document.querySelector(`input[data-cal-input-day="${day}"]`);
       if (cellInput && cellInput !== document.activeElement) {
         cellInput.value = val;
       }
-      const mobInput = document.querySelector("#mob-cal-active-editor .mob-editor-input");
-      if (mobInput && mobInput !== document.activeElement && selectedMobileCalDay === day) {
-        mobInput.value = val;
-      }
+
+      // Atualiza imediatamente a notificação persistente de margem a margem!
+      updatePersistentPendingNotification();
+
       const nowDone = isDayCompleted(day);
-      if (wasDone !== nowDone) {
-        const activeTag = document.activeElement ? document.activeElement.className : "";
+      const nowPending = isDayPendingRequirements(day);
+      if (wasDone !== nowDone || wasPending !== nowPending) {
+        const isDesktopInputFocused = document.activeElement && document.activeElement.classList.contains("cal-input-title");
         renderCalendar();
-        if (activeTag.includes("mob-editor-input")) {
-          const newMobIn = document.querySelector("#mob-cal-active-editor .mob-editor-input");
-          if (newMobIn) { newMobIn.focus(); newMobIn.setSelectionRange(val.length, val.length); }
-        } else if (activeTag.includes("cal-input-title")) {
+        if (isDesktopInputFocused) {
           const newCellIn = document.querySelector(`input[data-cal-input-day="${day}"]`);
-          if (newCellIn) { newCellIn.focus(); newCellIn.setSelectionRange(val.length, val.length); }
+          if (newCellIn) {
+            newCellIn.focus();
+            newCellIn.setSelectionRange(val.length, val.length);
+          }
         }
       }
     }
@@ -5096,6 +5545,7 @@
       const d = getDayData(day);
       d[field] = !d[field];
       saveState();
+      updatePersistentPendingNotification();
       renderCalendar();
     }
 
@@ -5103,7 +5553,6 @@
       let currentStreak = 0;
       const streakDays = new Set();
 
-      // Marca foguinho em todo dia concluído e calcula a sequência ativa
       let running = 0;
       let maxStreak = 0;
       for (let day = 1; day <= 30; day++) {
@@ -5117,7 +5566,6 @@
           }
         }
       }
-      // Sequência contínua até hoje (ou até ontem se hoje ainda está em andamento)
       let activeSeq = 0;
       let checkDay = isDayCompleted(currentDetectedNovDay) ? currentDetectedNovDay : currentDetectedNovDay - 1;
       while (checkDay >= 1 && isDayCompleted(checkDay)) {
@@ -5128,63 +5576,12 @@
       return { currentStreak, streakDays };
     }
 
-    let selectedMobileCalDay = null;
-
-    function selectMobileCalDay(dayNum) {
-      selectedMobileCalDay = dayNum;
-      renderMobileActiveDayEditor();
-      document.querySelectorAll(".cal-day[data-day]").forEach(el => {
-        el.classList.toggle("mob-selected-day", Number(el.getAttribute("data-day")) === dayNum);
-      });
-    }
-
-    function renderMobileActiveDayEditor() {
-      const box = document.getElementById("mob-cal-active-editor");
-      if (!box) return;
-      const dayNum = selectedMobileCalDay || currentDetectedNovDay || 5;
-      const dData = getDayData(dayNum);
-      const isDone = isDayCompleted(dayNum);
-      const isExam = dayNum === 29;
-      const wdaysFull = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
-      const wdayName = wdaysFull[new Date(2026, 10, dayNum).getDay()];
-      const safeTitle = (dData.title || "").replace(/"/g, "&quot;");
-
-      box.innerHTML = `
-        <div class="mob-editor-top">
-          <div style="display:flex;align-items:center;gap:6px;">
-            <span class="mob-editor-day-pill">${String(dayNum).padStart(2, "0")}/11 • ${wdayName}</span>
-            ${isDone ? '<span style="font-size:11px;color:#34d399;font-weight:800;">🔥 Concluído!</span>' : '<span style="font-size:10.5px;color:#94a3b8;">Toque num dia abaixo ou edite aqui:</span>'}
-          </div>
-        </div>
-        <div class="mob-editor-controls">
-          <input
-            type="text"
-            class="mob-editor-input"
-            placeholder="${isExam ? '🏆 Dia da Prova GCM!' : '✍️ Escreva o conteúdo estudado no dia ' + String(dayNum).padStart(2, '0') + '/11...'}"
-            value="${safeTitle}"
-            oninput="updateCalDayTitle(${dayNum}, this.value)"
-          >
-          <div class="mob-editor-checks">
-            <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}">
-              <input type="checkbox" ${dData.resumo ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'resumo')">
-              <span>Resumo</span>
-            </label>
-            <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}">
-              <input type="checkbox" ${dData.questoes ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'questoes')">
-              <span>Questões</span>
-            </label>
-          </div>
-        </div>
-      `;
-    }
-
     function renderCalendar() {
       const wrapper = document.getElementById("calendar-grid");
       if (!wrapper) return;
       wrapper.innerHTML = "";
 
       currentDetectedNovDay = getSystemNovDay();
-      if (!selectedMobileCalDay) selectedMobileCalDay = currentDetectedNovDay;
       const { currentStreak, streakDays } = calculateStreakInfo();
 
       // Semanas começando rigorosamente na SEGUNDA e terminando no DOMINGO:
@@ -5221,16 +5618,16 @@
 
           const dData = getDayData(dayNum);
           const isDone = isDayCompleted(dayNum);
+          const isPending = isDayPendingRequirements(dayNum);
           const isToday = dayNum === currentDetectedNovDay;
           const isExam = dayNum === 29;
-          const isSelectedMob = dayNum === selectedMobileCalDay;
           const wdayLabel = wdayShort[colIdx];
 
           let classes = "cal-day";
           if (isToday) classes += " today";
           if (isExam) classes += " exam-day";
           if (isDone) classes += " done-day";
-          if (isSelectedMob) classes += " mob-selected-day";
+          else if (isPending) classes += " pending-req-day";
 
           let badgeColor = "#334155";
           let badgeTxt = wdayLabel;
@@ -5247,15 +5644,20 @@
 
           const flameHtml = streakDays.has(dayNum)
             ? `<span class="day-flame-icon" title="Dia na Ofensiva!">🔥</span>`
-            : "";
+            : isPending
+              ? `<span class="day-pending-dot mobile-only-inline" title="Matéria anotada — faltam requisitos para concluir"></span>`
+              : "";
 
           const card = document.createElement("div");
           card.className = classes;
           card.setAttribute("data-day", String(dayNum));
+
+          // Ao clicar no dia (no celular abre a visualização secundária de tela cheia; no desktop também abre se clicar no topo do card)
           card.addEventListener("click", (ev) => {
-            if (window.innerWidth <= 768 && ev.target.tagName !== "INPUT") {
-              selectMobileCalDay(dayNum);
+            if (ev.target.tagName === "INPUT" || ev.target.tagName === "LABEL" || ev.target.closest(".cal-checks-wrap")) {
+              return;
             }
+            openCalDayFullscreen(dayNum);
           });
 
           const safeTitle = (dData.title || "").replace(/"/g, "&quot;");
@@ -5272,24 +5674,21 @@
               </div>
               <input
                 type="text"
-                class="cal-input-title"
+                class="cal-input-title desktop-only"
                 data-cal-input-day="${dayNum}"
                 placeholder="${isExam ? '🏆 Prova!' : '✍️ Tema...'}"
                 value="${safeTitle}"
-                onfocus="if(window.innerWidth<=768) selectMobileCalDay(${dayNum})"
                 oninput="updateCalDayTitle(${dayNum}, this.value)"
               >
             </div>
-            <div class="cal-checks-wrap">
+            <div class="cal-checks-wrap desktop-only-flex">
               <label class="cal-mini-check ${dData.resumo ? 'checked' : ''}" title="Resumo concluído">
                 <input type="checkbox" ${dData.resumo ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'resumo')">
-                <span class="desktop-only-inline">Resumo</span>
-                <span class="mobile-only-inline">Res</span>
+                <span>Resumo</span>
               </label>
               <label class="cal-mini-check ${dData.questoes ? 'checked' : ''}" title="Questões concluídas">
                 <input type="checkbox" ${dData.questoes ? 'checked' : ''} onchange="toggleCalDayCheck(${dayNum}, 'questoes')">
-                <span class="desktop-only-inline">Questões</span>
-                <span class="mobile-only-inline">Qst</span>
+                <span>Questões</span>
               </label>
             </div>
           `;
@@ -5300,7 +5699,7 @@
         wrapper.appendChild(rowEl);
       });
 
-      renderMobileActiveDayEditor();
+      updatePersistentPendingNotification();
 
       const streakTxt = document.getElementById("streak-count-txt");
       if (streakTxt) {
