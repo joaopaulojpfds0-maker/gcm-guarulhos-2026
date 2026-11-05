@@ -1635,100 +1635,425 @@
         font-size: 14.5px !important;
       }
     }
+
+    /* =====================================================================
+       REDESIGN MOBILE-FIRST ROBUSTO & MINIMALISTA
+       ===================================================================== */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    header.top-bar {
+      padding: 8px 12px !important;
+      background: rgba(11, 21, 40, 0.96) !important;
+      backdrop-filter: blur(8px);
+    }
+
+    .header-container {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .header-left-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .badge-gcm {
+      font-size: 11px !important;
+      font-weight: 900 !important;
+      padding: 5px 9px !important;
+      border-radius: 6px !important;
+      letter-spacing: 0.4px !important;
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+
+    .cloud-sync-pill {
+      padding: 4px 8px !important;
+      gap: 5px !important;
+      border-radius: 6px !important;
+      background: rgba(15, 23, 42, 0.9) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      height: 24px;
+    }
+
+    .cloud-sync-pill .dot {
+      width: 7px !important;
+      height: 7px !important;
+    }
+
+    .cloud-short-lbl {
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      color: #cbd5e1;
+      white-space: nowrap;
+    }
+
+    .btn-pwa-install {
+      padding: 4px 7px !important;
+      font-size: 11px !important;
+      border-radius: 6px !important;
+      height: 24px;
+    }
+
+    .countdown-box {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 3px !important;
+      padding: 3px 5px !important;
+      border-radius: 6px !important;
+      background: rgba(15, 23, 42, 0.85) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      width: auto !important;
+      flex-shrink: 0;
+    }
+
+    .time-unit {
+      min-width: auto !important;
+      padding: 2px 4px !important;
+      border-radius: 4px !important;
+      background: #1e293b !important;
+      border: none !important;
+      display: inline-flex !important;
+      align-items: baseline !important;
+      gap: 1px !important;
+    }
+
+    .time-unit .num {
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      display: inline !important;
+    }
+
+    .time-unit .lbl {
+      font-size: 8.5px !important;
+      text-transform: lowercase !important;
+      color: #38bdf8 !important;
+      font-weight: 700 !important;
+    }
+
+    /* 4 QUADRADOS INFORMATIVOS (KPI GRID) */
+    .kpi-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 8px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .kpi-card {
+      padding: 9px 10px !important;
+      border-radius: 10px !important;
+      min-height: 68px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+
+    .kpi-top {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      margin-bottom: 4px !important;
+      gap: 2px !important;
+    }
+
+    .kpi-title {
+      font-size: 9.5px !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      color: #94a3b8 !important;
+      letter-spacing: 0.2px !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .kpi-badge-right {
+      font-size: 10px !important;
+      font-weight: 800 !important;
+      white-space: nowrap;
+    }
+
+    .kpi-value {
+      font-size: 16px !important;
+      font-weight: 900 !important;
+      color: #f8fafc !important;
+      line-height: 1.15 !important;
+      white-space: nowrap;
+    }
+
+    .progress-bar-wrap {
+      height: 5px !important;
+      margin-top: 5px !important;
+    }
+
+    /* BLOCOS DE PDFS / TÓPICOS MAIS FINOS E CENTRALIZADOS */
+    .block-section {
+      margin-bottom: 14px !important;
+      border-radius: 10px !important;
+    }
+
+    .block-header {
+      padding: 9px 12px !important;
+    }
+
+    .block-header h2 {
+      font-size: 13px !important;
+    }
+
+    .block-badge {
+      font-size: 10.5px !important;
+      padding: 2px 8px !important;
+    }
+
+    .topic-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 7px !important;
+      padding: 9px 12px !important;
+    }
+
+    .topic-top-line {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+
+    .topic-short-title {
+      font-size: 13.5px !important;
+      font-weight: 800 !important;
+      color: #f8fafc !important;
+      line-height: 1.25 !important;
+    }
+
+    .tag-weight {
+      font-size: 9.5px !important;
+      padding: 2px 6px !important;
+      border-radius: 4px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+
+    .topic-bottom-line {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+      width: 100% !important;
+      padding-top: 2px !important;
+    }
+
+    .pdf-links {
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+      margin-top: 0 !important;
+    }
+
+    .btn-pdf {
+      font-size: 10.5px !important;
+      padding: 3px 9px !important;
+      border-radius: 5px !important;
+      gap: 4px !important;
+    }
+
+    .pdf-badge-waiting {
+      font-size: 10.5px !important;
+      padding: 2px 8px !important;
+    }
+
+    .checks-group {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .check-label {
+      padding: 3px 8px !important;
+      font-size: 10.5px !important;
+      border-radius: 5px !important;
+      gap: 4px !important;
+    }
+
+    .check-label input {
+      width: 13px !important;
+      height: 13px !important;
+    }
+
+    .topic-perf-pill {
+      font-size: 10.5px !important;
+      padding: 3px 7px !important;
+      border-radius: 5px !important;
+    }
+
+    /* AJUSTES ESPECÍFICOS DE TELA DE CELULAR */
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 10px !important;
+        margin: 10px auto !important;
+      }
+
+      /* Caso a tela seja estreita, 4 quadrados ou 2x2 ultra organizados */
+      .kpi-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+      }
+
+      .kpi-card {
+        padding: 8px 6px !important;
+        min-height: 62px !important;
+      }
+
+      .kpi-title {
+        font-size: 8.5px !important;
+      }
+
+      .kpi-badge-right {
+        font-size: 9px !important;
+      }
+
+      .kpi-value {
+        font-size: 14px !important;
+      }
+
+      .nav-tabs {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 8px !important;
+        overflow: visible !important;
+      }
+
+      .tab-btn {
+        padding: 8px 4px !important;
+        font-size: 11px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .toolbar {
+        padding: 10px !important;
+        gap: 8px !important;
+        margin-bottom: 12px !important;
+      }
+
+      .filter-group {
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+      }
+
+      .filter-pill {
+        font-size: 11px !important;
+        padding: 5px 8px !important;
+        text-align: center;
+      }
+
+      .search-input {
+        min-width: 0 !important;
+        width: 100% !important;
+        font-size: 12px !important;
+        padding: 7px 10px !important;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- TOP HEADER & COUNTDOWN -->
+  <!-- TOP HEADER MINIMALISTA E COMPACTO -->
   <header class="top-bar">
     <div class="header-container">
-      <div class="brand-title">
+      <div class="header-left-group">
         <div class="badge-gcm">GCM GUARULHOS 2026</div>
-        <div>
-          <h1>Painel Estrategista de Reta Final — Banca IBAM</h1>
-          <p>Edital nº 09/2026-SGE01 | Prova Objetiva: <strong>29/11/2026</strong> | Guia de Legislação Oficial (Conhecimentos Específicos — Peso 3 = 60 pts)</p>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <button id="pwa-install-btn" class="btn-pwa-install" onclick="installPWA()">📲 Instalar App</button>
-        <button onclick="openQrModalDirect()" style="background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#fff;border:none;padding:7px 13px;border-radius:999px;font-size:11.5px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(14,165,233,0.3);">📱 QR Code Celular</button>
-        <div class="cloud-sync-pill" id="cloud-sync-pill" onclick="openCloudModal()" title="Clique para gerenciar a Sincronização em Nuvem e App Mobile">
+        <div class="cloud-sync-pill" id="cloud-sync-pill" onclick="openCloudModal()" title="Sincronização em Nuvem e QR Code">
           <div class="dot" id="cloud-dot"></div>
-          <div class="txt">
-            <span id="cloud-txt-status">Modo Local (Offline)</span>
-            <small id="cloud-txt-sub">Toque p/ conectar nuvem</small>
-          </div>
+          <span id="cloud-txt-status" class="cloud-short-lbl">Nuvem</span>
+          <small id="cloud-txt-sub" style="display:none;"></small>
         </div>
+        <button id="pwa-install-btn" class="btn-pwa-install" onclick="installPWA()" title="Instalar App">📲</button>
       </div>
 
-      <div class="countdown-box">
-        <span class="countdown-label">⏳ Tempo até<br>a Prova:</span>
-        <div class="time-unit"><span class="num" id="cd-days">26</span><span class="lbl">Dias</span></div>
-        <div class="time-unit"><span class="num" id="cd-hours">00</span><span class="lbl">Horas</span></div>
-        <div class="time-unit"><span class="num" id="cd-mins">00</span><span class="lbl">Min</span></div>
-        <div class="time-unit"><span class="num" id="cd-secs">00</span><span class="lbl">Seg</span></div>
+      <div class="countdown-box" title="Contagem regressiva até a prova (29/11/2026)">
+        <div class="time-unit"><span class="num" id="cd-days">23</span><span class="lbl">d</span></div>
+        <div class="time-unit"><span class="num" id="cd-hours">00</span><span class="lbl">h</span></div>
+        <div class="time-unit"><span class="num" id="cd-mins">00</span><span class="lbl">m</span></div>
+        <div class="time-unit"><span class="num" id="cd-secs">00</span><span class="lbl">s</span></div>
       </div>
     </div>
   </header>
 
   <main class="container">
 
-    <!-- KPI DASHBOARD -->
+    <!-- KPI DASHBOARD (4 QUADRADOS COMPACTOS LADO A LADO) -->
     <section class="kpi-grid">
       <div class="kpi-card">
-        <div>
-          <div class="kpi-top">
-            <span class="kpi-title">Progresso do Guia de Legislação</span>
-            <span style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">35%</span>
-          </div>
-          <div class="kpi-value" id="kpi-checks-count">6 / 17 arquivos</div>
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="kpi-progress-bar"></div>
-          </div>
+        <div class="kpi-top">
+          <span class="kpi-title">Guia</span>
+          <span class="kpi-badge-right" style="color:#38bdf8;" id="kpi-percent-txt">35%</span>
         </div>
-        <div class="kpi-sub">Porcentagem de avanço no total de arquivos decupados para cobrir 100% do edital.</div>
+        <div class="kpi-value" id="kpi-checks-count">6/17</div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="kpi-progress-bar"></div>
+        </div>
       </div>
 
       <div class="kpi-card">
-        <div>
-          <div class="kpi-top">
-            <span class="kpi-title">PDFs Decupados na Pasta</span>
-            <span style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
-          </div>
-          <div class="kpi-value">6 Tópicos</div>
+        <div class="kpi-top">
+          <span class="kpi-title">PDFs</span>
+          <span class="kpi-badge-right" style="color:#10b981;">📄</span>
         </div>
-        <div class="kpi-sub">6 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150 e 155-159).</div>
+        <div class="kpi-value" id="kpi-pdfs-ready">6 Tópicos</div>
       </div>
 
       <div class="kpi-card">
-        <div>
-          <div class="kpi-top">
-            <span class="kpi-title">Calendário de Novembro</span>
-            <span style="color:#f59e0b;font-weight:800;" id="kpi-cal-pct">0%</span>
-          </div>
-          <div class="kpi-value" id="kpi-cal-days">0 / 26 dias</div>
+        <div class="kpi-top">
+          <span class="kpi-title">Calendário</span>
+          <span class="kpi-badge-right" style="color:#f59e0b;" id="kpi-cal-pct">14%</span>
         </div>
-        <div class="kpi-sub">Metas diárias de 03/11 até a véspera da prova (28/11/2026).</div>
+        <div class="kpi-value" id="kpi-cal-days">4/28</div>
       </div>
 
       <div class="kpi-card">
-        <div>
-          <div class="kpi-top">
-            <span class="kpi-title">Flashcards Dominados</span>
-            <span style="color:#a78bfa;font-weight:800;" id="kpi-fc-review">0 p/ rever</span>
-          </div>
-          <div class="kpi-value" id="kpi-fc-mastered">0 / 35 cartões</div>
+        <div class="kpi-top">
+          <span class="kpi-title">Revisão</span>
+          <span class="kpi-badge-right" style="color:#a78bfa;" id="kpi-fc-review">35 rev</span>
         </div>
-        <div class="kpi-sub">Repetição espaçada ativa focada nas pegadinhas da banca IBAM.</div>
+        <div class="kpi-value" id="kpi-fc-mastered">0/35</div>
       </div>
     </section>
 
     <!-- NAVIGATION TABS -->
     <nav class="nav-tabs">
-      <button class="tab-btn active" onclick="switchTab('checklist', this)">✅ Checklist do Edital &amp; PDFs Decupados</button>
-      <button class="tab-btn" onclick="switchTab('calendar', this)">📅 Calendário de Reta Final (Novembro/2026)</button>
-      <button class="tab-btn" onclick="switchTab('flashcards', this)">🧠 Flashcards de Revisão (Estilo Anki)</button>
+      <button class="tab-btn active" onclick="switchTab('checklist', this)">📄 Guia &amp; PDFs</button>
+      <button class="tab-btn" onclick="switchTab('calendar', this)">📅 Calendário</button>
+      <button class="tab-btn" onclick="switchTab('flashcards', this)">🧠 Flashcards</button>
     </nav>
 
     <!-- TAB 1: CHECKLIST DO EDITAL -->
@@ -2035,35 +2360,35 @@
       {
         id: "cf-art5",
         block: "1. Direito Constitucional (CF/1988) — Peso 3",
-        title: "Artigo 5º da CF/88 — Direitos e Deveres Individuais e Coletivos",
+        title: "Artigo 5º CF/88",
         desc: "Todos os 79 incisos e §§ 1º ao 4º. Foco IBAM: inviolabilidade de domicílio (XI), flagrante delito (LXI), garantias do preso (LXII-LXV), penas vedadas (XLVII) e remédios constitucionais.",
         priority: "Altíssima Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-5-cf88-decupado.pdf" },
-          { label: "🎧 Áudio Art. 5º (MP3)", url: "./Limites_do_poder_policial_na_Constituicao.mp3" }
+          { label: "📄 PDF Decupado", url: "./artigo-5-cf88-decupado.pdf" },
+          { label: "🎧 Áudio MP3", url: "./Limites_do_poder_policial_na_Constituicao.mp3" }
         ]
       },
       {
         id: "cf-art6",
         block: "1. Direito Constitucional (CF/1988) — Peso 3",
-        title: "Artigo 6º da CF/88 — Direitos Sociais e Renda Básica",
+        title: "Artigo 6º CF/88",
         desc: "Rol taxativo dos 11 direitos sociais no caput (incluindo Moradia, Alimentação e Transporte) e Parágrafo único (EC 114/2021 — renda básica familiar).",
         priority: "Alta Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-6-cf88-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./artigo-6-cf88-decupado.pdf" }
         ]
       },
       {
         id: "cf-art144",
         block: "1. Direito Constitucional (CF/1988) — Peso 3",
-        title: "Artigo 144 da CF/88 — Da Segurança Pública & Guardas Municipais",
+        title: "Artigo 144 CF/88",
         desc: "Caput (incisos I a VI — inclui Polícia Penal), §§ 1º ao 7º (órgãos policiais e subordinação) e § 8º (Guardas Municipais: bens, serviços e instalações) e § 10 (Segurança Viária).",
-        priority: "Altíssima Incidência (Obrigatório)",
+        priority: "Altíssima Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./artigo-144-cf88-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./artigo-144-cf88-decupado.pdf" }
         ]
       },
 
@@ -2071,40 +2396,40 @@
       {
         id: "cp-121-129",
         block: "2. Direito Penal & Processo Penal — Peso 3",
-        title: "Código Penal: Arts. 121 a 129 — Crimes contra a Pessoa (Vida e Lesões)",
+        title: "CP: Arts. 121 a 129 (Pessoa)",
         desc: "Homicídio (121), Feminicídio autônomo (121-A — Lei 14.994/24), Vicaricídio (121-B), Suicídio/Automutilação (122), Infanticídio (123), Aborto (124-128) e Lesão Corporal (129, §§ 1º a 13).",
         priority: "Altíssima Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-121-a-129-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./codigo-penal-arts-121-a-129-decupado.pdf" }
         ]
       },
       {
         id: "cp-146-150",
         block: "2. Direito Penal & Processo Penal — Peso 3",
-        title: "Código Penal: Arts. 146 a 150 — Crimes contra a Liberdade Pessoal e Domicílio",
+        title: "CP: Arts. 146 a 150 (Liberdade/Domicílio)",
         desc: "Constrangimento ilegal (146), Bullying e Cyberbullying (146-A), Ameaça (147), Stalking (147-A), Violência psicológica (147-B), Sequestro/Cárcere (148) e Violação de Domicílio (150).",
         priority: "Altíssima Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-146-a-150-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./codigo-penal-arts-146-a-150-decupado.pdf" }
         ]
       },
       {
         id: "cp-155-159",
         block: "2. Direito Penal & Processo Penal — Peso 3",
-        title: "Código Penal: Arts. 155 a 159 — Crimes contra o Patrimônio",
+        title: "CP: Arts. 155 a 159 (Patrimônio)",
         desc: "Furto simples, noturno e qualificado (155), Furto de coisa comum (156), Roubo próprio, impróprio e majorado (157), Extorsão (158) e Extorsão mediante sequestro (159).",
         priority: "Altíssima Incidência",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado (Lei Seca)", url: "./codigo-penal-arts-155-a-159-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./codigo-penal-arts-155-a-159-decupado.pdf" }
         ]
       },
       {
         id: "cp-312-327",
         block: "2. Direito Penal & Processo Penal — Peso 3",
-        title: "Código Penal: Arts. 312 a 327 — Crimes contra a Administração Pública",
+        title: "CP: Arts. 312 a 327 (Administração)",
         desc: "Peculato (312), Concussão (316), Corrupção passiva (317), Prevaricação (319), Condescendência criminosa (320) e Conceito de Funcionário Público (Art. 327).",
         priority: "Altíssima Incidência",
         hasPdf: false,
@@ -2113,9 +2438,9 @@
       {
         id: "cpp-301-310",
         block: "2. Direito Penal & Processo Penal — Peso 3",
-        title: "Código de Processo Penal: Arts. 301 a 310 — Da Prisão em Flagrante",
+        title: "CPP: Arts. 301 a 310 (Flagrante)",
         desc: "Espécies de flagrante (próprio, impróprio e presumido — art. 302), quem pode e quem deve prender (301), Nota de culpa em 24h e Audiência de Custódia (310).",
-        priority: "Altíssima Incidência (Obrigatório)",
+        priority: "Altíssima Incidência",
         hasPdf: false,
         pdfs: []
       },
@@ -2124,16 +2449,16 @@
       {
         id: "lei-13022",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei Federal nº 13.022/2014 — Estatuto Geral das Guardas Municipais (Integral)",
+        title: "Lei 13.022/14 (Estatuto Geral GCM)",
         desc: "Princípios mínimos de atuação (Art. 3º), Competências gerais e específicas (Arts. 4º e 5º), Limites de efetivo (Art. 7º), Corregedoria, Ouvidoria e Prerrogativas.",
-        priority: "Altíssima Incidência (Obrigatório GCM)",
+        priority: "Altíssima Incidência",
         hasPdf: false,
         pdfs: []
       },
       {
         id: "lei-uso-forca",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 13.060/2014 & Decreto nº 12.341/2024 — Uso da Força e IMPO",
+        title: "Lei 13.060/14 & Dec. 12.341/24 (Força)",
         desc: "Princípios da legalidade, necessidade, proporcionalidade, moderação e conveniência. Emprego prioritário de instrumentos de menor potencial ofensivo.",
         priority: "Alta Incidência",
         hasPdf: false,
@@ -2142,7 +2467,7 @@
       {
         id: "lei-eca",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 8.069/1990 (ECA) — Disposições Gerais, Ato Infracional e Crimes",
+        title: "Lei 8.069/90 (ECA)",
         desc: "Arts. 1º ao 6º (Proteção integral), Arts. 103 ao 109 (Ato Infracional e Apreensão em flagrante), Arts. 131 ao 137 (Conselho Tutelar) e Arts. 225 ao 244-B (Crimes).",
         priority: "Alta Incidência",
         hasPdf: false,
@@ -2151,7 +2476,7 @@
       {
         id: "lei-idoso",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 10.741/2003 (Estatuto da Pessoa Idosa) — Direitos e Crimes",
+        title: "Lei 10.741/03 (Estatuto do Idoso)",
         desc: "Arts. 1º ao 7º (Conceito de pessoa idosa e prioridade especial 80+) e Arts. 95 ao 108 (Crimes: abandono, apropriação de benefício e retenção de cartão).",
         priority: "Média/Alta Incidência",
         hasPdf: false,
@@ -2160,7 +2485,7 @@
       {
         id: "lei-desarmamento",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 10.826/2003 (Estatuto do Desarmamento) — Porte GCM e Crimes",
+        title: "Lei 10.826/03 (Desarmamento)",
         desc: "Arts. 6º ao 11 (Porte de arma de fogo institucional e pessoal para Guardas Municipais) e Arts. 12 ao 21 (Posse, Porte Ilegal, Disparo e Omissão de Cautela).",
         priority: "Altíssima Incidência",
         hasPdf: false,
@@ -2169,7 +2494,7 @@
       {
         id: "lei-maria-penha",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 11.340/2006 (Lei Maria da Penha) — Arts. 1º ao 7º",
+        title: "Lei 11.340/06 (Maria da Penha)",
         desc: "Âmbito de aplicação (unidade doméstica, família ou relação íntima de afeto) e as 5 formas de violência: física, psicológica, sexual, patrimonial e moral.",
         priority: "Alta Incidência",
         hasPdf: false,
@@ -2178,7 +2503,7 @@
       {
         id: "lei-abuso",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 13.869/2019 — Lei de Abuso de Autoridade (Conteúdo Integral)",
+        title: "Lei 13.869/19 (Abuso de Autoridade)",
         desc: "Dolo específico obrigatório (finalidade de prejudicar outrem ou beneficiar a si/terceiro ou mero capricho — Art. 1º, § 1º), efeitos da condenação e crimes em espécie.",
         priority: "Alta Incidência",
         hasPdf: false,
@@ -2189,18 +2514,18 @@
       {
         id: "mun-7792",
         block: "4. Legislação Municipal de Guarulhos — Peso 3",
-        title: "Lei Municipal nº 7.792/2019 — Estatuto da GCM de Guarulhos & Anexo II",
+        title: "Lei Mun. 7.792/19 (Estatuto GCM)",
         desc: "Organização e funcionamento da GCM Guarulhos, carreira, ingresso, atribuições de GCM 3ª Classe, deveres funcionais, proibições e regime disciplinar.",
-        priority: "Altíssima Incidência (Foco Máximo IBAM)",
+        priority: "Altíssima Incidência",
         hasPdf: false,
         pdfs: []
       },
       {
         id: "mun-8361-dec44264",
         block: "4. Legislação Municipal de Guarulhos — Peso 3",
-        title: "Lei Municipal nº 8.361/2025 (Arts. 166 a 170) & Decreto nº 44.264/2026",
+        title: "Lei Mun. 8.361/25 & Dec. 44.264/26",
         desc: "Estrutura organizacional da Secretaria para Assuntos de Segurança Pública (SASP) de Guarulhos e regulamentação específica da atuação da Guarda Civil.",
-        priority: "Altíssima Incidência (Foco Máximo IBAM)",
+        priority: "Altíssima Incidência",
         hasPdf: false,
         pdfs: []
       }
@@ -3118,26 +3443,21 @@
       pill.classList.remove("synced", "syncing");
 
       if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) {
-        txtStatus.textContent = "Modo Local (Offline)";
-        txtSub.textContent = "Toque p/ conectar nuvem";
+        txtStatus.textContent = "Local";
         return;
       }
 
       if (state === "syncing") {
         pill.classList.add("syncing");
-        txtStatus.textContent = "Sincronizando...";
-        txtSub.textContent = text || "Gravando na nuvem";
+        txtStatus.textContent = "Sync...";
       } else if (state === "synced") {
         pill.classList.add("synced");
-        txtStatus.textContent = "🟢 Nuvem Conectada";
-        txtSub.textContent = text || "Sincronizado em tempo real";
+        txtStatus.textContent = "Nuvem";
       } else if (state === "error") {
-        txtStatus.textContent = "Modo Offline Ativo";
-        txtSub.textContent = text || "Salvo no aparelho";
+        txtStatus.textContent = "Offline";
       } else {
         pill.classList.add("synced");
-        txtStatus.textContent = "🟢 Nuvem Conectada";
-        txtSub.textContent = "Sincronização ativa";
+        txtStatus.textContent = "Nuvem";
       }
     }
 
@@ -3777,22 +4097,21 @@
           }
 
           row.innerHTML = `
-            <div class="topic-info">
-              <h3>
-                <span>${item.title}</span>
-                <span class="tag-weight ${tagClass}">${item.priority}</span>
-              </h3>
-              <p>${item.desc}</p>
-              <div class="pdf-links" style="margin-top:6px;">
+            <div class="topic-top-line">
+              <span class="topic-short-title">${item.title}</span>
+              <span class="tag-weight ${tagClass}">${item.priority}</span>
+            </div>
+            <div class="topic-bottom-line">
+              <div class="pdf-links">
                 ${pdfButtonsHtml}
               </div>
-            </div>
-            <div class="checks-group" style="align-items:center;gap:10px;">
-              <label class="check-label ${item.isPdfDone ? 'checked' : ''}" title="Marcar quando o PDF Decupado deste tema for gerado">
-                <input type="checkbox" ${item.isPdfDone ? 'checked' : ''} onchange="toggleCheck('${item.id}', 'pdf')">
-                📄 PDF
-              </label>
-              ${perfBadgeHtml}
+              <div class="checks-group">
+                <label class="check-label ${item.isPdfDone ? 'checked' : ''}" title="Marcar quando o PDF Decupado deste tema for gerado">
+                  <input type="checkbox" ${item.isPdfDone ? 'checked' : ''} onchange="toggleCheck('${item.id}', 'pdf')">
+                  PDF
+                </label>
+                ${perfBadgeHtml}
+              </div>
             </div>
           `;
           sec.appendChild(row);
@@ -4458,8 +4777,10 @@
       });
       const pct = Math.round((doneFiles / totalFiles) * 100);
       document.getElementById("kpi-percent-txt").textContent = pct + "%";
-      document.getElementById("kpi-checks-count").textContent = `${doneFiles} / ${totalFiles} arquivos (${pct}%)`;
+      document.getElementById("kpi-checks-count").textContent = `${doneFiles}/${totalFiles}`;
       document.getElementById("kpi-progress-bar").style.width = pct + "%";
+      const pdfReadyEl = document.getElementById("kpi-pdfs-ready");
+      if (pdfReadyEl) pdfReadyEl.textContent = `${doneFiles} Tópicos`;
 
       // Calendário (01 a 28/11)
       const calTotal = 28;
@@ -4468,15 +4789,15 @@
         if (isDayCompleted(d)) calDoneCount++;
       }
       const calPct = Math.min(100, Math.round((calDoneCount / calTotal) * 100));
-      document.getElementById("kpi-cal-days").textContent = `${calDoneCount} / ${calTotal} dias`;
+      document.getElementById("kpi-cal-days").textContent = `${calDoneCount}/${calTotal}`;
       document.getElementById("kpi-cal-pct").textContent = calPct + "%";
 
       // Flashcards
       const allFc = getAllFlashcards();
       const masteredCount = allFc.filter(c => appState.fcRatings[c.id] === "mastered").length;
       const reviewCount = allFc.length - masteredCount;
-      document.getElementById("kpi-fc-mastered").textContent = `${masteredCount} / ${allFc.length} cartões`;
-      document.getElementById("kpi-fc-review").textContent = `${reviewCount} p/ rever`;
+      document.getElementById("kpi-fc-mastered").textContent = `${masteredCount}/${allFc.length}`;
+      document.getElementById("kpi-fc-review").textContent = `${reviewCount} rev`;
     }
 
     function switchTab(tabName, btn) {
