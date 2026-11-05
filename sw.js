@@ -1,11 +1,13 @@
-const CACHE_NAME = 'gcm-guarulhos-v1';
+const CACHE_NAME = 'gcm-guarulhos-v2';
 const ASSETS_TO_CACHE = [
   './',
+  './index.html',
   './painel-estudos-gcm-guarulhos.html',
   './manifest.json',
   './icon.svg',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './qrcode-app.png'
 ];
 
 self.addEventListener('install', (event) => {
