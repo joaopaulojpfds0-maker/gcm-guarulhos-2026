@@ -1612,15 +1612,27 @@
         font-size: 13px;
         padding: 10px 14px;
       }
-      .rating-buttons {
+      .fc-controls {
         display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr !important;
         gap: 8px !important;
       }
-      .btn-rating {
-        min-height: 52px !important;
-        font-size: 13px !important;
-        padding: 8px 4px !important;
+      .fc-controls .btn-rate {
+        grid-column: span 2 !important;
+        min-height: 48px !important;
+        font-size: 13.5px !important;
+        padding: 10px 12px !important;
+      }
+      .fc-controls .btn-nav {
+        min-height: 44px !important;
+        font-size: 12.5px !important;
+        justify-content: center !important;
+      }
+      .card-3d-wrapper {
+        min-height: 290px !important;
+      }
+      .card-body-text {
+        font-size: 14.5px !important;
       }
     }
   </style>
@@ -1640,6 +1652,7 @@
 
       <div class="header-actions">
         <button id="pwa-install-btn" class="btn-pwa-install" onclick="installPWA()">📲 Instalar App</button>
+        <button onclick="openQrModalDirect()" style="background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#fff;border:none;padding:7px 13px;border-radius:999px;font-size:11.5px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(14,165,233,0.3);">📱 QR Code Celular</button>
         <div class="cloud-sync-pill" id="cloud-sync-pill" onclick="openCloudModal()" title="Clique para gerenciar a Sincronização em Nuvem e App Mobile">
           <div class="dot" id="cloud-dot"></div>
           <div class="txt">
@@ -1979,10 +1992,10 @@
           <div style="text-align:center;padding:16px;background:#0b1120;border-radius:12px;border:1px solid #1e293b;">
             <p style="font-size:12.5px;color:#94a3b8;margin-bottom:10px;">Escaneie com a câmera do celular para abrir o painel:</p>
             <div id="qrcode-container" style="display:inline-block;padding:8px;background:#fff;border-radius:10px;">
-              <img id="qr-img" src="" alt="QR Code" style="width:180px;height:180px;display:block;">
+              <img id="qr-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYAQMAAAC9QHvPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB00lEQVRoge2ZwQ7DIAxDU/Fh/TT4cESW2Gmh2s47NNCpF552sIjjUJG9/rNOxWoiKmq/Q3Uc9kjhRn8z01yB2qoxBtlLHBMpvst3bqaaghWkazjAmHalF7w3A6Y6YBTO17GZLw2VXjOgoEm5mWcNwqLsgA3/ye86zciEh7tH+QMDt6f/8PmMzL1UYeIuoev42EvMnFRQYVEG8YCZS7lJsQRfzTQKJDSeAxqhsso8Y1kZeE975h/Gwy6XhpmZk90LAYjnjPEQK/4mNQNCl/wjTIgdMm4G2y1EM8z3R9RgYJkZqeHhOGKi0d9jNw5ZYuaEQxF1CQdFpH0vNZiVwSbzITKAxvxlGWBCb2XYwAyd7SviD8arnp1B58JsBchF9ADk23cGyM1U2jOHT87mmK2W+krMBEb30ahBtK+yQlkZ5p+AsHi5Q3uODJCbUULs7zIDdNF+a5iaicvliEAYwHSdTnMz0eR4yOJumU7Vl/vDNzLXqnSfSH7HtZ+eOWk2d38f1/kpffpzZqZBwXZXF2fPqC/dDEZzq0J59Pfj6mCbCSbaOxXEIYsZbDPBXHcXMZ7OBJmbYQ1W3Jv6dysOYDDwpb+nZaaHR/YR4XfzGQEyM3v9Y30Am9kEXAf39PgAAAAASUVORK5CYII=" alt="QR Code GCM Guarulhos 2026" style="width:200px;height:200px;display:block;">
             </div>
             <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;">
-              <input type="text" id="cur-url-input" class="modal-input" readonly style="max-width:320px;text-align:center;font-size:12px;margin-bottom:0;">
+              <input type="text" id="cur-url-input" class="modal-input" value="https://joaopaulojpfds0-maker.github.io/gcm-guarulhos-2026/" readonly style="max-width:340px;text-align:center;font-size:12px;margin-bottom:0;color:#38bdf8;font-weight:700;">
               <button class="modal-btn secondary" onclick="copyCurrentUrl()">📋 Copiar Link</button>
             </div>
           </div>
@@ -3055,22 +3068,32 @@
     // =========================================================================
     // 4.1. MOTOR DE SINCRONIZAÇÃO EM NUVEM (FIREBASE REALTIME DB) & PWA
     // =========================================================================
+    const OFFICIAL_APP_URL = "https://joaopaulojpfds0-maker.github.io/gcm-guarulhos-2026/";
+    const DEFAULT_FIREBASE_URL = "https://gcm-guarulhos-estudo-default-rtdb.firebaseio.com";
     const CLOUD_CONFIG_KEY = "gcm_cloud_sync_config";
+    const QR_CODE_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYAQMAAAC9QHvPAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB00lEQVRoge2ZwQ7DIAxDU/Fh/TT4cESW2Gmh2s47NNCpF552sIjjUJG9/rNOxWoiKmq/Q3Uc9kjhRn8z01yB2qoxBtlLHBMpvst3bqaaghWkazjAmHalF7w3A6Y6YBTO17GZLw2VXjOgoEm5mWcNwqLsgA3/ye86zciEh7tH+QMDt6f/8PmMzL1UYeIuoev42EvMnFRQYVEG8YCZS7lJsQRfzTQKJDSeAxqhsso8Y1kZeE975h/Gwy6XhpmZk90LAYjnjPEQK/4mNQNCl/wjTIgdMm4G2y1EM8z3R9RgYJkZqeHhOGKi0d9jNw5ZYuaEQxF1CQdFpH0vNZiVwSbzITKAxvxlGWBCb2XYwAyd7SviD8arnp1B58JsBchF9ADk23cGyM1U2jOHT87mmK2W+krMBEb30ahBtK+yQlkZ5p+AsHi5Q3uODJCbUULs7zIDdNF+a5iaicvliEAYwHSdTnMz0eR4yOJumU7Vl/vDNzLXqnSfSH7HtZ+eOWk2d38f1/kpffpzZqZBwXZXF2fPqC/dDEZzq0J59Pfj6mCbCSbaOxXEIYsZbDPBXHcXMZ7OBJmbYQ1W3Jv6dysOYDDwpb+nZaaHR/YR4XfzGQEyM3v9Y30Am9kEXAf39PgAAAAASUVORK5CYII=";
+
     let cloudConfig = {
-      firebaseUrl: "https://gcm-guarulhos-estudo-default-rtdb.firebaseio.com",
+      firebaseUrl: DEFAULT_FIREBASE_URL,
       firebaseAuth: "",
       enabled: true
     };
+
+    let isInitialCloudPullDone = false;
 
     function loadCloudConfig() {
       try {
         const raw = localStorage.getItem(CLOUD_CONFIG_KEY);
         if (raw) {
-          cloudConfig = { ...cloudConfig, ...JSON.parse(raw) };
-          if (cloudConfig.firebaseUrl) {
-            cloudConfig.enabled = true;
-          }
+          const parsed = JSON.parse(raw);
+          // Se o cache antigo tinha firebaseUrl vazio, usa a URL oficial do projeto
+          cloudConfig = {
+            firebaseUrl: (parsed && parsed.firebaseUrl && parsed.firebaseUrl.trim()) ? parsed.firebaseUrl.trim() : DEFAULT_FIREBASE_URL,
+            firebaseAuth: (parsed && parsed.firebaseAuth) ? parsed.firebaseAuth : "",
+            enabled: parsed && typeof parsed.enabled === "boolean" && parsed.firebaseUrl ? parsed.enabled : true
+          };
         }
+        localStorage.setItem(CLOUD_CONFIG_KEY, JSON.stringify(cloudConfig));
       } catch (e) {
         console.error(e);
       }
@@ -3106,37 +3129,59 @@
         txtSub.textContent = text || "Gravando na nuvem";
       } else if (state === "synced") {
         pill.classList.add("synced");
-        txtStatus.textContent = "Nuvem Conectada";
-        txtSub.textContent = text || "Progresso sincronizado";
+        txtStatus.textContent = "🟢 Nuvem Conectada";
+        txtSub.textContent = text || "Sincronizado em tempo real";
       } else if (state === "error") {
-        txtStatus.textContent = "Erro de Conexão";
-        txtSub.textContent = text || "Modo offline ativo";
+        txtStatus.textContent = "Modo Offline Ativo";
+        txtSub.textContent = text || "Salvo no aparelho";
       } else {
         pill.classList.add("synced");
-        txtStatus.textContent = "Nuvem Conectada";
-        txtSub.textContent = "Pronto p/ sincronizar";
+        txtStatus.textContent = "🟢 Nuvem Conectada";
+        txtSub.textContent = "Sincronização ativa";
       }
+    }
+
+    function cleanCalDaysObject(rawCal) {
+      const cleaned = {};
+      if (!rawCal || typeof rawCal !== "object") return cleaned;
+      Object.keys(rawCal).forEach(k => {
+        const dayNum = parseInt(k, 10);
+        if (!isNaN(dayNum) && dayNum >= 1 && dayNum <= 30 && rawCal[k] && typeof rawCal[k] === "object") {
+          cleaned[dayNum] = {
+            title: String(rawCal[k].title || ""),
+            resumo: Boolean(rawCal[k].resumo),
+            questoes: Boolean(rawCal[k].questoes)
+          };
+        }
+      });
+      return cleaned;
     }
 
     let cloudPushTimer = null;
     function scheduleCloudPush() {
       if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
+      appState.updatedAtMs = Date.now();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {}
       updateCloudUI("syncing", "Salvando alterações...");
       if (cloudPushTimer) clearTimeout(cloudPushTimer);
       cloudPushTimer = setTimeout(() => {
         pushStateToCloud();
-      }, 500);
+      }, 350);
     }
 
     async function pushStateToCloud() {
       if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
       try {
-        let url = cloudConfig.firebaseUrl.trim();
-        if (url.endsWith("/")) url = url.slice(0, -1);
+        let url = cloudConfig.firebaseUrl.trim().replace(/\/+$/, "");
         let endpoint = url + "/gcm_study_state.json";
         if (cloudConfig.firebaseAuth) {
           endpoint += "?auth=" + encodeURIComponent(cloudConfig.firebaseAuth.trim());
         }
+
+        appState.calDaysData = cleanCalDaysObject(appState.calDaysData);
+        appState.updatedAtMs = appState.updatedAtMs || Date.now();
 
         const payload = JSON.stringify({
           ...appState,
@@ -3150,63 +3195,103 @@
         });
 
         if (res.ok) {
-          const time = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-          updateCloudUI("synced", "Sincronizado às " + time);
+          const time = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+          updateCloudUI("synced", "Salvo às " + time);
         } else {
           updateCloudUI("error", "HTTP " + res.status);
         }
       } catch (err) {
         console.warn("Falha no push da nuvem (offline):", err);
-        updateCloudUI("error", "Gravado localmente");
+        updateCloudUI("error", "Salvo localmente");
       }
     }
 
     async function pullStateFromCloud(silent = false) {
       if (!cloudConfig.enabled || !cloudConfig.firebaseUrl) return;
       try {
-        if (!silent) updateCloudUI("syncing", "Puxando progresso...");
-        let url = cloudConfig.firebaseUrl.trim();
-        if (url.endsWith("/")) url = url.slice(0, -1);
+        if (!silent) updateCloudUI("syncing", "Buscando na nuvem...");
+        let url = cloudConfig.firebaseUrl.trim().replace(/\/+$/, "");
         let endpoint = url + "/gcm_study_state.json";
         if (cloudConfig.firebaseAuth) {
           endpoint += "?auth=" + encodeURIComponent(cloudConfig.firebaseAuth.trim());
         }
 
-        const res = await fetch(endpoint);
+        const res = await fetch(endpoint + (endpoint.includes("?") ? "&" : "?") + "_t=" + Date.now(), {
+          cache: "no-store"
+        });
         if (res.ok) {
           const cloudData = await res.json();
           if (cloudData && typeof cloudData === "object") {
             smartMergeCloudState(cloudData);
             const time = new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-            updateCloudUI("synced", "Atualizado às " + time);
+            updateCloudUI("synced", "Sincronizado às " + time);
+          } else {
+            // Se o banco estava vazio, envia o estado local inicial
+            await pushStateToCloud();
           }
+          isInitialCloudPullDone = true;
         }
       } catch (err) {
         console.warn("Falha ao puxar da nuvem:", err);
-        if (!silent) updateCloudUI("error", "Não foi possível puxar");
+        if (!silent) updateCloudUI("error", "Modo offline ativo");
       }
     }
 
     function smartMergeCloudState(cloudData) {
-      if (!cloudData) return;
-      // Mescla inteligente: mantém o maior número de acertos, erros e dias marcados
-      appState.checks = { ...appState.checks, ...(cloudData.checks || {}) };
-      appState.calDaysData = { ...appState.calDaysData, ...(cloudData.calDaysData || {}) };
-      appState.fcRatings = { ...appState.fcRatings, ...(cloudData.fcRatings || {}) };
-      appState.fcErrorCounts = { ...appState.fcErrorCounts, ...(cloudData.fcErrorCounts || {}) };
-      appState.fcStatsByCard = { ...appState.fcStatsByCard, ...(cloudData.fcStatsByCard || {}) };
-      
-      // Histórico de sessões (combina sem duplicar exatamente na mesma data)
+      if (!cloudData || typeof cloudData !== "object") return;
+
+      const cloudIsNewer = (cloudData.updatedAtMs || 0) >= (appState.updatedAtMs || 0);
+      const cleanedCloudCal = cleanCalDaysObject(cloudData.calDaysData);
+      const cleanedLocalCal = cleanCalDaysObject(appState.calDaysData);
+
+      if (cloudIsNewer) {
+        appState.checks = { ...appState.checks, ...(cloudData.checks || {}) };
+        // Para calDaysData, preserva dias preenchidos e prioriza a nuvem
+        const mergedCal = { ...cleanedLocalCal };
+        Object.keys(cleanedCloudCal).forEach(d => {
+          const cDay = cleanedCloudCal[d];
+          const lDay = mergedCal[d];
+          if (!lDay || cDay.title || cDay.resumo || cDay.questoes || cloudData.updatedAtMs) {
+            // Se na nuvem tem dados ou foi atualizado mais recentemente
+            if (cDay.title || cDay.resumo || cDay.questoes || !lDay) {
+              mergedCal[d] = cDay;
+            }
+          }
+        });
+        appState.calDaysData = mergedCal;
+        appState.fcRatings = { ...appState.fcRatings, ...(cloudData.fcRatings || {}) };
+        appState.fcErrorCounts = { ...appState.fcErrorCounts, ...(cloudData.fcErrorCounts || {}) };
+        appState.fcStatsByCard = { ...appState.fcStatsByCard, ...(cloudData.fcStatsByCard || {}) };
+        if (cloudData.updatedAtMs) appState.updatedAtMs = cloudData.updatedAtMs;
+      } else {
+        appState.checks = { ...(cloudData.checks || {}), ...appState.checks };
+        appState.calDaysData = { ...cleanedCloudCal, ...cleanedLocalCal };
+        appState.fcRatings = { ...(cloudData.fcRatings || {}), ...appState.fcRatings };
+        appState.fcErrorCounts = { ...(cloudData.fcErrorCounts || {}), ...appState.fcErrorCounts };
+        appState.fcStatsByCard = { ...(cloudData.fcStatsByCard || {}), ...appState.fcStatsByCard };
+      }
+
+      // Histórico de sessões (combina sem duplicar)
       if (Array.isArray(cloudData.sessionHistory)) {
         const existingDates = new Set((appState.sessionHistory || []).map(s => s.date));
         cloudData.sessionHistory.forEach(s => {
-          if (!existingDates.has(s.date)) {
+          if (s && s.date && !existingDates.has(s.date)) {
             appState.sessionHistory.push(s);
           }
         });
       }
 
-      saveState(true); // salva no localStorage sem re-disparar push imediato
+      // Custom cards
+      if (Array.isArray(cloudData.customCards)) {
+        const existingIds = new Set((appState.customCards || []).map(c => c.id));
+        cloudData.customCards.forEach(c => {
+          if (c && c.id && !existingIds.has(c.id)) {
+            appState.customCards.push(c);
+          }
+        });
+      }
+
+      saveState(true); // salva no localStorage sem re-disparar push
       renderChecklist();
       renderCalendar();
       renderDecksSidebar();
@@ -3214,23 +3299,62 @@
       updateKPIs();
     }
 
+    // Sincronização automática ao focar na aba/app e a cada 10s em background
+    window.addEventListener("focus", () => {
+      pullStateFromCloud(true);
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        pullStateFromCloud(true);
+      }
+    });
+    window.addEventListener("online", () => {
+      pushStateToCloud();
+    });
+    setInterval(() => {
+      if (document.visibilityState === "visible" && !cloudPushTimer) {
+        pullStateFromCloud(true);
+      }
+    }, 10000);
+
     // MODAL HANDLERS
+    function getPublicShareUrl() {
+      const href = window.location.href || "";
+      if (href.startsWith("http://") || href.startsWith("https://")) {
+        return href;
+      }
+      return OFFICIAL_APP_URL;
+    }
+
     function openCloudModal() {
       const modal = document.getElementById("cloud-modal");
       if (!modal) return;
-      document.getElementById("cfg-firebase-url").value = cloudConfig.firebaseUrl || "";
+      document.getElementById("cfg-firebase-url").value = cloudConfig.firebaseUrl || DEFAULT_FIREBASE_URL;
       document.getElementById("cfg-firebase-auth").value = cloudConfig.firebaseAuth || "";
-      
-      // Atualiza URL e QR code
-      const curUrl = window.location.href;
+
+      const shareUrl = getPublicShareUrl();
       const urlInput = document.getElementById("cur-url-input");
-      if (urlInput) urlInput.value = curUrl;
+      if (urlInput) urlInput.value = shareUrl;
+
       const qrImg = document.getElementById("qr-img");
       if (qrImg) {
-        qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(curUrl);
+        if (shareUrl === OFFICIAL_APP_URL) {
+          qrImg.src = QR_CODE_DATA_URI;
+        } else {
+          qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=" + encodeURIComponent(shareUrl);
+          qrImg.onerror = () => { qrImg.src = QR_CODE_DATA_URI; };
+        }
       }
 
       modal.classList.add("active");
+    }
+
+    function openQrModalDirect() {
+      openCloudModal();
+      const btns = document.querySelectorAll(".modal-tab-btn");
+      if (btns && btns[1]) {
+        switchModalTab("app", btns[1]);
+      }
     }
 
     function closeCloudModal(e) {
@@ -3278,9 +3402,9 @@
           cloudConfig.firebaseAuth = authInput;
           cloudConfig.enabled = true;
           saveCloudConfig();
-          statusEl.innerHTML = '<span style="color:#10b981;font-weight:bold;">✅ Conexão bem-sucedida! Enviando dados atuais...</span>';
+          statusEl.innerHTML = '<span style="color:#10b981;font-weight:bold;">✅ Conexão bem-sucedida! Sincronizando dados...</span>';
           await pushStateToCloud();
-          setTimeout(() => { closeCloudModal(); }, 1200);
+          setTimeout(() => { closeCloudModal(); }, 1000);
         } else {
           statusEl.innerHTML = '<span style="color:#ef4444;font-weight:bold;">❌ Erro ao conectar (HTTP ' + testRes.status + '). Verifique a URL e as Regras do Realtime Database.</span>';
         }
@@ -3290,21 +3414,22 @@
     }
 
     async function forcePushToCloud() {
+      appState.updatedAtMs = Date.now();
       await pushStateToCloud();
       const statusEl = document.getElementById("cloud-test-status");
-      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;">✅ Estado atual enviado para a nuvem com sucesso!</span>';
+      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;font-weight:bold;">✅ Progresso deste aparelho enviado para a nuvem com sucesso!</span>';
     }
 
     async function forcePullFromCloud() {
       await pullStateFromCloud(false);
       const statusEl = document.getElementById("cloud-test-status");
-      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;">✅ Dados da nuvem carregados com sucesso!</span>';
+      if (statusEl) statusEl.innerHTML = '<span style="color:#10b981;font-weight:bold;">✅ Progresso da nuvem carregado neste aparelho com sucesso!</span>';
     }
 
     function copyCurrentUrl() {
-      const curUrl = window.location.href;
-      navigator.clipboard.writeText(curUrl).then(() => {
-        alert("Link copiado para a área de transferência: " + curUrl);
+      const shareUrl = getPublicShareUrl();
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        alert("Link oficial copiado: " + shareUrl);
       });
     }
 
@@ -3327,6 +3452,7 @@
         try {
           const parsed = JSON.parse(e.target.result);
           if (parsed && typeof parsed === "object") {
+            parsed.updatedAtMs = Date.now();
             smartMergeCloudState(parsed);
             document.getElementById("backup-msg").textContent = "✅ Backup restaurado com sucesso!";
             scheduleCloudPush();
@@ -3358,18 +3484,18 @@
           deferredPrompt = null;
         });
       } else {
-        openCloudModal();
-        switchModalTab("app", document.querySelectorAll(".modal-tab-btn")[1]);
+        openQrModalDirect();
       }
     }
 
     // SERVICE WORKER REGISTRATION
-    if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator && (window.location.protocol === "https:" || window.location.hostname === "localhost")) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("./sw.js").then((reg) => {
+          reg.update();
           console.log("PWA Service Worker ativo:", reg.scope);
         }).catch((err) => {
-          console.log("Service Worker indisponível (modo local/file):", err);
+          console.log("Service Worker erro:", err);
         });
       });
     }
@@ -3385,7 +3511,7 @@
             ...appState,
             ...parsed,
             checks: { ...appState.checks, ...(parsed.checks || {}) },
-            calDaysData: { ...appState.calDaysData, ...(parsed.calDaysData || {}) },
+            calDaysData: { ...appState.calDaysData, ...cleanCalDaysObject(parsed.calDaysData) },
             fcRatings: { ...(parsed.fcRatings || {}) },
             fcErrorCounts: { ...(parsed.fcErrorCounts || {}) },
             fcStatsByCard: { ...(parsed.fcStatsByCard || {}) },
@@ -3469,7 +3595,7 @@
       const timeStr = now.toLocaleTimeString("pt-BR");
       const dateStr = now.toLocaleDateString("pt-BR");
       appState.lastSyncTimestamp = `${dateStr} às ${timeStr}`;
-      saveState();
+      saveState(!manualClick); // Só envia p/ nuvem se foi clique manual
 
       const syncEl = document.getElementById("sync-status-txt");
       if (syncEl) {
