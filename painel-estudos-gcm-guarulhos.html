@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">41%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">47%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">7 / 17 arquivos (41%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">7/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">8 / 17 arquivos (47%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">8/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">7 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">8 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">7 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159 e 312-327).</div>
+        <div class="kpi-sub desktop-only">8 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310).</div>
       </div>
 
       <div class="kpi-card">
@@ -3413,6 +3413,7 @@
                 <option value="05. CP — Arts. 146 a 150">05. CP — Arts. 146 a 150 (Liberdade e Domicílio)</option>
                 <option value="06. CP — Arts. 155 a 159">06. CP — Arts. 155 a 159 (Crimes contra o Patrimônio)</option>
                 <option value="07. CP — Arts. 312 a 327">07. CP — Arts. 312 a 327 (Crimes contra a Administração)</option>
+                <option value="08. CPP — Arts. 301 a 310">08. CPP — Arts. 301 a 310 (Da Prisão em Flagrante)</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3620,8 +3621,10 @@
         shortTitle: "CPP: Arts. 301 a 310 (Flagrante)",
         desc: "Espécies de flagrante (próprio, impróprio e presumido — art. 302), quem pode e quem deve prender (301), Nota de culpa em 24h e Audiência de Custódia (310).",
         priority: "Altíssima Incidência (Obrigatório)",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./cpp-arts-301-a-310-decupado.pdf" }
+        ]
       },
 
       // BLOCO 3: LEGISLAÇÃO EXTRAVAGANTE FEDERAL & USO DA FORÇA
@@ -4325,6 +4328,132 @@
     "a": "A pena será aumentada da <strong>TERÇA PARTE (+1/3)</strong> quando os autores dos crimes previstos neste Capítulo forem ocupantes de:<br>• <strong>Cargos em comissão</strong>; ou<br>• <strong>Função de direção ou assessoramento</strong> de órgão da administração direta, sociedade de economia mista, empresa pública ou fundação instituída pelo poder público.<br><em>Pegadinha IBAM:</em> Note que o § 2º NÃO menciona expressamente as 'autarquias' no rol taxativo (princípio da legalidade estrita)!"
   },
   {
+    "id": "fc-cp312-14",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Violência Arbitrária e Exercício Ilegal (Arts. 322 e 324)",
+    "q": "CP, Arts. 322 e 324: Qual é a conduta e a pena da Violência Arbitrária (Art. 322) e do Exercício Funcional Ilegalmente Antecipado ou Prolongado (Art. 324)?",
+    "a": "• <strong>Violência Arbitrária (Art. 322):</strong> Praticar violência, no exercício de função ou a pretexto de exercê-la. Pena: Detenção, de <strong>6 meses a 3 anos</strong>, além da pena correspondente à violência.<br>• <strong>Exercício Funcional Ilegalmente Antecipado ou Prolongado (Art. 324):</strong> Entrar no exercício de função pública antes de satisfeitas as exigências legais, ou continuar a exercê-la, sem autorização, depois de saber oficialmente que foi exonerado, removido, substituído ou suspenso. Pena: Detenção, de <strong>15 dias a 1 mês</strong>, ou multa."
+  },
+  {
+    "id": "fc-cp312-15",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Altíssima Cobrança IBAM (Violação de Sigilo)",
+    "q": "CP, Art. 325, caput, §§ 1º e 2º (Violação de Sigilo Funcional): Quais condutas incorrem nas mesmas penas do caput (§ 1º) e quando o crime é qualificado para reclusão de 2 a 6 anos (§ 2º)?",
+    "a": "• <strong>Caput (Detenção, 6 meses a 2 anos, ou multa):</strong> Revelar fato de que tem ciência em razão do cargo e que deva permanecer em segredo, ou facilitar-lhe a revelação.<br>• <strong>Figuras equiparadas (§ 1º):</strong> I - permite ou facilita, mediante atribuição, fornecimento e empréstimo de senha ou qualquer outra forma, o acesso de pessoas não autorizadas a sistemas de informações ou banco de dados da Administração Pública; II - se utiliza, indevidamente, do acesso restrito.<br>• <strong>Qualificadora (§ 2º — Reclusão, 2 a 6 anos, e multa):</strong> Se da ação ou omissão resulta <strong>dano à Administração Pública ou a outrem</strong>."
+  },
+  {
+    "id": "fc-cp312-16",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Peculato Mediante Erro de Outrem (Art. 313)",
+    "q": "CP, Art. 313 (Peculato-Estelionato): Quando se configura o crime de Peculato Mediante Erro de Outrem e qual a sua pena?",
+    "a": "<em>'Apropriar-se de dinheiro ou qualquer utilidade que, no exercício do cargo, recebeu por <strong>erro de outrem</strong>.'</em><br>• <strong>Pena:</strong> Reclusão, de <strong>1 (um) a 4 (quatro) anos</strong>, e multa.<br><em>Pegadinha IBAM:</em> O erro da vítima deve ser <strong>espontâneo</strong>! Se o próprio funcionário público induziu a vítima ao erro, o crime será Estelionato (Art. 171) ou Concussão/Corrupção, e não o Art. 313!"
+  },
+  {
+    "id": "fc-cp312-17",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Corrupção Passiva Majorada (Art. 317, § 1º)",
+    "q": "CP, Art. 317, § 1º: Em quanto aumenta a pena da Corrupção Passiva se o funcionário, em consequência da vantagem ou promessa, efetivamente retarda ou deixa de praticar qualquer ato de ofício ou o pratica infringindo dever funcional?",
+    "a": "A pena é aumentada de <strong>UM TERÇO (+1/3)</strong>!<br><em>Explicação para a prova:</em> Como a Corrupção Passiva (caput) é crime formal (consuma-se com a mera solicitação, recebimento ou aceitação da promessa), o exaurimento (efetivamente retardar, omitir ou praticar o ato infringindo dever funcional) funciona como <strong>causa de aumento de pena de +1/3 (§ 1º)</strong>!"
+  },
+  {
+    "id": "fc-cpp301-01",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Campeão Absoluto IBAM (Art. 301)",
+    "q": "CPP, Art. 301: Qual é a redação literal sobre os sujeitos da prisão em flagrante e qual a diferença entre o flagrante facultativo e o obrigatório?",
+    "a": "<em>'Art. 301. <strong>Qualquer do povo PODERÁ</strong> e as <strong>autoridades policiais e seus agentes DEVERÃO</strong> prender quem quer que seja encontrado em flagrante delito.'</em><br>• <strong>Flagrante Facultativo ('poderá'):</strong> Qualquer do povo (exercício regular de direito).<br>• <strong>Flagrante Obrigatório/Compulsório ('deverão'):</strong> Autoridades policiais e seus agentes (estrito cumprimento de dever legal — inclui a GCM em serviço, integrante do SUSP!)."
+  },
+  {
+    "id": "fc-cpp301-02",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Altíssima Cobrança IBAM (Art. 302)",
+    "q": "CPP, Art. 302, I a IV: Diferencie as 3 modalidades clássicas de flagrante do Art. 302: (a) Próprio/Real; (b) Impróprio/Quase-Flagrante; e (c) Presumido/Ficto.",
+    "a": "• <strong>a) Flagrante Próprio / Real (Incisos I e II):</strong> Quem <strong>está cometendo</strong> a infração penal (I) ou <strong>acaba de cometê-la</strong> (II).<br>• <strong>b) Flagrante Impróprio / Irreal / Quase-Flagrante (Inciso III):</strong> Quem é <strong>PERSEGUIDO, LOGO APÓS</strong>, pela autoridade, pelo ofendido ou por qualquer pessoa, em situação que faça presumir ser autor da infração.<br>• <strong>c) Flagrante Presumido / Ficto / Assimilado (Inciso IV):</strong> Quem é <strong>ENCONTRADO, LOGO DEPOIS</strong>, com instrumentos, armas, objetos ou papéis que façam presumir ser ele autor da infração (não exige perseguição!)."
+  },
+  {
+    "id": "fc-cpp301-03",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Foco Prova IBAM (Art. 303)",
+    "q": "CPP, Art. 303: Como funciona a prisão em flagrante nas infrações penais PERMANENTES e qual o seu reflexo na inviolabilidade domiciliar (Art. 5º, XI, CF)?",
+    "a": "<em>'Art. 303. Nas infrações permanentes, entende-se o agente em flagrante delito <strong>enquanto não cessar a permanência</strong>.'</em><br><strong>Reflexo Constitucional:</strong> Enquanto durar a permanência (ex: sequestro/cárcere privado ou depósito de drogas), há estado de flagrante delito ininterrupto, autorizando o ingresso forçado no domicílio a <strong>qualquer hora do dia ou da noite</strong> sem mandado judicial!"
+  },
+  {
+    "id": "fc-cpp301-04",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Ordem Legal Obrigatória (Art. 304, caput)",
+    "q": "CPP, Art. 304, caput: Qual é a ORDEM EXATA de oitiva na lavratura do Auto de Prisão em Flagrante (APF) e o que é entregue desde logo ao condutor?",
+    "a": "<strong>Ordem estrita de oitiva no Art. 304:</strong><br><strong>1º) O CONDUTOR</strong> (colhe-se desde logo sua assinatura e entrega-se a ele <strong>cópia do termo e recibo de entrega do preso</strong>, liberando a guarnição!);<br><strong>2º) As TESTEMUNHAS</strong> que o acompanharem;<br><strong>3º) O INTERROGATÓRIO DO ACUSADO</strong> sobre a imputação que lhe é feita.<br><em>Pegadinha IBAM:</em> O preso é sempre o ÚLTIMO a ser ouvido!"
+  },
+  {
+    "id": "fc-cpp301-05",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Pegadinha Clássica IBAM (Art. 304, §§ 2º e 3º)",
+    "q": "CPP, Art. 304, §§ 2º e 3º: A falta de testemunhas presenciais da infração impede a lavratura do APF? E o que ocorre se o acusado se recusar ou não puder assinar?",
+    "a": "• <strong>Falta de testemunhas da infração (§ 2º):</strong> <strong>NÃO IMPEDIRÁ</strong> o auto de prisão em flagrante! Mas, nesse caso, com o condutor, deverão assiná-lo <strong>pelo menos 2 (duas) pessoas que hajam testemunhado a apresentação do preso</strong> à autoridade.<br>• <strong>Recusa ou impossibilidade de assinar (§ 3º):</strong> Quando o acusado se recusar a assinar, não souber ou não puder fazê-lo, o APF será assinado por <strong>2 (duas) testemunhas</strong> que tenham ouvido sua leitura na presença deste."
+  },
+  {
+    "id": "fc-cpp301-06",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Primeira Infância & Escrivão Ad Hoc (Arts. 304, § 4º e 305)",
+    "q": "CPP, Art. 304, § 4º e Art. 305: O que deve constar obrigatoriamente no APF sobre a prole do preso (§ 4º) e quem lavra o auto na falta do escrivão (Art. 305)?",
+    "a": "• <strong>Informação sobre filhos (Art. 304, § 4º):</strong> Deverá constar a informação sobre a <strong>existência de filhos, respectivas idades e se possuem alguma deficiência</strong> e o nome e contato de eventual responsável pelos cuidados dos filhos, indicado pela pessoa presa.<br>• <strong>Falta ou impedimento do escrivão (Art. 305):</strong> <strong>Qualquer pessoa designada pela autoridade</strong> lavrará o auto, depois de <strong>prestado o compromisso legal</strong> (escrivão <em>ad hoc</em>)."
+  },
+  {
+    "id": "fc-cpp301-07",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Altíssima Cobrança IBAM (Art. 306, caput vs § 1º)",
+    "q": "CPP, Art. 306, caput e § 1º: A quem a prisão deve ser comunicada IMEDIATAMENTE (caput) e quando a Defensoria Pública é acionada (§ 1º)?",
+    "a": "• <strong>Comunicação IMEDIATA (caput — 3 destinatários):</strong><br>1) Ao <strong>Juiz competente</strong>;<br>2) Ao <strong>Ministério Público</strong>; e<br>3) À <strong>família do preso ou à pessoa por ele indicada</strong>.<br>• <strong>Prazo de ATÉ 24 HORAS (§ 1º):</strong> Será encaminhado ao juiz competente o APF e, <strong>caso o autuado não informe o nome de seu advogado</strong>, cópia integral para a <strong>Defensoria Pública</strong>."
+  },
+  {
+    "id": "fc-cpp301-08",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Altíssima Cobrança IBAM (Nota de Culpa — Art. 306, § 2º)",
+    "q": "CPP, Art. 306, § 2º: Qual é o prazo para entrega da NOTA DE CULPA ao preso e quais são os seus 3 requisitos de conteúdo obrigatórios?",
+    "a": "• <strong>Prazo:</strong> Em <strong>ATÉ 24 (VINTE E QUATRO) HORAS</strong> após a realização da prisão, mediante recibo.<br>• <strong>Assinatura:</strong> Assinada pela autoridade policial.<br>• <strong>3 Conteúdos Obrigatórios:</strong><br>1) O <strong>motivo da prisão</strong>;<br>2) O <strong>nome do condutor</strong>; e<br>3) Os <strong>nomes das testemunhas</strong>."
+  },
+  {
+    "id": "fc-cpp301-09",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Literalidade Arts. 307, 308 e 309",
+    "q": "CPP, Arts. 308 e 309: O que acontece se não houver autoridade no lugar da prisão (Art. 308) e quando o réu que se livra solto é posto em liberdade (Art. 309)?",
+    "a": "• <strong>Art. 308 (Falta de autoridade no local):</strong> Não havendo autoridade no lugar em que se tiver efetuado a prisão, o preso será <strong>logo apresentado à do lugar mais próximo</strong>.<br>• <strong>Art. 309 (Livrar-se solto):</strong> Se o réu se livrar solto, deverá ser posto em liberdade, <strong>DEPOIS de lavrado o auto de prisão em flagrante</strong>."
+  },
+  {
+    "id": "fc-cpp301-10",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Altíssima Cobrança IBAM (Audiência de Custódia — Art. 310)",
+    "q": "CPP, Art. 310, caput e incisos I a III (atualizado pela Lei 15.358/2026): Qual o prazo e meio de realização da Audiência de Custódia, e quais as 3 decisões que o juiz pode tomar?",
+    "a": "• <strong>Prazo e Meio (caput):</strong> No prazo máximo de <strong>ATÉ 24 HORAS</strong> após a realização da prisão, por meio de <strong>videoconferência em tempo real</strong>, com a presença do acusado, seu advogado/Defensoria e MP.<br>• <strong>Tríplice Decisão Fundamentada do Juiz:</strong><br><strong>I - RELAXAR</strong> a prisão <strong>ilegal</strong>; ou<br><strong>II - CONVERTER</strong> a prisão em flagrante em <strong>preventiva</strong> (presentes os requisitos do art. 312 e inadequadas as cautelares); ou<br><strong>III - CONCEDER LIBERDADE PROVISÓRIA</strong>, com ou sem fiança."
+  },
+  {
+    "id": "fc-cpp301-11",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Conceito Chave IBAM (Art. 310, §§ 1º e 2º)",
+    "q": "CPP, Art. 310, §§ 1º e 2º: O que o juiz faz se verificar que o agente agiu sob Excludente de Ilicitude (§ 1º) e em quais 4 hipóteses do § 2º deve denegar a liberdade provisória?",
+    "a": "• <strong>Excludente de Ilicitude (§ 1º — Art. 23, I a III do CP):</strong> Poderá conceder ao acusado <strong>liberdade provisória, mediante termo de comparecimento obrigatório a todos os atos processuais</strong>, sob pena de revogação.<br>• <strong>Denegação da Liberdade Provisória (§ 2º):</strong> Se verificar que o agente:<br>1) É <strong>reincidente</strong>;<br>2) Integra <strong>organização criminosa armada</strong>;<br>3) Integra <strong>milícia</strong>; ou<br>4) Porta <strong>arma de fogo de uso restrito</strong>."
+  },
+  {
+    "id": "fc-cpp301-12",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Prazos e Sanções (Art. 310, §§ 3º e 4º)",
+    "q": "CPP, Art. 310, §§ 3º e 4º: Quais as consequências da não realização da audiência de custódia sem motivação idônea no prazo legal e após mais 24 horas?",
+    "a": "• <strong>Responsabilidade da autoridade (§ 3º):</strong> A autoridade que deu causa, sem motivação idônea, responderá <strong>administrativa, civil e penalmente</strong> pela omissão.<br>• <strong>Transcorridas mais 24 horas após o prazo do caput (§ 4º):</strong> Ensejará também a <strong>ilegalidade da prisão, a ser relaxada</strong> pela autoridade competente, <strong>sem prejuízo da possibilidade de imediata decretação de prisão preventiva</strong>."
+  },
+  {
+    "id": "fc-cpp301-13",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Super Novidade Legislativa (Lei 15.272/2025)",
+    "q": "CPP, Art. 310, § 5º e Art. 310-A (Lei 15.272/2025): Quais circunstâncias recomendam a conversão em preventiva (§ 5º) e qual o prazo para coleta do perfil genético (Art. 310-A)?",
+    "a": "• <strong>Recomendam a conversão em preventiva (§ 5º):</strong> I - prática reiterada de infrações; II - violência ou grave ameaça à pessoa; III - já liberado em prévia custódia (salvo absolvição); IV - infração na pendência de inquérito/ação penal; V - fuga ou perigo de fuga; VI - perigo à instrução/prova.<br>• <strong>Coleta de Perfil Genético (Art. 310-A, § 1º):</strong> Preferencialmente na própria audiência de custódia ou no <strong>prazo de 10 (DEZ) DIAS</strong>, contado de sua realização!"
+  },
+  {
+    "id": "fc-cpp301-14",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Doutrina e Súmula 145 do STF",
+    "q": "Prisão em Flagrante: Diferencie o Flagrante PREPARADO/PROVOCADO (Súmula 145 STF), o Flagrante ESPERADO, o Flagrante PRORROGADO/DIFERIDO e o Flagrante FORJADO.",
+    "a": "• <strong>Preparado / Provocado (ILEGAL ❌ — Súmula 145 STF):</strong> A polícia induz o agente e torna impossível a consumação (crime impossível).<br>• <strong>Esperado (LÍCITO ✅):</strong> A polícia/GCM sabe previamente que o crime ocorrerá, aguarda sem induzir e prende no início da execução.<br>• <strong>Prorrogado / Diferido / Ação Controlada (LÍCITO ✅):</strong> Retarda-se estrategicamente a prisão (previsto na Lei de Drogas e Org. Criminosa).<br>• <strong>Forjado / Maquinado (ILEGAL ❌):</strong> Plantam-se provas falsas de crime inexistente (configura Abuso de Autoridade / Denunciação Caluniosa)."
+  },
+  {
     "id": "fc-cf5-01",
     "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
     "level": "Altíssima Cobrança IBAM",
@@ -4663,6 +4792,7 @@
       { key: "05. CP — Arts. 146 a 150", short: "CP Arts. 146-150" },
       { key: "06. CP — Arts. 155 a 159", short: "CP Arts. 155-159" },
       { key: "07. CP — Arts. 312 a 327", short: "CP Arts. 312-327" },
+      { key: "08. CPP — Arts. 301 a 310", short: "CPP Arts. 301-310" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -4675,6 +4805,7 @@
       if (rawDeck.includes("146 a 150")) return "05. CP — Arts. 146 a 150";
       if (rawDeck.includes("155 a 159")) return "06. CP — Arts. 155 a 159";
       if (rawDeck.includes("312 a 327") || rawDeck.includes("Administração")) return "07. CP — Arts. 312 a 327";
+      if (rawDeck.includes("301 a 310") || rawDeck.includes("Flagrante")) return "08. CPP — Arts. 301 a 310";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -4687,7 +4818,8 @@
         "cp-121-129": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-146-150": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false },
-        "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false }
+        "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -4704,6 +4836,7 @@
         "05. CP — Arts. 146 a 150",
         "06. CP — Arts. 155 a 159",
         "07. CP — Arts. 312 a 327",
+        "08. CPP — Arts. 301 a 310",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -4947,15 +5080,19 @@
         });
       }
 
-      // Garante que novos tópicos decupados (como 07. CP — Arts. 312 a 327) fiquem marcados com PDF e no filtro
-      if (!appState.checks["cp-312-327"]) {
-        appState.checks["cp-312-327"] = { lei: true, pdf: true, questoes: false, revisado: false };
-      } else {
-        appState.checks["cp-312-327"].pdf = true;
-      }
-      if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes("07. CP — Arts. 312 a 327")) {
-        appState.selectedDecks.push("07. CP — Arts. 312 a 327");
-      }
+      // Garante que novos tópicos decupados (07 e 08) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310"].forEach(tid => {
+        if (!appState.checks[tid]) {
+          appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
+        } else {
+          appState.checks[tid].pdf = true;
+        }
+      });
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310"].forEach(dkey => {
+        if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
+          appState.selectedDecks.push(dkey);
+        }
+      });
 
       saveState(true); // salva no localStorage sem re-disparar push
       renderChecklist();
@@ -5186,14 +5323,18 @@
           };
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
-          } else if (!appState.selectedDecks.includes("07. CP — Arts. 312 a 327")) {
-            appState.selectedDecks.push("07. CP — Arts. 312 a 327");
-          }
-          if (!appState.checks["cp-312-327"]) {
-            appState.checks["cp-312-327"] = { lei: true, pdf: true, questoes: false, revisado: false };
           } else {
-            appState.checks["cp-312-327"].pdf = true;
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310"].forEach(dkey => {
+              if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
+            });
           }
+          ["cp-312-327", "cpp-301-310"].forEach(tid => {
+            if (!appState.checks[tid]) {
+              appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
+            } else {
+              appState.checks[tid].pdf = true;
+            }
+          });
         }
       } catch (e) {
         console.error(e);
@@ -5298,7 +5439,8 @@
       "cp-121-129": "04. CP — Arts. 121 a 129",
       "cp-146-150": "05. CP — Arts. 146 a 150",
       "cp-155-159": "06. CP — Arts. 155 a 159",
-      "cp-312-327": "07. CP — Arts. 312 a 327"
+      "cp-312-327": "07. CP — Arts. 312 a 327",
+      "cpp-301-310": "08. CPP — Arts. 301 a 310"
     };
 
     function getTopicFlashcardPerformance(topicId) {
