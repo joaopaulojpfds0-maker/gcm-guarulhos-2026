@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">35%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">41%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">6 / 17 arquivos (35%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">6/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">7 / 17 arquivos (41%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">7/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">6 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">7 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">6 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150 e 155-159).</div>
+        <div class="kpi-sub desktop-only">7 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159 e 312-327).</div>
       </div>
 
       <div class="kpi-card">
@@ -3412,6 +3412,7 @@
                 <option value="04. CP — Arts. 121 a 129">04. CP — Arts. 121 a 129 (Crimes contra a Pessoa)</option>
                 <option value="05. CP — Arts. 146 a 150">05. CP — Arts. 146 a 150 (Liberdade e Domicílio)</option>
                 <option value="06. CP — Arts. 155 a 159">06. CP — Arts. 155 a 159 (Crimes contra o Patrimônio)</option>
+                <option value="07. CP — Arts. 312 a 327">07. CP — Arts. 312 a 327 (Crimes contra a Administração)</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3607,8 +3608,10 @@
         shortTitle: "CP: Arts. 312 a 327 (Administração)",
         desc: "Peculato (312), Concussão (316), Corrupção passiva (317), Prevaricação (319), Condescendência criminosa (320) e Conceito de Funcionário Público (Art. 327).",
         priority: "Altíssima Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./codigo-penal-arts-312-a-327-decupado.pdf" }
+        ]
       },
       {
         id: "cpp-301-310",
@@ -4116,7 +4119,7 @@
     "deck": "CP - Arts. 155 a 159 (Patrimônio)",
     "level": "Altíssima Cobrança IBAM",
     "q": "CP, Art. 155, caput e § 1º (Furto Noturno): Qual é a causa de aumento de pena do furto praticado durante o repouso noturno?",
-    "a": "A pena aumenta-se de <strong>METADE (+1/2)</strong>.<br><em>Atenção IBAM:</em> O repouso noturno é critério sociológico (horário de recolhimento dos moradores na localidade). A majorante incide quer o furto ocorra em residência habitada ou desabitada, ou em estabelecimento comercial fechado!"
+    "a": "A pena aumenta-se de <strong>UM TERÇO (+1/3)</strong>.<br><em>Atenção IBAM:</em> O repouso noturno é critério sociológico (horário de recolhimento dos moradores na localidade). A majorante incide quer o furto ocorra em residência habitada ou desabitada, ou em estabelecimento comercial fechado!"
   },
   {
     "id": "fc-cp155-02",
@@ -4172,7 +4175,7 @@
     "deck": "CP - Arts. 155 a 159 (Patrimônio)",
     "level": "Altíssima Cobrança IBAM (Latrocínio)",
     "q": "CP, Art. 157, § 3º, II (Latrocínio): O Latrocínio vai a julgamento pelo Tribunal do Júri? E quando se considera consumado segundo a Súmula 610 do STF?",
-    "a": "<strong>NÃO VAI A JÚRI!</strong> É crime contra o patrimônio, de competência do <strong>Juiz Singular da Vara Criminal</strong> (Súmula 603 do STF).<br>• <strong>Pena:</strong> Reclusão, de <strong>24 a 30 anos</strong>, e multa.<br>• <strong>Súmula 610 do STF:</strong> <em>'Há crime de latrocínio, quando o homicídio se consuma, ainda que não realize o agente a subtração de bens da vítima.'</em>"
+    "a": "<strong>NÃO VAI A JÚRI!</strong> É crime contra o patrimônio, de competência do <strong>Juiz Singular da Vara Criminal</strong> (Súmula 603 do STF).<br>• <strong>Pena:</strong> Reclusão, de <strong>20 a 30 anos</strong>, e multa.<br>• <strong>Súmula 610 do STF:</strong> <em>'Há crime de latrocínio, quando o homicídio se consuma, ainda que não realize o agente a subtração de bens da vítima.'</em>"
   },
   {
     "id": "fc-cp155-10",
@@ -4187,6 +4190,139 @@
     "level": "Altíssima Cobrança IBAM",
     "q": "CP, Art. 159, caput e §§ 1º e 4º (Extorsão mediante Sequestro): Quais as qualificadoras do § 1º (pena 12 a 20 anos) e como funciona a Delação Premiada do § 4º?",
     "a": "<strong>Qualificadoras do § 1º (Pena: reclusão, 12 a 20 anos):</strong><br>1) Se o sequestro dura <strong>mais de 24 (vinte e quatro) horas</strong>;<br>2) Se o sequestrado é <strong>menor de 18 ou maior de 60 anos</strong>;<br>3) Se cometido por bando ou quadrilha.<br><br><strong>Delação Premiada (§ 4º):</strong> Se o crime é cometido em concurso, o concorrente que o denunciar à autoridade, facilitando a libertação do sequestrado, terá a pena <strong>REDUZIDA DE 1/3 A 2/3</strong>."
+  },
+  {
+    "id": "fc-cp155-12",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Crime Hediondo IBAM",
+    "q": "CP, Art. 155, §§ 4º-A e 7º: Qual é a pena do Furto Qualificado com emprego de explosivo (ou subtração de substância explosiva) e qual sua classificação na Lei 8.072/90?",
+    "a": "A pena é de <strong>RECLUSÃO, de 4 a 10 anos, e multa</strong>.<br><strong>ATENÇÃO MÁXIMA IBAM:</strong> O Furto qualificado pelo emprego de explosivo ou de artefato análogo que cause perigo comum (§ 4º-A) é a <strong>ÚNICA modalidade de furto classificada como CRIME HEDIONDO</strong>!"
+  },
+  {
+    "id": "fc-cp155-13",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Furto Eletrônico (Lei 14.155/2021)",
+    "q": "CP, Art. 155, §§ 4º-B e 4º-C: Qual a pena do Furto Mediante Fraude Eletrônica/Informática e em quanto aumenta se praticado contra idoso ou vulnerável?",
+    "a": "• <strong>Pena base (§ 4º-B):</strong> Reclusão, de <strong>4 a 8 anos</strong>, e multa (conectado ou não à rede de computadores).<br>• <strong>Servidor fora do território nacional (§ 4º-C, I):</strong> Aumenta de <strong>1/3 a 2/3</strong>.<br>• <strong>Contra idoso ou vulnerável (§ 4º-C, II):</strong> Aumenta de <strong>1/3 ao DOBRO</strong>!"
+  },
+  {
+    "id": "fc-cp155-14",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Penas Específicas do Furto IBAM",
+    "q": "CP, Art. 155, §§ 5º e 6º: Diferencie as penas do Furto de veículo automotor transportado para outro Estado/exterior (§ 5º) e do Furto de semovente domesticável de produção / Abigeato (§ 6º).",
+    "a": "• <strong>Veículo automotor levado p/ outro Estado ou exterior (§ 5º):</strong> Reclusão, de <strong>3 a 8 anos</strong>.<br>• <strong>Semovente domesticável de produção / Abigeato (§ 6º):</strong> Reclusão, de <strong>2 a 5 anos</strong> (ainda que abatido ou dividido em partes no local da subtração).<br><em>Pegadinha IBAM:</em> Se o veículo furtado apenas muda de Município dentro do mesmo Estado, NÃO incide o § 5º!"
+  },
+  {
+    "id": "fc-cp155-15",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Crimes Hediondos no Roubo",
+    "q": "CP, Art. 157 x Lei dos Crimes Hediondos: Quais são as 3 hipóteses em que o crime de ROUBO é classificado como CRIME HEDIONDO?",
+    "a": "O Roubo é <strong>CRIME HEDIONDO</strong> quando:<br>1) Circunstanciado pela <strong>restrição de liberdade da vítima</strong> (Art. 157, § 2º, V);<br>2) Circunstanciado pelo <strong>emprego de arma de fogo</strong> (de uso permitido, restrito ou proibido — Art. 157, § 2º-A, I ou § 2º-B);<br>3) Qualificado pelo resultado <strong>lesão corporal grave ou morte (latrocínio)</strong> (Art. 157, § 3º).<br><em>Pegadinha IBAM:</em> Roubo com arma branca NÃO é crime hediondo!"
+  },
+  {
+    "id": "fc-cp155-16",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Súmula 96 STJ (Extorsão)",
+    "q": "CP, Art. 158 e Súmula 96 do STJ: O crime de Extorsão exige o efetivo recebimento da vantagem econômica indevida para se consumar?",
+    "a": "<strong>NÃO! É CRIME FORMAL (de consumação antecipada)!</strong><br><strong>Súmula 96 do STJ:</strong> <em>'O crime de extorsão consuma-se independentemente da obtenção da vantagem indevida.'</em><br>Consuma-se no exato instante em que a vítima, constrangida mediante violência ou grave ameaça, faz, tolera que se faça ou deixa de fazer alguma coisa."
+  },
+  {
+    "id": "fc-cp155-17",
+    "deck": "CP - Arts. 155 a 159 (Patrimônio)",
+    "level": "Quadro Comparativo de Penas (Arts. 157 vs 159)",
+    "q": "CP, Art. 157, § 3º vs Art. 159, §§ 2º e 3º: Compare as penas quando resulta LESÃO CORPORAL GRAVE ou MORTE no Roubo/Extorsão vs na Extorsão Mediante Sequestro.",
+    "a": "<strong>No Roubo (157, § 3º) e na Extorsão simples (158, § 2º):</strong><br>• Lesão Grave: Reclusão, de <strong>7 a 18 anos</strong>, e multa.<br>• Morte (Latrocínio): Reclusão, de <strong>20 a 30 anos</strong>, e multa.<br><br><strong>Na Extorsão Mediante Sequestro (159) e no Sequestro Relâmpago (158, § 3º):</strong><br>• Lesão Grave (159, § 2º): Reclusão, de <strong>16 a 24 anos</strong>.<br>• Morte (159, § 3º): Reclusão, de <strong>24 a 30 anos</strong>."
+  },
+  {
+    "id": "fc-cp312-01",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Altíssima Cobrança IBAM (Peculato)",
+    "q": "CP, Art. 312, caput e § 1º: Diferencie o Peculato-Apropriação, o Peculato-Desvio e o Peculato-Furto (Peculato Impróprio). Qual a pena?",
+    "a": "• <strong>Peculato-Apropriação (caput, 1ª parte):</strong> O funcionário <strong>tem a posse lícita</strong> do bem em razão do cargo e dele se <strong>apropria</strong>.<br>• <strong>Peculato-Desvio (caput, 2ª parte):</strong> O funcionário <strong>tem a posse</strong> e <strong>desvia</strong> o bem em proveito próprio ou alheio.<br>• <strong>Peculato-Furto (§ 1º):</strong> O funcionário <strong>NÃO tem a posse</strong>, mas o <strong>subtrai ou concorre</strong> para que seja subtraído, valendo-se de facilidade que lhe proporciona a qualidade de funcionário.<br>• <strong>Pena de todos:</strong> Reclusão, de <strong>2 a 12 anos</strong>, e multa."
+  },
+  {
+    "id": "fc-cp312-02",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Pegadinha Clássica IBAM (Peculato Culposo)",
+    "q": "CP, Art. 312, §§ 2º e 3º (Peculato Culposo): Qual a pena do Peculato Culposo e qual o efeito da reparação do dano ANTES e DEPOIS da sentença irrecorrível?",
+    "a": "• <strong>Peculato Culposo (§ 2º):</strong> O funcionário concorre culposamente para o crime de outrem. Pena: Detenção, de <strong>3 meses a 1 ano</strong>.<br>• <strong>Reparação do dano no Peculato Culposo (§ 3º):</strong><br>1) Se precede a sentença irrecorrível (ANTES do trânsito em julgado): <strong>EXTINGUE A PUNIBILIDADE!</strong><br>2) Se lhe é posterior (DEPOIS do trânsito em julgado): <strong>REDUZ DE METADE (-1/2)</strong> a pena imposta!<br><em>Pegadinha IBAM:</em> No peculato DOLOSO, a reparação do dano NÃO extingue a punibilidade (gera apenas arrependimento posterior do art. 16)."
+  },
+  {
+    "id": "fc-cp312-03",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Peculato Eletrônico (Arts. 313-A e 313-B)",
+    "q": "CP, Arts. 313-A e 313-B: Diferencie a Inserção de dados falsos em sistema de informações (313-A) da Modificação ou alteração não autorizada de sistema (313-B).",
+    "a": "• <strong>Art. 313-A (Inserção de dados falsos):</strong> Praticado por <strong>funcionário autorizado</strong>, com o fim específico de <strong>obter vantagem indevida ou causar dano</strong>. Pena: Reclusão, de <strong>2 a 12 anos</strong>, e multa.<br>• <strong>Art. 313-B (Modificação de sistema/programa):</strong> Modificar ou alterar o próprio sistema/programa de informática sem autorização (qualquer funcionário). Pena: Detenção, de <strong>3 meses a 2 anos</strong>, e multa (aumenta de 1/3 até metade se resulta dano)."
+  },
+  {
+    "id": "fc-cp312-04",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Distinção Campeã de Provas IBAM",
+    "q": "CP, Art. 316 vs Art. 317: Qual é a diferença nuclear de verbos e penas entre CONCUSSÃO (Art. 316) e CORRUPÇÃO PASSIVA (Art. 317)?",
+    "a": "• <strong>CONCUSSÃO (Art. 316):</strong> Verbo nuclear = <strong>EXIGIR</strong> (imposição, intimidação, temor do cargo — <em>metus publicae potestatis</em>), ainda que fora da função ou antes de assumi-la, mas em razão dela.<br>• <strong>CORRUPÇÃO PASSIVA (Art. 317):</strong> Verbos nucleares = <strong>SOLICITAR</strong> ou <strong>RECEBER</strong>, ou <strong>ACEITAR PROMESSA</strong> de tal vantagem.<br>• <strong>Pena de AMBOS (após Lei 13.964/2019):</strong> Reclusão, de <strong>2 a 12 anos</strong>, e multa! Ambos são <strong>crimes formais</strong> (a concussão consuma no 'exigir'; a corrupção passiva no 'solicitar' ou 'aceitar promessa')."
+  },
+  {
+    "id": "fc-cp312-05",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 316, §§ 1º e 2º (Excesso de Exação): Quando ocorre o Excesso de Exação e qual a sua qualificadora?",
+    "a": "• <strong>Excesso de Exação (§ 1º - Reclusão, 3 a 8 anos, e multa):</strong> Se o funcionário exige tributo ou contribuição social que sabe ou deveria saber indevido, ou, quando devido, emprega na cobrança meio <strong>vexatório ou gravoso</strong>, que a lei não autoriza.<br>• <strong>Qualificadora (§ 2º - Reclusão, 2 a 12 anos, e multa):</strong> Se o funcionário <strong>desvia, em proveito próprio ou de outrem</strong>, o que recebeu indevidamente para recolher aos cofres públicos."
+  },
+  {
+    "id": "fc-cp312-06",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Pegadinha de Prova IBAM",
+    "q": "CP, Art. 317, § 2º vs Art. 319: Qual a diferença decisiva entre a CORRUPÇÃO PASSIVA PRIVILEGIADA (Art. 317, § 2º) e a PREVARICAÇÃO (Art. 319)?",
+    "a": "Ambos têm a mesma pena (Detenção, de <strong>3 meses a 1 ano</strong>) e os mesmos verbos (retardar, deixar de praticar ou praticar ato com infração de dever), MAS a motivação muda:<br>• <strong>Corrupção Passiva Privilegiada (Art. 317, § 2º):</strong> O funcionário age <strong>CEDENDO A PEDIDO OU INFLUÊNCIA DE OUTREM</strong> (sem vantagem econômica).<br>• <strong>Prevaricação (Art. 319):</strong> O funcionário age por iniciativa própria para <strong>SATISFAZER INTERESSE OU SENTIMENTO PESSOAL</strong> (ex: preguiça, amizade, vingança, afeição)."
+  },
+  {
+    "id": "fc-cp312-07",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Foco Sistema Prisional / Segurança",
+    "q": "CP, Art. 319-A (Prevaricação Imprópria): Qual é a conduta típica do Art. 319-A e qual a sua pena?",
+    "a": "<em>'Deixar o Diretor de Penitenciária e/ou agente público, de cumprir seu dever de <strong>vedar ao preso o acesso a aparelho telefônico, de rádio ou similar</strong>, que permita a comunicação com outros presos ou com o ambiente externo.'</em><br>• <strong>Pena:</strong> Detenção, de <strong>3 meses a 1 ano</strong>."
+  },
+  {
+    "id": "fc-cp312-08",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Altíssima Cobrança IBAM",
+    "q": "CP, Art. 320 (Condescendência Criminosa): Quais são os elementos que configuram o crime de Condescendência Criminosa por parte de um superior hierárquico?",
+    "a": "Consiste em: <strong>Deixar o funcionário, por INDULGÊNCIA (clemência, tolerância, pena), de responsabilizar subordinado que cometeu infração no exercício do cargo</strong> ou, quando lhe falte competência, não levar o fato ao conhecimento da autoridade competente.<br>• <strong>Pena:</strong> Detenção, de <strong>15 dias a 1 mês</strong>, ou multa.<br><em>Pegadinha IBAM:</em> Exige superioridade hierárquica e o motivo específico de 'por indulgência'."
+  },
+  {
+    "id": "fc-cp312-09",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Conceito Chave IBAM",
+    "q": "CP, Art. 321 (Advocacia Administrativa): O funcionário público precisa ser advogado para cometer Advocacia Administrativa? E se o interesse privado for ilegítimo?",
+    "a": "<strong>NÃO precisa ser advogado!</strong> Qualquer funcionário público pode cometer o crime.<br>• <strong>Conduta (caput):</strong> <strong>Patrocinar, direta ou indiretamente, interesse privado perante a administração pública</strong>, valendo-se da qualidade de funcionário.<br>• <strong>Se o interesse é LEGÍTIMO (caput):</strong> Detenção, de <strong>1 a 3 meses</strong>, ou multa.<br>• <strong>Se o interesse é ILEGÍTIMO (parágrafo único):</strong> Detenção, de <strong>3 meses a 1 ano</strong>, além da multa."
+  },
+  {
+    "id": "fc-cp312-10",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Verbos Nucleares IBAM",
+    "q": "CP, Arts. 314, 315 e 318: Identifique os crimes pelos verbos: (a) Extraviar/sonegar/inutilizar livro oficial; (b) Dar às verbas públicas aplicação diversa da estabelecida em lei; (c) Facilitar contrabando ou descaminho.",
+    "a": "• <strong>a) Extraviar, sonegar ou inutilizar livro oficial ou documento (Art. 314):</strong> Reclusão, de 1 a 4 anos, se o fato não constitui crime mais grave.<br>• <strong>b) Dar às verbas ou rendas públicas aplicação diversa da estabelecida em lei (Art. 315 — Emprego irregular de verbas ou rendas públicas):</strong> Detenção, de 1 a 3 meses, ou multa.<br>• <strong>c) Facilitar, com infração de dever funcional, a prática de contrabando ou descaminho (Art. 318):</strong> Reclusão, de <strong>3 a 8 anos</strong>, e multa."
+  },
+  {
+    "id": "fc-cp312-11",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Abandono e Exercício Ilegal (Arts. 323 e 324)",
+    "q": "CP, Art. 323 (Abandono de Função): O mero fato de faltar ao serviço configura Abandono de Função? Quais são as qualificadoras dos §§ 1º e 2º?",
+    "a": "Para configurar o crime de <strong>Abandono de Função (Art. 323)</strong>, o abandono do cargo público (fora dos casos permitidos em lei) deve gerar perigo de dano à Administração (detenção de 15 dias a 1 mês, ou multa).<br>• <strong>§ 1º (Resulta prejuízo público):</strong> Detenção, de <strong>3 meses a 1 ano</strong>, e multa.<br>• <strong>§ 2º (Em lugar compreendido na faixa de fronteira):</strong> Detenção, de <strong>1 a 3 anos</strong>, e multa."
+  },
+  {
+    "id": "fc-cp312-12",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Altíssima Cobrança IBAM (Art. 327, caput e § 1º)",
+    "q": "CP, Art. 327, caput e § 1º: Qual é o conceito penal de FUNCIONÁRIO PÚBLICO e quem é considerado Funcionário Público por EQUIPARAÇÃO?",
+    "a": "• <strong>Conceito próprio (caput):</strong> Considera-se funcionário público, para os efeitos penais, quem, <strong>embora transitoriamente ou sem remuneração</strong>, exerce cargo, emprego ou função pública (ex: mesário eleitoral, jurado).<br>• <strong>Por Equiparação (§ 1º):</strong> Equipara-se a funcionário público quem exerce cargo, emprego ou função em <strong>entidade paraestatal</strong>, e quem trabalha para <strong>empresa prestadora de serviço contratada ou conveniada para a execução de atividade típica da Administração Pública</strong>."
+  },
+  {
+    "id": "fc-cp312-13",
+    "deck": "CP - Arts. 312 a 327 (Administração Pública)",
+    "level": "Pegadinha Clássica IBAM (Art. 327, § 2º)",
+    "q": "CP, Art. 327, § 2º: Em quanto é aumentada a pena nos crimes funcionais quando os autores são ocupantes de cargos em comissão ou de função de direção ou assessoramento?",
+    "a": "A pena será aumentada da <strong>TERÇA PARTE (+1/3)</strong> quando os autores dos crimes previstos neste Capítulo forem ocupantes de:<br>• <strong>Cargos em comissão</strong>; ou<br>• <strong>Função de direção ou assessoramento</strong> de órgão da administração direta, sociedade de economia mista, empresa pública ou fundação instituída pelo poder público.<br><em>Pegadinha IBAM:</em> Note que o § 2º NÃO menciona expressamente as 'autarquias' no rol taxativo (princípio da legalidade estrita)!"
   },
   {
     "id": "fc-cf5-01",
@@ -4526,6 +4662,7 @@
       { key: "04. CP — Arts. 121 a 129", short: "CP Arts. 121-129" },
       { key: "05. CP — Arts. 146 a 150", short: "CP Arts. 146-150" },
       { key: "06. CP — Arts. 155 a 159", short: "CP Arts. 155-159" },
+      { key: "07. CP — Arts. 312 a 327", short: "CP Arts. 312-327" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -4537,6 +4674,7 @@
       if (rawDeck.includes("121 a 129")) return "04. CP — Arts. 121 a 129";
       if (rawDeck.includes("146 a 150")) return "05. CP — Arts. 146 a 150";
       if (rawDeck.includes("155 a 159")) return "06. CP — Arts. 155 a 159";
+      if (rawDeck.includes("312 a 327") || rawDeck.includes("Administração")) return "07. CP — Arts. 312 a 327";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -4548,7 +4686,8 @@
         "cf-art144": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-121-129": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-146-150": { lei: true, pdf: true, questoes: false, revisado: false },
-        "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false }
+        "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false },
+        "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -4564,6 +4703,7 @@
         "04. CP — Arts. 121 a 129",
         "05. CP — Arts. 146 a 150",
         "06. CP — Arts. 155 a 159",
+        "07. CP — Arts. 312 a 327",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -4807,6 +4947,16 @@
         });
       }
 
+      // Garante que novos tópicos decupados (como 07. CP — Arts. 312 a 327) fiquem marcados com PDF e no filtro
+      if (!appState.checks["cp-312-327"]) {
+        appState.checks["cp-312-327"] = { lei: true, pdf: true, questoes: false, revisado: false };
+      } else {
+        appState.checks["cp-312-327"].pdf = true;
+      }
+      if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes("07. CP — Arts. 312 a 327")) {
+        appState.selectedDecks.push("07. CP — Arts. 312 a 327");
+      }
+
       saveState(true); // salva no localStorage sem re-disparar push
       renderChecklist();
       renderCalendar();
@@ -5036,6 +5186,13 @@
           };
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
+          } else if (!appState.selectedDecks.includes("07. CP — Arts. 312 a 327")) {
+            appState.selectedDecks.push("07. CP — Arts. 312 a 327");
+          }
+          if (!appState.checks["cp-312-327"]) {
+            appState.checks["cp-312-327"] = { lei: true, pdf: true, questoes: false, revisado: false };
+          } else {
+            appState.checks["cp-312-327"].pdf = true;
           }
         }
       } catch (e) {
@@ -5140,7 +5297,8 @@
       "cf-art144": "03. CF/88 — Artigo 144",
       "cp-121-129": "04. CP — Arts. 121 a 129",
       "cp-146-150": "05. CP — Arts. 146 a 150",
-      "cp-155-159": "06. CP — Arts. 155 a 159"
+      "cp-155-159": "06. CP — Arts. 155 a 159",
+      "cp-312-327": "07. CP — Arts. 312 a 327"
     };
 
     function getTopicFlashcardPerformance(topicId) {
