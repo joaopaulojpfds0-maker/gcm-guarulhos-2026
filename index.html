@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">53%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">59%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">9 / 17 arquivos (53%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">9/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">10 / 17 arquivos (59%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">10/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">9 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">10 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">9 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Lei 13.022/14).</div>
+        <div class="kpi-sub desktop-only">10 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14 e 13.060/14).</div>
       </div>
 
       <div class="kpi-card">
@@ -3415,6 +3415,7 @@
                 <option value="07. CP — Arts. 312 a 327">07. CP — Arts. 312 a 327 (Crimes contra a Administração)</option>
                 <option value="08. CPP — Arts. 301 a 310">08. CPP — Arts. 301 a 310 (Da Prisão em Flagrante)</option>
                 <option value="09. Lei 13.022/14 — Estatuto Geral GCM">09. Lei 13.022/14 — Estatuto Geral das Guardas Municipais</option>
+                <option value="10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força)">10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força e IMPO)</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3624,7 +3625,8 @@
         priority: "Altíssima Incidência (Obrigatório)",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado", url: "./cpp-arts-301-a-310-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./cpp-arts-301-a-310-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-08-cpp-arts-301-a-310-prisao-em-flagrante.pdf" }
         ]
       },
 
@@ -3638,7 +3640,8 @@
         priority: "Altíssima Incidência (Obrigatório GCM)",
         hasPdf: true,
         pdfs: [
-          { label: "📄 PDF Decupado", url: "./lei-13022-2014-estatuto-geral-gcm-decupado.pdf" }
+          { label: "📄 PDF Decupado", url: "./lei-13022-2014-estatuto-geral-gcm-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-09-lei-13022-2014-estatuto-geral-gcm.pdf" }
         ]
       },
       {
@@ -3648,8 +3651,11 @@
         shortTitle: "Lei 13.060/14 & Dec. 12.341/24 (Força)",
         desc: "Princípios da legalidade, necessidade, proporcionalidade, moderação e conveniência. Emprego prioritário de instrumentos de menor potencial ofensivo.",
         priority: "Alta Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-13060-2014-e-decreto-12341-2024-uso-da-forca-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-10-lei-13060-2014-e-decreto-12341-2024-uso-da-forca.pdf" }
+        ]
       },
       {
         id: "lei-eca",
@@ -4534,6 +4540,90 @@
     "a": "• <strong>Cor do uniforme (Art. 21):</strong> Padronizado, <strong>PREFERENCIALMENTE, na cor azul-marinho</strong> (não é 'obrigatoriamente'!).<br>• <strong>Prazo de adaptação (Art. 22, caput):</strong> <strong>2 (dois) anos</strong>.<br>• <strong>Denominações consagradas asseguradas (Art. 22, parágrafo único):</strong> Guarda civil, guarda civil municipal (GCM), guarda metropolitana e guarda civil metropolitana."
   },
   {
+    "id": "fc-forca-01",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Prioridade do IMPO e Condição (Lei 13.060/14, Art. 2º)",
+    "q": "Lei nº 13.060/2014, Art. 2º, caput e incisos I a III: Sob qual condição os órgãos de segurança pública deverão priorizar a utilização dos instrumentos de menor potencial ofensivo (IMPO), e a quais princípios expressos na Lei devem obedecer?",
+    "a": "• <strong>Condição legal (caput):</strong> Deverão priorizar a utilização dos IMPOs, <strong>desde que o seu uso não coloque em risco a integridade física ou psíquica dos policiais</strong>.<br>• <strong>Princípios expressos nos 3 incisos da Lei 13.060/14:</strong><br>I - <strong>Legalidade</strong>;<br>II - <strong>Necessidade</strong>;<br>III - <strong>Razoabilidade e proporcionalidade</strong>."
+  },
+  {
+    "id": "fc-forca-02",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Altíssima Cobrança IBAM (Vedações de Arma de Fogo)",
+    "q": "Lei nº 13.060/2014 (Art. 2º, parágrafo único) e Decreto nº 12.341/2024 (Art. 3º, § 3º): Quais são as 2 hipóteses expressas em que NÃO é legítimo o uso de arma de fogo?",
+    "a": "<strong>NÃO é legítimo o uso de arma de fogo:</strong><br><strong>I -</strong> Contra <strong>pessoa em fuga que esteja desarmada</strong> OU que <strong>não represente risco imediato de morte ou de lesão</strong> aos agentes/profissionais de segurança pública ou a terceiros; e<br><strong>II -</strong> Contra <strong>veículo que desrespeite bloqueio policial em via pública</strong>, <em>EXCETO quando o ato represente risco de morte ou lesão aos agentes/profissionais de segurança pública ou a terceiros</em>."
+  },
+  {
+    "id": "fc-forca-03",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Conceito Legal de IMPO (Lei 13.060/14, Art. 4º)",
+    "q": "Lei nº 13.060/2014, Art. 4º: Qual é a definição legal exata de 'instrumentos de menor potencial ofensivo' (IMPO)?",
+    "a": "<em>'Art. 4º Para os efeitos desta Lei, consideram-se instrumentos de menor potencial ofensivo aqueles projetados especificamente para, com <strong>baixa probabilidade de causar mortes ou lesões permanentes</strong>, <strong>conter, debilitar ou incapacitar temporariamente</strong> pessoas.'</em><br><em>Pegadinha IBAM:</em> A lei diz 'baixa probabilidade' (não diz risco zero) e 'incapacitar temporariamente' (jamais permanentemente!)."
+  },
+  {
+    "id": "fc-forca-04",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Fornecimento e Socorro a Feridos (Lei 13.060/14, Arts. 5º e 6º)",
+    "q": "Lei nº 13.060/2014, Arts. 5º e 6º: De quem é o dever de fornecer IMPO a todo agente (Art. 5º) e quais são as 2 obrigações imediatas quando do uso da força decorrerem ferimentos em pessoas (Art. 6º)?",
+    "a": "• <strong>Art. 5º (Fornecimento):</strong> O <strong>poder público tem o dever de fornecer a todo agente de segurança pública</strong> instrumentos de menor potencial ofensivo para o uso racional da força.<br>• <strong>Art. 6º (Quando decorrerem ferimentos):</strong> Deverá ser assegurada:<br>1) A <strong>imediata prestação de assistência e socorro médico aos feridos</strong>; bem como<br>2) A <strong>comunicação do ocorrido à família ou à pessoa por eles indicada</strong>."
+  },
+  {
+    "id": "fc-forca-05",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Os 7 Princípios do Decreto nº 12.341/2024 (Art. 2º, caput)",
+    "q": "Decreto nº 12.341/2024, Art. 2º, caput: Quais são os 7 PRINCÍPIOS GERAIS de uso da força em segurança pública?",
+    "a": "São 7 princípios gerais:<br><strong>I -</strong> Legalidade;<br><strong>II -</strong> <strong>Precaução</strong>;<br><strong>III -</strong> Necessidade;<br><strong>IV -</strong> Proporcionalidade;<br><strong>V -</strong> Razoabilidade;<br><strong>VI -</strong> <strong>Responsabilização</strong>; e<br><strong>VII -</strong> <strong>Não discriminação</strong>."
+  },
+  {
+    "id": "fc-forca-06",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Distinção Cirúrgica IBAM (Decreto 12.341/24, Art. 2º, Parágrafo único)",
+    "q": "Decreto nº 12.341/2024, Art. 2º, Parágrafo único: Como diferenciar as diretrizes de (a) PRECAUÇÃO, (b) NECESSIDADE, (c) PROPORCIONALIDADE e (d) RAZOABILIDADE?",
+    "a": "• <strong>a) Precaução (II):</strong> Planejar e executar ações adotando medidas para <strong>prevenir ou minimizar o uso da força e mitigar a gravidade de qualquer dano</strong>.<br>• <strong>b) Necessidade (III):</strong> Só empregar recurso de força <strong>quando outros recursos de menor intensidade não forem suficientes</strong>.<br>• <strong>c) Proporcionalidade (IV):</strong> O nível da força deve ser <strong>compatível com a gravidade da ameaça apresentada</strong>.<br>• <strong>d) Razoabilidade (V):</strong> A força deve ser empregada com <strong>bom senso, prudência e equilíbrio</strong> conforme o caso concreto."
+  },
+  {
+    "id": "fc-forca-07",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Uso Diferenciado da Força (Decreto 12.341/24, Art. 3º)",
+    "q": "Decreto nº 12.341/2024, Art. 3º, §§ 1º a 5º: No uso diferenciado da força, o que deve ser priorizado (§ 1º), qual o status da arma de fogo (§ 2º), a quem se restringe (§ 4º) e quando é exigido relatório circunstanciado (§ 5º)?",
+    "a": "• <strong>§ 1º (Prioridade):</strong> Priorizar a <strong>comunicação, a negociação e o emprego de técnicas que impeçam uma escalada da violência</strong>.<br>• <strong>§ 2º (Arma de fogo):</strong> Será <strong>medida de último recurso</strong>.<br>• <strong>§ 4º (Restrição):</strong> Restrito aos <strong>profissionais devidamente habilitados</strong> para sua utilização.<br>• <strong>§ 5º (Relatório circunstanciado):</strong> Obrigatório sempre que o uso da força <strong>resultar em ferimento ou morte</strong>."
+  },
+  {
+    "id": "fc-forca-08",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Pegadinha de Prova IBAM (Capacitação — Decreto 12.341/24, Art. 4º)",
+    "q": "Decreto nº 12.341/2024, Art. 4º, I a III: Qual é a periodicidade e em qual horário deve ser realizada a capacitação sobre o uso da força pelos órgãos de segurança pública?",
+    "a": "• <strong>Inciso I:</strong> <strong>Obrigatoriedade e periodicidade ANUAL</strong> da capacitação sobre uso da força;<br>• <strong>Inciso II:</strong> Realização da capacitação <strong>NO HORÁRIO DE SERVIÇO</strong> (jamais no horário de folga!);<br>• <strong>Inciso III:</strong> Adoção de conteúdo sobre o emprego adequado de diferentes tipos de armas de fogo e de IMPOs."
+  },
+  {
+    "id": "fc-forca-09",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Campeão de Prova IBAM (Decreto 12.341/24, Art. 6º, III)",
+    "q": "Decreto nº 12.341/2024, Art. 6º, III: Qual é a quantidade mínima de equipamentos que os órgãos de segurança pública devem disponibilizar a TODO profissional em serviço?",
+    "a": "Disponibilização de:<br>1) <strong>Equipamento de Proteção Individual (EPI)</strong>; e<br>2) De, <strong>NO MÍNIMO, 2 (DOIS) INSTRUMENTOS DE MENOR POTENCIAL OFENSIVO</strong> a todo profissional de segurança pública em serviço!"
+  },
+  {
+    "id": "fc-forca-10",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Saúde Mental e Identificação (Decreto 12.341/24, Art. 6º, IV, IX e X)",
+    "q": "Decreto nº 12.341/2024, Art. 6º, IV e IX: O que os órgãos de segurança pública devem instituir quanto à saúde mental dos profissionais (IV) e quanto à identificação durante o serviço (IX)?",
+    "a": "• <strong>Saúde Mental (Inciso IV):</strong> Instituição de <strong>programas continuados de atenção à saúde mental</strong> dos profissionais de segurança pública que se envolvam em <strong>ocorrências de alto risco</strong>.<br>• <strong>Identificação em Serviço (Inciso IX):</strong> Normatização e fiscalização da <strong>identificação dos profissionais</strong>, de forma a possibilitar a <strong>individualização de suas ações durante o serviço</strong>."
+  },
+  {
+    "id": "fc-forca-11",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "Registro Formal Obrigatório (Decreto 12.341/24, Art. 7º, Parágrafo único)",
+    "q": "Decreto nº 12.341/2024, Art. 7º, Parágrafo único: Em quais 2 hipóteses as ocorrências relacionadas ao uso da força deverão ser formalmente registradas segundo parâmetros do MJSP?",
+    "a": "Quando as ocorrências:<br><strong>I -</strong> Resultarem em <strong>lesão corporal ou morte</strong>; ou<br><strong>II -</strong> Envolverem o <strong>emprego de armas de fogo ou de instrumentos de menor potencial ofensivo em ambientes prisionais</strong>."
+  },
+  {
+    "id": "fc-forca-12",
+    "deck": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+    "level": "CNMUDF e Repasse de Fundos (Decreto 12.341/24, Arts. 8º e 9º)",
+    "q": "Decreto nº 12.341/2024, Arts. 8º e 9º: A sociedade civil participa do Comitê de Monitoramento do Uso da Força (Art. 8º)? E a que está condicionado o repasse de recursos do FNSP e do FUNPEN aos Municípios (Art. 9º)?",
+    "a": "• <strong>Participação da Sociedade Civil (Art. 8º, §§ 1º e 2º):</strong> <strong>SIM!</strong> É garantida a participação da sociedade civil tanto no Comitê Nacional (CNMUDF) quanto nos comitês estaduais, distrital e municipais.<br>• <strong>Condição para Repasse do FNSP e FUNPEN (Art. 9º):</strong> O repasse de recursos do Fundo Nacional de Segurança Pública e do Fundo Penitenciário Nacional aos Estados, DF e Municípios para ações de uso da força <strong>está condicionado à observância da Lei nº 13.060/2014 e do Decreto nº 12.341/2024</strong>!"
+  },
+  {
     "id": "fc-cf5-01",
     "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
     "level": "Altíssima Cobrança IBAM",
@@ -4874,6 +4964,7 @@
       { key: "07. CP — Arts. 312 a 327", short: "CP Arts. 312-327" },
       { key: "08. CPP — Arts. 301 a 310", short: "CPP Arts. 301-310" },
       { key: "09. Lei 13.022/14 — Estatuto Geral GCM", short: "Lei 13.022/14" },
+      { key: "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", short: "Lei 13.060/14 (Força)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -4888,6 +4979,7 @@
       if (rawDeck.includes("312 a 327") || rawDeck.includes("Administração")) return "07. CP — Arts. 312 a 327";
       if (rawDeck.includes("301 a 310") || rawDeck.includes("Flagrante")) return "08. CPP — Arts. 301 a 310";
       if (rawDeck.includes("13.022") || rawDeck.includes("Estatuto Geral")) return "09. Lei 13.022/14 — Estatuto Geral GCM";
+      if (rawDeck.includes("13.060") || rawDeck.includes("12.341") || rawDeck.includes("Uso da Força")) return "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -4902,7 +4994,8 @@
         "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false },
         "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -4921,6 +5014,7 @@
         "07. CP — Arts. 312 a 327",
         "08. CPP — Arts. 301 a 310",
         "09. Lei 13.022/14 — Estatuto Geral GCM",
+        "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5164,15 +5258,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07, 08 e 09) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022"].forEach(tid => {
+      // Garante que novos tópicos decupados (07, 08, 09 e 10) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5408,11 +5502,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5525,7 +5619,8 @@
       "cp-155-159": "06. CP — Arts. 155 a 159",
       "cp-312-327": "07. CP — Arts. 312 a 327",
       "cpp-301-310": "08. CPP — Arts. 301 a 310",
-      "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM"
+      "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM",
+      "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"
     };
 
     function getTopicFlashcardPerformance(topicId) {
