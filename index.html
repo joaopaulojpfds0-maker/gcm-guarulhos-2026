@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">47%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">53%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">8 / 17 arquivos (47%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">8/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">9 / 17 arquivos (53%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">9/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">8 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">9 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">8 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310).</div>
+        <div class="kpi-sub desktop-only">9 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Lei 13.022/14).</div>
       </div>
 
       <div class="kpi-card">
@@ -3414,6 +3414,7 @@
                 <option value="06. CP — Arts. 155 a 159">06. CP — Arts. 155 a 159 (Crimes contra o Patrimônio)</option>
                 <option value="07. CP — Arts. 312 a 327">07. CP — Arts. 312 a 327 (Crimes contra a Administração)</option>
                 <option value="08. CPP — Arts. 301 a 310">08. CPP — Arts. 301 a 310 (Da Prisão em Flagrante)</option>
+                <option value="09. Lei 13.022/14 — Estatuto Geral GCM">09. Lei 13.022/14 — Estatuto Geral das Guardas Municipais</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3635,8 +3636,10 @@
         shortTitle: "Lei 13.022/14 (Estatuto Geral GCM)",
         desc: "Princípios mínimos de atuação (Art. 3º), Competências gerais e específicas (Arts. 4º e 5º), Limites de efetivo (Art. 7º), Corregedoria, Ouvidoria e Prerrogativas.",
         priority: "Altíssima Incidência (Obrigatório GCM)",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-13022-2014-estatuto-geral-gcm-decupado.pdf" }
+        ]
       },
       {
         id: "lei-uso-forca",
@@ -4022,16 +4025,16 @@
   {
     "id": "fc-lei13022-04",
     "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
-    "level": "Vedações Expressas (Art. 14)",
-    "q": "Lei nº 13.022/2014, Art. 14: É permitido à Guarda Municipal utilizar denominação, estrutura ou regulamento idêntico às Forças Militares?",
-    "a": "<strong>NÃO! É terminantemente VEDADA</strong> a utilização de denominação idêntica à das forças militares, quanto aos postos e graduações, títulos, uniformes, distintivos e condecorações.<br><em>Atenção IBAM:</em> As Guardas são instituições civis e <strong>não podem</strong> ter subordinação a comandos militares estaduais ou federais!"
+    "level": "Vedações Expressas (Art. 14 e Art. 19)",
+    "q": "Lei nº 13.022/2014, Art. 14, parágrafo único e Art. 19: É permitido à Guarda Municipal utilizar denominação, estrutura ou regulamento disciplinar de natureza militar?",
+    "a": "<strong>NÃO! É terminantemente VEDADO!</strong><br>• <strong>Art. 14, parágrafo único:</strong> As guardas municipais <strong>não podem ficar sujeitas a regulamentos disciplinares de natureza militar</strong>.<br>• <strong>Art. 19:</strong> A estrutura hierárquica da guarda municipal <strong>não pode utilizar denominação idêntica à das forças militares</strong>, quanto aos postos e graduações, títulos, uniformes, distintivos e condecorações."
   },
   {
     "id": "fc-lei13022-05",
     "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
-    "level": "Controle Interno & Externo (Art. 13)",
-    "q": "Lei nº 13.022/2014, Art. 13: Quais são os órgãos obrigatórios de controle interno e externo das Guardas Municipais e quando são exigidos?",
-    "a": "• <strong>Corregedoria (Controle Interno):</strong> Obrigatória em municípios com mais de 50.000 habitantes ou naqueles que utilizem arma de fogo (Guarulhos possui obrigatoriamente!);<br>• <strong>Ouvidoria (Controle Externo):</strong> Órgão autônomo e independente para receber elogios, denúncias e reclamações da população."
+    "level": "Controle Interno & Externo (Art. 13, I e II)",
+    "q": "Lei nº 13.022/2014, Art. 13, I e II: Quais são os órgãos obrigatórios de controle interno e externo das Guardas Municipais e quando cada um é exigido?",
+    "a": "• <strong>Corregedoria (Controle Interno — Art. 13, I):</strong> Obrigatória naquelas com <strong>efetivo superior a 50 (cinquenta) servidores da guarda</strong> E em <strong>todas as que utilizam arma de fogo</strong>, para apurar as infrações disciplinares.<br>• <strong>Ouvidoria (Controle Externo — Art. 13, II):</strong> Independente em relação à direção da guarda, obrigatória <strong>qualquer que seja o número de servidores da guarda municipal</strong>.<br><em>Pegadinha IBAM:</em> A lei fala em 'efetivo superior a 50 servidores da guarda', e NÃO '50.000 habitantes'!"
   },
   {
     "id": "fc-lei13022-06",
@@ -4454,6 +4457,83 @@
     "a": "• <strong>Preparado / Provocado (ILEGAL ❌ — Súmula 145 STF):</strong> A polícia induz o agente e torna impossível a consumação (crime impossível).<br>• <strong>Esperado (LÍCITO ✅):</strong> A polícia/GCM sabe previamente que o crime ocorrerá, aguarda sem induzir e prende no início da execução.<br>• <strong>Prorrogado / Diferido / Ação Controlada (LÍCITO ✅):</strong> Retarda-se estrategicamente a prisão (previsto na Lei de Drogas e Org. Criminosa).<br>• <strong>Forjado / Maquinado (ILEGAL ❌):</strong> Plantam-se provas falsas de crime inexistente (configura Abuso de Autoridade / Denunciação Caluniosa)."
   },
   {
+    "id": "fc-cpp301-15",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Novidade Legislativa (Lei 15.358/2026 — Art. 310, §§ 9º a 13)",
+    "q": "CPP, Art. 310, §§ 9º a 13 (Lei 15.358/2026): Quais são as regras de privacidade do preso na sala de videoconferência da custódia (§ 10) e o que ocorre em caso de falha técnica atribuível ao tribunal (§ 11)?",
+    "a": "• <strong>Privacidade na sala (§ 10):</strong> O preso deve <strong>permanecer sozinho durante a realização de sua oitiva</strong>, ressalvada a possibilidade de <strong>presença física de seu defensor no ambiente</strong> (além da garantia de entrevista prévia, reservada e inviolável — § 9º).<br>• <strong>Falha no sistema de comunicações atribuível ao tribunal (§ 11):</strong> É <strong>obrigatória a repetição completa da audiência</strong>, sem convalescer qualquer ato incompleto!"
+  },
+  {
+    "id": "fc-cpp301-16",
+    "deck": "CPP - Arts. 301 a 310 (Prisão em Flagrante)",
+    "level": "Citação Pessoal na Custódia (Art. 310, § 7º — Lei 15.358/2026)",
+    "q": "CPP, Art. 310, § 7º (Lei 15.358/2026): O que deve ocorrer antes do início da audiência de custódia caso seja constatada pendência de citação em outro processo criminal a que responde o acusado?",
+    "a": "A serventia judicial deverá conferir os processos criminais a que responde o acusado e, constatada pendência de citação em qualquer deles, informar ao juiz, que certificará a ocorrência e procederá à <strong>citação pessoal do acusado</strong> na própria audiência, comunicando de imediato o juízo competente!"
+  },
+  {
+    "id": "fc-lei13022-07",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Natureza e Subordinação (Arts. 1º, 2º e 6º)",
+    "q": "Lei nº 13.022/2014, Arts. 2º e 6º: Qual é a natureza jurídica da Guarda Municipal, como ela é criada e a quem é diretamente subordinada?",
+    "a": "• <strong>Natureza jurídica (Art. 2º):</strong> Instituições de <strong>caráter civil, uniformizadas e armadas</strong> conforme previsto em lei, com função de <strong>proteção municipal preventiva</strong>, ressalvadas as competências da União, dos Estados e do DF.<br>• <strong>Criação (Art. 6º, caput):</strong> Criada <strong>por lei</strong>.<br>• <strong>Subordinação (Art. 6º, parágrafo único):</strong> Subordinada ao <strong>chefe do Poder Executivo municipal (Prefeito)</strong>."
+  },
+  {
+    "id": "fc-lei13022-08",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Atuação no Flagrante e Apoio Obrigatório (Art. 5º, XIII, XIV e Par. único)",
+    "q": "Lei nº 13.022/2014, Art. 5º, XIV e Parágrafo único: Qual o dever do GCM diante de flagrante delito e o que deve fazer quando comparecer órgão descrito nos incisos do caput do Art. 144 da CF?",
+    "a": "• <strong>Diante de flagrante delito (Art. 5º, XIV):</strong> <strong>Encaminhar ao delegado de polícia</strong> o autor da infração, <strong>preservando o local do crime</strong>, quando possível e sempre que necessário.<br>• <strong>Comparecimento de órgão do caput do Art. 144 da CF (Parágrafo único):</strong> Nas hipóteses dos incisos XIII (ocorrências emergenciais) e XIV (flagrante delito), <strong>deverá a guarda municipal prestar todo o apoio à continuidade do atendimento</strong>."
+  },
+  {
+    "id": "fc-lei13022-09",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Altíssima Cobrança IBAM (Limites de Efetivo — Art. 7º)",
+    "q": "Lei nº 13.022/2014, Art. 7º, I a III e Parágrafo único: Quais são os limites percentuais máximos de efetivo das Guardas Municipais por faixa populacional e o que ocorre se a população diminuir no censo do IBGE?",
+    "a": "As guardas municipais não poderão ter efetivo superior a:<br>• <strong>I - 0,4% da população:</strong> em Municípios com <strong>até 50.000 habitantes</strong>;<br>• <strong>II - 0,3% da população:</strong> em Municípios com <strong>mais de 50.000 e menos de 500.000 habitantes</strong> (desde que não inferior ao inciso I);<br>• <strong>III - 0,2% da população:</strong> em Municípios com <strong>mais de 500.000 habitantes</strong> (desde que não inferior ao inciso II).<br>• <strong>Redução da população no IBGE (Parágrafo único):</strong> É <strong>garantida a preservação do efetivo existente</strong>!"
+  },
+  {
+    "id": "fc-lei13022-10",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Consórcio e Carreira Única (Arts. 8º e 9º)",
+    "q": "Lei nº 13.022/2014, Arts. 8º e 9º: Em que condições diferentes Municípios podem compartilhar os serviços da Guarda Municipal? E como é estruturada a carreira?",
+    "a": "• <strong>Compartilhamento (Art. 8º):</strong> Apenas entre <strong>Municípios LIMÍTROFES</strong>, mediante <strong>consórcio público</strong>, para utilizar reciprocamente os serviços de maneira compartilhada.<br>• <strong>Estrutura da carreira (Art. 9º):</strong> Formada por servidores públicos integrantes de <strong>carreira única e plano de cargos e salários</strong>, conforme disposto em lei municipal."
+  },
+  {
+    "id": "fc-lei13022-11",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Capacitação e Vedação Militar (Arts. 11 e 12)",
+    "q": "Lei nº 13.022/2014, Arts. 11 e 12, §§ 2º e 3º: Qual matriz curricular pode ser adaptada para a formação da GCM e qual a restrição caso o Estado mantenha órgão de formação centralizado mediante convênio?",
+    "a": "• <strong>Matriz Curricular (Art. 11, parágrafo único):</strong> Poderá ser adaptada a matriz curricular nacional elaborada pela <strong>Secretaria Nacional de Segurança Pública (Senasp) do Ministério da Justiça</strong>.<br>• <strong>Órgão Estadual Conveniado (Art. 12, §§ 2º e 3º):</strong> Deve assegurar no conselho gestor a participação dos Municípios conveniados, e <strong>NÃO PODE ser o mesmo destinado a formação, treinamento ou aperfeiçoamento de forças militares</strong>!"
+  },
+  {
+    "id": "fc-lei13022-12",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Pegadinha de Quórum IBAM (Art. 13, § 2º)",
+    "q": "Lei nº 13.022/2014, Art. 13, § 2º: Quem decide sobre a perda do mandato dos corregedores e dos ouvidores da Guarda Municipal, e qual é o quórum exigido?",
+    "a": "Os corregedores e ouvidores terão mandato cuja perda será decidida pela <strong>MAIORIA ABSOLUTA DA CÂMARA MUNICIPAL</strong>, fundada em razão relevante e específica prevista em lei municipal.<br><em>Pegadinha IBAM:</em> A banca troca 'maioria absoluta da Câmara Municipal' por 'decisão livre do Prefeito' ou 'dois terços (2/3) da Câmara'!"
+  },
+  {
+    "id": "fc-lei13022-13",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Cargos em Comissão e Cota Feminina (Art. 15)",
+    "q": "Lei nº 13.022/2014, Art. 15, caput e §§ 1º a 3º: Quem deve ocupar os cargos em comissão da GCM, qual a exceção temporal do § 1º e como é fixado o percentual mínimo para o sexo feminino (§ 2º)?",
+    "a": "• <strong>Regra geral (caput):</strong> Deverão ser providos por <strong>membros efetivos do quadro de carreira</strong> do órgão ou entidade.<br>• <strong>Exceção temporal (§ 1º):</strong> Nos <strong>primeiros 4 (quatro) anos de funcionamento</strong>, a GCM poderá ser dirigida por profissional estranho a seus quadros.<br>• <strong>Sexo feminino (§ 2º):</strong> Em <strong>todos os níveis da carreira</strong>, deverá ser observado o percentual mínimo para o sexo feminino, <strong>definido em lei municipal</strong>."
+  },
+  {
+    "id": "fc-lei13022-14",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Porte de Arma, Linha 153 e Prisão Especial (Arts. 16, 17 e 18)",
+    "q": "Lei nº 13.022/2014, Arts. 16, 17 e 18: Em quais 3 casos suspende-se o direito ao porte de arma (Art. 16), qual número a Anatel destina à GCM (Art. 17) e até quando vale o recolhimento a cela isolada (Art. 18)?",
+    "a": "• <strong>Suspensão do porte de arma (Art. 16, parágrafo único):</strong> Em razão de (1) <strong>restrição médica</strong>, (2) <strong>decisão judicial</strong> ou (3) <strong>justificativa da adoção da medida pelo respectivo dirigente</strong>.<br>• <strong>Telefone e Rádio (Art. 17):</strong> A Anatel destinará linha telefônica de <strong>número 153</strong> e faixa exclusiva de frequência de rádio.<br>• <strong>Cela isolada (Art. 18):</strong> Assegurado o recolhimento à cela, isoladamente dos demais presos, quando sujeito à prisão <strong>ANTES de condenação definitiva</strong>!"
+  },
+  {
+    "id": "fc-lei13022-15",
+    "deck": "Lei Federal nº 13.022/2014 (Estatuto Geral)",
+    "level": "Representatividade, Cor Azul-Marinho e Adaptação (Arts. 20, 21 e 22)",
+    "q": "Lei nº 13.022/2014, Arts. 20 a 22: A utilização da cor azul-marinho no uniforme é obrigatória ou preferencial (Art. 21)? Qual foi o prazo de adaptação das guardas existentes (Art. 22) e quais denominações são asseguradas?",
+    "a": "• <strong>Cor do uniforme (Art. 21):</strong> Padronizado, <strong>PREFERENCIALMENTE, na cor azul-marinho</strong> (não é 'obrigatoriamente'!).<br>• <strong>Prazo de adaptação (Art. 22, caput):</strong> <strong>2 (dois) anos</strong>.<br>• <strong>Denominações consagradas asseguradas (Art. 22, parágrafo único):</strong> Guarda civil, guarda civil municipal (GCM), guarda metropolitana e guarda civil metropolitana."
+  },
+  {
     "id": "fc-cf5-01",
     "deck": "CF/88 - Art. 5º (Direitos e Garantias)",
     "level": "Altíssima Cobrança IBAM",
@@ -4793,6 +4873,7 @@
       { key: "06. CP — Arts. 155 a 159", short: "CP Arts. 155-159" },
       { key: "07. CP — Arts. 312 a 327", short: "CP Arts. 312-327" },
       { key: "08. CPP — Arts. 301 a 310", short: "CPP Arts. 301-310" },
+      { key: "09. Lei 13.022/14 — Estatuto Geral GCM", short: "Lei 13.022/14" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -4806,6 +4887,7 @@
       if (rawDeck.includes("155 a 159")) return "06. CP — Arts. 155 a 159";
       if (rawDeck.includes("312 a 327") || rawDeck.includes("Administração")) return "07. CP — Arts. 312 a 327";
       if (rawDeck.includes("301 a 310") || rawDeck.includes("Flagrante")) return "08. CPP — Arts. 301 a 310";
+      if (rawDeck.includes("13.022") || rawDeck.includes("Estatuto Geral")) return "09. Lei 13.022/14 — Estatuto Geral GCM";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -4819,7 +4901,8 @@
         "cp-146-150": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-155-159": { lei: true, pdf: true, questoes: false, revisado: false },
         "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false },
-        "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false }
+        "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -4837,6 +4920,7 @@
         "06. CP — Arts. 155 a 159",
         "07. CP — Arts. 312 a 327",
         "08. CPP — Arts. 301 a 310",
+        "09. Lei 13.022/14 — Estatuto Geral GCM",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5080,15 +5164,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 e 08) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310"].forEach(tid => {
+      // Garante que novos tópicos decupados (07, 08 e 09) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5324,11 +5408,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5440,7 +5524,8 @@
       "cp-146-150": "05. CP — Arts. 146 a 150",
       "cp-155-159": "06. CP — Arts. 155 a 159",
       "cp-312-327": "07. CP — Arts. 312 a 327",
-      "cpp-301-310": "08. CPP — Arts. 301 a 310"
+      "cpp-301-310": "08. CPP — Arts. 301 a 310",
+      "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM"
     };
 
     function getTopicFlashcardPerformance(topicId) {
