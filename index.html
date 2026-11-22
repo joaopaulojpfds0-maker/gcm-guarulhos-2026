@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">59%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">65%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">10 / 17 arquivos (59%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">10/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">11 / 17 arquivos (65%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">11/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">10 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">11 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">10 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14 e 13.060/14).</div>
+        <div class="kpi-sub desktop-only">11 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14 e ECA 8.069/90).</div>
       </div>
 
       <div class="kpi-card">
@@ -3416,6 +3416,7 @@
                 <option value="08. CPP — Arts. 301 a 310">08. CPP — Arts. 301 a 310 (Da Prisão em Flagrante)</option>
                 <option value="09. Lei 13.022/14 — Estatuto Geral GCM">09. Lei 13.022/14 — Estatuto Geral das Guardas Municipais</option>
                 <option value="10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força)">10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força e IMPO)</option>
+                <option value="11. Lei 8.069/90 — ECA">11. Lei 8.069/90 — Estatuto da Criança e do Adolescente (ECA)</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3660,12 +3661,15 @@
       {
         id: "lei-eca",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 8.069/1990 (ECA) — Disposições Gerais, Ato Infracional e Crimes",
+        title: "Lei nº 8.069/1990 (ECA) — Disposições Gerais, Ato Infracional, Conselho Tutelar e Crimes",
         shortTitle: "Lei 8.069/90 (ECA)",
-        desc: "Arts. 1º ao 6º (Proteção integral), Arts. 103 ao 109 (Ato Infracional e Apreensão em flagrante), Arts. 131 ao 137 (Conselho Tutelar) e Arts. 225 ao 244-B (Crimes).",
+        desc: "Arts. 1º ao 6º (Proteção integral e assistência afetiva), Arts. 103 ao 109 (Ato Infracional e Apreensão em flagrante), Arts. 131 ao 137 (Conselho Tutelar) e Arts. 225 ao 244-C (Crimes).",
         priority: "Alta Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-8069-1990-eca-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-11-lei-8069-1990-eca.pdf" }
+        ]
       },
       {
         id: "lei-idoso",
@@ -4944,6 +4948,111 @@
     "level": "Altíssima Cobrança IBAM (Conceito de Casa)",
     "q": "CP, Art. 150, §§ 4º e 5º: O que COMPREENDE e o que NÃO COMPREENDE a expressão 'casa' para fins de Violação de Domicílio?",
     "a": "<strong>COMPREENDE 'casa' (§ 4º):</strong><br>I - Qualquer compartimento habitado;<br>II - <strong>Aposento ocupado de habitação coletiva</strong> (ex: quarto de hotel/pousada ocupado por hóspede);<br>III - Compartimento <strong>não aberto ao público</strong> onde alguém exerce profissão/atividade (ex: escritório, consultório fechado).<br><br><strong>NÃO COMPREENDE 'casa' (§ 5º):</strong><br>I - Hospedaria, estalagem ou habitação coletiva <strong>enquanto aberta</strong> (salvo o quarto ocupado);<br>II - <strong>Taverna, casa de jogo e outras do mesmo gênero</strong>."
+  },
+  {
+    "id": "fc-eca-01",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Critério Etário & Aplicação Excepcional (Art. 2º)",
+    "q": "ECA, Art. 2º, caput e parágrafo único: Qual é o conceito legal exato de CRIANÇA e de ADOLESCENTE, e em qual faixa etária o ECA se aplica excepcionalmente?",
+    "a": "• <strong>Criança:</strong> pessoa <strong>até 12 (doze) anos de idade incompletos</strong> (completou 12 anos hoje = já é adolescente!).<br>• <strong>Adolescente:</strong> pessoa <strong>entre 12 (doze) e 18 (dezoito) anos de idade</strong>.<br>• <strong>Aplicação excepcional (parágrafo único):</strong> Nos casos expressos em lei, aplica-se excepcionalmente às pessoas <strong>entre 18 (dezoito) e 21 (vinte e um) anos de idade</strong>."
+  },
+  {
+    "id": "fc-eca-02",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Prioridade Absoluta & Assistência Afetiva (Arts. 4º e 5º)",
+    "q": "ECA, Art. 4º, §§ 1º a 3º e Art. 5º, p.ú. (Lei 15.240/2025): O que compreende a garantia de prioridade (§ 1º) e qual a consequência jurídica do abandono afetivo (Art. 5º, p.ú.)?",
+    "a": "<strong>Garantia de Prioridade (Art. 4º, § 1º):</strong><br>a) <strong>Primazia</strong> de receber proteção e socorro em quaisquer circunstâncias;<br>b) <strong>Precedência</strong> de atendimento nos serviços públicos ou de relevância pública;<br>c) <strong>Preferência</strong> na formulação e execução das políticas sociais públicas;<br>d) <strong>Destinação privilegiada</strong> de recursos públicos nas áreas de proteção à infância e juventude.<br><br><strong>Abandono Afetivo (Art. 5º, p.ú.):</strong> Considera-se <strong>conduta ilícita, sujeita a reparação de danos</strong>, a ação ou omissão que ofenda direito fundamental previsto no ECA, <strong>incluídos os casos de abandono afetivo</strong>."
+  },
+  {
+    "id": "fc-eca-03",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Ato Infracional: Criança vs. Adolescente (Arts. 103 a 105)",
+    "q": "ECA, Arts. 103, 104, p.ú. e 105: Qual o conceito de ato infracional, qual o momento para aferir a idade do agente e quais medidas cabem à CRIANÇA autora de ato infracional?",
+    "a": "• <strong>Ato Infracional (Art. 103):</strong> Conduta descrita como <strong>crime ou contravenção penal</strong>.<br>• <strong>Momento da Idade (Art. 104, p.ú.):</strong> Deve ser considerada a idade <strong>À DATA DO FATO</strong> (ação/omissão — Teoria da Atividade).<br>• <strong>Ato infracional praticado por CRIANÇA (Art. 105):</strong> Corresponderão <strong>EXCLUSIVAMENTE as medidas protetivas previstas no art. 101</strong> (criança jamais sofre medida socioeducativa!)."
+  },
+  {
+    "id": "fc-eca-04",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Apreensão e Internação Provisória (Arts. 106 a 108)",
+    "q": "ECA, Arts. 106, 107 e 108: Quando o adolescente pode ser privado de liberdade, a quem a apreensão é comunicada incontinenti e qual o prazo máximo da internação antes da sentença?",
+    "a": "• <strong>Privação de liberdade (Art. 106):</strong> Somente em <strong>flagrante de ato infracional</strong> ou por <strong>ordem escrita e fundamentada da autoridade judiciária competente</strong>.<br>• <strong>Comunicação incontinenti (Art. 107):</strong> À <strong>autoridade judiciária competente</strong> e à <strong>família do apreendido ou à pessoa por ele indicada</strong>.<br>• <strong>Internação antes da sentença (Art. 108):</strong> Prazo máximo improrrogável de <strong>45 (quarenta e cinco) dias</strong> (exige decisão fundamentada, indícios suficientes de autoria e materialidade e necessidade imperiosa)."
+  },
+  {
+    "id": "fc-eca-05",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Pegadinha Clássica IBAM (Art. 109)",
+    "q": "ECA, Art. 109: O adolescente civilmente identificado pode ser submetido a identificação compulsória pelos órgãos policiais, de proteção e judiciais?",
+    "a": "<strong>REGRA: NÃO!</strong> O adolescente civilmente identificado <strong>não será submetido a identificação compulsória</strong> pelos órgãos policiais, de proteção e judiciais.<br><strong>EXCEÇÃO LEGAL:</strong> <em>'<strong>salvo para efeito de confrontação, havendo dúvida fundada</strong>.'</em>"
+  },
+  {
+    "id": "fc-eca-06",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Conselho Tutelar: Estrutura e Requisitos (Arts. 131 a 133)",
+    "q": "ECA, Arts. 131, 132 e 133: Qual a natureza jurídica do Conselho Tutelar, sua composição, mandato, regra de recondução e os 3 requisitos para candidatura?",
+    "a": "• <strong>Natureza (Art. 131):</strong> Órgão <strong>permanente e autônomo, NÃO JURISDICIONAL</strong>, integrante da administração pública local.<br>• <strong>Composição e Mandato (Art. 132):</strong> Mínimo de 1 por Município/RA-DF, composto de <strong>5 (cinco) membros</strong>, escolhidos pela população local para <strong>mandato de 4 (quatro) anos</strong>, permitida <strong>recondução ilimitada</strong> por novos processos de escolha (Lei 13.824/19).<br>• <strong>3 Requisitos de Candidatura (Art. 133):</strong> I - reconhecida idoneidade moral; II - <strong>idade superior a 21 (vinte e um) anos</strong>; III - residir no município."
+  },
+  {
+    "id": "fc-eca-07",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Conselho Tutelar: Atribuições e Revisão (Arts. 136 e 137)",
+    "q": "ECA, Art. 136, p.ú. e Art. 137: A quem o Conselho Tutelar comunica incontinenti a necessidade de afastamento do convívio familiar? E quem pode rever as decisões do Conselho Tutelar?",
+    "a": "• <strong>Afastamento do convívio familiar (Art. 136, p.ú.):</strong> Comunicará <strong>incontinenti o fato ao MINISTÉRIO PÚBLICO</strong>.<br>• <strong>Revisão das decisões do Conselho Tutelar (Art. 137):</strong> <em>'As decisões do Conselho Tutelar <strong>somente poderão ser revistas pela autoridade judiciária a pedido de quem tenha legítimo interesse</strong>.'</em> (Juiz não revê de ofício, e nem Prefeito ou CMDCA podem reformar suas decisões!)."
+  },
+  {
+    "id": "fc-eca-08",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Conselho Tutelar na Violência Doméstica (Art. 136, XV a XVII)",
+    "q": "ECA, Art. 136, XV, XVI e XVII (Lei Henry Borel): A quem o Conselho Tutelar representa para requerer: (a) afastamento do agressor do lar; (b) medida protetiva de urgência; e (c) ação cautelar de antecipação de prova?",
+    "a": "• <strong>a) Afastamento do agressor do lar/domicílio (inc. XV):</strong> Representa à <strong>autoridade JUDICIAL ou POLICIAL</strong>.<br>• <strong>b) Concessão ou revisão de medida protetiva de urgência (inc. XVI):</strong> Representa à <strong>autoridade JUDICIAL</strong>.<br>• <strong>c) Propositura de ação cautelar de antecipação de produção de prova (inc. XVII):</strong> Representa ao <strong>MINISTÉRIO PÚBLICO</strong>."
+  },
+  {
+    "id": "fc-eca-09",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Regras Gerais dos Crimes no ECA (Arts. 226, 227 e 227-A)",
+    "q": "ECA, Arts. 226, § 1º, 227 e 227-A: Qual a espécie de ação penal nos crimes do ECA, aplica-se a Lei 9.099/95, e quando ocorre a perda do cargo público por servidor que comete crime do ECA com abuso de autoridade?",
+    "a": "• <strong>Ação Penal (Art. 227):</strong> Todos os crimes definidos no ECA são de <strong>ação pública incondicionada</strong>.<br>• <strong>Lei 9.099/1995 (Art. 226, § 1º):</strong> Aos crimes cometidos contra a criança e o adolescente, <strong>independentemente da pena prevista, NÃO se aplica a Lei nº 9.099/1995</strong>.<br>• <strong>Perda do cargo por abuso de autoridade (Art. 227-A):</strong> É <strong>condicionada à ocorrência de REINCIDÊNCIA</strong>, e na reincidência <strong>independerá da pena aplicada</strong> (p.ú.)."
+  },
+  {
+    "id": "fc-eca-10",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Únicos Crimes Culposos do ECA (Arts. 228 e 229)",
+    "q": "ECA, Arts. 228 a 244-C: Quais são os DOIS ÚNICOS crimes de todo o ECA que admitem modalidade CULPOSA e quais são suas penas (dolosa e culposa)?",
+    "a": "Apenas os dois crimes hospitalares dos <strong>Arts. 228 e 229</strong>:<br>1) <strong>Art. 228:</strong> Omissão de registro das atividades ou de fornecer declaração de nascimento na alta médica;<br>2) <strong>Art. 229:</strong> Omissão do médico, enfermeiro ou dirigente em identificar corretamente o neonato e a parturiente ou em realizar os exames do art. 10.<br>• <strong>Pena dolosa (caput):</strong> Detenção de <strong>6 meses a 2 anos</strong>.<br>• <strong>Pena culposa (parágrafo único):</strong> Detenção de <strong>2 a 6 meses, ou multa</strong>."
+  },
+  {
+    "id": "fc-eca-11",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Crimes Funcionais na Apreensão e Custódia (Arts. 230 a 236)",
+    "q": "ECA, Arts. 230 a 236: Qual é a pena padrão de todos os crimes funcionais/protetivos dos arts. 230, 231, 232, 234, 235 e 236 e quem são os 3 sujeitos protegidos no crime de impedimento/embaraço do Art. 236?",
+    "a": "• <strong>Pena idêntica de todos (Arts. 230 a 236):</strong> <strong>Detenção de 6 (seis) meses a 2 (dois) anos</strong> (sem multa!).<br>• <strong>Crimes abrangidos:</strong> Apreensão ilegal ou sem formalidades legais (230); Falta de comunicação imediata ao juiz/família (231); Submeter a vexame ou constrangimento (232); Deixar de ordenar imediata liberação (234); Descumprir injustificadamente prazo legal (235); e Impedir/embaraçar ação (236).<br>• <strong>Sujeitos tutelados no Art. 236:</strong> <strong>Autoridade judiciária</strong>, <strong>membro do Conselho Tutelar</strong> ou <strong>representante do Ministério Público</strong>."
+  },
+  {
+    "id": "fc-eca-12",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Comparativo de Penas: Arts. 237, 238 e 239",
+    "q": "ECA, Arts. 237, 238 e 239: Compare as condutas e as penas de Reclusão da Subtração para lar substituto (237), Entrega de filho mediante paga (238) e Envio irregular ao exterior (239).",
+    "a": "• <strong>Art. 237 (Subtrair criança/adolescente p/ colocação em lar substituto):</strong> <strong>Reclusão de 2 a 6 anos, e multa</strong>.<br>• <strong>Art. 238 (Prometer ou efetivar entrega de filho/pupilo mediante paga ou recompensa — inclui quem oferece/paga):</strong> <strong>Reclusão de 1 a 4 anos, e multa</strong>.<br>• <strong>Art. 239 (Promover/auxiliar envio para o exterior sem formalidades ou com fito de lucro):</strong> <strong>Reclusão de 4 a 6 anos, e multa</strong> (se há violência, grave ameaça ou fraude: <strong>reclusão de 6 a 8 anos</strong> + pena da violência)."
+  },
+  {
+    "id": "fc-eca-13",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Crimes de Violência Sexual Digital e Aliciamento (Arts. 240 a 241-D)",
+    "q": "ECA, Arts. 240 a 241-D: Compare as penas de produzir/vender/divulgar (240, 241, 241-A), adquirir/possuir/armazenar/acessar streaming (241-B) e simular montagem/IA (241-C) ou aliciar menor de 14 anos (241-D).",
+    "a": "• <strong>Arts. 240, 241 e 241-A (Produzir/transmitir em tempo real, vender ou oferecer/divulgar):</strong> <strong>Reclusão de 4 a 10 anos, e multa</strong>.<br>• <strong>Art. 241-B (Adquirir, possuir, armazenar, solicitar ou acessar/visualizar streaming — § 4º):</strong> <strong>Reclusão de 3 a 6 anos, e multa</strong> (reduz de <strong>1/6 a 1/3</strong> se pequena a quantidade — § 1º).<br>• <strong>Art. 241-C (Simular por montagem/IA) e Art. 241-D (Aliciar/assediar MENOR DE 14 ANOS p/ ato libidinoso):</strong> <strong>Reclusão de 3 a 5 anos, e multa</strong> (+1/3 a 2/3 no § 2º do art. 241-D com deepfake, perfil falso ou jogos online)."
+  },
+  {
+    "id": "fc-eca-14",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Tríade Campeã IBAM: Armas (242) vs. Bebida (243) vs. Fogos (244)",
+    "q": "ECA, Arts. 242, 243 e 244: Qual a diferença exata de penas (Reclusão vs. Detenção) para quem vende, fornece ainda que gratuitamente ou entrega: (a) Arma/munição/explosivo; (b) Bebida alcoólica/dependência; (c) Fogos de artifício?",
+    "a": "• <strong>a) Arma, munição ou explosivo (Art. 242):</strong> <strong>RECLUSÃO de 3 a 6 anos</strong> (sem multa!).<br>• <strong>b) Bebida alcoólica ou produto que cause dependência (Art. 243):</strong> <strong>DETENÇÃO de 2 a 4 anos, e multa</strong>. <em>Novidade Lei 15.234/2025 (p.ú.):</em> Aumenta de <strong>1/3 até a metade</strong> se a criança ou adolescente <strong>utilizar ou consumir o produto</strong>!<br>• <strong>c) Fogos de estampido ou de artifício (Art. 244):</strong> <strong>DETENÇÃO de 6 meses a 2 anos, e multa</strong> (exceto os de reduzido potencial incapazes de provocar dano físico)."
+  },
+  {
+    "id": "fc-eca-15",
+    "deck": "11. Lei 8.069/90 — ECA",
+    "level": "Exploração Sexual, Corrupção de Menores e Desaparecimento (244-A a 244-C)",
+    "q": "ECA, Arts. 244-A, 244-B e 244-C: Quais as penas e regras da Exploração Sexual (244-A), da Corrupção de Menores (244-B) e da Omissão Dolosa de Comunicação de Desaparecimento (244-C)?",
+    "a": "• <strong>Art. 244-A (Exploração sexual):</strong> <strong>Reclusão de 4 a 10 anos e multa</strong> + perda de bens/valores ao Fundo da Criança/Adolescente da UF + <strong>cassação obrigatória da licença de localização e funcionamento</strong> (§ 2º).<br>• <strong>Art. 244-B (Corromper/facilitar corrupção de menor de 18 anos):</strong> <strong>Reclusão de 1 a 4 anos</strong> (sem multa). Crime formal (Súmula 500/STJ). Aumenta de <strong>1/3</strong> se a infração estiver no rol de <strong>Crimes Hediondos (Lei 8.072/90)</strong>.<br>• <strong>Art. 244-C (Deixar pai, mãe ou responsável legal, de forma DOLOSA, de comunicar desaparecimento — Lei 14.811/24):</strong> <strong>Reclusão de 2 a 4 anos, e multa</strong>."
   }
 ];
 
@@ -4965,6 +5074,7 @@
       { key: "08. CPP — Arts. 301 a 310", short: "CPP Arts. 301-310" },
       { key: "09. Lei 13.022/14 — Estatuto Geral GCM", short: "Lei 13.022/14" },
       { key: "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", short: "Lei 13.060/14 (Força)" },
+      { key: "11. Lei 8.069/90 — ECA", short: "Lei 8.069/90 (ECA)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -4980,6 +5090,7 @@
       if (rawDeck.includes("301 a 310") || rawDeck.includes("Flagrante")) return "08. CPP — Arts. 301 a 310";
       if (rawDeck.includes("13.022") || rawDeck.includes("Estatuto Geral")) return "09. Lei 13.022/14 — Estatuto Geral GCM";
       if (rawDeck.includes("13.060") || rawDeck.includes("12.341") || rawDeck.includes("Uso da Força")) return "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)";
+      if (rawDeck.includes("8.069") || rawDeck.includes("ECA")) return "11. Lei 8.069/90 — ECA";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -4995,7 +5106,8 @@
         "cp-312-327": { lei: true, pdf: true, questoes: false, revisado: false },
         "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5015,6 +5127,7 @@
         "08. CPP — Arts. 301 a 310",
         "09. Lei 13.022/14 — Estatuto Geral GCM",
         "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+        "11. Lei 8.069/90 — ECA",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5258,15 +5371,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07, 08, 09 e 10) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 11) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5502,11 +5615,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5620,7 +5733,8 @@
       "cp-312-327": "07. CP — Arts. 312 a 327",
       "cpp-301-310": "08. CPP — Arts. 301 a 310",
       "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM",
-      "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)"
+      "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
+      "lei-eca": "11. Lei 8.069/90 — ECA"
     };
 
     function getTopicFlashcardPerformance(topicId) {
