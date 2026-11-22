@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">65%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">71%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">11 / 17 arquivos (65%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">11/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">12 / 17 arquivos (71%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">12/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">11 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">12 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">11 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14 e ECA 8.069/90).</div>
+        <div class="kpi-sub desktop-only">12 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA 8.069/90 e Estatuto da Pessoa Idosa 10.741/03).</div>
       </div>
 
       <div class="kpi-card">
@@ -3417,6 +3417,7 @@
                 <option value="09. Lei 13.022/14 — Estatuto Geral GCM">09. Lei 13.022/14 — Estatuto Geral das Guardas Municipais</option>
                 <option value="10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força)">10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força e IMPO)</option>
                 <option value="11. Lei 8.069/90 — ECA">11. Lei 8.069/90 — Estatuto da Criança e do Adolescente (ECA)</option>
+                <option value="12. Lei 10.741/03 — Estatuto da Pessoa Idosa">12. Lei 10.741/03 — Estatuto da Pessoa Idosa</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3674,12 +3675,15 @@
       {
         id: "lei-idoso",
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
-        title: "Lei nº 10.741/2003 (Estatuto da Pessoa Idosa) — Direitos e Crimes",
+        title: "Lei nº 10.741/2003 (Estatuto da Pessoa Idosa) — Disposições Preliminares e Crimes",
         shortTitle: "Lei 10.741/03 (Estatuto do Idoso)",
-        desc: "Arts. 1º ao 7º (Conceito de pessoa idosa e prioridade especial 80+) e Arts. 95 ao 108 (Crimes: abandono, apropriação de benefício e retenção de cartão).",
-        priority: "Média/Alta Incidência",
-        hasPdf: false,
-        pdfs: []
+        desc: "Arts. 1º ao 7º (Conceito de pessoa idosa 60+, garantia de prioridade e superprioridade 80+) e Arts. 93/95 ao 108/109 (Crimes em espécie atualizados pela Lei 15.163/2025).",
+        priority: "Alta Incidência",
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-10741-2003-estatuto-da-pessoa-idosa-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-12-lei-10741-2003-estatuto-da-pessoa-idosa.pdf" }
+        ]
       },
       {
         id: "lei-desarmamento",
@@ -5053,6 +5057,111 @@
     "level": "Exploração Sexual, Corrupção de Menores e Desaparecimento (244-A a 244-C)",
     "q": "ECA, Arts. 244-A, 244-B e 244-C: Quais as penas e regras da Exploração Sexual (244-A), da Corrupção de Menores (244-B) e da Omissão Dolosa de Comunicação de Desaparecimento (244-C)?",
     "a": "• <strong>Art. 244-A (Exploração sexual):</strong> <strong>Reclusão de 4 a 10 anos e multa</strong> + perda de bens/valores ao Fundo da Criança/Adolescente da UF + <strong>cassação obrigatória da licença de localização e funcionamento</strong> (§ 2º).<br>• <strong>Art. 244-B (Corromper/facilitar corrupção de menor de 18 anos):</strong> <strong>Reclusão de 1 a 4 anos</strong> (sem multa). Crime formal (Súmula 500/STJ). Aumenta de <strong>1/3</strong> se a infração estiver no rol de <strong>Crimes Hediondos (Lei 8.072/90)</strong>.<br>• <strong>Art. 244-C (Deixar pai, mãe ou responsável legal, de forma DOLOSA, de comunicar desaparecimento — Lei 14.811/24):</strong> <strong>Reclusão de 2 a 4 anos, e multa</strong>."
+  },
+  {
+    "id": "fc-idoso-01",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Critério Etário & Superprioridade (Arts. 1º e 3º, § 2º)",
+    "q": "Lei nº 10.741/2003, Art. 1º e Art. 3º, § 2º: Quem é considerado PESSOA IDOSA para os efeitos do Estatuto e a qual faixa etária é assegurada a PRIORIDADE ESPECIAL (superprioridade)?",
+    "a": "• <strong>Pessoa Idosa (Art. 1º):</strong> Pessoa com idade <strong>igual ou superior a 60 (sessenta) anos</strong>.<br>• <strong>Prioridade Especial / Superprioridade (Art. 3º, § 2º):</strong> Entre as pessoas idosas, é assegurada prioridade especial aos <strong>maiores de 80 (oitenta) anos</strong>, atendendo-se suas necessidades sempre preferencialmente em relação às demais pessoas idosas."
+  },
+  {
+    "id": "fc-idoso-02",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Garantia de Prioridade Absoluta (Art. 3º, § 1º, I a IX)",
+    "q": "Lei nº 10.741/2003, Art. 3º, § 1º, incisos I, V, VI e IX: O que dispõe o Estatuto sobre o atendimento em órgãos privados (I), atendimento familiar vs. asilar (V), formação de recursos humanos (VI) e Imposto de Renda (IX)?",
+    "a": "• <strong>Inc. I:</strong> Atendimento preferencial imediato e individualizado junto aos <strong>órgãos públicos E PRIVADOS</strong> prestadores de serviços à população;<br>• <strong>Inc. V:</strong> <strong>Priorização do atendimento da pessoa idosa por sua própria família, em detrimento do atendimento asilar</strong> (exceto dos que não a possuam ou careçam de condições de própria sobrevivência);<br>• <strong>Inc. VI:</strong> Capacitação e reciclagem dos recursos humanos nas áreas de <strong>geriatria e gerontologia</strong>;<br>• <strong>Inc. IX:</strong> <strong>Prioridade no recebimento da restituição do Imposto de Renda</strong>."
+  },
+  {
+    "id": "fc-idoso-03",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Prevenção, Responsabilidade e Conselhos (Arts. 4º a 7º)",
+    "q": "Lei nº 10.741/2003, Arts. 4º a 7º: Quem responde pela inobservância das normas de prevenção (Art. 5º), quem tem o dever de comunicar violações (Art. 6º) e qual lei rege os Conselhos da Pessoa Idosa (Art. 7º)?",
+    "a": "• <strong>Responsabilidade (Art. 5º):</strong> A inobservância das normas de prevenção importará em responsabilidade à <strong>pessoa física OU jurídica</strong> nos termos da lei.<br>• <strong>Dever de comunicar (Art. 6º):</strong> <strong>Todo cidadão tem o DEVER</strong> de comunicar à autoridade competente qualquer forma de violação a esta Lei que tenha testemunhado ou de que tenha conhecimento.<br>• <strong>Conselhos da Pessoa Idosa (Art. 7º):</strong> Conselhos Nacional, Estaduais, do DF e Municipais da Pessoa Idosa, previstos na <strong>Lei nº 8.842/1994</strong>."
+  },
+  {
+    "id": "fc-idoso-04",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Novidade Lei 15.163/2025: Inaplicabilidade da Lei 9.099/95 (Art. 94, p.ú.)",
+    "q": "Lei nº 10.741/2003, Art. 94 e parágrafo único (Redação da Lei nº 15.163/2025): Aplica-se a Lei nº 9.099/1995 (Juizados Especiais Criminais) aos crimes previstos no Estatuto da Pessoa Idosa?",
+    "a": "<strong>NÃO SE APLICA EM NENHUMA HIPÓTESE!</strong><br>Com a reforma da <strong>Lei nº 15.163/2025</strong>, o parágrafo único do art. 94 passou a dispor expressamente:<br><em>'Aos crimes previstos nesta Lei e aos crimes praticados com violência contra a pessoa idosa, <strong>independentemente da pena prevista, não se aplica a Lei nº 9.099, de 26 de setembro de 1995</strong>.'</em>"
+  },
+  {
+    "id": "fc-idoso-05",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Ação Penal e Vedações do CP (Art. 95)",
+    "q": "Lei nº 10.741/2003, Art. 95: Qual é a natureza da ação penal nos crimes definidos no Estatuto da Pessoa Idosa e quais artigos do Código Penal são expressamente INAPLICÁVEIS?",
+    "a": "• <strong>Ação Penal:</strong> Todos os crimes definidos no Estatuto são de <strong>ação penal pública incondicionada</strong>.<br>• <strong>Inaplicabilidade das Imunidades Patrimoniais do CP:</strong> <strong>NÃO se lhes aplicam os arts. 181 e 182 do Código Penal</strong> (escusas absolutórias e imunidades penais relativas). Assim, filho ou cônjuge que pratica crime patrimonial contra pessoa idosa responde criminalmente sem isenção de pena e sem depender de representação!"
+  },
+  {
+    "id": "fc-idoso-06",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Crime de Discriminação e Superendividamento (Art. 96)",
+    "q": "Lei nº 10.741/2003, Art. 96, caput e §§ 1º a 3º: Qual a pena do crime de discriminar/humilhar pessoa idosa, qual a majorante do § 2º e o que diz o § 3º sobre negativa de crédito?",
+    "a": "• <strong>Pena (caput e § 1º — discriminar, desdenhar, humilhar ou menosprezar por qualquer motivo):</strong> <strong>RECLUSÃO de 6 (seis) meses a 1 (um) ano e multa</strong> (atenção: é reclusão, não detenção!).<br>• <strong>Causa de aumento (§ 2º):</strong> Aumentada de <strong>1/3 (um terço)</strong> se a vítima se encontrar <strong>sob os cuidados ou responsabilidade do agente</strong>.<br>• <strong>Excludente de crime (§ 3º — Lei 14.423/22):</strong> <strong>Não constitui crime a negativa de crédito motivada por superendividamento da pessoa idosa</strong>."
+  },
+  {
+    "id": "fc-idoso-07",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Omissão de Assistência / Socorro (Art. 97)",
+    "q": "Lei nº 10.741/2003, Art. 97 e parágrafo único: Qual a pena do crime de omissão de assistência à pessoa idosa em iminente perigo e em quanto a pena aumenta se resultar lesão grave ou morte?",
+    "a": "• <strong>Pena base (caput):</strong> <strong>DETENÇÃO de 6 (seis) meses a 1 (um) ano e multa</strong>.<br>• <strong>Se da omissão resulta LESÃO CORPORAL DE NATUREZA GRAVE (p.ú.):</strong> A pena é <strong>aumentada de METADE (+1/2)</strong>.<br>• <strong>Se da omissão resulta a MORTE (p.ú.):</strong> A pena é <strong>TRIPLICADA (3x)</strong>."
+  },
+  {
+    "id": "fc-idoso-08",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Abandono em Hospitais/Entidades (Art. 98)",
+    "q": "Lei nº 10.741/2003, Art. 98: Quais são as duas condutas nucleares do crime do Art. 98 e qual a pena cominada?",
+    "a": "• <strong>Condutas típicas:</strong><br>1) <strong>Abandonar a pessoa idosa</strong> em hospitais, casas de saúde, entidades de longa permanência, ou congêneres; OU<br>2) <strong>Não prover suas necessidades básicas</strong>, quando obrigado por lei ou mandado.<br>• <strong>Pena:</strong> <strong>DETENÇÃO de 6 (seis) meses a 3 (três) anos e multa</strong>."
+  },
+  {
+    "id": "fc-idoso-09",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Novidade Lei 15.163/2025: Exposição a Perigo (Art. 99)",
+    "q": "Lei nº 10.741/2003, Art. 99, caput e §§ 1º e 2º (Redação da Lei nº 15.163/2025): Quais são as condutas e as NOVAS penas de Reclusão do crime de expor a perigo a integridade e a saúde da pessoa idosa?",
+    "a": "• <strong>Condutas:</strong> Expor a perigo a integridade e a saúde, física ou psíquica, da pessoa idosa, submetendo-a a <strong>condições desumanas ou degradantes</strong> ou <strong>privando-a de alimentos e cuidados indispensáveis</strong> (quando obrigado a fazê-lo), ou <strong>sujeitando-a a trabalho excessivo ou inadequado</strong>.<br>• <strong>Novas Penas (Lei nº 15.163/2025 — todas de RECLUSÃO, sem multa):</strong><br>— <strong>Caput:</strong> Reclusão, de <strong>2 (dois) a 5 (cinco) anos</strong>;<br>— <strong>§ 1º (Resulta lesão corporal grave):</strong> Reclusão, de <strong>3 (três) a 7 (sete) anos</strong>;<br>— <strong>§ 2º (Resulta a morte):</strong> Reclusão, de <strong>8 (oito) a 14 (quatorze) anos</strong>."
+  },
+  {
+    "id": "fc-idoso-10",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Distinção Cirúrgica IBAM: Art. 100 vs. Art. 101",
+    "q": "Lei nº 10.741/2003, Arts. 100 e 101: Quais são as 5 condutas do Art. 100 e qual a diferença exata de pena entre descumprir ordem judicial no Art. 100, IV e no Art. 101?",
+    "a": "• <strong>Art. 100 (Pena: RECLUSÃO de 6 meses a 1 ano e multa):</strong><br>I - Obstar acesso a cargo público por idade;<br>II - Negar emprego ou trabalho por idade;<br>III - Recusar/retardar/dificultar atendimento ou assistência à saúde sem justa causa;<br>IV - Descumprir/retardar/frustrar ordem judicial expedida <strong>na ação civil a que alude esta Lei</strong>;<br>V - Recusar/retardar/omitir dados técnicos indispensáveis à propositura de ação civil requisitados pelo <strong>Ministério Público</strong>.<br><br>• <strong>Art. 101 (Pena: DETENÇÃO de 6 meses a 1 ano e multa):</strong> Descumprir/retardar/frustrar ordem judicial expedida <strong>nas ações em que for parte ou interveniente a pessoa idosa</strong>."
+  },
+  {
+    "id": "fc-idoso-11",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Apropriação/Desvio (Art. 102) vs. Retenção de Cartão (Art. 104)",
+    "q": "Lei nº 10.741/2003, Arts. 102 e 104: Compare as condutas e as penas da Apropriação/Desvio de bens ou rendimentos (Art. 102) e da Retenção de cartão magnético (Art. 104).",
+    "a": "• <strong>Art. 102 (Apropriar-se de ou desviar bens, proventos, pensão ou qualquer outro rendimento da pessoa idosa, dando-lhes aplicação diversa da de sua finalidade):</strong><br>Pena: <strong>RECLUSÃO de 1 (um) a 4 (quatro) anos e multa</strong>.<br><br>• <strong>Art. 104 (Reter o cartão magnético de conta bancária relativa a benefícios, proventos ou pensão, bem como qualquer outro documento com objetivo de assegurar recebimento ou ressarcimento de dívida):</strong><br>Pena: <strong>DETENÇÃO de 6 (seis) meses a 2 (dois) anos e multa</strong>."
+  },
+  {
+    "id": "fc-idoso-12",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Recusa de Abrigo (Art. 103) e Exibição Depreciativa (Art. 105)",
+    "q": "Lei nº 10.741/2003, Arts. 103 e 105: Qual a pena para quem nega acolhimento/permanência à pessoa idosa por recusa em outorgar procuração (103) e para quem exibe/veicula informações ou imagens depreciativas/injuriosas (105)?",
+    "a": "• <strong>Art. 103 (Negar o acolhimento ou a permanência da pessoa idosa, como abrigada, por recusa desta em outorgar procuração à entidade de atendimento):</strong><br>Pena: <strong>DETENÇÃO de 6 (seis) meses a 1 (um) ano e multa</strong>.<br><br>• <strong>Art. 105 (Exibir ou veicular, por qualquer meio de comunicação, informações ou imagens depreciativas ou injuriosas à pessoa idosa):</strong><br>Pena: <strong>DETENÇÃO de 1 (um) a 3 (três) anos e multa</strong>."
+  },
+  {
+    "id": "fc-idoso-13",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Tríade de Procurações e Atos Notariais (Arts. 106, 107 e 108)",
+    "q": "Lei nº 10.741/2003, Arts. 106, 107 e 108: Compare as elementares e penas do Induzimento a outorgar procuração (106), da Coação a doar/contratar/testar/procuração (107) e da Lavratura de ato notarial (108).",
+    "a": "• <strong>Art. 106:</strong> Induzir pessoa idosa <strong>sem discernimento de seus atos</strong> a outorgar procuração para fins de administração de bens ou deles dispor livremente &rarr; <strong>Reclusão de 2 a 4 anos</strong> (sem multa).<br>• <strong>Art. 107:</strong> Coagir, de qualquer modo, a pessoa idosa (com ou sem discernimento) a <strong>doar, contratar, testar ou outorgar procuração</strong> &rarr; <strong>Reclusão de 2 a 5 anos</strong> (sem multa).<br>• <strong>Art. 108:</strong> Lavrar ato notarial que envolva pessoa idosa <strong>sem discernimento de seus atos, sem a devida representação legal</strong> &rarr; <strong>Reclusão de 2 a 4 anos</strong> (sem multa)."
+  },
+  {
+    "id": "fc-idoso-14",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Impedimento à Fiscalização (Art. 109) vs. ECA (Art. 236)",
+    "q": "Lei nº 10.741/2003, Art. 109: Qual a conduta e a pena do crime do Art. 109, e como ela se diferencia do crime correspondente no ECA (Art. 236)?",
+    "a": "• <strong>Estatuto da Pessoa Idosa (Art. 109):</strong> <em>'Impedir ou embaraçar ato do representante do Ministério Público ou de qualquer outro agente fiscalizador'</em> &rarr; Pena: <strong>RECLUSÃO de 6 (seis) meses a 1 (um) ano e multa</strong>.<br>• <strong>Diferença para o ECA (Art. 236):</strong> No ECA (impedir/embaraçar Juiz, Conselho Tutelar ou MP), a pena é de <strong>DETENÇÃO de 6 meses a 2 anos</strong> (sem multa)."
+  },
+  {
+    "id": "fc-idoso-15",
+    "deck": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+    "level": "Regra de Ouro IBAM: Mapa Geral das Penas (Arts. 96 a 109)",
+    "q": "Mapa Geral dos Crimes (Arts. 96 a 109): Quais são os 3 únicos crimes com RECLUSÃO de 6m a 1a + multa, os 3 únicos com DETENÇÃO de 6m a 1a + multa, e os 4 únicos crimes SEM MULTA no Estatuto da Pessoa Idosa?",
+    "a": "• <strong>3 Crimes com RECLUSÃO de 6 meses a 1 ano e multa:</strong> <strong>Art. 96</strong> (discriminar/humilhar), <strong>Art. 100</strong> (obstar cargo/emprego/saúde/ordem em ação civil/dados ao MP) e <strong>Art. 109</strong> (impedir/embaraçar MP ou agente fiscalizador).<br>• <strong>3 Crimes com DETENÇÃO de 6 meses a 1 ano e multa:</strong> <strong>Art. 97</strong> (omissão de assistência/socorro), <strong>Art. 101</strong> (descumprir ordem judicial em ação de idoso) e <strong>Art. 103</strong> (negar abrigo por recusa de procuração).<br>• <strong>4 Crimes SEM MULTA (apenas Reclusão):</strong> <strong>Art. 99</strong> (2–5a / 3–7a / 8–14a), <strong>Art. 106</strong> (2–4a), <strong>Art. 107</strong> (2–5a) e <strong>Art. 108</strong> (2–4a)."
   }
 ];
 
@@ -5075,6 +5184,7 @@
       { key: "09. Lei 13.022/14 — Estatuto Geral GCM", short: "Lei 13.022/14" },
       { key: "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", short: "Lei 13.060/14 (Força)" },
       { key: "11. Lei 8.069/90 — ECA", short: "Lei 8.069/90 (ECA)" },
+      { key: "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", short: "Lei 10.741/03 (Idoso)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -5091,6 +5201,7 @@
       if (rawDeck.includes("13.022") || rawDeck.includes("Estatuto Geral")) return "09. Lei 13.022/14 — Estatuto Geral GCM";
       if (rawDeck.includes("13.060") || rawDeck.includes("12.341") || rawDeck.includes("Uso da Força")) return "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)";
       if (rawDeck.includes("8.069") || rawDeck.includes("ECA")) return "11. Lei 8.069/90 — ECA";
+      if (rawDeck.includes("10.741") || rawDeck.includes("Idosa") || rawDeck.includes("Idoso")) return "12. Lei 10.741/03 — Estatuto da Pessoa Idosa";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -5107,7 +5218,8 @@
         "cpp-301-310": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5128,6 +5240,7 @@
         "09. Lei 13.022/14 — Estatuto Geral GCM",
         "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
         "11. Lei 8.069/90 — ECA",
+        "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5371,15 +5484,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 a 11) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 12) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5615,11 +5728,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5734,7 +5847,8 @@
       "cpp-301-310": "08. CPP — Arts. 301 a 310",
       "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM",
       "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
-      "lei-eca": "11. Lei 8.069/90 — ECA"
+      "lei-eca": "11. Lei 8.069/90 — ECA",
+      "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"
     };
 
     function getTopicFlashcardPerformance(topicId) {
