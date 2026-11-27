@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">71%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">76%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">12 / 17 arquivos (71%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">12/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">13 / 17 arquivos (76%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">13/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">12 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">13 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">12 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA 8.069/90 e Estatuto da Pessoa Idosa 10.741/03).</div>
+        <div class="kpi-sub desktop-only">13 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA 8.069/90, Idoso 10.741/03 e Desarmamento 10.826/03).</div>
       </div>
 
       <div class="kpi-card">
@@ -3418,6 +3418,7 @@
                 <option value="10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força)">10. Lei 13.060/14 &amp; Dec. 12.341/24 (Uso da Força e IMPO)</option>
                 <option value="11. Lei 8.069/90 — ECA">11. Lei 8.069/90 — Estatuto da Criança e do Adolescente (ECA)</option>
                 <option value="12. Lei 10.741/03 — Estatuto da Pessoa Idosa">12. Lei 10.741/03 — Estatuto da Pessoa Idosa</option>
+                <option value="13. Lei 10.826/03 — Estatuto do Desarmamento">13. Lei 10.826/03 — Estatuto do Desarmamento</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3690,10 +3691,13 @@
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
         title: "Lei nº 10.826/2003 (Estatuto do Desarmamento) — Porte GCM e Crimes",
         shortTitle: "Lei 10.826/03 (Desarmamento)",
-        desc: "Arts. 6º ao 11 (Porte de arma de fogo institucional e pessoal para Guardas Municipais) e Arts. 12 ao 21 (Posse, Porte Ilegal, Disparo e Omissão de Cautela).",
+        desc: "Arts. 6º ao 11-A (Porte de arma de fogo institucional e particular para Guardas Municipais — STF ADIs 5538/5948) e Arts. 12 ao 21-A (Posse, Porte, Disparo, Comércio, Tráfico e Majorantes).",
         priority: "Altíssima Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-10826-2003-estatuto-do-desarmamento-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-13-lei-10826-2003-estatuto-do-desarmamento.pdf" }
+        ]
       },
       {
         id: "lei-maria-penha",
@@ -5162,6 +5166,111 @@
     "level": "Regra de Ouro IBAM: Mapa Geral das Penas (Arts. 96 a 109)",
     "q": "Mapa Geral dos Crimes (Arts. 96 a 109): Quais são os 3 únicos crimes com RECLUSÃO de 6m a 1a + multa, os 3 únicos com DETENÇÃO de 6m a 1a + multa, e os 4 únicos crimes SEM MULTA no Estatuto da Pessoa Idosa?",
     "a": "• <strong>3 Crimes com RECLUSÃO de 6 meses a 1 ano e multa:</strong> <strong>Art. 96</strong> (discriminar/humilhar), <strong>Art. 100</strong> (obstar cargo/emprego/saúde/ordem em ação civil/dados ao MP) e <strong>Art. 109</strong> (impedir/embaraçar MP ou agente fiscalizador).<br>• <strong>3 Crimes com DETENÇÃO de 6 meses a 1 ano e multa:</strong> <strong>Art. 97</strong> (omissão de assistência/socorro), <strong>Art. 101</strong> (descumprir ordem judicial em ação de idoso) e <strong>Art. 103</strong> (negar abrigo por recusa de procuração).<br>• <strong>4 Crimes SEM MULTA (apenas Reclusão):</strong> <strong>Art. 99</strong> (2–5a / 3–7a / 8–14a), <strong>Art. 106</strong> (2–4a), <strong>Art. 107</strong> (2–5a) e <strong>Art. 108</strong> (2–4a)."
+  },
+  {
+    "id": "fc-armas-01",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Porte das Guardas Municipais (Art. 6º, III, §§ 1º e 3º + STF)",
+    "q": "Lei nº 10.826/2003, Art. 6º, III, §§ 1º e 3º e STF (ADIs 5538/5948 e ADC 38): Quais Guardas Municipais têm direito ao porte de arma de fogo e quais são as 3 condicionantes legais do § 3º?",
+    "a": "• <strong>Alcance (STF ADIs 5538/5948 e ADC 38):</strong> O STF declarou <strong>inconstitucionais os limites populacionais</strong> (500 mil e 50 mil habitantes) dos incisos III e IV. Hoje, <strong>TODOS os integrantes das Guardas Municipais</strong> têm direito ao porte de arma de fogo (particular ou institucional), <strong>em serviço e mesmo fora de serviço</strong> (§ 1º).<br>• <strong>3 Condicionantes (Art. 6º, § 3º):</strong><br>1) Formação funcional em <strong>estabelecimentos de ensino de atividade policial</strong>;<br>2) Existência de <strong>mecanismos de fiscalização e de controle interno</strong>;<br>3) Observada a <strong>supervisão do MINISTÉRIO DA JUSTIÇA</strong>."
+  },
+  {
+    "id": "fc-armas-02",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Porte de Âmbito Nacional & Agentes Prisionais (Art. 6º, §§ 1º e 1º-B)",
+    "q": "Lei nº 10.826/2003, Art. 6º, §§ 1º e 1º-B: Quais categorias do art. 6º possuem porte com validade expressa em âmbito nacional no § 1º? E quais os 3 requisitos para o porte fora de serviço dos agentes e guardas prisionais (§ 1º-B)?",
+    "a": "• <strong>Validade em âmbito nacional na letra do § 1º:</strong> Incisos <strong>I</strong> (Forças Armadas), <strong>II</strong> (órgãos do art. 144, I a V, da CF e FNSP), <strong>V</strong> (ABIN e GSI) e <strong>VI</strong> (polícias legislativas). <em>(Atenção: o inciso III [GCM] consta na 1ª parte do § 1º, mas não é repetido na parte final sobre âmbito nacional!).</em><br>• <strong>Agentes e guardas prisionais fora de serviço (§ 1º-B):</strong> Exige cumulativamente: I - <strong>regime de dedicação exclusiva</strong>; II - <strong>formação funcional</strong>; e III - <strong>subordinação a mecanismos de fiscalização e de controle interno</strong>."
+  },
+  {
+    "id": "fc-armas-03",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Caçador para Subsistência (Art. 6º, §§ 5º e 6º)",
+    "q": "Lei nº 10.826/2003, Art. 6º, §§ 5º e 6º: Quais são os requisitos etários, o órgão concedente e as especificações da arma do Caçador para Subsistência?",
+    "a": "• <strong>Requisitos:</strong> Residente em <strong>área rural</strong>, <strong>maior de 25 (vinte e cinco) anos</strong>, que comprove depender do emprego de arma de fogo para prover sua subsistência alimentar familiar (anexando RG, comprovante de residência rural e atestado de bons antecedentes).<br>• <strong>Órgão concedente:</strong> <strong>POLÍCIA FEDERAL</strong>.<br>• <strong>Especificação da arma:</strong> 1 (uma) arma de uso permitido, de <strong>tiro simples</strong>, com <strong>1 ou 2 canos</strong>, de <strong>alma lisa</strong> e de <strong>calibre igual ou inferior a 16</strong>.<br>• <strong>Desvio de uso (§ 6º):</strong> Responde por <strong>porte ilegal ou disparo de arma de fogo de uso permitido</strong>."
+  },
+  {
+    "id": "fc-armas-04",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Segurança Privada e Segurança de Tribunais/MP (Arts. 7º e 7º-A)",
+    "q": "Lei nº 10.826/2003, Arts. 7º e 7º-A: Qual o prazo para comunicar extravio/furto/roubo de arma à PF, a periodicidade da lista no Sinarm e o limite percentual de servidores com porte nos Tribunais/MP?",
+    "a": "• <strong>Prazo para registrar ocorrência policial e comunicar à Polícia Federal perda, furto, roubo ou extravio:</strong> Nas <strong>primeiras 24 (vinte e quatro) horas</strong> depois de ocorrido o fato (Art. 7º, § 1º e Art. 7º-A, § 5º).<br>• <strong>Atualização da listagem de empregados/servidores junto ao Sinarm:</strong> <strong>Semestralmente</strong> (Art. 7º, § 3º e Art. 7º-A, § 4º).<br>• <strong>Limite nos Tribunais e Ministério Público (Art. 7º-A, § 2º):</strong> Máximo de <strong>50% (cinquenta por cento)</strong> do número de servidores que exerçam funções de segurança."
+  },
+  {
+    "id": "fc-armas-05",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Competências de Porte e Perda Automática (Arts. 9º e 10)",
+    "q": "Lei nº 10.826/2003, Arts. 9º e 10: A quem compete autorizar o porte para segurança de estrangeiros, o porte de trânsito de CACs e o porte civil de uso permitido? E quando o porte do Art. 10 perde automaticamente sua eficácia?",
+    "a": "• <strong>Segurança de cidadãos estrangeiros em visita ou sediados no Brasil (Art. 9º, 1ª parte):</strong> <strong>Ministério da Justiça</strong>.<br>• <strong>Registro e porte de trânsito de CACs e competição internacional de tiro (Art. 9º, 2ª parte):</strong> <strong>Comando do Exército</strong>.<br>• <strong>Porte de arma de uso permitido em todo o território nacional (Art. 10):</strong> <strong>Polícia Federal</strong> (somente após autorização do Sinarm).<br>• <strong>Perda automática de eficácia (Art. 10, § 2º):</strong> Caso o portador seja detido ou abordado em <strong>estado de embriaguez ou sob efeito de substâncias químicas ou alucinógenas</strong>."
+  },
+  {
+    "id": "fc-armas-06",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Taxas, Isenções e Teto de Instrutores (Arts. 11 e 11-A)",
+    "q": "Lei nº 10.826/2003, Arts. 11 e 11-A: Quais incisos do art. 6º são isentos de taxas no art. 11, § 2º? E qual o valor máximo cobrado pelo instrutor de armamento e tiro no art. 11-A, § 2º?",
+    "a": "• <strong>Isentos de taxas (Art. 11, § 2º):</strong> As pessoas e instituições dos <strong>incisos I a VII e X e o § 5º do art. 6º</strong> (inclui Guardas Municipais e Caçador de subsistência; exclui empresas de segurança privada [VIII] e entidades de desporto [IX]).<br>• <strong>Destinação das taxas (Art. 11, § 1º):</strong> Custeio e manutenção do <strong>Sinarm, da Polícia Federal e do Comando do Exército</strong>.<br>• <strong>Teto do instrutor de tiro (Art. 11-A, §§ 2º e 3º):</strong> Não poderá exceder <strong>R$ 80,00 (oitenta reais), acrescido do custo da munição</strong>, sob pena de <strong>descredenciamento pela Polícia Federal</strong>."
+  },
+  {
+    "id": "fc-armas-07",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Distinção Campeã IBAM: Posse (Art. 12) vs. Porte (Art. 14)",
+    "q": "Lei nº 10.826/2003, Arts. 12 e 14: Qual a diferença de local, requisito no trabalho e pena entre a Posse Irregular (Art. 12) e o Porte Ilegal (Art. 14) de arma de fogo, acessório ou munição de uso permitido?",
+    "a": "• <strong>Posse Irregular de Uso Permitido (Art. 12):</strong> Possuir ou manter sob sua guarda <strong>no interior de sua residência ou dependência desta</strong>, ou <strong>no seu local de trabalho, DESDE QUE SEJA O TITULAR OU O RESPONSÁVEL LEGAL do estabelecimento ou empresa</strong>.<br>— <em>Pena:</em> <strong>DETENÇÃO, de 1 (um) a 3 (três) anos, e multa</strong>.<br><br>• <strong>Porte Ilegal de Uso Permitido (Art. 14):</strong> Portar, deter, adquirir, fornecer, receber, ter em depósito, transportar, ceder, emprestar, remeter, empregar, manter sob guarda ou ocultar <strong>fora da residência/trabalho</strong> (ou no local de trabalho se <strong>não</strong> for o titular/responsável legal!).<br>— <em>Pena:</em> <strong>RECLUSÃO, de 2 (dois) a 4 (quatro) anos, e multa</strong>."
+  },
+  {
+    "id": "fc-armas-08",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Omissão de Cautela Própria e Equiparada (Art. 13 e p.ú.)",
+    "q": "Lei nº 10.826/2003, Art. 13, caput e parágrafo único: Quais são as duas modalidades do crime de Omissão de Cautela e qual a pena cominada?",
+    "a": "• <strong>Omissão de Cautela Própria (caput — crime culposo):</strong> Deixar de observar as cautelas necessárias para impedir que <strong>menor de 18 (dezoito) anos ou pessoa portadora de deficiência mental</strong> se apodere de <strong>arma de fogo</strong> sob sua posse ou propriedade.<br>• <strong>Omissão de Cautela Equiparada (parágrafo único — crime omissivo próprio):</strong> Proprietário ou diretor responsável de empresa de segurança e transporte de valores que deixar de <strong>registrar ocorrência policial E de comunicar à Polícia Federal</strong> perda, furto, roubo ou extravio de arma, acessório ou munição nas <strong>primeiras 24 horas</strong>.<br>• <strong>Pena de ambos:</strong> <strong>DETENÇÃO, de 1 (um) a 2 (dois) anos, e multa</strong>."
+  },
+  {
+    "id": "fc-armas-09",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Disparo de Arma de Fogo (Art. 15)",
+    "q": "Lei nº 10.826/2003, Art. 15: Quais são os elementos locais, a cláusula de subsidiariedade e a pena do crime de Disparo de Arma de Fogo?",
+    "a": "• <strong>Conduta e Locais:</strong> Disparar arma de fogo ou acionar munição em <strong>lugar habitado ou em suas adjacências, em via pública ou em direção a ela</strong>.<br>• <strong>Cláusula de Subsidiariedade Expressa:</strong> <em>'<strong>desde que essa conduta não tenha como finalidade a prática de outro crime</strong>'</em> (se atirou para matar ou lesionar, responde por homicídio ou lesão corporal!).<br>• <strong>Pena:</strong> <strong>RECLUSÃO, de 2 (dois) a 4 (quatro) anos, e multa</strong>."
+  },
+  {
+    "id": "fc-armas-10",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Uso Restrito vs. Uso Proibido (Art. 16, caput e § 2º)",
+    "q": "Lei nº 10.826/2003, Art. 16, caput e § 2º (Lei 13.964/2019): Qual a diferença de pena entre a posse ou porte ilegal de arma de fogo de USO RESTRITO e de USO PROIBIDO?",
+    "a": "• <strong>Arma de fogo, acessório ou munição de USO RESTRITO (Art. 16, caput e § 1º):</strong><br>Pena: <strong>RECLUSÃO, de 3 (três) a 6 (seis) anos, e multa</strong>.<br><br>• <strong>Arma de fogo de USO PROIBIDO (Art. 16, § 2º — incluído pelo Pacote Anticrime):</strong><br>Pena: <strong>RECLUSÃO, de 4 (quatro) a 12 (doze) anos</strong> (sem menção a multa no § 2º!).<br><em>Nota:</em> Tanto no uso restrito quanto no proibido, as condutas de posse (em casa) e porte (na rua) estão unificadas no mesmo artigo!"
+  },
+  {
+    "id": "fc-armas-11",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Condutas Equiparadas ao Uso Restrito (Art. 16, § 1º, I a VI)",
+    "q": "Lei nº 10.826/2003, Art. 16, § 1º, I a VI e Súmula 513/STJ: Quais são as 6 condutas equiparadas ao uso restrito (reclusão de 3 a 6 anos e multa)?",
+    "a": "Incorre nas mesmas penas (reclusão de 3 a 6 anos e multa) quem:<br><strong>I -</strong> Suprimir ou alterar marca, numeração ou sinal de identificação;<br><strong>II -</strong> Modificar características de arma p/ torná-la equivalente a uso proibido/restrito ou induzir a erro autoridade/perito/juiz;<br><strong>III -</strong> Possuir, detiver, fabricar ou empregar <strong>artefato explosivo ou incendiário</strong>;<br><strong>IV -</strong> Portar, possuir, adquirir, transportar ou fornecer arma com <strong>numeração/marca raspada, suprimida ou adulterada</strong> (mesmo se de uso permitido — Súmula 513/STJ);<br><strong>V -</strong> Vender, entregar ou fornecer, ainda que gratuitamente, arma, acessório, munição ou explosivo a <strong>criança ou adolescente</strong>;<br><strong>VI -</strong> Produzir, recarregar ou reciclar sem autorização, ou adulterar, munição ou explosivo."
+  },
+  {
+    "id": "fc-armas-12",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Comércio Ilegal (Art. 17) e Tráfico Internacional (Art. 18)",
+    "q": "Lei nº 10.826/2003, Arts. 17 e 18 (Lei 13.964/2019): Quais são as penas atuais do Comércio Ilegal (Art. 17) e do Tráfico Internacional de Arma de Fogo (Art. 18), e como a lei trata a venda a agente policial disfarçado?",
+    "a": "• <strong>Comércio Ilegal de Arma de Fogo, Acessório ou Munição (Art. 17):</strong><br>Pena: <strong>RECLUSÃO, de 6 (seis) a 12 (doze) anos, e multa</strong> (§ 1º: inclui qualquer prestação de serviços, fabricação ou comércio irregular/clandestino, <strong>inclusive o exercido em residência</strong>).<br>• <strong>Tráfico Internacional de Arma de Fogo, Acessório ou Munição (Art. 18):</strong><br>Pena: <strong>RECLUSÃO, de 8 (oito) a 16 (dezesseis) anos, e multa</strong>.<br>• <strong>Venda/entrega a Agente Policial Disfarçado (Art. 17, § 2º e Art. 18, p.ú.):</strong> Incorre na mesma pena quando <strong>presentes elementos probatórios razoáveis de conduta criminal preexistente</strong>."
+  },
+  {
+    "id": "fc-armas-13",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Causas de Aumento de Pena (Arts. 19, 20 e Novo Art. 21-A de 2026)",
+    "q": "Lei nº 10.826/2003, Arts. 19, 20 e 21-A (Lei 15.358/2026): Quais são as frações e os artigos abrangidos pelas 3 causas de aumento de pena do Estatuto do Desarmamento?",
+    "a": "1) <strong>Art. 19 (+1/2 — aumentada da metade):</strong> Incide nos <strong>arts. 17 e 18</strong> se a arma, acessório ou munição forem de <strong>uso proibido ou restrito</strong>.<br>2) <strong>Art. 20 (+1/2 — aumentada da metade):</strong> Incide nos <strong>arts. 14, 15, 16, 17 e 18</strong> (<em>pegadinha: NÃO incide nos arts. 12 e 13!</em>) se: I - praticados por integrante dos órgãos e empresas dos <strong>arts. 6º, 7º e 8º</strong>; ou II - o agente for <strong>reincidente específico</strong> em crimes dessa natureza.<br>3) <strong>Novo Art. 21-A (Lei 15.358/2026 — +2/3):</strong> Incide nos <strong>arts. 12, 14 e 16</strong> se praticado em concurso com crime da <strong>Lei de Drogas (11.343/06)</strong>, ligado ao comércio ilícito de entorpecentes ou usado para assegurar a mercancia."
+  },
+  {
+    "id": "fc-armas-14",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Julgamento do STF na ADI 3.112-1 (Fiança e Liberdade Provisória)",
+    "q": "STF, ADI 3.112-1 vs. Arts. 14, p.ú., 15, p.ú. e 21 da Lei 10.826/2003: O que decidiu o STF sobre a inafiançabilidade dos arts. 14 e 15 e a proibição de liberdade provisória do art. 21?",
+    "a": "O Plenário do STF (ADI 3.112-1) declarou <strong>INCONSTITUCIONAIS</strong>:<br>1) Os <strong>parágrafos únicos dos arts. 14 e 15</strong> (que vedavam fiança no porte ilegal de uso permitido não registrado e no disparo de arma de fogo);<br>2) A íntegra do <strong>art. 21</strong> (que vedava liberdade provisória nos crimes dos arts. 16, 17 e 18).<br><em>Dica de prova:</em> Fique atento se o enunciado pede a 'literalidade do texto da Lei 10.826/03' ou a 'jurisprudência do STF'!"
+  },
+  {
+    "id": "fc-armas-15",
+    "deck": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+    "level": "Escada Geral das Penas (Arts. 12 a 18)",
+    "q": "Resumo de Véspera (Arts. 12 a 18): Recite a escada completa das penas de todos os crimes do Estatuto do Desarmamento, do mais leve (1 a 2 anos) ao mais grave (8 a 16 anos).",
+    "a": "• <strong>Detenção de 1 a 2 anos + multa:</strong> Art. 13 (Omissão de cautela);<br>• <strong>Detenção de 1 a 3 anos + multa:</strong> Art. 12 (Posse irregular de uso permitido);<br>• <strong>Reclusão de 2 a 4 anos + multa:</strong> Art. 14 (Porte ilegal de uso permitido) e Art. 15 (Disparo de arma de fogo);<br>• <strong>Reclusão de 3 a 6 anos + multa:</strong> Art. 16, caput e § 1º (Posse/porte de uso restrito e equiparados);<br>• <strong>Reclusão de 4 a 12 anos:</strong> Art. 16, § 2º (Posse/porte de arma de uso proibido);<br>• <strong>Reclusão de 6 a 12 anos + multa:</strong> Art. 17 (Comércio ilegal);<br>• <strong>Reclusão de 8 a 16 anos + multa:</strong> Art. 18 (Tráfico internacional)."
   }
 ];
 
@@ -5185,6 +5294,7 @@
       { key: "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", short: "Lei 13.060/14 (Força)" },
       { key: "11. Lei 8.069/90 — ECA", short: "Lei 8.069/90 (ECA)" },
       { key: "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", short: "Lei 10.741/03 (Idoso)" },
+      { key: "13. Lei 10.826/03 — Estatuto do Desarmamento", short: "Lei 10.826/03 (Armas)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -5202,6 +5312,7 @@
       if (rawDeck.includes("13.060") || rawDeck.includes("12.341") || rawDeck.includes("Uso da Força")) return "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)";
       if (rawDeck.includes("8.069") || rawDeck.includes("ECA")) return "11. Lei 8.069/90 — ECA";
       if (rawDeck.includes("10.741") || rawDeck.includes("Idosa") || rawDeck.includes("Idoso")) return "12. Lei 10.741/03 — Estatuto da Pessoa Idosa";
+      if (rawDeck.includes("10.826") || rawDeck.includes("Desarmamento")) return "13. Lei 10.826/03 — Estatuto do Desarmamento";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -5219,7 +5330,8 @@
         "lei-13022": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-desarmamento": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5241,6 +5353,7 @@
         "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
         "11. Lei 8.069/90 — ECA",
         "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+        "13. Lei 10.826/03 — Estatuto do Desarmamento",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5484,15 +5597,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 a 12) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 13) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5728,11 +5841,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5848,7 +5961,8 @@
       "lei-13022": "09. Lei 13.022/14 — Estatuto Geral GCM",
       "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
       "lei-eca": "11. Lei 8.069/90 — ECA",
-      "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa"
+      "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
+      "lei-desarmamento": "13. Lei 10.826/03 — Estatuto do Desarmamento"
     };
 
     function getTopicFlashcardPerformance(topicId) {
