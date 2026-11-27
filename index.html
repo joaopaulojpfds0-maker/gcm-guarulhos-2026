@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">76%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">82%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">13 / 17 arquivos (76%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">13/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">14 / 17 arquivos (82%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">14/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">13 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">14 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">13 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA 8.069/90, Idoso 10.741/03 e Desarmamento 10.826/03).</div>
+        <div class="kpi-sub desktop-only">14 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA, Idoso, Desarmamento e Maria da Penha).</div>
       </div>
 
       <div class="kpi-card">
@@ -3419,6 +3419,7 @@
                 <option value="11. Lei 8.069/90 — ECA">11. Lei 8.069/90 — Estatuto da Criança e do Adolescente (ECA)</option>
                 <option value="12. Lei 10.741/03 — Estatuto da Pessoa Idosa">12. Lei 10.741/03 — Estatuto da Pessoa Idosa</option>
                 <option value="13. Lei 10.826/03 — Estatuto do Desarmamento">13. Lei 10.826/03 — Estatuto do Desarmamento</option>
+                <option value="14. Lei 11.340/06 — Lei Maria da Penha">14. Lei 11.340/06 — Lei Maria da Penha (Arts. 1º ao 7º)</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3704,10 +3705,13 @@
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
         title: "Lei nº 11.340/2006 (Lei Maria da Penha) — Arts. 1º ao 7º",
         shortTitle: "Lei 11.340/06 (Maria da Penha)",
-        desc: "Âmbito de aplicação (unidade doméstica, família ou relação íntima de afeto) e as 5 formas de violência: física, psicológica, sexual, patrimonial e moral.",
+        desc: "Âmbito de aplicação (unidade doméstica, família ou relação íntima de afeto — Art. 5º) e as 6 formas de violência (Art. 7º): física, psicológica, sexual, patrimonial, moral e vicária (Lei 15.384/26).",
         priority: "Alta Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-11340-2006-maria-da-penha-arts-1-a-7-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-14-lei-11340-2006-maria-da-penha.pdf" }
+        ]
       },
       {
         id: "lei-abuso",
@@ -5271,6 +5275,111 @@
     "level": "Escada Geral das Penas (Arts. 12 a 18)",
     "q": "Resumo de Véspera (Arts. 12 a 18): Recite a escada completa das penas de todos os crimes do Estatuto do Desarmamento, do mais leve (1 a 2 anos) ao mais grave (8 a 16 anos).",
     "a": "• <strong>Detenção de 1 a 2 anos + multa:</strong> Art. 13 (Omissão de cautela);<br>• <strong>Detenção de 1 a 3 anos + multa:</strong> Art. 12 (Posse irregular de uso permitido);<br>• <strong>Reclusão de 2 a 4 anos + multa:</strong> Art. 14 (Porte ilegal de uso permitido) e Art. 15 (Disparo de arma de fogo);<br>• <strong>Reclusão de 3 a 6 anos + multa:</strong> Art. 16, caput e § 1º (Posse/porte de uso restrito e equiparados);<br>• <strong>Reclusão de 4 a 12 anos:</strong> Art. 16, § 2º (Posse/porte de arma de uso proibido);<br>• <strong>Reclusão de 6 a 12 anos + multa:</strong> Art. 17 (Comércio ilegal);<br>• <strong>Reclusão de 8 a 16 anos + multa:</strong> Art. 18 (Tráfico internacional)."
+  },
+  {
+    "id": "fc-lmp-01",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Fundamentos Constitucionais e Tratados (Art. 1º)",
+    "q": "Lei nº 11.340/2006, Art. 1º: Qual é o dispositivo exato da Constituição Federal e quais são as duas Convenções Internacionais expressamente citadas no Art. 1º da Lei Maria da Penha?",
+    "a": "• <strong>Dispositivo Constitucional:</strong> <strong>§ 8º do art. 226 da Constituição Federal</strong>.<br>• <strong>Duas Convenções Internacionais citadas no Art. 1º:</strong><br>1) <strong>Convenção sobre a Eliminação de Todas as Formas de Violência contra a Mulher</strong> (CEDAW / ONU);<br>2) <strong>Convenção Interamericana para Prevenir, Punir e Erradicar a Violência contra a Mulher</strong> (Convenção de Belém do Pará / OEA)."
+  },
+  {
+    "id": "fc-lmp-02",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Cláusula de Não Discriminação e Direitos (Arts. 2º a 4º)",
+    "q": "Lei nº 11.340/2006, Arts. 2º, 3º, §§ 1º e 2º e 4º: A quem cabe criar as condições para o efetivo exercício dos direitos do Art. 3º (§ 2º) e o que deve ser considerado na interpretação da Lei (Art. 4º)?",
+    "a": "• <strong>Art. 3º, § 2º:</strong> Cabe <strong>à família, à sociedade e ao poder público</strong> criar as condições necessárias para o efetivo exercício dos direitos enunciados no caput (enquanto o § 1º incumbe o <strong>poder público</strong> de desenvolver políticas para resguardar as mulheres de toda forma de negligência, discriminação, exploração, violência, crueldade e opressão).<br>• <strong>Interpretação (Art. 4º):</strong> Serão considerados os <strong>fins sociais</strong> a que ela se destina e, especialmente, as <strong>condições peculiares das mulheres em situação de violência doméstica e familiar</strong>."
+  },
+  {
+    "id": "fc-lmp-03",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Conceito Geral de Violência Doméstica e Familiar (Art. 5º, caput e Art. 6º)",
+    "q": "Lei nº 11.340/2006, Arts. 5º, caput e 6º: Qual é o conceito legal de violência doméstica e familiar contra a mulher e qual sua classificação no Art. 6º?",
+    "a": "• <strong>Conceito (Art. 5º, caput):</strong> Configura violência doméstica e familiar contra a mulher <strong>qualquer ação ou omissão baseada no gênero</strong> que lhe cause <strong>morte, lesão, sofrimento físico, sexual ou psicológico e dano moral ou patrimonial</strong>.<br>• <strong>Classificação (Art. 6º):</strong> A violência doméstica e familiar contra a mulher <strong>constitui uma das formas de violação dos direitos humanos</strong>."
+  },
+  {
+    "id": "fc-lmp-04",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "1º Âmbito: Unidade Doméstica (Art. 5º, I)",
+    "q": "Lei nº 11.340/2006, Art. 5º, inciso I: Como a lei define o âmbito da UNIDADE DOMÉSTICA? Exige vínculo familiar?",
+    "a": "• <strong>Definição literal (Art. 5º, I):</strong> <em>'no âmbito da <strong>unidade doméstica</strong>, compreendida como o <strong>espaço de convívio permanente de pessoas, com ou sem vínculo familiar, inclusive as esporadicamente agregadas</strong>;'</em><br>• <strong>Pegadinha IBAM:</strong> <strong>NÃO exige vínculo familiar!</strong> Alcança, por exemplo, a empregada doméstica ou agregada que convive no ambiente doméstico (vide LC nº 150/2015)."
+  },
+  {
+    "id": "fc-lmp-05",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "2º e 3º Âmbitos: Família e Relação Íntima de Afeto (Art. 5º, II e III + Súmula 600/STJ)",
+    "q": "Lei nº 11.340/2006, Art. 5º, incisos II e III e Súmula 600/STJ: Como a lei define o âmbito da FAMÍLIA (II) e da RELAÇÃO ÍNTIMA DE AFETO (III)? Exige-se coabitação?",
+    "a": "• <strong>Família (Art. 5º, II):</strong> Comunidade formada por indivíduos que <strong>são ou se consideram aparentados</strong>, unidos por <strong>laços naturais, por afinidade ou por vontade expressa</strong>.<br>• <strong>Relação Íntima de Afeto (Art. 5º, III):</strong> Qualquer relação íntima de afeto, na qual o agressor <strong>conviva ou tenha convivido</strong> com a ofendida, <strong>INDEPENDENTEMENTE DE COABITAÇÃO</strong>.<br>• <strong>Súmula 600 do STJ:</strong> <em>'Para a configuração da violência doméstica e familiar prevista no artigo 5º da Lei n. 11.340/2006 (Lei Maria da Penha) não se exige a coabitação entre autor e vítima.'</em>"
+  },
+  {
+    "id": "fc-lmp-06",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Sujeitos, Orientação Sexual e Motivação (Art. 5º, p.ú. e Art. 40-A)",
+    "q": "Lei nº 11.340/2006, Art. 5º, parágrafo único e Art. 40-A (Lei 14.550/2023): Uma mulher pode ser sujeito ativo (agressora) na Lei Maria da Penha? E a motivação financeira/patrimonial afasta a lei?",
+    "a": "• <strong>Sujeito ativo e orientação sexual (Art. 5º, p.ú.):</strong> <em>'As relações pessoais enunciadas neste artigo <strong>independem de orientação sexual</strong>.'</em> O polo ativo (agressor) pode ser tanto homem quanto mulher (ex.: relações homoafetivas femininas, filha contra mãe, nora contra sogra), desde que o polo passivo (vítima) seja mulher!<br>• <strong>Irrelevância da causa/motivação específica (Art. 40-A — Lei 14.550/2023):</strong> A Lei será aplicada a todas as situações do art. 5º, <strong>independentemente da causa ou da motivação dos atos de violência e da condição do ofensor ou da ofendida</strong>."
+  },
+  {
+    "id": "fc-lmp-07",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "As 6 Formas de Violência e Natureza do Rol (Art. 7º, caput e I a VI)",
+    "q": "Lei nº 11.340/2006, Art. 7º (atualizado pela Lei nº 15.384/2026): O rol do Art. 7º é taxativo ou exemplificativo? E quais são as 6 formas de violência hoje expressas nos incisos I a VI?",
+    "a": "• <strong>Natureza do rol:</strong> <strong>EXEMPLIFICATIVO!</strong> O caput diz: <em>'São formas de violência doméstica e familiar contra a mulher, <strong>entre outras</strong>:'</em><br>• <strong>As 6 Formas Expressas (Incisos I a VI):</strong><br>I - Violência <strong>física</strong>;<br>II - Violência <strong>psicológica</strong>;<br>III - Violência <strong>sexual</strong>;<br>IV - Violência <strong>patrimonial</strong>;<br>V - Violência <strong>moral</strong>;<br>VI - Violência <strong>vicária</strong> <em>(incluída pela Lei nº 15.384, de 2026!)</em>."
+  },
+  {
+    "id": "fc-lmp-08",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Violência Física (Art. 7º, I)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso I: Qual é a definição legal exata de VIOLÊNCIA FÍSICA? Ela abrange a contravenção de vias de fato?",
+    "a": "• <strong>Definição literal (Art. 7º, I):</strong> <em>'a <strong>violência física</strong>, entendida como qualquer conduta que <strong>ofenda sua integridade ou saúde corporal</strong>;'</em><br>• <strong>Alcance:</strong> Abrange tanto o crime de lesão corporal (leve, grave, gravíssima ou seguida de morte) quanto a contravenção penal de <strong>vias de fato</strong> (empurrão, puxão de cabelo, tapa que não deixe vestígio pericial)."
+  },
+  {
+    "id": "fc-lmp-09",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Pegadinha Campeã IBAM: Violência Psicológica (Art. 7º, II)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso II (Redação da Lei 13.772/2018): Em qual forma de violência do Art. 7º estão expressamente incluídos o 'insulto', a 'ridicularização', a 'violação de sua intimidade' e a 'limitação do direito de ir e vir'?",
+    "a": "Na <strong>VIOLÊNCIA PSICOLÓGICA (Art. 7º, inciso II)</strong>!<br>• <strong>Meios expressos no inciso II:</strong> ameaça, constrangimento, humilhação, manipulação, isolamento, vigilância constante, perseguição contumaz, <strong>insulto</strong>, chantagem, <strong>violação de sua intimidade</strong> (incluída pela Lei 13.772/18), <strong>ridicularização</strong>, exploração e <strong>limitação do direito de ir e vir</strong> ou qualquer outro meio que lhe cause prejuízo à saúde psicológica e à autodeterminação."
+  },
+  {
+    "id": "fc-lmp-10",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Violência Sexual e Direitos Reprodutivos (Art. 7º, III)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso III: Quais são as condutas que caracterizam a VIOLÊNCIA SEXUAL além de manter relação sexual não desejada?",
+    "a": "Configura <strong>Violência Sexual (Art. 7º, III)</strong> qualquer conduta que:<br>1) Constranja a mulher a <strong>presenciar</strong>, a manter ou a participar de relação sexual não desejada;<br>2) Induza a <strong>comercializar ou a utilizar, de qualquer modo, a sua sexualidade</strong>;<br>3) <strong>Impeça de usar qualquer método contraceptivo</strong>;<br>4) <strong>Force ao matrimônio, à gravidez, ao aborto ou à prostituição</strong>, mediante coação, chantagem, suborno ou manipulação; ou<br>5) <strong>Limite ou anule o exercício de seus direitos sexuais e reprodutivos</strong>."
+  },
+  {
+    "id": "fc-lmp-11",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Violência Patrimonial (Art. 7º, IV)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso IV: Quais são os 3 verbos nucleares e os objetos materiais que configuram a VIOLÊNCIA PATRIMONIAL?",
+    "a": "• <strong>3 Verbos nucleares:</strong> <strong>Retenção, subtração, destruição parcial ou total</strong>.<br>• <strong>Objetos protegidos:</strong> Seus <strong>objetos</strong>, <strong>instrumentos de trabalho</strong>, <strong>documentos pessoais</strong>, <strong>bens, valores e direitos ou recursos econômicos</strong>, incluindo os destinados a satisfazer suas necessidades.<br><em>Pegadinha IBAM:</em> Reter ou destruir <strong>documentos pessoais</strong> (RG, CPF, CTPS) ou <strong>instrumentos de trabalho</strong> é Violência <strong>PATRIMONIAL</strong>!"
+  },
+  {
+    "id": "fc-lmp-12",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Violência Moral (Art. 7º, V)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso V: Qual é a definição legal estrita de VIOLÊNCIA MORAL?",
+    "a": "<em>'V - a <strong>violência moral</strong>, entendida como qualquer conduta que configure <strong>calúnia, difamação ou injúria</strong>.'</em><br><br><strong>Regra de Ouro IBAM:</strong> Falou nos 3 crimes contra a honra (<strong>Calúnia, Difamação ou Injúria</strong>) = <strong>Violência MORAL (inc. V)</strong>!"
+  },
+  {
+    "id": "fc-lmp-13",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Super Novidade 2026: Violência Vicária (Art. 7º, VI — Lei 15.384/2026)",
+    "q": "Lei nº 11.340/2006, Art. 7º, inciso VI (Incluído pela Lei nº 15.384/2026): Qual é o conceito legal de VIOLÊNCIA VICÁRIA?",
+    "a": "<em>'VI – a <strong>violência vicária</strong>, entendida como qualquer forma de violência praticada contra <strong>descendente, ascendente, dependente, enteado, parente, pessoa sob guarda ou responsabilidade direta da mulher ou pessoa de sua rede de apoio, com vistas a atingi-la</strong>.'</em><br><br><em>Conexão Penal:</em> Se o agente <strong>matar</strong> descendente, ascendente, dependente, enteado ou pessoa sob guarda da mulher para causar-lhe sofrimento, responde pelo crime autônomo de <strong>Vicaricídio (Art. 121-B do CP — reclusão de 20 a 40 anos)</strong>!"
+  },
+  {
+    "id": "fc-lmp-14",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Vedação da Lei 9.099/95 e Súmulas do STJ (Art. 41)",
+    "q": "Lei nº 11.340/2006, Art. 41 e Súmulas 536, 542 e 588 do STJ: Aplica-se a Lei 9.099/95 na violência doméstica contra a mulher? E qual a natureza da ação penal na lesão corporal doméstica?",
+    "a": "• <strong>Inaplicabilidade da Lei 9.099/1995 (Art. 41 e Súmula 536/STJ):</strong> Aos crimes (e contravenções) praticados com violência doméstica e familiar contra a mulher, <strong>independentemente da pena prevista, NÃO se aplica a Lei nº 9.099/1995</strong> (não cabe transação penal, composição civil nem suspensão condicional do processo).<br>• <strong>Súmula 542 do STJ:</strong> A ação penal relativa ao crime de lesão corporal resultante de violência doméstica contra a mulher é <strong>pública incondicionada</strong>.<br>• <strong>Súmula 588 do STJ e Art. 17:</strong> É vedada a substituição por pena restritiva de direitos, cesta básica ou pagamento isolado de multa."
+  },
+  {
+    "id": "fc-lmp-15",
+    "deck": "14. Lei 11.340/06 — Lei Maria da Penha",
+    "level": "Diferenciação Rápida de Véspera (Art. 7º, I a VI)",
+    "q": "Teste Rápido IBAM (Art. 7º): Classifique imediatamente cada conduta: (1) Rasgar RG/carteira de trabalho; (2) Impedir uso de anticoncepcional ou forçar aborto/casamento; (3) Violar intimidade ou limitar direito de ir e vir; (4) Caluniar ou difamar; (5) Agredir filho ou amiga da rede de apoio para atingir a mulher.",
+    "a": "1) Rasgar RG / carteira de trabalho / instrumento de trabalho &rarr; <strong>Violência PATRIMONIAL (inc. IV)</strong>;<br>2) Impedir anticoncepcional / forçar casamento, gravidez ou aborto &rarr; <strong>Violência SEXUAL (inc. III)</strong>;<br>3) Violar intimidade / insultar / limitar direito de ir e vir &rarr; <strong>Violência PSICOLÓGICA (inc. II)</strong>;<br>4) Caluniar, difamar ou injuriar &rarr; <strong>Violência MORAL (inc. V)</strong>;<br>5) Agredir filho, parente ou pessoa da rede de apoio com vistas a atingir a mulher &rarr; <strong>Violência VICÁRIA (inc. VI — Lei 15.384/26)</strong>."
   }
 ];
 
@@ -5295,6 +5404,7 @@
       { key: "11. Lei 8.069/90 — ECA", short: "Lei 8.069/90 (ECA)" },
       { key: "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", short: "Lei 10.741/03 (Idoso)" },
       { key: "13. Lei 10.826/03 — Estatuto do Desarmamento", short: "Lei 10.826/03 (Armas)" },
+      { key: "14. Lei 11.340/06 — Lei Maria da Penha", short: "Lei 11.340/06 (Maria da Penha)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -5313,6 +5423,7 @@
       if (rawDeck.includes("8.069") || rawDeck.includes("ECA")) return "11. Lei 8.069/90 — ECA";
       if (rawDeck.includes("10.741") || rawDeck.includes("Idosa") || rawDeck.includes("Idoso")) return "12. Lei 10.741/03 — Estatuto da Pessoa Idosa";
       if (rawDeck.includes("10.826") || rawDeck.includes("Desarmamento")) return "13. Lei 10.826/03 — Estatuto do Desarmamento";
+      if (rawDeck.includes("11.340") || rawDeck.includes("Maria da Penha")) return "14. Lei 11.340/06 — Lei Maria da Penha";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -5331,7 +5442,8 @@
         "lei-uso-forca": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-desarmamento": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-desarmamento": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-maria-penha": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5354,6 +5466,7 @@
         "11. Lei 8.069/90 — ECA",
         "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
         "13. Lei 10.826/03 — Estatuto do Desarmamento",
+        "14. Lei 11.340/06 — Lei Maria da Penha",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5597,15 +5710,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 a 13) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 14) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5841,11 +5954,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -5962,7 +6075,8 @@
       "lei-uso-forca": "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)",
       "lei-eca": "11. Lei 8.069/90 — ECA",
       "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
-      "lei-desarmamento": "13. Lei 10.826/03 — Estatuto do Desarmamento"
+      "lei-desarmamento": "13. Lei 10.826/03 — Estatuto do Desarmamento",
+      "lei-maria-penha": "14. Lei 11.340/06 — Lei Maria da Penha"
     };
 
     function getTopicFlashcardPerformance(topicId) {
