@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gcm-guarulhos-v14';
+const CACHE_NAME = 'gcm-guarulhos-v15';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
