@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">82%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">88%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">14 / 17 arquivos (82%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">14/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">15 / 17 arquivos (88%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">15/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">14 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">15 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">14 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA, Idoso, Desarmamento e Maria da Penha).</div>
+        <div class="kpi-sub desktop-only">15 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA, Idoso, Desarmamento, Maria da Penha e Abuso de Autoridade).</div>
       </div>
 
       <div class="kpi-card">
@@ -3420,6 +3420,7 @@
                 <option value="12. Lei 10.741/03 — Estatuto da Pessoa Idosa">12. Lei 10.741/03 — Estatuto da Pessoa Idosa</option>
                 <option value="13. Lei 10.826/03 — Estatuto do Desarmamento">13. Lei 10.826/03 — Estatuto do Desarmamento</option>
                 <option value="14. Lei 11.340/06 — Lei Maria da Penha">14. Lei 11.340/06 — Lei Maria da Penha (Arts. 1º ao 7º)</option>
+                <option value="15. Lei 13.869/19 — Abuso de Autoridade">15. Lei 13.869/19 — Lei de Abuso de Autoridade</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3718,10 +3719,13 @@
         block: "3. Legislação Extravagante Federal & Uso da Força — Peso 3",
         title: "Lei nº 13.869/2019 — Lei de Abuso de Autoridade (Conteúdo Integral)",
         shortTitle: "Lei 13.869/19 (Abuso de Autoridade)",
-        desc: "Dolo específico obrigatório (finalidade de prejudicar outrem ou beneficiar a si/terceiro ou mero capricho — Art. 1º, § 1º), efeitos da condenação e crimes em espécie.",
+        desc: "Dolo específico obrigatório (finalidade de prejudicar outrem ou beneficiar a si/terceiro ou mero capricho — Art. 1º, § 1º), efeitos da condenação, Violência Institucional (Art. 15-A) e crimes em espécie.",
         priority: "Alta Incidência",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-13869-2019-abuso-de-autoridade-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-15-lei-13869-2019-abuso-de-autoridade.pdf" }
+        ]
       },
 
       // BLOCO 4: LEGISLAÇÃO MUNICIPAL DE GUARULHOS
@@ -5380,6 +5384,111 @@
     "level": "Diferenciação Rápida de Véspera (Art. 7º, I a VI)",
     "q": "Teste Rápido IBAM (Art. 7º): Classifique imediatamente cada conduta: (1) Rasgar RG/carteira de trabalho; (2) Impedir uso de anticoncepcional ou forçar aborto/casamento; (3) Violar intimidade ou limitar direito de ir e vir; (4) Caluniar ou difamar; (5) Agredir filho ou amiga da rede de apoio para atingir a mulher.",
     "a": "1) Rasgar RG / carteira de trabalho / instrumento de trabalho &rarr; <strong>Violência PATRIMONIAL (inc. IV)</strong>;<br>2) Impedir anticoncepcional / forçar casamento, gravidez ou aborto &rarr; <strong>Violência SEXUAL (inc. III)</strong>;<br>3) Violar intimidade / insultar / limitar direito de ir e vir &rarr; <strong>Violência PSICOLÓGICA (inc. II)</strong>;<br>4) Caluniar, difamar ou injuriar &rarr; <strong>Violência MORAL (inc. V)</strong>;<br>5) Agredir filho, parente ou pessoa da rede de apoio com vistas a atingir a mulher &rarr; <strong>Violência VICÁRIA (inc. VI — Lei 15.384/26)</strong>."
+  },
+  {
+    "id": "fc-laa-01",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Elemento Subjetivo Especial e Crime de Hermenêutica (Art. 1º, §§ 1º e 2º)",
+    "q": "Lei nº 13.869/2019, Art. 1º, §§ 1º e 2º: Quais são as 3 finalidades específicas (dolo específico) exigidas para configurar crime de abuso de autoridade? E a divergência na interpretação de lei ou avaliação de provas configura crime?",
+    "a": "• <strong>Tríade do Dolo Específico (Art. 1º, § 1º):</strong> As condutas só constituem crime quando praticadas com a finalidade específica de:<br>1) <strong>Prejudicar outrem</strong>;<br>2) <strong>Beneficiar a si mesmo ou a terceiro</strong>; ou<br>3) Agir por <strong>mero capricho ou satisfação pessoal</strong>.<br><em>(Não existe abuso de autoridade culposo nem com dolo genérico!)</em><br>• <strong>Vedação ao Crime de Hermenêutica (Art. 1º, § 2º):</strong> <em>'A divergência na interpretação de lei ou na avaliação de fatos e provas <strong>não configura abuso de autoridade</strong>.'</em>"
+  },
+  {
+    "id": "fc-laa-02",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Sujeito Ativo do Crime (Art. 2º, I a VI e Parágrafo único)",
+    "q": "Lei nº 13.869/2019, Art. 2º e parágrafo único: Quem pode ser sujeito ativo de abuso de autoridade? Quem exerce função transitória ou sem remuneração responde pela lei?",
+    "a": "• <strong>Qualquer agente público, servidor ou não</strong>, da administração direta, indireta ou fundacional de qualquer dos Poderes da União, Estados, DF, Municípios e Território (o rol dos incisos I a VI é <strong>exemplificativo</strong>: <em>'compreendendo, mas não se limitando a'</em>).<br>• <strong>Conceito amplo (Parágrafo único):</strong> Reputa-se agente público todo aquele que exerce, <strong>ainda que transitoriamente ou sem remuneração</strong>, por eleição, nomeação, designação, contratação ou qualquer outra forma de investidura ou vínculo, mandato, cargo, emprego ou função."
+  },
+  {
+    "id": "fc-laa-03",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Ação Penal e Prazo da Ação Privada Subsidiária (Art. 3º, §§ 1º e 2º)",
+    "q": "Lei nº 13.869/2019, Art. 3º, caput e §§ 1º e 2º: Qual é a natureza da ação penal nos crimes de abuso de autoridade? E qual o prazo da ação privada subsidiária da pública?",
+    "a": "• <strong>Regra Geral (Art. 3º, caput):</strong> Todos os crimes previstos na Lei nº 13.869/2019 são de <strong>ação penal pública INCONDICIONADA</strong>.<br>• <strong>Ação Privada Subsidiária da Pública (§§ 1º e 2º):</strong> Será admitida se a ação penal pública não for intentada no prazo legal, devendo ser exercida no prazo decadencial de <strong>6 (seis) meses</strong>, contado da data em que se esgotar o prazo para oferecimento da denúncia."
+  },
+  {
+    "id": "fc-laa-04",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Efeitos da Condenação e Reincidência Específica (Art. 4º, I, II, III e p.ú.)",
+    "q": "Lei nº 13.869/2019, Art. 4º, incisos I, II e III e parágrafo único: Quais são os 3 efeitos da condenação? Quais deles são automáticos e quais exigem reincidência específica?",
+    "a": "• <strong>I - Tornar certa a obrigação de indenizar o dano</strong> (efeito automático, mas a fixação do <em>valor mínimo</em> na sentença exige <strong>requerimento do ofendido</strong>);<br>• <strong>II - Inabilitação</strong> para o exercício de cargo, mandato ou função pública, pelo período de <strong>1 (um) a 5 (cinco) ANOS</strong>;<br>• <strong>III - Perda do cargo, do mandato ou da função pública</strong>.<br>• <strong>Condição Obrigatória (Parágrafo único):</strong> Os efeitos dos <strong>incisos II e III</strong> são condicionados à <strong>reincidência específica em crime de abuso de autoridade</strong> e <strong>NÃO são automáticos</strong>, devendo ser declarados motivadamente na sentença!"
+  },
+  {
+    "id": "fc-laa-05",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Pegadinha IBAM: Penas Restritivas de Direitos (Art. 5º, I e II) vs. Efeitos (Art. 4º, II)",
+    "q": "Lei nº 13.869/2019, Art. 5º, I e II e parágrafo único: Quais são as 2 Penas Restritivas de Direitos (PRD) substitutivas na Lei de Abuso de Autoridade? Qual o prazo da suspensão do cargo e o que ocorre com os vencimentos?",
+    "a": "• <strong>As 2 Penas Restritivas de Direitos (Art. 5º):</strong><br>I - <strong>Prestação de serviços à comunidade ou a entidades públicas</strong>;<br>II - <strong>Suspensão do exercício do cargo, da função ou do mandato, pelo prazo de 1 (um) a 6 (seis) MESES, COM a perda dos vencimentos e das vantagens</strong>.<br>• <strong>Aplicação (p.ú.):</strong> Podem ser aplicadas <strong>autônoma ou cumulativamente</strong>.<br><em>Não confunda:</em> <strong>Inabilitação</strong> (Art. 4º, II) = efeito da condenação de <strong>1 a 5 anos</strong> (exige reincidência). <strong>Suspensão</strong> (Art. 5º, II) = PRD de <strong>1 a 6 meses COM perda dos vencimentos</strong> (não exige reincidência)!"
+  },
+  {
+    "id": "fc-laa-06",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Independência das Instâncias e Coisa Julgada das Excludentes (Arts. 6º, 7º e 8º)",
+    "q": "Lei nº 13.869/2019, Arts. 7º e 8º: Quando a decisão do juízo criminal faz coisa julgada nas esferas cível e administrativo-disciplinar?",
+    "a": "• <strong>Existência ou Autoria do fato (Art. 7º):</strong> Não se pode mais questionar no cível ou no administrativo sobre a <strong>existência ou a autoria do fato</strong> quando essas questões tenham sido decididas no juízo criminal.<br>• <strong>Excludentes de Ilicitude (Art. 8º):</strong> Faz coisa julgada em âmbito cível e no administrativo-disciplinar a sentença penal que reconhecer ter sido o ato praticado em <strong>estado de necessidade, em legítima defesa, em estrito cumprimento de dever legal ou no exercício regular de direito</strong>."
+  },
+  {
+    "id": "fc-laa-07",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Omissões na Prisão e Nota de Culpa em 24h (Art. 12, caput e p.ú., I a IV)",
+    "q": "Lei nº 13.869/2019, Art. 12 e parágrafo único: Qual a pena e quais são as 5 condutas omissivas ligadas à prisão e à nota de culpa tipificadas no Art. 12?",
+    "a": "• <strong>Pena:</strong> <strong>Detenção, de 6 (seis) meses a 2 (dois) anos, e multa</strong>.<br>• <strong>Condutas:</strong><br>- <em>Caput:</em> Deixar injustificadamente de comunicar prisão em flagrante ao juiz no prazo legal;<br>- <em>Inc. I:</em> Deixar de comunicar, <strong>imediatamente</strong>, a execução de prisão temporária ou preventiva ao juiz que a decretou;<br>- <em>Inc. II:</em> Deixar de comunicar, <strong>imediatamente</strong>, a prisão de qualquer pessoa e o local onde se encontra <strong>à sua família ou à pessoa por ela indicada</strong>;<br>- <em>Inc. III:</em> Deixar de entregar ao preso, no prazo de <strong>24 horas</strong>, a <strong>nota de culpa</strong> assinada pela autoridade, com o motivo da prisão e os nomes do <strong>condutor e das testemunhas</strong>;<br>- <em>Inc. IV:</em> Prolongar indevidamente a prisão deixando, sem motivo justo e excepcionalíssimo, de executar o alvará de soltura imediatamente."
+  },
+  {
+    "id": "fc-laa-08",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Constrangimento Ilegal de Preso ou Detento (Art. 13, I, II e III)",
+    "q": "Lei nº 13.869/2019, Art. 13, incisos I, II e III: Quais são as 3 finalidades do constrangimento de preso/detento punidas no Art. 13 e qual é a pena?",
+    "a": "• <strong>Conduta:</strong> Constranger o preso ou o detento, mediante <strong>violência, grave ameaça ou redução de sua capacidade de resistência</strong>, a:<br>I - <strong>exibir-se ou ter seu corpo ou parte dele exibido à curiosidade pública</strong>;<br>II - <strong>submeter-se a situação vexatória ou a constrangimento não autorizado em lei</strong> <em>(ex.: uso ilícito de algemas fora da SV 11)</em>;<br>III - <strong>produzir prova contra si mesmo ou contra terceiro</strong>.<br>• <strong>Pena:</strong> <strong>Detenção, de 1 (um) a 4 (quatro) anos, e multa, sem prejuízo da pena cominada à violência</strong>."
+  },
+  {
+    "id": "fc-laa-09",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Violência Institucional (Art. 15-A, §§ 1º e 2º — Incluído pela Lei 14.321/2022)",
+    "q": "Lei nº 13.869/2019, Art. 15-A (Lei 14.321/2022): O que configura o crime de VIOLÊNCIA INSTITUCIONAL, qual é a sua pena-base (única na lei!) e quais são as duas causas de aumento dos §§ 1º e 2º?",
+    "a": "• <strong>Conduta (Art. 15-A):</strong> Submeter a vítima de infração penal ou a testemunha de crimes violentos a procedimentos desnecessários, repetitivos ou invasivos, que a leve a reviver, sem estrita necessidade, a situação de violência (I) ou outras situações potencialmente geradoras de sofrimento ou estigmatização (II).<br>• <strong>Pena-base:</strong> <strong>Detenção, de 3 (três) meses a 1 (um) ano, e multa</strong> <em>(único crime dentro da Lei 13.869/19 com essa pena!)</em>.<br>• <strong>Majorante do § 1º (+2/3):</strong> Se o agente público <strong>permitir que terceiro intimide</strong> a vítima de crimes violentos, gerando indevida revitimização &rarr; <strong>pena aumentada de 2/3</strong>.<br>• <strong>Majorante do § 2º (DOBRO):</strong> Se o <strong>próprio agente público intimidar</strong> a vítima de crimes violentos, gerando indevida revitimização &rarr; <strong>pena em DOBRO</strong>!"
+  },
+  {
+    "id": "fc-laa-10",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Identificação na Captura, Silêncio, Repouso Noturno e Advogado (Arts. 15, p.ú., 16, 18 e 20)",
+    "q": "Lei nº 13.869/2019, Arts. 15, p.ú., 16, 18 e 20: Compare as condutas e penas: (1) Prosseguir interrogatório após direito ao silêncio ou sem advogado escolhido; (2) Deixar de identificar-se ou identificar-se falsamente ao preso; (3) Interrogatório policial no repouso noturno; (4) Impedir entrevista reservada com advogado.",
+    "a": "• <strong>(1) Art. 15, p.ú. (Detenção de 1 a 4 anos e multa):</strong> Prosseguir com o interrogatório de pessoa que tenha decidido exercer o <strong>direito ao silêncio</strong> (I) ou que tenha optado por ser assistida por advogado/defensor, <strong>sem a presença de seu patrono</strong> (II).<br>• <strong>(2) Art. 16 (Detenção de 6 meses a 2 anos e multa):</strong> Deixar de identificar-se ou identificar-se falsamente ao preso na captura, detenção, prisão ou interrogatório.<br>• <strong>(3) Art. 18 (Detenção de 6 meses a 2 anos e multa):</strong> Submeter o preso a interrogatório policial durante o período de <strong>repouso noturno</strong>, <strong>SALVO se capturado em flagrante delito ou se ele, devidamente assistido, consentir em prestar declarações</strong>.<br>• <strong>(4) Art. 20 (Detenção de 6 meses a 2 anos e multa):</strong> Impedir, sem justa causa, a entrevista pessoal e reservada do preso com seu advogado."
+  },
+  {
+    "id": "fc-laa-11",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Confinamento Conjunto Ilegal de Sexos Distintos ou Menor com Adulto (Art. 21 e p.ú.)",
+    "q": "Lei nº 13.869/2019, Art. 21, caput e parágrafo único: Quais são as duas formas de confinamento conjunto ilegal tipificadas no Art. 21 e qual é a pena?",
+    "a": "• <strong>Caput:</strong> Manter <strong>presos de ambos os sexos na mesma cela ou espaço de confinamento</strong>.<br>• <strong>Parágrafo único:</strong> Manter, na mesma cela, <strong>criança ou adolescente na companhia de maior de idade ou em ambiente inadequado</strong>, observado o disposto no ECA (Lei nº 8.069/1990).<br>• <strong>Pena:</strong> <strong>Detenção, de 1 (um) a 4 (quatro) anos, e multa</strong>."
+  },
+  {
+    "id": "fc-laa-12",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Violação de Domicílio e Horário do Mandado de Busca e Apreensão (Art. 22, §§ 1º e 2º)",
+    "q": "Lei nº 13.869/2019, Art. 22, caput e §§ 1º e 2º: Qual é o horário proibido para cumprir mandado de busca e apreensão domiciliar na Lei de Abuso de Autoridade? Qual a pena e quais as 3 excludentes do § 2º?",
+    "a": "• <strong>Horário Proibido do Mandado (Art. 22, § 1º, III):</strong> Cumprir mandado de busca e apreensão domiciliar <strong>APÓS AS 21H (vinte e uma horas) OU ANTES DAS 5H (cinco horas)</strong>.<br>• <strong>Pena do Art. 22 (caput e § 1º):</strong> <strong>Detenção, de 1 (um) a 4 (quatro) anos, e multa</strong>.<br>• <strong>3 Excludentes de Crime (§ 2º):</strong> Não haverá crime se o ingresso for para <strong>prestar socorro</strong>, ou quando houver <strong>fundados indícios</strong> que indiquem a necessidade do ingresso em razão de situação de <strong>flagrante delito</strong> ou de <strong>desastre</strong>."
+  },
+  {
+    "id": "fc-laa-13",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Inovação Artificiosa (Art. 23), Admissão Hospitalar de Óbito (Art. 24) e Prova Ilícita (Art. 25)",
+    "q": "Lei nº 13.869/2019, Arts. 23, 24 e 25: O que tipificam os crimes de inovação artificiosa (Art. 23), constrangimento hospitalar de cadáver (Art. 24) e prova ilícita (Art. 25), e qual a pena comum aos três?",
+    "a": "• <strong>Pena comum aos três (Arts. 23, 24 e 25):</strong> <strong>Detenção, de 1 (um) a 4 (quatro) anos, e multa</strong> (no Art. 24, <em>além da pena correspondente à violência</em>).<br>• <strong>Art. 23 (Fraude em diligência):</strong> Inovar artificiosamente, no curso de diligência, investigação ou processo, o estado de lugar, coisa ou pessoa (inclusive para se eximir de responsabilidade civil ou administrativa por excesso praticado no curso de diligência).<br>• <strong>Art. 24 (Falso socorro de óbito):</strong> Constranger, sob violência ou grave ameaça, funcionário/empregado de instituição hospitalar <strong>pública ou privada</strong> a admitir para tratamento pessoa cujo óbito já tenha ocorrido, com o fim de alterar local ou momento de crime.<br>• <strong>Art. 25 (Prova ilícita):</strong> Proceder à obtenção de prova por meio manifestamente ilícito ou fazer uso dela com prévio conhecimento de sua ilicitude."
+  },
+  {
+    "id": "fc-laa-14",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Exigência Sem Amparo Legal e 'Carteirada' (Art. 33, caput e p.ú.)",
+    "q": "Lei nº 13.869/2019, Art. 33, caput e parágrafo único: Como a lei tipifica a exigência de obrigação sem amparo legal e a chamada 'carteirada', e qual é a pena?",
+    "a": "• <strong>Caput:</strong> Exigir informação ou cumprimento de obrigação, inclusive o dever de fazer ou de não fazer, <strong>sem expresso amparo legal</strong>.<br>• <strong>Parágrafo único ('Carteirada'):</strong> Incorre na mesma pena quem <strong>se utiliza de cargo ou função pública ou invoca a condição de agente público para se eximir de obrigação legal ou para obter vantagem ou privilégio indevido</strong>.<br>• <strong>Pena:</strong> <strong>Detenção, de 6 (seis) meses a 2 (dois) anos, e multa</strong>."
+  },
+  {
+    "id": "fc-laa-15",
+    "deck": "15. Lei 13.869/19 — Abuso de Autoridade",
+    "level": "Mapa Geral das 3 Faixas de Penas da Lei 13.869/2019 (Revisão de Véspera)",
+    "q": "Resumo Cirúrgico IBAM: Quais são as 3 únicas faixas de pena privativa de liberdade existentes dentro dos crimes da Lei nº 13.869/2019 (arts. 9º a 38) e qual a única alteração legislativa do art. 41 punida com reclusão?",
+    "a": "Dentro dos arts. 9º a 38 da Lei nº 13.869/2019 só existe <strong>DETENÇÃO + MULTA</strong> em 3 faixas:<br>1) <strong>Detenção de 3 meses a 1 ano, e multa:</strong> Apenas o <strong>Art. 15-A (Violência Institucional)</strong> [+2/3 se permitir que 3º intimide; dobro se o agente intimidar] (e o art. 7º-B do EOAB no art. 43);<br>2) <strong>Detenção de 6 meses a 2 anos, e multa:</strong> Arts. <strong>12</strong> (comunicações/nota de culpa 24h), <strong>16</strong> (identificação), <strong>18</strong> (interrogatório noturno), <strong>20</strong> (entrevista c/ advogado), <strong>27</strong> (instaurar investigação sem indício), <strong>29</strong> (info falsa), <strong>31</strong> (procrastinar investigação), <strong>32</strong> (negar acesso aos autos), <strong>33</strong> (obrigação sem lei / carteirada), <strong>37</strong> (vista colegiado) e <strong>38</strong> (antecipar culpa inclusive em rede social);<br>3) <strong>Detenção de 1 a 4 anos, e multa:</strong> Arts. <strong>9º, 10, 13, 15, 19, 21, 22</strong> (domicílio / mandado 21h-5h), <strong>23, 24, 25, 28, 30 e 36</strong>.<br><em>Exceção fora da lei (Art. 41):</em> Alterou o art. 10 da Lei 9.296/96 (interceptação telefônica/informática/telemática ou escuta ambiental sem ordem judicial) = <strong>Reclusão, de 2 a 4 anos, e multa</strong>!"
   }
 ];
 
@@ -5405,6 +5514,7 @@
       { key: "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", short: "Lei 10.741/03 (Idoso)" },
       { key: "13. Lei 10.826/03 — Estatuto do Desarmamento", short: "Lei 10.826/03 (Armas)" },
       { key: "14. Lei 11.340/06 — Lei Maria da Penha", short: "Lei 11.340/06 (Maria da Penha)" },
+      { key: "15. Lei 13.869/19 — Abuso de Autoridade", short: "Lei 13.869/19 (Abuso)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -5424,6 +5534,7 @@
       if (rawDeck.includes("10.741") || rawDeck.includes("Idosa") || rawDeck.includes("Idoso")) return "12. Lei 10.741/03 — Estatuto da Pessoa Idosa";
       if (rawDeck.includes("10.826") || rawDeck.includes("Desarmamento")) return "13. Lei 10.826/03 — Estatuto do Desarmamento";
       if (rawDeck.includes("11.340") || rawDeck.includes("Maria da Penha")) return "14. Lei 11.340/06 — Lei Maria da Penha";
+      if (rawDeck.includes("13.869") || rawDeck.includes("Abuso de Autoridade")) return "15. Lei 13.869/19 — Abuso de Autoridade";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -5443,7 +5554,8 @@
         "lei-eca": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-desarmamento": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-maria-penha": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-maria-penha": { lei: true, pdf: true, questoes: false, revisado: false },
+        "lei-abuso": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5467,6 +5579,7 @@
         "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
         "13. Lei 10.826/03 — Estatuto do Desarmamento",
         "14. Lei 11.340/06 — Lei Maria da Penha",
+        "15. Lei 13.869/19 — Abuso de Autoridade",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5710,15 +5823,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 a 14) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 15) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -5954,11 +6067,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -6076,7 +6189,8 @@
       "lei-eca": "11. Lei 8.069/90 — ECA",
       "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
       "lei-desarmamento": "13. Lei 10.826/03 — Estatuto do Desarmamento",
-      "lei-maria-penha": "14. Lei 11.340/06 — Lei Maria da Penha"
+      "lei-maria-penha": "14. Lei 11.340/06 — Lei Maria da Penha",
+      "lei-abuso": "15. Lei 13.869/19 — Abuso de Autoridade"
     };
 
     function getTopicFlashcardPerformance(topicId) {
