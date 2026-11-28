@@ -3044,10 +3044,10 @@
           <div class="kpi-top">
             <span class="kpi-title desktop-only">Progresso do Guia de Legislação</span>
             <span class="kpi-title mobile-only-inline">Guia</span>
-            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">88%</span>
+            <span class="kpi-badge-right" style="color:#38bdf8;font-weight:800;" id="kpi-percent-txt">94%</span>
           </div>
-          <div class="kpi-value desktop-only" id="kpi-checks-count">15 / 17 arquivos (88%)</div>
-          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">15/17</div>
+          <div class="kpi-value desktop-only" id="kpi-checks-count">16 / 17 arquivos (94%)</div>
+          <div class="kpi-value mobile-only" id="kpi-checks-count-mob">16/17</div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="kpi-progress-bar"></div>
           </div>
@@ -3062,9 +3062,9 @@
             <span class="kpi-title mobile-only-inline">PDFs</span>
             <span class="desktop-only" style="color:#10b981;font-weight:800;">Prontos p/ Leitura</span>
           </div>
-          <div class="kpi-value" id="kpi-pdfs-ready">15 Tópicos</div>
+          <div class="kpi-value" id="kpi-pdfs-ready">16 Tópicos</div>
         </div>
-        <div class="kpi-sub desktop-only">15 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA, Idoso, Desarmamento, Maria da Penha e Abuso de Autoridade).</div>
+        <div class="kpi-sub desktop-only">16 PDFs decupados com lei seca compilada e quadros sinópticos prontos (CF 5º, 6º, 144 + CP 121-129, 146-150, 155-159, 312-327 + CPP 301-310 + Leis 13.022/14, 13.060/14, ECA, Idoso, Desarmamento, Maria da Penha, Abuso de Autoridade e Lei Municipal 7.792/19).</div>
       </div>
 
       <div class="kpi-card">
@@ -3421,6 +3421,7 @@
                 <option value="13. Lei 10.826/03 — Estatuto do Desarmamento">13. Lei 10.826/03 — Estatuto do Desarmamento</option>
                 <option value="14. Lei 11.340/06 — Lei Maria da Penha">14. Lei 11.340/06 — Lei Maria da Penha (Arts. 1º ao 7º)</option>
                 <option value="15. Lei 13.869/19 — Abuso de Autoridade">15. Lei 13.869/19 — Lei de Abuso de Autoridade</option>
+                <option value="16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM">16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM Guarulhos</option>
                 <option value="Conteúdo ainda não estudado">⏳ Conteúdo ainda não estudado (Outros Temas do Guia)</option>
               </select>
               <input type="text" id="new-fc-q" placeholder="Pergunta da Frente (ex: Qual a pena da Violação de Domicílio qualificada no art. 150, § 1º?)">
@@ -3732,12 +3733,15 @@
       {
         id: "mun-7792",
         block: "4. Legislação Municipal de Guarulhos — Peso 3",
-        title: "Lei Municipal nº 7.792/2019 — Estatuto da GCM de Guarulhos & Anexo II",
+        title: "Lei Municipal nº 7.792/2019 — Estatuto e Plano de Carreira da GCM de Guarulhos & Anexo II",
         shortTitle: "Lei Mun. 7.792/19 (Estatuto GCM)",
-        desc: "Organização e funcionamento da GCM Guarulhos, carreira, ingresso, atribuições de GCM 3ª Classe, deveres funcionais, proibições e regime disciplinar.",
+        desc: "Conceitos (Nível, Categoria, Grau, Referência), 3 Níveis (60% / 38,5% / 1,5%), ingresso na 3ª Classe, evolução funcional (Promoção Horizontal, Progressão, Promoção Vertical), Folga Mérito e Anexo II.",
         priority: "Altíssima Incidência (Foco Máximo IBAM)",
-        hasPdf: false,
-        pdfs: []
+        hasPdf: true,
+        pdfs: [
+          { label: "📄 PDF Decupado", url: "./lei-municipal-7792-2019-gcm-guarulhos-decupado.pdf" },
+          { label: "📝 Caderno de Questões", url: "./Questões/questoes-16-lei-municipal-7792-2019-gcm-guarulhos.pdf" }
+        ]
       },
       {
         id: "mun-8361-dec44264",
@@ -5489,6 +5493,111 @@
     "level": "Mapa Geral das 3 Faixas de Penas da Lei 13.869/2019 (Revisão de Véspera)",
     "q": "Resumo Cirúrgico IBAM: Quais são as 3 únicas faixas de pena privativa de liberdade existentes dentro dos crimes da Lei nº 13.869/2019 (arts. 9º a 38) e qual a única alteração legislativa do art. 41 punida com reclusão?",
     "a": "Dentro dos arts. 9º a 38 da Lei nº 13.869/2019 só existe <strong>DETENÇÃO + MULTA</strong> em 3 faixas:<br>1) <strong>Detenção de 3 meses a 1 ano, e multa:</strong> Apenas o <strong>Art. 15-A (Violência Institucional)</strong> [+2/3 se permitir que 3º intimide; dobro se o agente intimidar] (e o art. 7º-B do EOAB no art. 43);<br>2) <strong>Detenção de 6 meses a 2 anos, e multa:</strong> Arts. <strong>12</strong> (comunicações/nota de culpa 24h), <strong>16</strong> (identificação), <strong>18</strong> (interrogatório noturno), <strong>20</strong> (entrevista c/ advogado), <strong>27</strong> (instaurar investigação sem indício), <strong>29</strong> (info falsa), <strong>31</strong> (procrastinar investigação), <strong>32</strong> (negar acesso aos autos), <strong>33</strong> (obrigação sem lei / carteirada), <strong>37</strong> (vista colegiado) e <strong>38</strong> (antecipar culpa inclusive em rede social);<br>3) <strong>Detenção de 1 a 4 anos, e multa:</strong> Arts. <strong>9º, 10, 13, 15, 19, 21, 22</strong> (domicílio / mandado 21h-5h), <strong>23, 24, 25, 28, 30 e 36</strong>.<br><em>Exceção fora da lei (Art. 41):</em> Alterou o art. 10 da Lei 9.296/96 (interceptação telefônica/informática/telemática ou escuta ambiental sem ordem judicial) = <strong>Reclusão, de 2 a 4 anos, e multa</strong>!"
+  },
+  {
+    "id": "fc-m7792-01",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Conceitos Fundamentais da Carreira (Art. 2º, I a IV)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 2º, incisos I a IV: Como a lei conceitua NÍVEL, CATEGORIA, GRAU e REFERÊNCIA na carreira da GCM de Guarulhos?",
+    "a": "• <strong>I - NÍVEL (I a III):</strong> é o <strong>agrupamento de categorias diversas</strong>, vinculadas ao cargo ou emprego público de GCM, cujas atribuições são similares;<br>• <strong>II - CATEGORIA (1 a 8):</strong> é o elemento indicativo da <strong>posição hierárquica</strong> do titular de cargo ou emprego público de GCM <strong>no respectivo nível</strong>;<br>• <strong>III - GRAU (A a H):</strong> é a <strong>letra indicativa da posição hierárquica</strong> do titular de cargo ou emprego público de GCM <strong>na respectiva categoria</strong>;<br>• <strong>IV - REFERÊNCIA (I a IV):</strong> é o elemento representado por <strong>números romanos e indica a posição vertical</strong> do titular de cargo ou emprego público de GCM <strong>no respectivo nível da carreira</strong>."
+  },
+  {
+    "id": "fc-m7792-02",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Estrutura Hierárquica e Percentuais do Efetivo (Art. 4º, I, II e III + Anexo I)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 4º e Anexo I: Quais são os 3 níveis da carreira da GCM Guarulhos, seus respectivos percentuais do efetivo (1.500 vagas) e quais categorias integram cada nível?",
+    "a": "A carreira possui <strong>3 níveis (I a III)</strong>, <strong>8 categorias (1 a 8)</strong> e <strong>8 graus (A a H)</strong>:<br>• <strong>I - Nível I — Execução = 60% do efetivo (900 vagas):</strong><br>&nbsp;&nbsp;a) Cat. 1 - <strong>3ª Classe</strong> (Ref. I); b) Cat. 2 - <strong>2ª Classe</strong> (Ref. II); c) Cat. 3 - <strong>1ª Classe</strong> (Ref. III); d) Cat. 4 - <strong>Classe Especial</strong> (Ref. IV).<br>• <strong>II - Nível II — Tático = 38,5% do efetivo (577 vagas):</strong><br>&nbsp;&nbsp;a) Cat. 5 - <strong>Classe Distinta</strong> (Ref. I); b) Cat. 6 - <strong>2º Inspetor</strong> (Ref. II).<br>• <strong>III - Nível III — Estratégico = 1,5% do efetivo (23 vagas):</strong><br>&nbsp;&nbsp;a) Cat. 7 - <strong>1º Inspetor</strong> (Ref. I); b) Cat. 8 - <strong>Inspetor Chefe</strong> (Ref. II)."
+  },
+  {
+    "id": "fc-m7792-03",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Posição Inicial na Vacância e Vedação de Lotação (Art. 4º, §§ 2º e 3º e Art. 5º)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 4º, §§ 2º e 3º e Art. 5º: Em qual grau e categoria situam-se inicialmente os cargos? O que ocorre com o emprego público quando fica vago? E onde é permitida a lotação da GCM?",
+    "a": "• <strong>Posição inicial e retorno na vacância (Art. 4º, § 2º):</strong> Todos os cargos e empregos públicos situam-se, inicialmente, no <strong>grau A da primeira categoria de cada nível, e a ele retornam quando vagos</strong>.<br>• <strong>Emprego público vago (Art. 4º, § 3º):</strong> Será <strong>transformado em cargo de provimento efetivo</strong> a ser provido mediante concurso público ou promoção vertical.<br>• <strong>Vedação de lotação (Art. 5º):</strong> Fica <strong>vedada a lotação</strong> dos cargos e empregos públicos do Quadro Técnico da GCM <strong>fora da Secretaria para Assuntos de Segurança Pública — SASP</strong>."
+  },
+  {
+    "id": "fc-m7792-04",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Cargos em Comissão e Requisitos de Categoria/Nível (Art. 6º — Lei 8.429/2025)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 6º (atualizado pela Lei nº 8.429/2025): Quais são os requisitos de categoria, nível e escolaridade para ser nomeado Comandante Geral, Subcomandante e Inspetor Geral da GCM Guarulhos?",
+    "a": "Todos são cargos de livre provimento em comissão ocupados <strong>exclusivamente por integrantes da carreira da GCM</strong>, indicados pelo Chefe do Executivo, com <strong>graduação (diploma de nível superior) reconhecida pelo MEC, em qualquer área de formação</strong>:<br>• <strong>Comandante Geral da GCM:</strong> dentre servidores das <strong>Categorias 7 e 8, do Nível III</strong> (1º Inspetor ou Inspetor Chefe);<br>• <strong>Subcomandante da GCM:</strong> dentre servidores <strong>a partir da Categoria 6, do Nível II</strong> (2º Inspetor, 1º Inspetor ou Inspetor Chefe);<br>• <strong>Inspetor Geral da GCM:</strong> dentre servidores <strong>a partir da Categoria 5, do Nível II</strong> (Classe Distinta, 2º Inspetor, 1º Inspetor ou Inspetor Chefe)."
+  },
+  {
+    "id": "fc-m7792-05",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Jornada de Trabalho, Ingresso, Altura e Cota Feminina (Arts. 9º e 10)",
+    "q": "Lei Municipal nº 7.792/2019, Arts. 9º e 10: Qual é a jornada semanal da GCM, o cargo exclusivo de ingresso, a altura mínima exigida e o percentual mínimo de vagas para o sexo feminino?",
+    "a": "• <strong>Jornada de trabalho (Art. 9º):</strong> <strong>40 (quarenta) horas semanais</strong>, podendo ser cumprida em regime de revezamento e plantão.<br>• <strong>Cargo exclusivo de ingresso (Art. 10, caput):</strong> <strong>Guarda Civil Municipal, Grau A, da Categoria 1 — 3ª Classe, do Nível I</strong> (mediante concurso de provas ou de provas e títulos).<br>• <strong>Altura mínima (Art. 10, § 1º, II):</strong> <strong>1,55m se mulher</strong> e <strong>1,60m se homem</strong>.<br>• <strong>Cota feminina (Art. 10, §§ 2º e 3º):</strong> Percentual <strong>mínimo de 20% para o sexo feminino</strong> (se não houver candidatas classificadas suficientes, as vagas remanescentes são revertidas para o concurso masculino)."
+  },
+  {
+    "id": "fc-m7792-06",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Pegadinha Campeã IBAM: CNH na Posse (Art. 11) vs. CNH no Enquadramento para 2ª Classe (Art. 17)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 11, § 1º, VI e § 2º (Lei 7.939/2021) vs. Art. 17: Qual categoria de CNH é exigida para a POSSE na 3ª Classe (aceita provisória?) e qual é exigida após os 3 anos do estágio probatório para o ENQUADRAMENTO na 2ª Classe?",
+    "a": "• <strong>Para a POSSE na 3ª Classe (Art. 11, § 1º, VI e § 2º — NR Lei 7.939/2021):</strong> Exige-se <strong>CNH na categoria “B” ou superior</strong>! E o § 2º <strong>ACEITA a carteira de habilitação provisória</strong>, sem prejuízo da exoneração no caso de cassação ou suspensão no período de estágio probatório.<br>• <strong>Para o ENQUADRAMENTO na 2ª Classe após o estágio probatório (Art. 17):</strong> Exige-se aprovação no estágio probatório (3 anos) E comprovar habilitação para conduzir veículos nas <strong>categorias “A” e “D”</strong>!"
+  },
+  {
+    "id": "fc-m7792-07",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Curso de Formação, Investigação Social e Estágio Probatório (Arts. 12 a 16)",
+    "q": "Lei Municipal nº 7.792/2019, Arts. 12 a 16: Qual a duração do curso de formação? Até quando vai a investigação social da Corregedoria? E o GCM 3ª Classe pode ser promovido durante os 3 anos do estágio probatório?",
+    "a": "• <strong>Curso de Formação e Capacitação Física (Arts. 12 e 13):</strong> Integra a fase do estágio probatório, tem <strong>duração de 1 (um) ano</strong> e é ministrado pela GCM concomitantemente com o exercício do cargo. A reprovação ou falta de frequência mínima acarreta <strong>exoneração no interesse do serviço público</strong>.<br>• <strong>Investigação Social (Art. 14, § 1º):</strong> Priorizada pela Corregedoria; ocorre no concurso, no estágio probatório e <strong>estende-se por TODA a vida funcional na GCM</strong> (inclusive para liderança ou cargos em comissão).<br>• <strong>Estágio Probatório (Arts. 15 e 16):</strong> Dura <strong>3 (três) anos</strong>. Durante o estágio probatório, o GCM 3ª Classe <strong>NÃO poderá ser promovido nos graus ou a outra categoria (§ 3º)</strong>!"
+  },
+  {
+    "id": "fc-m7792-08",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Promoção Horizontal: Conceito, Periodicidade, Mês e Requisitos (Art. 21, §§ 1º a 7º)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 21: O que é a Promoção Horizontal, de quanto em quanto tempo e em qual mês ocorre, quais os seus requisitos e qual a exceção remuneratória do § 7º?",
+    "a": "• <strong>Conceito (Art. 21, caput):</strong> Passagem de um determinado <strong>grau para o imediatamente posterior (A &rarr; H), do mesmo nível e categoria</strong>.<br>• <strong>Periodicidade e Mês (§ 1º):</strong> A cada <strong>2 (dois) anos, no mês de ABRIL</strong> (envio de dados pela SASP ao DRH nos <strong>30 dias</strong> anteriores — § 3º).<br>• <strong>Requisitos até 31/12 do ano anterior (§ 2º):</strong> Mínimo de <strong>2 anos de efetivo exercício no grau</strong> + aprovação no último curso de formação/aperfeiçoamento + pontuação mínima de <strong>70% na Avaliação de Desempenho</strong>.<br>• <strong>Exceção remuneratória (§ 7º):</strong> Integra a remuneração salarial para todos os efeitos, <strong>EXCETO para adicional por tempo de serviço e sexta parte</strong>!"
+  },
+  {
+    "id": "fc-m7792-09",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Progressão vs. Promoção Vertical e Horas de Cursos (Arts. 22 e 23)",
+    "q": "Lei Municipal nº 7.792/2019, Arts. 22 e 23: Qual a diferença entre Progressão e Promoção Vertical? Qual a periodicidade, o prazo de envio de dados pela SASP e a carga horária de cursos de aperfeiçoamento para os Níveis I, II e III?",
+    "a": "• <strong>Progressão (Art. 22):</strong> Passagem da categoria atual para a <strong>categoria imediatamente superior</strong> no mesmo nível.<br>• <strong>Promoção Vertical (Art. 22 e 23, § 2º):</strong> Quando a passagem de categoria implicar <strong>mudança de nível</strong> (ex.: Classe Especial [Nível I] &rarr; Classe Distinta [Nível II]; ou 2º Inspetor [Nível II] &rarr; 1º Inspetor [Nível III]), exigindo também <strong>avaliação de conhecimentos específicos por provas ou provas e títulos</strong>.<br>• <strong>Periodicidade e Prazos:</strong> Realizadas a cada <strong>3 (três) anos</strong> (§ 1º); envio pela SASP nos <strong>45 dias</strong> anteriores (§ 2º); inscrições <strong><em>ex officio</em></strong> pelo DRH (§ 3º). Ao subir, reinicia no <strong>Grau A</strong> (Art. 21, § 6º).<br>• <strong>Horas de Cursos de Aperfeiçoamento (Art. 23, § 1º):</strong><br>&nbsp;&nbsp;I - <strong>240 horas</strong> para o <strong>Nível I</strong>;<br>&nbsp;&nbsp;II - <strong>300 horas</strong> para o <strong>Nível II</strong>;<br>&nbsp;&nbsp;III - <strong>340 horas</strong> para o <strong>Nível III</strong>."
+  },
+  {
+    "id": "fc-m7792-10",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Requisitos Concomitantes da Progressão e Promoção Vertical (Art. 23, I a V) e Desempate (Art. 20)",
+    "q": "Lei Municipal nº 7.792/2019, Arts. 19, 20 e 23, I a V: Quais são os 5 requisitos concomitantes do Art. 23 para a Progressão e Promoção Vertical e qual é o critério mínimo de desempate do Art. 20?",
+    "a": "• <strong>5 Requisitos Concomitantes (Art. 23, I a V):</strong><br>I - mínimo de <strong>2 (dois) anos de efetivo exercício na categoria</strong> em que se encontra;<br>II - pontuação mínima de <strong>70% na avaliação de desempenho</strong>;<br>III - aprovação em <strong>Teste de Aptidão Física — TAF</strong>;<br>IV - estar em dia com a <strong>avaliação psicológica para porte de arma</strong>;<br>V - para as categorias do <strong>Nível III, possuir diploma de nível superior</strong> reconhecido pelo MEC.<br>• <strong>Critério mínimo de desempate (Art. 20):</strong> Privilegia a <strong>MAIOR IDADE</strong>!"
+  },
+  {
+    "id": "fc-m7792-11",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Folga Mérito e Elogio: Prazos, Limites e Imprescritibilidade (Arts. 24-A a 24-I — Lei 8.069/2022)",
+    "q": "Lei Municipal nº 7.792/2019, Arts. 24-A a 24-I (Lei 8.069/2022): Quais são os prazos (de petição e de pedido de gozo), os limites anual e mensal, a autoridade competente e a regra de prescrição da Folga Mérito?",
+    "a": "• <strong>Hipótese (Arts. 24-A e 24-I):</strong> Atos de coragem, desprendimento, dedicação, destreza e expertise em <strong>situação atípica</strong> (é <strong>vedada</strong> para ocorrências corriqueiras!).<br>• <strong>Prazo para peticionar (Art. 24-B):</strong> Máximo de <strong>5 (cinco) dias úteis</strong> a contar do ato meritório.<br>• <strong>Autoridade competente (Arts. 24-C e 24-H):</strong> <strong>Comandante Geral da GCM</strong> analisa, delibera e publica no Diário Oficial.<br>• <strong>Limites e Imprescritibilidade (Art. 24-D):</strong> Considerada de efetivo exercício; máximo de <strong>4 (quatro) ao ano</strong> e <strong>1 (uma) por mês</strong>. <strong>A Folga Mérito concedida NÃO prescreverá!</strong><br>• <strong>Antecedência para usufruir (Art. 24-F):</strong> Requerer por escrito com antecedência mínima de <strong>5 (cinco) dias úteis</strong> (deliberado pelo superior hierárquico)."
+  },
+  {
+    "id": "fc-m7792-12",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Impedimentos Disciplinares para Folga Mérito (Art. 24-E, I a IV)",
+    "q": "Lei Municipal nº 7.792/2019, Art. 24-E, incisos I a IV: Quais são os 4 prazos retroativos (em meses) em que punições disciplinares impedem a concessão de Folga Mérito?",
+    "a": "Não será concedida Folga Mérito a quem tenha sido penalizado administrativamente antes do ato meritório com:<br>• <strong>I - Advertência ou repreensão:</strong> nos <strong>6 (SEIS) MESES</strong> anteriores;<br>• <strong>II - Suspensão de até 1 (um) dia:</strong> nos <strong>12 (DOZE) MESES</strong> anteriores;<br>• <strong>III - Suspensão (individualizada ou somada) que NÃO ultrapasse 10 dias:</strong> nos <strong>24 (VINTE E QUATRO) MESES</strong> anteriores;<br>• <strong>IV - Suspensão (individualizada ou somada) que ULTRAPASSE 10 dias:</strong> nos <strong>36 (TRINTA E SEIS) MESES</strong> anteriores.<br><em>(Bizu de memorização: múltiplos de 6 e 12 &rarr; <strong>6m, 12m, 24m e 36m</strong>!)</em>"
+  },
+  {
+    "id": "fc-m7792-13",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Anexo II (Item A): Atribuições Comuns e Exceção de Manifestação em PAD (Inciso XIII)",
+    "q": "Lei Municipal nº 7.792/2019, Anexo II, Item A, incisos VIII, XI, XIII e XXVI a XXIX: Em qual situação é FACULTATIVO ao GCM manifestar-se em documentações do serviço? E quais são as 4 fiscalizações urbanas expressas nos incisos XXVI a XXIX?",
+    "a": "• <strong>Exceção de Manifestação (Item A, XIII):</strong> O GCM deve manifestar-se em todas as documentações pertinentes ao serviço, <strong>SALVO em processo administrativo disciplinar (PAD) contra si, parente até segundo grau, cônjuge ou companheiro, quando lhe será FACULTATIVO fazê-lo</strong>!<br>• <strong>Polícia Administrativa Subsidiária (VIII) e Flagrante (XI):</strong> Exerce poder de polícia administrativa de forma subsidiária; em flagrante delito, encaminha o autor ao delegado de polícia, preservando o local do crime.<br>• <strong>4 Fiscalizações Urbanas (XXVI a XXIX):</strong> Comércio ambulante (XXVI); limpeza urbana / descarte irregular de resíduos (XXVII); fixação de cartazes na área urbana (XXVIII); e pichação na paisagem urbana (XXIX)."
+  },
+  {
+    "id": "fc-m7792-14",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Anexo II (Item B): Atribuições Específicas por Categoria (3ª Classe até Inspetor Chefe)",
+    "q": "Lei Municipal nº 7.792/2019, Anexo II, Item B: Diferencie cirurgicamente as atribuições específicas da 3ª Classe, 2ª Classe, 1ª Classe, Classe Especial, Classe Distinta, 2º Inspetor, 1º Inspetor e Inspetor Chefe.",
+    "a": "• <strong>3ª Classe (Cat. 1):</strong> Realiza atividades de formação e executa as atribuições da 2ª Classe <strong>SOB SUPERVISÃO</strong>;<br>• <strong>2ª Classe (Cat. 2):</strong> Conduz viaturas oficiais (e excepcionalmente veículos apreendidos), faz patrulhamento e confecciona <strong>BO da GCM</strong>;<br>• <strong>1ª Classe (Cat. 3):</strong> Inspeciona <strong>apresentação pessoal/conduta</strong> e controla <strong>assiduidade e pontualidade</strong> dos subordinados;<br>• <strong>Classe Especial (Cat. 4):</strong> Lidera subordinados, fiscaliza <strong>EPI e IMPO</strong> e <strong>recolhe armamento de qualquer natureza</strong> quando necessário;<br>• <strong>Classe Distinta (Cat. 5 - Nível II):</strong> Fiscaliza armamento/material bélico, emite parecer em relatórios e comunica por escrito transgressões disciplinares;<br>• <strong>2º Inspetor (Cat. 6 - Nível II):</strong> Representa a GCM em solenidades, emite parecer fundamentado em memorandos disciplinares e assume chefia de Eventos e Operações;<br>• <strong>1º Inspetor (Cat. 7 - Nível III):</strong> Elabora e gerencia <strong>planos de contingências</strong> e <strong>elabora as escalas de serviço</strong>;<br>• <strong>Inspetor Chefe (Cat. 8 - Nível III):</strong> Emite <strong>parecer técnico</strong> para tomada de decisões e <strong>chefia atividades ligadas a programas socioeducativos</strong>."
+  },
+  {
+    "id": "fc-m7792-15",
+    "deck": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
+    "level": "Anexo II (Item C): Porte de Arma e Instância Recursal Máxima Disciplinar",
+    "q": "Lei Municipal nº 7.792/2019, Anexo II, Item C, inciso I, alíneas 'i' e 't': A quem compete autorizar, suspender e cancelar o porte de arma funcional e particular na GCM Guarulhos? E quem é a instância recursal máxima nos processos disciplinares?",
+    "a": "• <strong>Porte de Arma Funcional e Particular (Item C, I, 'i'):</strong> Compete ao <strong>Comandante Geral da Guarda Civil Municipal</strong> autorizar, suspender e cancelar o porte de arma de fogo funcional e particular dos integrantes da carreira da GCM, durante o serviço e fora dele, obedecidos os preceitos legais.<br>• <strong>Recursos Disciplinares e Instância Máxima (Item C, I, 't'):</strong> Compete ao <strong>Comandante Geral</strong> decidir sobre os recursos nos processos disciplinares, sendo a <strong>instância recursal máxima no âmbito administrativo o SECRETÁRIO PARA ASSUNTOS DE SEGURANÇA PÚBLICA (SASP)</strong>!"
   }
 ];
 
@@ -5515,6 +5624,7 @@
       { key: "13. Lei 10.826/03 — Estatuto do Desarmamento", short: "Lei 10.826/03 (Armas)" },
       { key: "14. Lei 11.340/06 — Lei Maria da Penha", short: "Lei 11.340/06 (Maria da Penha)" },
       { key: "15. Lei 13.869/19 — Abuso de Autoridade", short: "Lei 13.869/19 (Abuso)" },
+      { key: "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM", short: "Lei Mun. 7.792/19 (GCM)" },
       { key: "Conteúdo ainda não estudado", short: "Ainda não estudado", conditionalHidden: true }
     ];
 
@@ -5535,6 +5645,7 @@
       if (rawDeck.includes("10.826") || rawDeck.includes("Desarmamento")) return "13. Lei 10.826/03 — Estatuto do Desarmamento";
       if (rawDeck.includes("11.340") || rawDeck.includes("Maria da Penha")) return "14. Lei 11.340/06 — Lei Maria da Penha";
       if (rawDeck.includes("13.869") || rawDeck.includes("Abuso de Autoridade")) return "15. Lei 13.869/19 — Abuso de Autoridade";
+      if (rawDeck.includes("7.792") || rawDeck.includes("Carreira GCM")) return "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM";
       if (DECUPADO_TOPICS_ORDER.some(d => d.key === rawDeck)) return rawDeck;
       return "Conteúdo ainda não estudado";
     }
@@ -5555,7 +5666,8 @@
         "lei-idoso": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-desarmamento": { lei: true, pdf: true, questoes: false, revisado: false },
         "lei-maria-penha": { lei: true, pdf: true, questoes: false, revisado: false },
-        "lei-abuso": { lei: true, pdf: true, questoes: false, revisado: false }
+        "lei-abuso": { lei: true, pdf: true, questoes: false, revisado: false },
+        "mun-7792": { lei: true, pdf: true, questoes: false, revisado: false }
       },
       // Registro diário com os 3 itens obrigatórios para ficar verde
       calDaysData: {
@@ -5580,6 +5692,7 @@
         "13. Lei 10.826/03 — Estatuto do Desarmamento",
         "14. Lei 11.340/06 — Lei Maria da Penha",
         "15. Lei 13.869/19 — Abuso de Autoridade",
+        "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM",
         "Conteúdo ainda não estudado"
       ],
       fcRatings: {},      // id -> 'again' | 'hard' | 'mastered'
@@ -5823,15 +5936,15 @@
         });
       }
 
-      // Garante que novos tópicos decupados (07 a 15) fiquem marcados com PDF e no filtro
-      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso"].forEach(tid => {
+      // Garante que novos tópicos decupados (07 a 16) fiquem marcados com PDF e no filtro
+      ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso", "mun-7792"].forEach(tid => {
         if (!appState.checks[tid]) {
           appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
         } else {
           appState.checks[tid].pdf = true;
         }
       });
-      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade"].forEach(dkey => {
+      ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade", "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM"].forEach(dkey => {
         if (Array.isArray(appState.selectedDecks) && !appState.selectedDecks.includes(dkey)) {
           appState.selectedDecks.push(dkey);
         }
@@ -6067,11 +6180,11 @@
           if (!Array.isArray(parsed.selectedDecks) || parsed.selectedDecks.length === 0) {
             appState.selectedDecks = DECUPADO_TOPICS_ORDER.filter(t => !t.conditionalHidden).map(t => t.key);
           } else {
-            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade"].forEach(dkey => {
+            ["07. CP — Arts. 312 a 327", "08. CPP — Arts. 301 a 310", "09. Lei 13.022/14 — Estatuto Geral GCM", "10. Lei 13.060/14 & Dec. 12.341/24 (Uso da Força)", "11. Lei 8.069/90 — ECA", "12. Lei 10.741/03 — Estatuto da Pessoa Idosa", "13. Lei 10.826/03 — Estatuto do Desarmamento", "14. Lei 11.340/06 — Lei Maria da Penha", "15. Lei 13.869/19 — Abuso de Autoridade", "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM"].forEach(dkey => {
               if (!appState.selectedDecks.includes(dkey)) appState.selectedDecks.push(dkey);
             });
           }
-          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso"].forEach(tid => {
+          ["cp-312-327", "cpp-301-310", "lei-13022", "lei-uso-forca", "lei-eca", "lei-idoso", "lei-desarmamento", "lei-maria-penha", "lei-abuso", "mun-7792"].forEach(tid => {
             if (!appState.checks[tid]) {
               appState.checks[tid] = { lei: true, pdf: true, questoes: false, revisado: false };
             } else {
@@ -6190,7 +6303,8 @@
       "lei-idoso": "12. Lei 10.741/03 — Estatuto da Pessoa Idosa",
       "lei-desarmamento": "13. Lei 10.826/03 — Estatuto do Desarmamento",
       "lei-maria-penha": "14. Lei 11.340/06 — Lei Maria da Penha",
-      "lei-abuso": "15. Lei 13.869/19 — Abuso de Autoridade"
+      "lei-abuso": "15. Lei 13.869/19 — Abuso de Autoridade",
+      "mun-7792": "16. Lei Mun. 7.792/19 — Estatuto e Carreira GCM"
     };
 
     function getTopicFlashcardPerformance(topicId) {
